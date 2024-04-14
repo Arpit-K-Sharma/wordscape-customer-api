@@ -1,0 +1,32 @@
+package com.example.ERP_V2.Services.impl;
+
+import com.example.ERP_V2.Model.CoverTreatment;
+import com.example.ERP_V2.Repository.CoverTreatmentRepo;
+import com.example.ERP_V2.Services.CoverTreatmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class CoverTreatmentServiceImpl implements CoverTreatmentService {
+
+    @Autowired
+    private CoverTreatmentRepo coverTreatmentRepository; // assuming CoverTreatmentRepository is a Spring Data JPA repository
+
+    @Override
+    public List<CoverTreatment> getAllCoverTreatments() {
+        return coverTreatmentRepository.findAll();
+    }
+
+    @Override
+    public void createCoverTreatment(CoverTreatment coverTreatment) {
+        coverTreatmentRepository.save(coverTreatment);
+    }
+
+    @Override
+    public void updateCoverTreatment(Long id, CoverTreatment updatedCoverTreatment) {
+
+    }
+}

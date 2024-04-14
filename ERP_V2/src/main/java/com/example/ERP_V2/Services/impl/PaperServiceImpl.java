@@ -1,0 +1,31 @@
+package com.example.ERP_V2.Services.impl;
+
+import com.example.ERP_V2.Model.Paper;
+import com.example.ERP_V2.Repository.PaperRepo;
+import com.example.ERP_V2.Services.PaperService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class PaperServiceImpl implements PaperService {
+
+    @Autowired
+    private PaperRepo paperRepository; // assuming PaperRepository is a Spring Data JPA repository
+
+    @Override
+    public List<Paper> getAllPapers() {
+        return paperRepository.findAll();
+    }
+
+    @Override
+    public void createPaper(Paper paper) {
+        paperRepository.save(paper);
+    }
+
+    @Override
+    public void updatePaper(Long id, Paper updatedPaper) {
+    }
+}
