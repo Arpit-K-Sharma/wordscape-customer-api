@@ -26,6 +26,17 @@ public class BindingServiceImpl implements BindingService {
     }
 
     @Override
-    public void updateBinding(Long id, Binding updatedBinding) {
+    public void updateBinding(int id, Binding updatedBinding) {
+        Binding existingBinding = bindingRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Binding with id " + id + " not found"));
+
+        if (updatedBinding.getBindingType() != null) {
+            existingBinding.setBindingType(updatedBinding.getBindingType());
+        }
+        if (updatedBinding.getRate() != null) {
+            existingBinding.setRate(updatedBinding.getRate());
+        }
+
+        bindingRepository.save(existingBinding);
     }
 }

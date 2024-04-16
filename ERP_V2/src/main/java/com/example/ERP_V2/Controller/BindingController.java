@@ -29,9 +29,9 @@ public class BindingController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateBinding(@PathVariable Long id, @RequestBody Binding updatedBinding) {
+    public ResponseEntity<String> updateBinding(@PathVariable int id, @RequestBody Binding updatedBinding) {
         bindingService.updateBinding(id, updatedBinding);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return ResponseEntity.ok("Binding Updated !!!");
     }
 }
 

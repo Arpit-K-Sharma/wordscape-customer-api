@@ -7,5 +7,5 @@ import java.util.List;
 public interface BindingService {
     List<Binding> getAllBindings();
     void createBinding(Binding binding);
-    void updateBinding(Long id, Binding updatedBinding);
+    void updateBinding(int id, Binding updatedBinding);
 }
