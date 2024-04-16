@@ -29,9 +29,9 @@ public class CoverTreatmentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateCoverTreatment(@PathVariable Long id, @RequestBody CoverTreatment updatedCoverTreatment) {
+    public ResponseEntity<String> updateCoverTreatment(@PathVariable int id, @RequestBody CoverTreatment updatedCoverTreatment) {
         coverTreatmentService.updateCoverTreatment(id, updatedCoverTreatment);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return ResponseEntity.ok("Cover Treatment updated !!!");
     }
 }
 

@@ -29,8 +29,8 @@ public class PaperController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updatePaper(@PathVariable Long id, @RequestBody Paper updatedPaper) {
+    public ResponseEntity<String> updatePaper(@PathVariable int id, @RequestBody Paper updatedPaper) {
         paperService.updatePaper(id, updatedPaper);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return ResponseEntity.ok("Paper updated !!!");
     }
 }

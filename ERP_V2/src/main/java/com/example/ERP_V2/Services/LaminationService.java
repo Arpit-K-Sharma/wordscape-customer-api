@@ -7,5 +7,5 @@ import java.util.List;
 public interface LaminationService {
     List<Lamination> getAllLaminations();
     void createLamination(Lamination lamination);
-    void updateLamination(Long id, Lamination updatedLamination);
+    void updateLamination(int id, Lamination updatedLamination);
 }

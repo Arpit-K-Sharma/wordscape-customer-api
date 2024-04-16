@@ -26,6 +26,19 @@ public class PaperServiceImpl implements PaperService {
     }
 
     @Override
-    public void updatePaper(Long id, Paper updatedPaper) {
+    public void updatePaper(int id, Paper updatedPaper) {
+        Paper existingPaper = paperRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Paper with id " + id + " not found"));
+
+        // Update fields if they are not null in the updatedPaper object
+        if (updatedPaper.getPaperType() != null) {
+            existingPaper.setPaperType(updatedPaper.getPaperType());
+        }
+        if (updatedPaper.getRate() != null) {
+            existingPaper.setRate(updatedPaper.getRate());
+        }
+
+        // Save the updated paper
+        paperRepository.save(existingPaper);
     }
 }

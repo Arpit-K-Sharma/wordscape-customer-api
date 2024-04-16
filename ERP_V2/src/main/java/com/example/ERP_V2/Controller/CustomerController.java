@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Controller;
 
+import com.example.ERP_V2.Model.CoverTreatment;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,12 @@ public class CustomerController {
     public ResponseEntity<List<Customer>> getAllCustomers() {
         List<Customer> customers = customerService.getAllCustomers();
         return new ResponseEntity<>(customers, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateCustomer(@PathVariable int id, @RequestBody Customer updatedCustomer) {
+        customerService.updateCustomer(id, updatedCustomer);
+        return ResponseEntity.ok("Customer updated !!!");
     }
 }
 

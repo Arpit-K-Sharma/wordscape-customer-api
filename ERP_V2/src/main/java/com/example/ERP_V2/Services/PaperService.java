@@ -7,6 +7,6 @@ import java.util.List;
 public interface PaperService {
     List<Paper> getAllPapers();
     void createPaper(Paper paper);
-    void updatePaper(Long id, Paper updatedPaper);
+    void updatePaper(int id, Paper updatedPaper);
 
 }

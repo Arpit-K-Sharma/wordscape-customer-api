@@ -29,9 +29,10 @@ public class LaminationController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateLamination(@PathVariable Long id, @RequestBody Lamination updatedLamination) {
+    public ResponseEntity<String> updateLamination(@PathVariable int id, @RequestBody Lamination updatedLamination) {
         laminationService.updateLamination(id, updatedLamination);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return ResponseEntity.ok("Lamination updated !!!");
+
     }
 }
 

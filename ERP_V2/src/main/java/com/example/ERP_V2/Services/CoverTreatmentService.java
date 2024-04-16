@@ -7,5 +7,5 @@ import java.util.List;
 public interface CoverTreatmentService {
     List<CoverTreatment> getAllCoverTreatments();
     void createCoverTreatment(CoverTreatment coverTreatment);
-    void updateCoverTreatment(Long id, CoverTreatment updatedCoverTreatment);
+    void updateCoverTreatment(int id, CoverTreatment updatedCoverTreatment);
 }

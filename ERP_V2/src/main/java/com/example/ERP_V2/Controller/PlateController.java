@@ -29,9 +29,9 @@ public class PlateController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updatePlate(@PathVariable Long id, @RequestBody Plate updatedPlate) {
+    public ResponseEntity<String> updatePlate(@PathVariable int id, @RequestBody Plate updatedPlate) {
         plateService.updatePlate(id, updatedPlate);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return ResponseEntity.ok("Plate updated !!!");
     }
 }
 

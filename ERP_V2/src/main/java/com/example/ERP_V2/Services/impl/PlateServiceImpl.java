@@ -26,6 +26,22 @@ public class PlateServiceImpl implements PlateService {
     }
 
     @Override
-    public void updatePlate(Long id, Plate updatedPlate) {
+    public void updatePlate(int id, Plate updatedPlate) {
+        Plate existingPlate = plateRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Plate with id " + id + " not found"));
+
+        // Update fields if they are not null in the updatedPlate object
+        if (updatedPlate.getPlateSize() != null) {
+            existingPlate.setPlateSize(updatedPlate.getPlateSize());
+        }
+        if (updatedPlate.getPlateRate() != null) {
+            existingPlate.setPlateRate(updatedPlate.getPlateRate());
+        }
+        if (updatedPlate.getInkRate() != null) {
+            existingPlate.setInkRate(updatedPlate.getInkRate());
+        }
+
+        // Save the updated plate
+        plateRepository.save(existingPlate);
     }
 }

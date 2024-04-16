@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Controller;
 
+import com.example.ERP_V2.Model.Plate;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,12 @@ public class UserController {
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody User updatedUser) {
+        userService.updateUser(id, updatedUser);
+        return ResponseEntity.ok("User updated !!!");
     }
 }
 

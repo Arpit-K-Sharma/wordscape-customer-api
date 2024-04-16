@@ -26,6 +26,19 @@ public class LaminationServiceImpl implements LaminationService {
     }
 
     @Override
-    public void updateLamination(Long id, Lamination updatedLamination) {
+    public void updateLamination(int id, Lamination updatedLamination) {
+        Lamination existingLamination = laminationRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Lamination with id " + id + " not found"));
+
+        // Update fields if they are not null in the updatedLamination object
+        if (updatedLamination.getLaminationType() != null) {
+            existingLamination.setLaminationType(updatedLamination.getLaminationType());
+        }
+        if (updatedLamination.getRate() != null) {
+            existingLamination.setRate(updatedLamination.getRate());
+        }
+
+        // Save the updated lamination
+        laminationRepository.save(existingLamination);
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 public interface PlateService {
     List<Plate> getAllPlates();
     void createPlate(Plate plate);
-    void updatePlate(Long id, Plate updatedPlate);
+    void updatePlate(int id, Plate updatedPlate);
 }

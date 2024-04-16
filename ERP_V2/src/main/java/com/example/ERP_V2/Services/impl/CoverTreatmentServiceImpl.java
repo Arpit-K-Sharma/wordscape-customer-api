@@ -26,7 +26,17 @@ public class CoverTreatmentServiceImpl implements CoverTreatmentService {
     }
 
     @Override
-    public void updateCoverTreatment(Long id, CoverTreatment updatedCoverTreatment) {
+    public void updateCoverTreatment(int id, CoverTreatment updatedCoverTreatment) {
+        CoverTreatment existingCoverTreatment = coverTreatmentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Cover Treatment with id " + id + " not found"));
 
+        if (updatedCoverTreatment.getCoverTreatmentType() != null) {
+            existingCoverTreatment.setCoverTreatmentType(updatedCoverTreatment.getCoverTreatmentType());
+        }
+        if (updatedCoverTreatment.getRate() != null) {
+            existingCoverTreatment.setRate(updatedCoverTreatment.getRate());
+        }
+
+        coverTreatmentRepository.save(existingCoverTreatment);
     }
 }

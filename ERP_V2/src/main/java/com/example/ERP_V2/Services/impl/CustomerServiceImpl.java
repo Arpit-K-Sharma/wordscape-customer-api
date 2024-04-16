@@ -19,4 +19,36 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> getAllCustomers() {
         return customerRepo.findAll();
     }
+
+    @Override
+    public void updateCustomer(int id, Customer updatedCustomer) {
+        Customer existingCustomer = customerRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Customer with id " + id + " not found"));
+
+        // Update fields if they are not null in the updatedCustomer object
+        if (updatedCustomer.getFullName() != null) {
+            existingCustomer.setFullName(updatedCustomer.getFullName());
+        }
+        if (updatedCustomer.getAddress() != null) {
+            existingCustomer.setAddress(updatedCustomer.getAddress());
+        }
+        if (updatedCustomer.getEmail() != null) {
+            existingCustomer.setEmail(updatedCustomer.getEmail());
+        }
+        if (updatedCustomer.getPassword() != null) {
+            existingCustomer.setPassword(updatedCustomer.getPassword());
+        }
+        if (updatedCustomer.getPhoneNumber() != null) {
+            existingCustomer.setPhoneNumber(updatedCustomer.getPhoneNumber());
+        }
+        // Update status if it's not null in the updatedCustomer object
+        Boolean updatedStatus = updatedCustomer.isStatus();
+        if (updatedStatus != null) {
+            existingCustomer.setStatus(updatedStatus);
+        }
+
+        // Save the updated customer
+        customerRepo.save(existingCustomer);
+    }
+
 }
