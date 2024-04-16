@@ -26,4 +26,9 @@ public class Plate {
     @Column(precision = 6, scale = 2)
     private BigDecimal inkRate;
 
+    public Plate(String plateSize, BigDecimal plateRate, BigDecimal inkRate) {
+        this.plateSize = plateSize;
+        this.plateRate = plateRate;
+        this.inkRate = inkRate;
+    }
 }

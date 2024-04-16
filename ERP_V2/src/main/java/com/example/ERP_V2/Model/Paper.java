@@ -23,4 +23,8 @@ public class Paper {
     @Column(precision = 6, scale = 2)
     private BigDecimal rate;
 
+    public Paper(String paperType, BigDecimal rate) {
+        this.paperType = paperType;
+        this.rate = rate;
+    }
 }

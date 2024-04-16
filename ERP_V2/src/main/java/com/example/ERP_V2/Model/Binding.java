@@ -22,5 +22,9 @@ public class Binding {
     @Column(precision = 6, scale = 2)
     private BigDecimal rate; // Use BigDecimal for monetary values
 
+    public Binding(String bindingType, BigDecimal rate) {
+        this.bindingType = bindingType;
+        this.rate = rate;
+    }
 }
 

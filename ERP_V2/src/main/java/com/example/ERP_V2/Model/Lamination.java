@@ -21,6 +21,10 @@ public class Lamination {
     @Column(precision = 6, scale = 2)
     private BigDecimal rate;
 
+    public Lamination(String laminationType, BigDecimal rate) {
+        this.laminationType = laminationType;
+        this.rate = rate;
+    }
 }
 
 
