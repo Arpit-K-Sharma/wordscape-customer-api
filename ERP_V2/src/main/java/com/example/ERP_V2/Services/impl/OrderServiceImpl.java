@@ -7,6 +7,7 @@ import com.example.ERP_V2.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,7 +43,12 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderDTO> getAllOrders() {
         List<Order> orders = this.orderRepo.findAll();
-        return null;
+        List<OrderDTO> orderDTOList = new ArrayList<>();
+
+        for (Order order: orders){
+            orderDTOList.add(this.convertToOrderDTO(order));
+        }
+        return orderDTOList;
     }
 
     private Order covertToOrder(OrderDTO orderDTO){
@@ -89,4 +95,28 @@ public class OrderServiceImpl implements OrderService {
 
         return order;
     }
+
+    private OrderDTO convertToOrderDTO(Order order){
+        OrderDTO orderDTO = new OrderDTO();
+
+        orderDTO.setOrderId(order.getOrderId());
+        orderDTO.setDate(order.getDate());
+        orderDTO.setPaperSize(order.getPaperSize());
+        orderDTO.setPages(order.getPages());
+        orderDTO.setQuantity(order.getQuantity());
+        orderDTO.setBindingType(order.getBinding().getBindingType());
+        orderDTO.setCoverTreatmentType(order.getCoverTreatment().getCoverTreatmentType());
+        orderDTO.setInnerPaperType(order.getInnerPaper().getPaperType());
+        orderDTO.setInnerPaperThickness(order.getInnerPaperThickness());
+        orderDTO.setOuterPaperType(order.getOuterPaper().getPaperType());
+        orderDTO.setOuterPaperThickness(order.getOuterPaperThickness());
+        orderDTO.setLaminationType(order.getLamination().getLaminationType());
+//        orderDTO.setPlateSize(order.getPlate().getPlateSize());
+        orderDTO.setInkType(order.getInkType());
+        orderDTO.setRemarks(order.getRemarks());
+        orderDTO.setCustomerId(order.getCustomer().getCustomerId());
+
+        return orderDTO;
+    }
 }
+
