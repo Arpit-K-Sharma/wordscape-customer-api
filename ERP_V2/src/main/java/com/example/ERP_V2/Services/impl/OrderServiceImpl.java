@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Repository.*;
 import com.example.ERP_V2.Services.OrderService;
@@ -37,6 +38,20 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void handleOrder(OrderDTO orderDTO) {
         Order order = this.covertToOrder(orderDTO);
+
+
+        Customer customer = new Customer();
+        customer.setFullName(orderDTO.getName());
+        customer.setCompanyName(orderDTO.getCompanyName());
+        customer.setEmail(orderDTO.getEmail());
+        customer.setAddress(orderDTO.getAddress());
+        customer.setStatus(true);
+
+        order.setCustomer(customer);
+
+        customer.getOrderList().add(order);
+
+        this.customerRepo.save(customer);
         this.orderRepo.save(order);
     }
 
@@ -87,11 +102,11 @@ public class OrderServiceImpl implements OrderService {
 
         order.setInkType(orderDTO.getInkType());
 
-        // Set Customer
-        order.setCustomer(customerRepo.findById(orderDTO.getCustomerId())
-                .orElseThrow(() -> new IllegalArgumentException("Customer not found with ID: " + orderDTO.getCustomerId())));
-
         order.setRemarks(orderDTO.getRemarks());
+
+        // Set Customer
+//        order.setCustomer(customerRepo.findById(orderDTO.getCustomerId())
+//                .orElseThrow(() -> new IllegalArgumentException("Customer not found with ID: " + orderDTO.getCustomerId())));
 
         return order;
     }
@@ -114,7 +129,7 @@ public class OrderServiceImpl implements OrderService {
 //        orderDTO.setPlateSize(order.getPlate().getPlateSize());
         orderDTO.setInkType(order.getInkType());
         orderDTO.setRemarks(order.getRemarks());
-        orderDTO.setCustomerId(order.getCustomer().getCustomerId());
+        orderDTO.setName(order.getCustomer().getFullName());
 
         return orderDTO;
     }

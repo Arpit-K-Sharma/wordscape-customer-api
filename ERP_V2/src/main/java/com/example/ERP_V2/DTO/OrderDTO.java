@@ -31,5 +31,8 @@ public class OrderDTO {
     private String plateSize;
     private String inkType;
     private String remarks;
-    private int customerId;
+    private String name;
+    private String companyName;
+    private String email;
+    private String address;
 }

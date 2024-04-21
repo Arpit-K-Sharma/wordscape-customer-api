@@ -33,6 +33,9 @@ public class Customer {
     @Column(length = 40)
     private String phoneNumber;
 
+    @Column(length = 150)
+    private String companyName;
+
     @Column
     private boolean status;
 
