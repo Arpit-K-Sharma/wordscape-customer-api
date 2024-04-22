@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -57,13 +58,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDTO> getAllOrders() {
-        List<Order> orders = this.orderRepo.findAll();
-        List<OrderDTO> orderDTOList = new ArrayList<>();
+//        List<Order> orders = this.orderRepo.findAll();
+//        List<OrderDTO> orderDTOList = new ArrayList<>();
+//
+//        for (Order order: orders){
+//            orderDTOList.add(this.convertToOrderDTO(order));
+//        }
+//        return orderDTOList;
 
-        for (Order order: orders){
-            orderDTOList.add(this.convertToOrderDTO(order));
-        }
-        return orderDTOList;
+        return this.orderRepo.findAll().stream()
+                .map(this::convertToOrderDTO)
+                .collect(Collectors.toList());
     }
 
     private Order covertToOrder(OrderDTO orderDTO){

@@ -1,6 +1,5 @@
 package com.example.ERP_V2.Controller;
 
-import com.example.ERP_V2.Model.Plate;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -28,6 +28,15 @@ public class CostServiceImpl implements CostService {
     @Autowired
     private CoverTreatmentRepo coverTreatmentRepo;
 
+    @Autowired
+    private InkRepo inkRepo;
+
+    @Autowired
+    private PaperSizeRepo paperSizeRepo;
+
+    @Autowired
+    private PaperThicknessRepo paperThicknessRepo;
+
     @Override
     public void addInitialPaperCosts() {
         List<Paper> initialPapers = Arrays.asList(
@@ -80,5 +89,42 @@ public class CostServiceImpl implements CostService {
                 new CoverTreatment("Spot Varnish", BigDecimal.valueOf(160))
         );
         this.coverTreatmentRepo.saveAll(initialCoverTreatmentCosts);
+    }
+
+    @Override
+    public void addInitialInks() {
+        List<Ink> initialInks = Arrays.asList(
+                new Ink("Black and White"),
+                new Ink("CMYK")
+        );
+        inkRepo.saveAll(initialInks);
+    }
+
+    @Override
+    public void addInitialPaperSizes() {
+        List<PaperSize> initialPaperSizes = Arrays.asList(
+                new PaperSize("A4", "210 x 297 mm"),
+                new PaperSize("A3", "297 x 420 mm"),
+                new PaperSize("A2", "420 x 594 mm")
+        );
+        paperSizeRepo.saveAll(initialPaperSizes);
+    }
+
+    @Override
+    public void addInitialPaperThicknesses() {
+        List<PaperThickness> initialThicknesses = Arrays.asList(
+                new PaperThickness(100),
+                new PaperThickness(110),
+                new PaperThickness(120),
+                new PaperThickness(130),
+                new PaperThickness(140),
+                new PaperThickness(150),
+                new PaperThickness(160),
+                new PaperThickness(170),
+                new PaperThickness(180),
+                new PaperThickness(190),
+                new PaperThickness(200)
+        );
+        paperThicknessRepo.saveAll(initialThicknesses);
     }
 }

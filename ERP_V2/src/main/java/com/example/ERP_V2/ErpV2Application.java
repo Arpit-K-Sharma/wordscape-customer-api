@@ -23,5 +23,8 @@ public class ErpV2Application implements CommandLineRunner {
 		this.costService.addInitialBindingCost();
 		this.costService.addInitialLaminationCost();
 		this.costService.addInitialCoverTreatmentCost();
+		this.costService.addInitialInks();
+		this.costService.addInitialPaperSizes();
+		this.costService.addInitialPaperThicknesses();
 	}
 }

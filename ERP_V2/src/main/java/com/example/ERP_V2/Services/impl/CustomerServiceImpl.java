@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -19,17 +20,17 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
-        List<Customer> customerList = customerRepo.findAll();
-        List<CustomerDTO> customerDTOList = new ArrayList<>();
-        for (Customer customer: customerList){
-            customerDTOList.add(this.convertToDTO(customer));
-        }
-        return customerDTOList;
+//        List<Customer> customerList = customerRepo.findAll();
+//        List<CustomerDTO> customerDTOList = new ArrayList<>();
+//        for (Customer customer: customerList){
+//            customerDTOList.add(this.convertToDTO(customer));
+//        }
+//        return customerDTOList;
 
-//        return customerRepo.findAll()
-//                .stream()  // Convert the list to a stream
-//                .map(this::convertToDTO)  // Convert each Customer to CustomerDTO
-//                .collect(Collectors.toList());  // Collect the results into a list
+        return customerRepo.findAll()
+                .stream()  // Convert the list to a stream
+                .map(this::convertToDTO)  // Convert each Customer to CustomerDTO
+                .collect(Collectors.toList());  // Collect the results into a list
     }
 
     @Override

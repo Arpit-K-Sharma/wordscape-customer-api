@@ -10,4 +10,10 @@ public interface CostService {
     void addInitialLaminationCost();
 
     void addInitialCoverTreatmentCost();
+
+    void addInitialInks();
+
+    void addInitialPaperSizes();
+
+    void addInitialPaperThicknesses();
 }

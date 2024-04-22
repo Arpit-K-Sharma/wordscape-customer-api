@@ -1,7 +1,6 @@
 package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
-import com.example.ERP_V2.Model.CoverTreatment;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
