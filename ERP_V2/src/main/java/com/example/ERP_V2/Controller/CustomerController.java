@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Controller;
 
+import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.Model.CoverTreatment;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.CustomerService;
@@ -18,8 +19,8 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public ResponseEntity<List<Customer>> getAllCustomers() {
-        List<Customer> customers = customerService.getAllCustomers();
+    public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
+        List<CustomerDTO> customers = customerService.getAllCustomers();
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
