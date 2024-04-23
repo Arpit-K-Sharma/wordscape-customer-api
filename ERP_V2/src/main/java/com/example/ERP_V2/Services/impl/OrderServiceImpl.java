@@ -8,7 +8,6 @@ import com.example.ERP_V2.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,14 +57,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDTO> getAllOrders() {
-//        List<Order> orders = this.orderRepo.findAll();
-//        List<OrderDTO> orderDTOList = new ArrayList<>();
-//
-//        for (Order order: orders){
-//            orderDTOList.add(this.convertToOrderDTO(order));
-//        }
-//        return orderDTOList;
-
         return this.orderRepo.findAll().stream()
                 .map(this::convertToOrderDTO)
                 .collect(Collectors.toList());
