@@ -98,7 +98,7 @@ public class EmailServiceImpl implements EmailService {
 
             String filename = orderDTO.getOrderId()+"_"+orderDTO.getName().replaceAll(" ","_");
 
-            File pdfFile = new File("C:\\Users\\SHADOW\\IdeaProjects\\ERP_V2\\ERP_V2\\src\\main\\resources\\static\\invoice\\" + filename + ".pdf");
+            File pdfFile = new File("D:\\Spring\\ERP_V2\\ERP_V2\\src\\main\\resources\\static\\invoice\\" + filename + ".pdf");
             FileOutputStream fout = new FileOutputStream(pdfFile);
 
 //            FileOutputStream fout = new FileOutputStream("C:\\Users\\SHADOW\\IdeaProjects\\ERP_V2\\ERP_V2\\src\\main\\resources\\static\\invoice\\"+filename+".pdf");

@@ -4,13 +4,14 @@ import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Repository.*;
-//import com.example.ERP_V2.Services.EmailService;
+import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,12 +40,11 @@ public class OrderServiceImpl implements OrderService {
     private CustomerRepo customerRepo;
 
     @Autowired
-//    private EmailService emailService;
+    private EmailService emailService;
 
     @Override
     public void handleOrder(OrderDTO orderDTO) throws MessagingException {
         Order order = this.covertToOrder(orderDTO);
-
 
         Customer customer = new Customer();
         customer.setFullName(orderDTO.getName());
@@ -60,7 +60,7 @@ public class OrderServiceImpl implements OrderService {
         this.customerRepo.save(customer);
         this.orderRepo.save(order);
 
-//        emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
+        emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
 //        emailService.sendEmail(customer.getEmail(),customer.getFullName());
 
     }
@@ -82,7 +82,7 @@ public class OrderServiceImpl implements OrderService {
 
     private Order covertToOrder(OrderDTO orderDTO){
         Order order = new Order();
-        order.setDate(orderDTO.getDate());
+        order.setDate(new Date());
         order.setPaperSize(orderDTO.getPaperSize());
         order.setPages(orderDTO.getPages());
         order.setQuantity(orderDTO.getQuantity());
