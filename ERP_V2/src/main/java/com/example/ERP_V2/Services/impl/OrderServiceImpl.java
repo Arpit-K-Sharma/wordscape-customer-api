@@ -4,7 +4,7 @@ import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Repository.*;
-import com.example.ERP_V2.Services.EmailService;
+//import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
     private CustomerRepo customerRepo;
 
     @Autowired
-    private EmailService emailService;
+//    private EmailService emailService;
 
     @Override
     public void handleOrder(OrderDTO orderDTO) throws MessagingException {
@@ -60,7 +60,7 @@ public class OrderServiceImpl implements OrderService {
         this.customerRepo.save(customer);
         this.orderRepo.save(order);
 
-        emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
+//        emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
 //        emailService.sendEmail(customer.getEmail(),customer.getFullName());
 
     }
