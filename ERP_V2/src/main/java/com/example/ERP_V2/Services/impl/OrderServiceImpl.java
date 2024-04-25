@@ -58,23 +58,16 @@ public class OrderServiceImpl implements OrderService {
         customer.getOrderList().add(order);
 
         this.customerRepo.save(customer);
-        this.orderRepo.save(order);
+
+        Order savedOrder = this.orderRepo.save(order);
+        orderDTO.setOrderId(savedOrder.getOrderId());
 
         emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
 //        emailService.sendEmail(customer.getEmail(),customer.getFullName());
-
     }
 
     @Override
     public List<OrderDTO> getAllOrders() {
-//        List<Order> orders = this.orderRepo.findAll();
-//        List<OrderDTO> orderDTOList = new ArrayList<>();
-//
-//        for (Order order: orders){
-//            orderDTOList.add(this.convertToOrderDTO(order));
-//        }
-//        return orderDTOList;
-
         return this.orderRepo.findAll().stream()
                 .map(this::convertToOrderDTO)
                 .collect(Collectors.toList());

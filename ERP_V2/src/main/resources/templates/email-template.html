@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>Example Email</title>
     <style>
+        /* Import Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Kode+Mono:wght@400..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display:ital@0;1&family=Kode+Mono:wght@400..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
         body {
-            font-family: "Arimo", sans-serif;
+            font-family: "Archivo", sans-serif;
             text-align: center;
             background-color: #f4f4f4;
             margin: 0;
@@ -18,113 +22,122 @@
         .container {
             width: 80%;
             margin: 0 auto;
+            font-family: "Poppins", sans-serif;
         }
 
         .heading {
             color: #333;
-            font-size: 125px;
-            font-family: "", serif;
+            margin: 25px auto;
+            width: 90%;
+            font-size: 65px;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-family: "Archivo", sans-serif;
+
+            font-variation-settings:
+                    "wdth" 117.6;
         }
 
         .intro, .outro {
             color: #555;
             text-align: center;
+            font-size: 24px;
+            font-family: "Archivo", sans-serif;
         }
 
         .intro span, .outro span {
             font-weight: bold;
         }
 
+        /* Invoice Styles */
         .invoice-details {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
+            background-color: #000000;
             width: 60%;
             margin: 0 auto;
+        }
 
+        .byline{
+            font-size: 22px;
+            font-family: Archivo, sans-serif;
         }
 
         .invoice-details td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
+            padding: 8px;
+
+            font-size: 18px;
         }
 
         .invoice-details td:first-child {
-            font-weight: bold;
             width: 40%;
         }
 
 
-        .invoice-details p {
-            margin: 10px 0;
-        }
 
-        .invoice-details tr{
-            background-color: #f5f5ff5;
+        .invoice-details tr {
+            background-color: #f5f5f5;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1 class="heading">Invoice by Project-P</h1>
+    <h1 class="heading">Your Invoice by WordScape</h1>
+    <h3 class="byline">by WordScape</h3>
     <h2 class="intro">Dear <span th:text="${name}"></span>,</h2>
     <p class="intro">Your order for the following has been placed.</p>
     <table class="invoice-details">
         <tr>
-            <td><b>Paper Size:</b></td>
+            <td>Paper Size:</td>
             <td><span th:text="${paperSize}"></span></td>
         </tr>
         <tr>
-            <td><b>Pages:</b></td>
+            <td>Pages:</td>
             <td><span th:text="${pages}"></span> pages</td>
         </tr>
         <tr>
-            <td><b>Quantity:</b></td>
+            <td>Quantity:</td>
             <td><span th:text="${quantity}"></span> copies</td>
         </tr>
         <tr>
-            <td><b>Binding Type:</b></td>
+            <td>Binding Type:</td>
             <td><span th:text="${bindingType}"></span> </td>
         </tr>
         <tr>
-            <td><b>Cover Treatment:</b></td>
+            <td>Cover Treatment:</td>
             <td><span th:text="${coverTreatment}"></span> </td>
         </tr>
         <tr>
-            <td><b>Inner Paper Type:</b></td>
+            <td>Inner Paper Type:</td>
             <td><span th:text="${innerPaperType}"></span> </td>
         </tr>
         <tr>
-            <td><b>Inner Paper Thickness:</b></td>
+            <td>Inner Paper Thickness:</td>
             <td><span th:text="${innerPaperThickness}"></span> GSM</td>
         </tr>
         <tr>
-            <td><b>Outer Paper Type:</b></td>
+            <td>Outer Paper Type:</td>
             <td><span th:text="${outerPaperType}"></span> </td>
         </tr>
         <tr>
-            <td><b>Outer Paper Thickness:</b></td>
+            <td>Outer Paper Thickness:</td>
             <td><span th:text="${outerPaperThickness}"></span> GSM</td>
         </tr>
         <tr>
-            <td><b>Lamination Type:</b></td>
+            <td>Lamination Type:</td>
             <td><span th:text="${laminationType}"></span> </td>
         </tr>
         <tr>
-            <td><b>Ink Type:</b></td>
+            <td>Ink Type:</td>
             <td><span th:text="${inkType}"></span> </td>
         </tr>
         <tr>
-            <td><b>Remarks :</b></td>
+            <td>Remarks :</td>
             <td><span th:text="${remarks}"></span> </td>
         </tr>
 
     </table>
 
     <p class="outro">Best regards,</p>
-    <p class="outro">The Printing Press</p>
+    <p class="outro">WordScape</p>
 </div>
 </body>
 </html>
