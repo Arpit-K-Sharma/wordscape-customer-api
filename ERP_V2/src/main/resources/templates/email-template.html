@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Example Email</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Kode+Mono:wght@400..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display:ital@0;1&family=Kode+Mono:wght@400..700&display=swap');
+
+        body {
+            font-family: "Arimo", sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .heading {
+            color: #333;
+            font-size: 125px;
+            font-family: "", serif;
+        }
+
+        .intro, .outro {
+            color: #555;
+            text-align: center;
+        }
+
+        .intro span, .outro span {
+            font-weight: bold;
+        }
+
+        .invoice-details {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            width: 60%;
+            margin: 0 auto;
+
+        }
+
+        .invoice-details td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .invoice-details td:first-child {
+            font-weight: bold;
+            width: 40%;
+        }
+
+
+        .invoice-details p {
+            margin: 10px 0;
+        }
+
+        .invoice-details tr{
+            background-color: #f5f5ff5;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="heading">Invoice by Project-P</h1>
+    <h2 class="intro">Dear <span th:text="${name}"></span>,</h2>
+    <p class="intro">Your order for the following has been placed.</p>
+    <table class="invoice-details">
+        <tr>
+            <td><b>Paper Size:</b></td>
+            <td><span th:text="${paperSize}"></span></td>
+        </tr>
+        <tr>
+            <td><b>Pages:</b></td>
+            <td><span th:text="${pages}"></span> pages</td>
+        </tr>
+        <tr>
+            <td><b>Quantity:</b></td>
+            <td><span th:text="${quantity}"></span> copies</td>
+        </tr>
+        <tr>
+            <td><b>Binding Type:</b></td>
+            <td><span th:text="${bindingType}"></span> </td>
+        </tr>
+        <tr>
+            <td><b>Cover Treatment:</b></td>
+            <td><span th:text="${coverTreatment}"></span> </td>
+        </tr>
+        <tr>
+            <td><b>Inner Paper Type:</b></td>
+            <td><span th:text="${innerPaperType}"></span> </td>
+        </tr>
+        <tr>
+            <td><b>Inner Paper Thickness:</b></td>
+            <td><span th:text="${innerPaperThickness}"></span> GSM</td>
+        </tr>
+        <tr>
+            <td><b>Outer Paper Type:</b></td>
+            <td><span th:text="${outerPaperType}"></span> </td>
+        </tr>
+        <tr>
+            <td><b>Outer Paper Thickness:</b></td>
+            <td><span th:text="${outerPaperThickness}"></span> GSM</td>
+        </tr>
+        <tr>
+            <td><b>Lamination Type:</b></td>
+            <td><span th:text="${laminationType}"></span> </td>
+        </tr>
+        <tr>
+            <td><b>Ink Type:</b></td>
+            <td><span th:text="${inkType}"></span> </td>
+        </tr>
+        <tr>
+            <td><b>Remarks :</b></td>
+            <td><span th:text="${remarks}"></span> </td>
+        </tr>
+
+    </table>
+
+    <p class="outro">Best regards,</p>
+    <p class="outro">The Printing Press</p>
+</div>
+</body>
+</html>

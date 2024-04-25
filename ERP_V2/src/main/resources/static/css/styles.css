@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display:ital@0;1&family=Kode+Mono:wght@400..700&display=swap');
+
+body {
+    font-family: "Arimo", sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.heading {
+    color: #333;
+    font-size: 125px;
+    font-family: "DM Serif Display", serif;
+}
+
+.intro, .outro {
+    color: #555;
+}
+
+.intro span, .outro span {
+    font-weight: bold;
+}
+
+.invoice-details {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 60%;
+    margin: 0 auto;
+
+}
+
+.invoice-details td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.invoice-details td:first-child {
+    font-weight: bold;
+    width: 40%;
+}
+
+
+.invoice-details p {
+    margin: 10px 0;
+}
+
+.invoice-details tr{
+    background-color: #f5f5ff5;
+}
