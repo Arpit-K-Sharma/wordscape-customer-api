@@ -59,7 +59,7 @@ public class Order {
     @JoinColumn(name = "plate_size_id")
     private Plate plate;
 
-    @Column(length = 10)
+    @Column(length = 20)
     private String inkType;
 
     @Column
