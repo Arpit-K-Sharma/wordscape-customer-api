@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.Services.Html2PdfService;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.html2pdf.resolver.font.DefaultFontProvider;
@@ -12,7 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 @Service
-public class Html2PdfServiceImpl {
+public class Html2PdfServiceImpl implements Html2PdfService {
 
     public File htmlToPdf(String processedHtml, OrderDTO orderDTO) {
 
