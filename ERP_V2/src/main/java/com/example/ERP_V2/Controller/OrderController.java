@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 @RestController
@@ -16,7 +17,7 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<String> addOrder(@RequestBody OrderDTO orderDTO){
+    public ResponseEntity<String> addOrder(@RequestBody OrderDTO orderDTO) throws MessagingException {
         this.orderService.handleOrder(orderDTO);
         return ResponseEntity.ok("Order Added !!!");
     }
