@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -71,6 +74,30 @@ public class OrderServiceImpl implements OrderService {
         return this.orderRepo.findAll().stream()
                 .map(this::convertToOrderDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public byte[] getInvoiceById(int id) {
+        Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found with id: " + id));
+        String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
+        File pdfFile = new File("D:\\Spring\\ERP_V2\\ERP_V2\\src\\main\\resources\\static\\invoice\\" + filename + ".pdf");
+
+        if (!pdfFile.exists()) {
+            throw new RuntimeException("Invoice file not found for order ID: " + id);
+        }
+
+        try (FileInputStream inputStream = new FileInputStream(pdfFile)) {
+            byte[] fileContent = new byte[(int) pdfFile.length()];
+            int bytesRead = inputStream.read(fileContent);
+
+            if (bytesRead < 0) {
+                throw new IOException("Failed to read invoice file content");
+            }
+
+            return fileContent;
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading invoice file: " + e.getMessage());
+        }
     }
 
     private Order covertToOrder(OrderDTO orderDTO){
