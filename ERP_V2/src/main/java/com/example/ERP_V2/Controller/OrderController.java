@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import java.io.File;
 import java.util.List;
 
 @RestController
@@ -27,4 +28,11 @@ public class OrderController {
         List<OrderDTO> orderDTOList = this.orderService.getAllOrders();
         return ResponseEntity.ok(orderDTOList);
     }
+
+    @GetMapping(value = "/{id}")
+    public byte[] getInvoiceById(@PathVariable int id){
+        return this.orderService.getInvoiceById(id);
+    }
+
+
 }

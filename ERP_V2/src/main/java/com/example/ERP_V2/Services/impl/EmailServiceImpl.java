@@ -2,12 +2,8 @@ package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.Services.EmailService;
-import com.itextpdf.html2pdf.ConverterProperties;
-import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.html2pdf.resolver.font.DefaultFontProvider;
-import com.itextpdf.kernel.pdf.PdfWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -17,9 +13,7 @@ import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.nio.file.Path;
 
 
@@ -82,7 +76,6 @@ public class EmailServiceImpl implements EmailService {
 
         emailSender.send(message);
     }
-
 
 
 

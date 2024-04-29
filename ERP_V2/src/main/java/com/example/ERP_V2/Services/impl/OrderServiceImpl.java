@@ -4,13 +4,17 @@ import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Repository.*;
-//import com.example.ERP_V2.Services.EmailService;
+import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,12 +43,11 @@ public class OrderServiceImpl implements OrderService {
     private CustomerRepo customerRepo;
 
     @Autowired
-//    private EmailService emailService;
+    private EmailService emailService;
 
     @Override
     public void handleOrder(OrderDTO orderDTO) throws MessagingException {
         Order order = this.covertToOrder(orderDTO);
-
 
         Customer customer = new Customer();
         customer.setFullName(orderDTO.getName());
@@ -58,31 +61,48 @@ public class OrderServiceImpl implements OrderService {
         customer.getOrderList().add(order);
 
         this.customerRepo.save(customer);
-        this.orderRepo.save(order);
 
-//        emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
+        Order savedOrder = this.orderRepo.save(order);
+        orderDTO.setOrderId(savedOrder.getOrderId());
+
+        emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
 //        emailService.sendEmail(customer.getEmail(),customer.getFullName());
-
     }
 
     @Override
     public List<OrderDTO> getAllOrders() {
-//        List<Order> orders = this.orderRepo.findAll();
-//        List<OrderDTO> orderDTOList = new ArrayList<>();
-//
-//        for (Order order: orders){
-//            orderDTOList.add(this.convertToOrderDTO(order));
-//        }
-//        return orderDTOList;
-
         return this.orderRepo.findAll().stream()
                 .map(this::convertToOrderDTO)
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public byte[] getInvoiceById(int id) {
+        Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found with id: " + id));
+        String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
+        File pdfFile = new File("D:\\Spring\\ERP_V2\\ERP_V2\\src\\main\\resources\\static\\invoice\\" + filename + ".pdf");
+
+        if (!pdfFile.exists()) {
+            throw new RuntimeException("Invoice file not found for order ID: " + id);
+        }
+
+        try (FileInputStream inputStream = new FileInputStream(pdfFile)) {
+            byte[] fileContent = new byte[(int) pdfFile.length()];
+            int bytesRead = inputStream.read(fileContent);
+
+            if (bytesRead < 0) {
+                throw new IOException("Failed to read invoice file content");
+            }
+
+            return fileContent;
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading invoice file: " + e.getMessage());
+        }
+    }
+
     private Order covertToOrder(OrderDTO orderDTO){
         Order order = new Order();
-        order.setDate(orderDTO.getDate());
+        order.setDate(new Date());
         order.setPaperSize(orderDTO.getPaperSize());
         order.setPages(orderDTO.getPages());
         order.setQuantity(orderDTO.getQuantity());
