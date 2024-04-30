@@ -80,7 +80,8 @@ public class OrderServiceImpl implements OrderService {
     public byte[] getInvoiceById(int id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found with id: " + id));
         String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
-        File pdfFile = new File("D:\\Spring\\ERP_V2\\ERP_V2\\src\\main\\resources\\static\\invoice\\" + filename + ".pdf");
+        String filePath = "ERP_V2/src/main/resources/static/invoice/" + filename + ".pdf";
+        File pdfFile = new File(filePath);
 
         if (!pdfFile.exists()) {
             throw new RuntimeException("Invoice file not found for order ID: " + id);

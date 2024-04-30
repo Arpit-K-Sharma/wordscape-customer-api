@@ -16,34 +16,28 @@ import java.io.FileOutputStream;
 public class Html2PdfServiceImpl implements Html2PdfService {
 
     public File htmlToPdf(String processedHtml, OrderDTO orderDTO) {
-
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
         try {
             PdfWriter pdfwriter = new PdfWriter(byteArrayOutputStream);
-
             DefaultFontProvider defaultFont = new DefaultFontProvider(false, true, false);
-
             ConverterProperties converterProperties = new ConverterProperties();
-
             converterProperties.setFontProvider(defaultFont);
-
             HtmlConverter.convertToPdf(processedHtml, pdfwriter, converterProperties);
 
-            String filename = orderDTO.getOrderId()+"_"+orderDTO.getName().replaceAll(" ","_");
-
-            File pdfFile = new File("C:\\Users\\SHADOW\\IdeaProjects\\ERP_V2\\ERP_V2\\src\\main\\resources\\static\\invoice\\" + filename + ".pdf");
+            String filename = orderDTO.getOrderId() + "_" + orderDTO.getName().replaceAll(" ", "_");
+            String filePath = "ERP_V2/src/main/resources/static/invoice/" + filename + ".pdf";
+            File pdfFile = new File(filePath);
             FileOutputStream fout = new FileOutputStream(pdfFile);
-
-//            FileOutputStream fout = new FileOutputStream("C:\\Users\\SHADOW\\IdeaProjects\\ERP_V2\\ERP_V2\\src\\main\\resources\\static\\invoice\\"+filename+".pdf");
 
             byteArrayOutputStream.writeTo(fout);
             byteArrayOutputStream.close();
             byteArrayOutputStream.flush();
             fout.close();
+
             return pdfFile;
         } catch (Exception ex) {
-//exception
+            // Handle exception
         }
         return null;
     }
