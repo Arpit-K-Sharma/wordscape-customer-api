@@ -29,7 +29,6 @@ public class Customer {
     @Column(length = 60)
     private String email;
 
-    @Column(length = 20)
     private String password; // Hashed and secured password storage recommended (important)
 
     @Column(length = 40)

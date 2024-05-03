@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new IllegalArgumentException("User with id " + id + " not found"));
 
         // Update fields if they are not null in the updatedUser object
-        if (updatedUser.getUsername() != null) {
-            existingUser.setUsername(updatedUser.getUsername());
+        if (updatedUser.getFullName() != null) {
+            existingUser.setFullName(updatedUser.getFullName());
         }
         if (updatedUser.getPassword() != null) {
             existingUser.setPassword(updatedUser.getPassword());

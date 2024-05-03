@@ -9,7 +9,7 @@ import lombok.*;
 @Data
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AuthRequest {
+public class LoginRequestDTO {
 
     private String email;
     private String password;

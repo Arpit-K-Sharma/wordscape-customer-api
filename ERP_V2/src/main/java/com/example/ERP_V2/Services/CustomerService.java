@@ -10,5 +10,7 @@ public interface CustomerService {
 
     List<CustomerDTO> getAllCustomers();
 
+    public void registerAsCustomer(CustomerDTO customerDTO);
+
     void updateCustomer(int id, Customer updatedCustomer);
 }

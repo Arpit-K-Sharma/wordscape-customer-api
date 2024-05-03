@@ -1,13 +1,22 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
+import com.example.ERP_V2.DTO.UserDTO;
+import com.example.ERP_V2.Model.Admin;
 import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Model.User;
+import com.example.ERP_V2.Repository.AdminRepo;
 import com.example.ERP_V2.Repository.CustomerRepo;
+import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.CustomerService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -15,6 +24,43 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepo customerRepo;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserRepo userRepo;
+
+    @Autowired
+    private AdminRepo adminRepo;
+
+    @Override
+    public void registerAsCustomer(CustomerDTO customerDTO) {
+        Customer customer = convertToCustomer(customerDTO);
+        if (this.emailExists(customer.getEmail())) {
+            throw new RuntimeException("Email already taken");
+        }
+        if(this.phoneExists(customer.getPhoneNumber())){
+            throw new RuntimeException("Phone number already taken");
+        }
+        customer.setPassword(passwordEncoder.encode(customerDTO.getPassword()));
+        this.customerRepo.save(customer);
+    }
+
+    private Boolean emailExists(String email) {
+        Optional<Admin> savedAdmin = this.adminRepo.findByEmail(email);
+        Optional<User> savedUser = this.userRepo.findByEmail(email);
+        Optional<Customer> savedCustomer = this.customerRepo.findByEmail(email);
+        return savedAdmin.isPresent() || savedUser.isPresent() || savedCustomer.isPresent();
+    }
+
+    private Boolean phoneExists(String phone){
+        Optional<Customer> savedUser = this.customerRepo.findByPhoneNumber(phone);
+        return savedUser.isPresent();
+    }
 
 
     @Override
@@ -66,6 +112,18 @@ public class CustomerServiceImpl implements CustomerService {
         customerDTO.setCompanyName(customer.getCompanyName());
         customerDTO.setStatus(customer.isStatus());
         return customerDTO;
+    }
+
+    private Customer convertToCustomer(CustomerDTO customerDTO){
+        Customer customer = new Customer();
+        customer.setCustomerId(customerDTO.getCustomerId());
+        customer.setFullName(customerDTO.getFullName());
+        customer.setAddress(customerDTO.getAddress());
+        customer.setEmail(customerDTO.getEmail());
+        customer.setPhoneNumber(customerDTO.getPhoneNumber());
+        customer.setCompanyName(customerDTO.getCompanyName());
+        customer.setStatus(customerDTO.isStatus());
+        return customer;
     }
 
 }

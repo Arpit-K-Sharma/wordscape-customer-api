@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,6 +17,12 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
+    @PostMapping("register")
+    public ResponseEntity<String> registerAsUser(@RequestBody @Valid CustomerDTO customerDTO) {
+        this.customerService.registerAsCustomer(customerDTO);
+        return ResponseEntity.ok("Registered Successfully !!!");
+    }
 
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> getAllCustomers() {

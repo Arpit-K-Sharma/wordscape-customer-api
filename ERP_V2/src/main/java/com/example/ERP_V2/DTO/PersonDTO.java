@@ -13,7 +13,6 @@ import javax.validation.constraints.Email;
 @NoArgsConstructor
 @MappedSuperclass
 @Data
-@Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PersonDTO {
     protected String fullName;

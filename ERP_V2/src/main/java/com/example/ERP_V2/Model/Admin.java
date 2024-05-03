@@ -1,19 +1,15 @@
 package com.example.ERP_V2.Model;
-
-
 import com.example.ERP_V2.enums.RoleEnum;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 public class Admin {
 
     @Id
@@ -30,4 +26,7 @@ public class Admin {
     private String password;
 
     private final RoleEnum role = RoleEnum.ROLE_ADMIN;
+
+
+
 }
