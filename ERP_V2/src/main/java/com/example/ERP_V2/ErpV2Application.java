@@ -1,5 +1,6 @@
 package com.example.ERP_V2;
 
+import com.example.ERP_V2.Services.AdminService;
 import com.example.ERP_V2.Services.CostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,6 +12,9 @@ public class ErpV2Application implements CommandLineRunner {
 
 	@Autowired
 	private CostService costService;
+
+	@Autowired
+	private AdminService adminService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ErpV2Application.class, args);
@@ -26,5 +30,6 @@ public class ErpV2Application implements CommandLineRunner {
 		this.costService.addInitialInks();
 		this.costService.addInitialPaperSizes();
 		this.costService.addInitialPaperThicknesses();
+		this.adminService.createAdmin();
 	}
 }

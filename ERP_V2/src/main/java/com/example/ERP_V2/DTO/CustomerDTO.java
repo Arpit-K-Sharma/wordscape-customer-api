@@ -2,6 +2,7 @@ package com.example.ERP_V2.DTO;
 
 import com.example.ERP_V2.Model.SalesBook;
 import com.example.ERP_V2.Model.SalesRecord;
+import com.example.ERP_V2.enums.RoleEnum;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,15 +17,11 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CustomerDTO {
+public class CustomerDTO extends PersonDTO {
 
     private int customerId;
 
-    private String fullName;
-
     private String address;
-
-    private String email;
 
     private String phoneNumber;
 
@@ -37,5 +34,9 @@ public class CustomerDTO {
     private List<SalesBook> salesBookList;
 
     private List<SalesRecord> salesRecordList;
+
+    private final RoleEnum role = RoleEnum.ROLE_CUSTOMER;
+
+
 }
 

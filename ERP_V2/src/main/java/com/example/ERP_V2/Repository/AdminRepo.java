@@ -1,13 +1,10 @@
 package com.example.ERP_V2.Repository;
-
-import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Model.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface CustomerRepo extends JpaRepository<Customer,Integer> {
+public interface AdminRepo extends JpaRepository<Admin,Integer> {
 
 
 }

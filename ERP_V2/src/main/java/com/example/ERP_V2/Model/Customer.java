@@ -1,11 +1,13 @@
 package com.example.ERP_V2.Model;
 
+import com.example.ERP_V2.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -47,6 +49,8 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<SalesRecord> salesRecordList = new ArrayList<>();
+
+    private final RoleEnum role = RoleEnum.ROLE_CUSTOMER;
 
 }
 

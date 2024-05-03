@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Model;
 
+import com.example.ERP_V2.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,7 @@ public class User {
     private int userId; // Use a meaningful name (could be id)
 
     @Column(length = 60)
-    private String username;
+    private String fullName;
 
     @Column(length = 20)
     private String password; // Hashed and secured password storage recommended
@@ -27,5 +28,8 @@ public class User {
 
     @Column
     private boolean status;
+
+    private final RoleEnum role = RoleEnum.ROLE_USER;
+
 }
 
