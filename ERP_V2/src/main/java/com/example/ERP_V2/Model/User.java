@@ -20,7 +20,6 @@ public class User {
     @Column(length = 60)
     private String fullName;
 
-    @Column(length = 20)
     private String password; // Hashed and secured password storage recommended
 
     @Column(length = 60)

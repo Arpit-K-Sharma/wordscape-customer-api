@@ -4,6 +4,7 @@ import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +15,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepo userRepository; // assuming UserRepository is a Spring Data JPA repository
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @Override
     public void createUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         this.userRepository.save(user);
     }
 

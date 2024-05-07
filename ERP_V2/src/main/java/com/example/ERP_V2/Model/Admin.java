@@ -22,7 +22,6 @@ public class Admin {
     @Column(length = 60)
     private String email;
 
-    @Column(length = 20)
     private String password;
 
     private final RoleEnum role = RoleEnum.ROLE_ADMIN;
