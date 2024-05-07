@@ -60,17 +60,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     private LoginResponseDTO loginAsAdmin(String email, String password) {
         AdminDTO adminDTO = this.getAdminByEmail(email);
-        return this.authenticate(adminDTO, password, adminDTO.getRole());
+        return this.authenticate(adminDTO, password, adminDTO.getRole(), adminDTO.getAdmin_id());
     }
 
     private LoginResponseDTO loginAsCustomer(String email, String password) {
         CustomerDTO customerDTO = this.getCustomerByEmail(email);
-        return this.authenticate(customerDTO, password, customerDTO.getRole());
+        return this.authenticate(customerDTO, password, customerDTO.getRole(), customerDTO.getCustomerId());
     }
 
     private LoginResponseDTO loginAsUser(String email, String password) {
         UserDTO userDTO = this.getUserByEmail(email);
-        return this.authenticate(userDTO, password, userDTO.getRole());
+        return this.authenticate(userDTO, password, userDTO.getRole(), userDTO.getUserId());
     }
 
     private AdminDTO getAdminByEmail(String email) {
@@ -98,11 +98,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         return new CustomerDTO(customer.getEmail(), customer.getPassword());
     }
 
-    private LoginResponseDTO authenticate(PersonDTO personDTO, String rawPassword, RoleEnum role) throws UsernameNotFoundException {
+    private LoginResponseDTO authenticate(PersonDTO personDTO, String rawPassword, RoleEnum role, int id) throws UsernameNotFoundException {
         this.checkPassword(rawPassword, personDTO.getPassword());
         String accessToken = this.jwtUtil.generateToken(
                 personDTO.getEmail(),
-                new ArrayList<>(List.of(role.toString()))
+                new ArrayList<>(List.of(role.toString())),
+                id
         );
         return new LoginResponseDTO(accessToken);
     }
