@@ -30,6 +30,13 @@ public class CustomerController {
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable int id) {
+        CustomerDTO customer = customerService.getCustomer(id);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
+
+
     @PutMapping("/{id}")
     public ResponseEntity<String> updateCustomer(@PathVariable int id, @RequestBody Customer updatedCustomer) {
         customerService.updateCustomer(id, updatedCustomer);

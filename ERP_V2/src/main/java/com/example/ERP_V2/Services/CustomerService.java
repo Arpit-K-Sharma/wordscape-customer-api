@@ -13,4 +13,6 @@ public interface CustomerService {
     public void registerAsCustomer(CustomerDTO customerDTO);
 
     void updateCustomer(int id, Customer updatedCustomer);
+
+    public CustomerDTO getCustomer(int id);
 }
