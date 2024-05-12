@@ -65,6 +65,20 @@ public class Order {
     @Column
     private String remarks;
 
+    //JOB CARD
+
+    private String jobTitle;
+
+    private String serviceRequired;
+
+    private String type;
+
+    private String size;
+
+    private String printRun;
+
+    private String noOfSides;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
@@ -81,6 +95,34 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<SalesRecord> salesRecordList = new ArrayList<>();
 
+    //JOB CARD
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<PrePressUnit> prePressUnitList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<PlateUnit> plateUnitList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private  List<Paperunit> paperunitList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<BindingUnit> bindingUnitList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<PressUnit> pressUnitList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<ProjectDetails> projectDetailsList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<PaperUsed> paperUsedList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<ContractJob> contractJobList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<CostCalculation> costCalculationList = new ArrayList<>();
 
 }
 
