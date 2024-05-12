@@ -13,7 +13,6 @@ import javax.mail.MessagingException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -101,10 +100,11 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-//    @Override
-//    public OrderDTO getOrderById(int id) {
-//        return null;
-//    }
+    @Override
+    public OrderDTO getOrderById(int id) {
+        Order order = orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found !!!"));
+        return convertToOrderDTO(order);
+    }
 
     private Order covertToOrder(OrderDTO orderDTO){
         Order order = new Order();

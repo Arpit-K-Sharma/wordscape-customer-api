@@ -13,6 +13,8 @@ public interface OrderService {
 
     byte[] getInvoiceById(int id);
 
-//    OrderDTO getOrderById();
+
+
+    OrderDTO getOrderById(int id);
 }
 
