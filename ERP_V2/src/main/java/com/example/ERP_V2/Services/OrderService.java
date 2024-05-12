@@ -12,4 +12,7 @@ public interface OrderService {
     List<OrderDTO> getAllOrders();
 
     byte[] getInvoiceById(int id);
+
+//    OrderDTO getOrderById();
 }
+

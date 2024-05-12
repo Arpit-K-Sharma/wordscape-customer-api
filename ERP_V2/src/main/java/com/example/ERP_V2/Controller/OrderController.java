@@ -29,6 +29,12 @@ public class OrderController {
         return ResponseEntity.ok(orderDTOList);
     }
 
+//    @GetMapping("/{id}")
+//    public ResponseEntity<OrderDTO> getOrderById(@PathVariable int id){
+//        OrderDTO orderDTOList = this.orderService.getOrderById(int id);
+//        return ResponseEntity.ok(orderDTOList);
+//    }
+
     @GetMapping(value = "/{id}")
     public byte[] getInvoiceById(@PathVariable int id){
         return this.orderService.getInvoiceById(id);
