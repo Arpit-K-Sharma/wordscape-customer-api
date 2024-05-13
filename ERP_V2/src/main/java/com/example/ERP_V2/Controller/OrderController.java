@@ -29,13 +29,13 @@ public class OrderController {
         return ResponseEntity.ok(orderDTOList);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<OrderDTO> getOrderById(@PathVariable int id){
         OrderDTO orderDTO = this.orderService.getOrderById(id);
         return ResponseEntity.ok(orderDTO);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "invoice/{id}")
     public byte[] getInvoiceById(@PathVariable int id){
         return this.orderService.getInvoiceById(id);
     }
