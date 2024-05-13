@@ -15,6 +15,6 @@ public interface OrderService {
 
 
 
-    OrderDTO getOrderById(int id);
+    public OrderDTO getOrderById(int id);
 }
 

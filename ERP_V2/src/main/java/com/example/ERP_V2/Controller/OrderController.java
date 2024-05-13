@@ -31,8 +31,8 @@ public class OrderController {
 
     @GetMapping("/{id}")
     public ResponseEntity<OrderDTO> getOrderById(@PathVariable int id){
-        OrderDTO orderDTOList = this.orderService.getOrderById(id);
-        return ResponseEntity.ok(orderDTOList);
+        OrderDTO orderDTO = this.orderService.getOrderById(id);
+        return ResponseEntity.ok(orderDTO);
     }
 
     @GetMapping(value = "/{id}")
