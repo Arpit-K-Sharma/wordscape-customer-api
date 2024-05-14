@@ -15,6 +15,8 @@ public class BindingUnit {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
     private int bindingUnitId;
 
+    private String bindingType;
+
     private String filledInBy;
 
     private String approvedBy;

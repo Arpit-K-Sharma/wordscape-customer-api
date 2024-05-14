@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,6 +79,8 @@ public class Order {
 
     private String noOfSides;
 
+    private Date deadline;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
@@ -104,7 +106,7 @@ public class Order {
     private List<PlateUnit> plateUnitList = new ArrayList<>();
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private  List<Paperunit> paperunitList = new ArrayList<>();
+    private  List<PaperUnit> paperunitList = new ArrayList<>();
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<BindingUnit> bindingUnitList = new ArrayList<>();
