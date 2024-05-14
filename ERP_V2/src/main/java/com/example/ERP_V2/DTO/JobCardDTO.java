@@ -2,8 +2,6 @@ package com.example.ERP_V2.DTO;
 
 import com.example.ERP_V2.Model.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +18,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobCardDTO {
 
-    private OrderDTO order;
+    private OrderDTO orderDTO;
 
     private String jobTitle;
 
