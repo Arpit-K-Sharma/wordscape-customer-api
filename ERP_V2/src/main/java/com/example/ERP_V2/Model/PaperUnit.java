@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Paperunit {
+public class PaperUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
     private int paperUnitId;
