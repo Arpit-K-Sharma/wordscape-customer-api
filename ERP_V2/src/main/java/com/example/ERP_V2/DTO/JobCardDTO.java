@@ -20,6 +20,8 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobCardDTO {
 
+    private OrderDTO order;
+
     private String jobTitle;
 
     private String serviceRequired;
@@ -34,23 +36,23 @@ public class JobCardDTO {
 
     private Date deadline;
 
-    private List<PrePressUnitDTO> prePressUnitDTOList = new ArrayList<>();
+    private List<PrePressUnit> prePressUnitList = new ArrayList<>();
 
-    private List<PlateUnitDTO> plateUnitList = new ArrayList<>();
+    private List<PlateUnit> plateUnitList = new ArrayList<>();
 
-    private  List<PaperUnitDTO> paperunitList = new ArrayList<>();
+    private  List<PaperUnit> paperunitList = new ArrayList<>();
 
-    private List<BindingUnitDTO> bindingUnitList = new ArrayList<>();
+    private List<BindingUnit> bindingUnitList = new ArrayList<>();
 
-    private List<PressUnitDTO> pressUnitList = new ArrayList<>();
+    private List<PressUnit> pressUnitList = new ArrayList<>();
 
-    private List<ProjectDetailsDTO> projectDetailsList = new ArrayList<>();
+    private List<ProjectDetails> projectDetailsList = new ArrayList<>();
 
-    private List<PaperUsedDTO> paperUsedList = new ArrayList<>();
+    private List<PaperUsed> paperUsedList = new ArrayList<>();
 
-    private List<ContractJobDTO> contractJobList = new ArrayList<>();
+    private List<ContractJob> contractJobList = new ArrayList<>();
 
-    private List<CostCalculationDTO> costCalculationList = new ArrayList<>();
+    private List<CostCalculation> costCalculationList = new ArrayList<>();
 
 
 

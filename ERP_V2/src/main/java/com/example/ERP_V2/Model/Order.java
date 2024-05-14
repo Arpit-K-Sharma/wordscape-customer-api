@@ -65,21 +65,6 @@ public class Order {
     @Column
     private String remarks;
 
-    //JOB CARD
-
-    private String jobTitle;
-
-    private String serviceRequired;
-
-    private String type;
-
-    private String size;
-
-    private String printRun;
-
-    private String noOfSides;
-
-    private Date deadline;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -96,6 +81,22 @@ public class Order {
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<SalesRecord> salesRecordList = new ArrayList<>();
+
+    //JOB CARD
+
+    private String jobTitle;
+
+    private String serviceRequired;
+
+    private String type;
+
+    private String size;
+
+    private String printRun;
+
+    private String noOfSides;
+
+    private Date deadline;
 
     //JOB CARD
 
