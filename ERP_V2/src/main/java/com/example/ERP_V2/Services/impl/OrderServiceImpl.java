@@ -1,9 +1,9 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.OrderDTO;
-import com.example.ERP_V2.Model.Customer;
-import com.example.ERP_V2.Model.Order;
+import com.example.ERP_V2.Model.*;
 import com.example.ERP_V2.Repository.*;
+import com.example.ERP_V2.Services.CustomerService;
 import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -173,5 +173,55 @@ public class OrderServiceImpl implements OrderService {
 
         return orderDTO;
     }
+
+    @Override
+    public void insertDummyData() {
+
+        // Fetch existing entities from the database
+        Binding binding = bindingRepo.findById(1).orElse(null); // Replace 1 with the actual ID
+        CoverTreatment coverTreatment = coverTreatmentRepo.findById(1).orElse(null); // Replace 1 with the actual ID
+        Paper innerPaper = paperRepo.findById(1).orElse(null); // Replace 1 with the actual ID
+        Paper outerPaper = paperRepo.findById(2).orElse(null); // Replace 2 with the actual ID
+        Lamination lamination = laminationRepo.findById(1).orElse(null); // Replace 1 with the actual ID
+        Plate plate = plateRepo.findById(1).orElse(null); // Replace 1 with the actual ID
+
+        // Create dummy Customer object
+        Customer dummyCustomer = new Customer(
+                "John Doe",
+                "1234 Elm Street",
+                "john.doe@example.com",
+                "password123",
+                "555-1234",
+                "Doe Enterprises",
+                true
+        );
+
+        customerRepo.save(dummyCustomer);
+
+        // Create dummy Order object
+        Order order = new Order();
+        order.setDate(new Date());
+        order.setPaperSize("A4");
+        order.setPages(100);
+        order.setQuantity(50);
+        order.setBinding(binding); // Replace with actual Binding object if available
+        order.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
+        order.setInnerPaper(innerPaper); // Replace with actual Paper object if available
+        order.setInnerPaperThickness(120);
+        order.setOuterPaper(outerPaper); // Replace with actual Paper object if available
+        order.setOuterPaperThickness(200);
+        order.setLamination(lamination); // Replace with actual Lamination object if available
+        order.setPlate(plate); // Replace with actual Plate object if available
+        order.setInkType("CMYK");
+        order.setRemarks("Sample order");
+        order.setCustomer(dummyCustomer);
+
+        // Save to database
+        orderRepo.save(order);
+    }
+
+
+
+
 }
 
