@@ -174,6 +174,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+
     @Override
     public void insertDummyData() {
 
@@ -198,27 +199,67 @@ public class OrderServiceImpl implements OrderService {
 
         customerRepo.save(dummyCustomer);
 
-        // Create dummy Order object
-        Order order = new Order();
-        order.setDate(new Date());
-        order.setPaperSize("A4");
-        order.setPages(100);
-        order.setQuantity(50);
-        order.setBinding(binding); // Replace with actual Binding object if available
-        order.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
-        order.setInnerPaper(innerPaper); // Replace with actual Paper object if available
-        order.setInnerPaperThickness(120);
-        order.setOuterPaper(outerPaper); // Replace with actual Paper object if available
-        order.setOuterPaperThickness(200);
-        order.setLamination(lamination); // Replace with actual Lamination object if available
-        order.setPlate(plate); // Replace with actual Plate object if available
-        order.setInkType("CMYK");
-        order.setRemarks("Sample order");
-        order.setCustomer(dummyCustomer);
+        // Create dummy Order object 1
+        Order order1 = new Order();
+        order1.setDate(new Date());
+        order1.setPaperSize("A4");
+        order1.setPages(100);
+        order1.setQuantity(50);
+        order1.setBinding(binding); // Replace with actual Binding object if available
+        order1.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
+        order1.setInnerPaper(innerPaper); // Replace with actual Paper object if available
+        order1.setInnerPaperThickness(120);
+        order1.setOuterPaper(outerPaper); // Replace with actual Paper object if available
+        order1.setOuterPaperThickness(200);
+        order1.setLamination(lamination); // Replace with actual Lamination object if available
+        order1.setPlate(plate); // Replace with actual Plate object if available
+        order1.setInkType("CMYK");
+        order1.setRemarks("Sample order 1");
+        order1.setCustomer(dummyCustomer);
 
-        // Save to database
-        orderRepo.save(order);
+        orderRepo.save(order1);
+
+        // Create dummy Order object 2
+        Order order2 = new Order();
+        order2.setDate(new Date());
+        order2.setPaperSize("A5");
+        order2.setPages(200);
+        order2.setQuantity(100);
+        order2.setBinding(binding); // Replace with actual Binding object if available
+        order2.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
+        order2.setInnerPaper(innerPaper); // Replace with actual Paper object if available
+        order2.setInnerPaperThickness(130);
+        order2.setOuterPaper(outerPaper); // Replace with actual Paper object if available
+        order2.setOuterPaperThickness(210);
+        order2.setLamination(lamination); // Replace with actual Lamination object if available
+        order2.setPlate(plate); // Replace with actual Plate object if available
+        order2.setInkType("RGB");
+        order2.setRemarks("Sample order 2");
+        order2.setCustomer(dummyCustomer);
+
+        orderRepo.save(order2);
+
+        // Create dummy Order object 3
+        Order order3 = new Order();
+        order3.setDate(new Date());
+        order3.setPaperSize("A3");
+        order3.setPages(150);
+        order3.setQuantity(75);
+        order3.setBinding(binding); // Replace with actual Binding object if available
+        order3.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
+        order3.setInnerPaper(innerPaper); // Replace with actual Paper object if available
+        order3.setInnerPaperThickness(140);
+        order3.setOuterPaper(outerPaper); // Replace with actual Paper object if available
+        order3.setOuterPaperThickness(220);
+        order3.setLamination(lamination); // Replace with actual Lamination object if available
+        order3.setPlate(plate); // Replace with actual Plate object if available
+        order3.setInkType("CMYK");
+        order3.setRemarks("Sample order 3");
+        order3.setCustomer(dummyCustomer);
+
+        orderRepo.save(order3);
     }
+
 
 
 
