@@ -53,5 +53,14 @@ public class Customer {
 
     private final RoleEnum role = RoleEnum.ROLE_CUSTOMER;
 
+    public Customer(String fullName, String address, String email, String password, String phoneNumber, String companyName, boolean status) {
+        this.fullName = fullName;
+        this.address = address;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.companyName = companyName;
+        this.status = status;
+    }
 }
 
