@@ -1,7 +1,7 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.JobCardDTO;
-import com.example.ERP_V2.Model.Order;
+import com.example.ERP_V2.Model.*;
 import com.example.ERP_V2.Repository.*;
 import com.example.ERP_V2.Services.JobCardService;
 import org.modelmapper.ModelMapper;
@@ -31,73 +31,65 @@ public class JobCardServiceImpl implements JobCardService {
 
     @Override
     public void createJobCard(int orderId, JobCardDTO jobCardDTO) {
-        Order order = convertToOrder(orderId, jobCardDTO);
+        Order order = this.convertToOrder(orderId, jobCardDTO);
 
-        Order oldOrder = orderRepo.findById(orderId).orElseThrow(() -> new RuntimeException("Order Not Found !!!"));
-
-        modelMapper.map(order, oldOrder);
-
-        orderRepo.save(oldOrder);
-
+        this.orderRepo.save(order);
     }
 
+    private Order convertToOrder(int orderId, JobCardDTO jobCardDTO) {
+        Order oldOrder = orderRepo.findById(orderId).orElseThrow(() -> new RuntimeException("Order Not Found !!!"));
 
-    private Order convertToOrder(int orderId,JobCardDTO jobCardDTO){
+        // Set order_id for each associated entity
+        jobCardDTO.getPrePressUnitList().setOrder(oldOrder);
+        jobCardDTO.getDelivery().setOrder(oldOrder);
+        jobCardDTO.getPrePressData().setOrder(oldOrder);
+        jobCardDTO.getPaperDetailData().setOrder(oldOrder);
+        jobCardDTO.getPlateDetailData().setOrder(oldOrder);
+        jobCardDTO.getPaperData().setOrder(oldOrder);
+        jobCardDTO.getPressUnitData().setOrder(oldOrder);
+        jobCardDTO.getBindingData().setOrder(oldOrder);
 
-        Order order = new Order();
+        //Set rest foreign keys
+        PlateDetailData plateDetailData = jobCardDTO.getPlateDetailData();
 
-//        Order
+        for (PlateData plateData : plateDetailData.getPlateData()) {
+            plateData.setPlateDetailData(plateDetailData);
+        }
 
-        order.setOrderId(orderId);
-        order.setDate(jobCardDTO.getOrderDTO().getDate());
-        order.setPaperSize(jobCardDTO.getOrderDTO().getPaperSize());
-        order.setPages(jobCardDTO.getOrderDTO().getPages());
-        order.setQuantity(jobCardDTO.getOrderDTO().getQuantity());
+        //PAPER DATA
+        jobCardDTO.getPaperData().getPaperData0().setPaperData(jobCardDTO.getPaperData());
 
-//        Set Binding
-        order.setBinding(bindingRepo.findByBindingType(jobCardDTO.getOrderDTO().getBindingType())
-                .orElseThrow(() -> new IllegalArgumentException("Binding not found with name: " + jobCardDTO.getOrderDTO().getBindingType())));
+        PaperData paperData = jobCardDTO.getPaperData();
 
-        // Set CoverTreatment
-        order.setCoverTreatment(coverTreatmentRepo.findByCoverTreatmentType(jobCardDTO.getOrderDTO().getCoverTreatmentType())
-                .orElseThrow(() -> new IllegalArgumentException("Cover Treatment not found with name: " + jobCardDTO.getOrderDTO().getCoverTreatmentType())));
+        for (PaperData1 paperData1 : paperData.getPaperData1()) {
+            paperData1.setPaperData(paperData);
+        }
+        for (PaperData2 paperData2 : paperData.getPaperData2()) {
+            paperData2.setPaperData(paperData);
+        }
+        for (PaperData3 paperData3 : paperData.getPaperData3()) {
+            paperData3.setPaperData(paperData);
+        }
 
-        //Set InnerPaperType
-        order.setInnerPaper(paperRepo.findByPaperType(jobCardDTO.getOrderDTO().getInnerPaperType())
-                .orElseThrow(() -> new IllegalArgumentException("Paper not found with name: " + jobCardDTO.getOrderDTO().getCoverTreatmentType())));
+        //PRESSUNITDATA
+        PressUnitData pressUnitData = jobCardDTO.getPressUnitData();
 
-        order.setInnerPaperThickness(jobCardDTO.getOrderDTO().getInnerPaperThickness());
-
-        // Set OuterPaper
-        order.setOuterPaper(paperRepo.findByPaperType(jobCardDTO.getOrderDTO().getOuterPaperType())
-                .orElseThrow(() -> new IllegalArgumentException("Outer Paper not found with name: " + jobCardDTO.getOrderDTO().getOuterPaperType())));
-
-        order.setOuterPaperThickness(jobCardDTO.getOrderDTO().getOuterPaperThickness());
-
-        // Set Lamination
-        order.setLamination(laminationRepo.findByLaminationType(jobCardDTO.getOrderDTO().getLaminationType())
-                .orElseThrow(() -> new IllegalArgumentException("Lamination not found with name: " + jobCardDTO.getOrderDTO().getLaminationType())));
+        for (PressData pressData: pressUnitData.getPressData()) {
+            pressData.setPressUnitData(pressUnitData);
+        }
 
 
-//        JobCard
-        order.setJobTitle(jobCardDTO.getJobTitle());
-        order.setServiceRequired(jobCardDTO.getServiceRequired());
-        order.setType(jobCardDTO.getType());
-        order.setSize(jobCardDTO.getSize());
-        order.setPrintRun(jobCardDTO.getPrintRun());
-        order.setNoOfSides(jobCardDTO.getNoOfSides());
-        order.setDeadline(jobCardDTO.getDeadline());
 
-        order.setPrePressUnitList(jobCardDTO.getPrePressUnitList());
-        order.setPlateUnitList(jobCardDTO.getPlateUnitList());
-        order.setPaperunitList(jobCardDTO.getPaperunitList());
-        order.setBindingUnitList(jobCardDTO.getBindingUnitList());
-        order.setPressUnitList(jobCardDTO.getPressUnitList());
-        order.setProjectDetailsList(jobCardDTO.getProjectDetailsList());
-        order.setPaperUsedList(jobCardDTO.getPaperUsedList());
-        order.setContractJobList(jobCardDTO.getContractJobList());
-        order.setCostCalculationList(jobCardDTO.getCostCalculationList());
+        // Update the properties of the Order entity
+        oldOrder.setPrePressUnitList(jobCardDTO.getPrePressUnitList());
+        oldOrder.setDelivery(jobCardDTO.getDelivery());
+        oldOrder.setPrePressData(jobCardDTO.getPrePressData());
+        oldOrder.setPaperDetailData(jobCardDTO.getPaperDetailData());
+        oldOrder.setPlateDetailData(jobCardDTO.getPlateDetailData());
+        oldOrder.setPaperData(jobCardDTO.getPaperData());
+        oldOrder.setPressUnitData(jobCardDTO.getPressUnitData());
+        oldOrder.setBindingData(jobCardDTO.getBindingData());
 
-        return order;
+        return oldOrder;
     }
 }

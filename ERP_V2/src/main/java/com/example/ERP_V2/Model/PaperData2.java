@@ -5,22 +5,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PrePressUnit {
+public class PaperData2 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int prePressUnitId;
+    private int paperData2_id;
 
-    private String paymentMethod;
+    private String type;
+    private String cutSheetSize;
+    private String wastage;
+    private String totalCutSheet;
 
-    private String serviceRequired;
-
-    @OneToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-
+    @ManyToOne
+    @JoinColumn(name = "paperData_id")
+    private PaperData paperData;
 }

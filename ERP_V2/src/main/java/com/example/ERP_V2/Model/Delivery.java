@@ -18,12 +18,22 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
     private int deliveryId;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 100)
     private String destination;
 
     private Date deliveryDate;
 
     private Time deliveryTime;
+
+    //JOB CARD
+
+    private String company;
+
+    private String venue;
+
+    private String contactPersonName;
+
+    private String contactPersonNumber;
 
     @ManyToOne
     @JoinColumn(name = "driver_id")

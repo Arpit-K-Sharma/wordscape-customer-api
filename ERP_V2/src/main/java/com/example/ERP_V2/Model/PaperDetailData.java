@@ -9,21 +9,21 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PressUnit {
-
+public class PaperDetailData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int pressUnitId;
+    private int paperDetailDataId;
 
-    private String size;
+    private String paperSize;
+    private String gutterSize;
+    private String gripperSize;
+    private String coverPaperSize;
+    private String innerPaperSize;
+    private String folderName;
+    private String plateProcessBy;
 
-    private String signature;
-
-    private boolean ordered;
-
-    private boolean produced;
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id")
     private Order order;
+
 }

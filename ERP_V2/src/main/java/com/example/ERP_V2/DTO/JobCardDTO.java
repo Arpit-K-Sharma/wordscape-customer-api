@@ -2,6 +2,10 @@ package com.example.ERP_V2.DTO;
 
 import com.example.ERP_V2.Model.*;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,40 +22,29 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobCardDTO {
 
-    private OrderDTO orderDTO;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PrePressUnit prePressUnitList;
 
-    private String jobTitle;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    @JsonProperty("deliveryDetail")
+    private Delivery delivery;
 
-    private String serviceRequired;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PrePressData prePressData;
 
-    private String type;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PaperDetailData paperDetailData;
 
-    private String size;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PlateDetailData plateDetailData;
 
-    private String printRun;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PaperData paperData;
 
-    private String noOfSides;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PressUnitData pressUnitData;
 
-    private Date deadline;
-
-    private List<PrePressUnit> prePressUnitList = new ArrayList<>();
-
-    private List<PlateUnit> plateUnitList = new ArrayList<>();
-
-    private  List<PaperUnit> paperunitList = new ArrayList<>();
-
-    private List<BindingUnit> bindingUnitList = new ArrayList<>();
-
-    private List<PressUnit> pressUnitList = new ArrayList<>();
-
-    private List<ProjectDetails> projectDetailsList = new ArrayList<>();
-
-    private List<PaperUsed> paperUsedList = new ArrayList<>();
-
-    private List<ContractJob> contractJobList = new ArrayList<>();
-
-    private List<CostCalculation> costCalculationList = new ArrayList<>();
-
-
-
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    @JsonProperty("binderyData")
+    private BindingData bindingData;
 }

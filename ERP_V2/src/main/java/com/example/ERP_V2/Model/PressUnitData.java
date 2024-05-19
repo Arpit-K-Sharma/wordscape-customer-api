@@ -5,25 +5,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProjectDetails {
+public class PressUnitData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int projectDetailId;
+    private int pressUnitDataId;
 
-    private String plateSize;
+    private String totalSet;
+    private String forma;
+    private String workAndTurn;
 
-    private String plateType;
+    @OneToMany(mappedBy = "pressUnitData", cascade = CascadeType.ALL)
+    private List<PressData> pressData = new ArrayList<>();
 
-    private int totalPlate;
-
-    private String customerProvided;
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id")
     private Order order;
+
+    
 }

@@ -74,55 +74,38 @@ public class Order {
     private SalesBook salesBook;
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
-    private Delivery delivery;
-
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private ProjectTracking projectTracking;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<SalesRecord> salesRecordList = new ArrayList<>();
 
-    //JOB CARD
-
-    private String jobTitle;
-
-    private String serviceRequired;
-
-    private String type;
-
-    private String size;
-
-    private String printRun;
-
-    private String noOfSides;
-
-    private Date deadline;
 
     //JOB CARD
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<PrePressUnit> prePressUnitList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PrePressUnit prePressUnitList;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<PlateUnit> plateUnitList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Delivery delivery;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private  List<PaperUnit> paperunitList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PrePressData prePressData;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<BindingUnit> bindingUnitList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PaperDetailData paperDetailData;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<PressUnit> pressUnitList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PlateDetailData plateDetailData;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<ProjectDetails> projectDetailsList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PaperData paperData;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<PaperUsed> paperUsedList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private PressUnitData pressUnitData;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<ContractJob> contractJobList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private BindingData bindingData;
+
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<CostCalculation> costCalculationList = new ArrayList<>();

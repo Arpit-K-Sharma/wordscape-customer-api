@@ -5,30 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PlateUnit {
+public class PaperData3 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int plateUnitId;
+    private int paperData3_id;
 
-    private String screenType;
-
-    private String plateSize;
-
-    private String color;
-
-    private int total;
-
-    private String plateDamage;
-
-    private int noOfPlateRemake;
+    private String Type;
+    private String paperType;
+    private String gsm;
+    private String printColor;
+    private String lamination;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-
+    @JoinColumn(name = "paperData_id")
+    private PaperData paperData;
 }

@@ -15,7 +15,7 @@ public class JobCardController {
 
     @PostMapping("/{order_id}")
     public ResponseEntity<String> createJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO){
-            jobCardService.createJobCard(order_id, jobCardDTO);
+        jobCardService.createJobCard(order_id, jobCardDTO);
         return ResponseEntity.ok("JobCard Added !!!");
     }
 }

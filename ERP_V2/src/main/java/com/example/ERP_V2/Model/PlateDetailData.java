@@ -5,29 +5,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaperUsed {
+public class PlateDetailData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int paperUsedId;
+    private int plateDetailDataId;
 
-    private String paperCategory;
+    private String screenType;
 
-    private String fullSheetSize;
+    private String plateDamage;
 
-    private BigDecimal weight;
+    private String plateRemake;
 
-    private String paperType;
+    @OneToMany(mappedBy = "plateDetailData", cascade = CascadeType.ALL)
+    private List<PlateData> plateData = new ArrayList<>();
 
-    private int totalSheets;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id")
     private Order order;
 

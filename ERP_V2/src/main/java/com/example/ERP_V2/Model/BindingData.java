@@ -5,29 +5,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ContractJob {
+public class BindingData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int contractJobId;
+    private int bindingUnitId;
 
-    private String jobType;
+    private String bindingSelectedOption;
 
-    private String vendor;
+    private String filledInBy;
 
-    private String details;
+    private String approvedBy;
 
-    private BigDecimal rate;
-
-    private BigDecimal amount;
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id")
     private Order order;
 }

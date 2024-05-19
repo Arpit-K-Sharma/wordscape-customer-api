@@ -5,23 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BindingUnit {
+public class PaperData1 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int bindingUnitId;
+    private int paperData1_id;
 
-    private String bindingType;
-
-    private String filledInBy;
-
-    private String approvedBy;
+    private String type;
+    private String fullSheetSize;
+    private String weight;
+    private String paperType;
+    private String totalSheets;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @JoinColumn(name = "paperData_id")
+    private PaperData paperData;
 }
