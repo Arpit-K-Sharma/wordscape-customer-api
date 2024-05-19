@@ -18,7 +18,7 @@ public class PaperData3 {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
     private int paperData3_id;
 
-    private String Type;
+    private String type;
     @JsonProperty("ptype")
     private String paperType;
     private String gsm;
