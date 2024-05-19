@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class PaperData0 {
 
     @OneToOne
     @JoinColumn(name = "paperData_id")
+    @JsonBackReference
     private PaperData paperData;
 
 }

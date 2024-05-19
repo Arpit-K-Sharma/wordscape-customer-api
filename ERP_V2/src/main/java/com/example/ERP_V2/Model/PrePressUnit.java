@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class PrePressUnit {
 
     @OneToOne
     @JoinColumn(name = "order_id")
+    @JsonBackReference
     private Order order;
 
 }

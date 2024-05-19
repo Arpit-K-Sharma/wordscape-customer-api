@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Model;
 
 import com.example.ERP_V2.enums.RoleEnum;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,6 +42,7 @@ public class Customer {
     private boolean status;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Order> orderList = new ArrayList<>();
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)

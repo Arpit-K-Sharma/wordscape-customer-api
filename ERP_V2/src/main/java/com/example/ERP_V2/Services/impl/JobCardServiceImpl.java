@@ -36,6 +36,11 @@ public class JobCardServiceImpl implements JobCardService {
         this.orderRepo.save(order);
     }
 
+    @Override
+    public Order getJobCardById(int id) {
+        return this.orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found"));
+    }
+
     private Order convertToOrder(int orderId, JobCardDTO jobCardDTO) {
         Order oldOrder = orderRepo.findById(orderId).orElseThrow(() -> new RuntimeException("Order Not Found !!!"));
 

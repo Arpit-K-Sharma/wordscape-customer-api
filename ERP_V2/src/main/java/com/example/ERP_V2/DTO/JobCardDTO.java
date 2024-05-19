@@ -22,29 +22,21 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobCardDTO {
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PrePressUnit prePressUnitList;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     @JsonProperty("deliveryDetail")
     private Delivery delivery;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PrePressData prePressData;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PaperDetailData paperDetailData;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PlateDetailData plateDetailData;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PaperData paperData;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private PressUnitData pressUnitData;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     @JsonProperty("binderyData")
     private BindingData bindingData;
 }

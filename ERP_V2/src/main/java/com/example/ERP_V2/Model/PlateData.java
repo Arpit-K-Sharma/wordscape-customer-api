@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import lombok.AllArgsConstructor;
@@ -27,5 +28,6 @@ public class PlateData {
 
     @ManyToOne
     @JoinColumn(name = "plateDetailData_id")
+    @JsonBackReference
     private PlateDetailData plateDetailData;
 }
