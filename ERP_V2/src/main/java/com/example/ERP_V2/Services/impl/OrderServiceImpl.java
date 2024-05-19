@@ -106,6 +106,11 @@ public class OrderServiceImpl implements OrderService {
         return convertToOrderDTO(order);
     }
 
+    @Override
+    public List<Order> getOrderByCustomerId(int id) {
+        return this.orderRepo.findAllByCustomerId(id);
+    }
+
     private Order covertToOrder(OrderDTO orderDTO){
         Order order = new Order();
         order.setDate(new Date());

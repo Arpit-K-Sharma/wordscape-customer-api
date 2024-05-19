@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Model;
 
+import com.example.ERP_V2.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -65,6 +66,7 @@ public class Order {
     @Column
     private String remarks;
 
+    private OrderStatus status = OrderStatus.PENDING;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

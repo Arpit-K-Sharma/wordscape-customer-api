@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +39,11 @@ public class OrderController {
     @GetMapping(value = "invoice/{id}")
     public byte[] getInvoiceById(@PathVariable int id){
         return this.orderService.getInvoiceById(id);
+    }
+
+    @GetMapping("customer/{id}")
+    public List<Order> getOrdersByCustomerId(@PathVariable int id){
+        return this.orderService.getOrderByCustomerId(id);
     }
 
 

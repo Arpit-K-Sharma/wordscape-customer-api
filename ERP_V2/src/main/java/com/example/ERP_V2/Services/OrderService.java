@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Services;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.Model.Order;
 
 import javax.mail.MessagingException;
 import java.io.File;
@@ -16,5 +17,7 @@ public interface OrderService {
 
 
     public OrderDTO getOrderById(int id);
+
+    List<Order> getOrderByCustomerId(int id);
 }
 

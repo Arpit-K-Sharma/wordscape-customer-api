@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +19,7 @@ public class PaperData3 {
     private int paperData3_id;
 
     private String Type;
+    @JsonProperty("ptype")
     private String paperType;
     private String gsm;
     private String printColor;
