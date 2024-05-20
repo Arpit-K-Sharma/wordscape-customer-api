@@ -75,9 +75,6 @@ public class Order {
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private SalesBook salesBook;
 
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
-    private ProjectTracking projectTracking;
-
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<SalesRecord> salesRecordList = new ArrayList<>();
 
@@ -111,6 +108,9 @@ public class Order {
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<CostCalculation> costCalculationList = new ArrayList<>();
+
+    @OneToOne
+    private ProjectTracking projectTracking;
 
 }
 

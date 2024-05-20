@@ -44,6 +44,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private ProjectTrackingRepo projectTrackingRepo;
+
     @Override
     public void handleOrder(OrderDTO orderDTO) throws MessagingException {
         Order order = this.covertToOrder(orderDTO);
@@ -61,9 +64,15 @@ public class OrderServiceImpl implements OrderService {
 
         this.customerRepo.save(customer);
 
-        Order savedOrder = this.orderRepo.save(order);
-        orderDTO.setOrderId(savedOrder.getOrderId());
+        ProjectTracking projectTracking =  new ProjectTracking();
+        projectTracking.setOrderSlip(true);
+        order.setProjectTracking(projectTracking);
 
+        this.projectTrackingRepo.save(projectTracking);
+
+        Order savedOrder = this.orderRepo.save(order);
+
+        orderDTO.setOrderId(savedOrder.getOrderId());
         emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
 //        emailService.sendEmail(customer.getEmail(),customer.getFullName());
     }

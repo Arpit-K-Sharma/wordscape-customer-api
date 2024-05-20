@@ -16,30 +16,26 @@ public class ProjectTracking {
     private int projectId;
 
     @Column(name = "order_slip")
-    private boolean orderSlip;
+    private boolean orderSlip = false;
 
     @Column(name = "job_card")
-    private boolean jobCard;
+    private boolean jobCard = false;
 
     @Column(name = "paper_cutting")
-    private boolean paperCutting;
+    private boolean paperCutting = false;
 
     @Column(name = "plate_preparation")
-    private boolean platePreparation;
+    private boolean platePreparation = false;
 
-    private boolean printing;
+    private boolean printing = false;
 
     @Column(name = "post_press")
-    private boolean postPress;
+    private boolean postPress = false;
 
-    private boolean delivery;
+    private boolean delivery = false;
 
     @Column(name = "is_end")
-    private boolean end;
-
-    @OneToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    private boolean end = false;
 
 }
 

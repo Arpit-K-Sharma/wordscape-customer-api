@@ -32,7 +32,7 @@ public class JobCardServiceImpl implements JobCardService {
     @Override
     public void createJobCard(int orderId, JobCardDTO jobCardDTO) {
         Order order = this.convertToOrder(orderId, jobCardDTO);
-
+        order.getProjectTracking().setJobCard(true);
         this.orderRepo.save(order);
     }
 
