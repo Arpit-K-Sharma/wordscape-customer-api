@@ -4,6 +4,7 @@ import com.example.ERP_V2.DTO.JobCardDTO;
 import com.example.ERP_V2.Model.*;
 import com.example.ERP_V2.Repository.*;
 import com.example.ERP_V2.Services.JobCardService;
+import com.example.ERP_V2.enums.OrderStatus;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -94,7 +95,7 @@ public class JobCardServiceImpl implements JobCardService {
         oldOrder.setPaperData(jobCardDTO.getPaperData());
         oldOrder.setPressUnitData(jobCardDTO.getPressUnitData());
         oldOrder.setBindingData(jobCardDTO.getBindingData());
-
+        oldOrder.setStatus(OrderStatus.APPROVED);
         return oldOrder;
     }
 }

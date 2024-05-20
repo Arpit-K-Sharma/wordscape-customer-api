@@ -184,6 +184,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setInkType(order.getInkType());
         orderDTO.setRemarks(order.getRemarks());
         orderDTO.setName(order.getCustomer().getFullName());
+        orderDTO.setStatus(order.getStatus());
 
         return orderDTO;
     }
