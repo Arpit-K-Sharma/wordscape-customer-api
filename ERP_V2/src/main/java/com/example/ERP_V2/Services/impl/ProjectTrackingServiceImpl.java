@@ -25,9 +25,13 @@ public class ProjectTrackingServiceImpl implements ProjectTrackingService {
 
         ProjectTracking projectTracking = convertToProjectTracking(projectTrackingDTO);
 
-        projectTracking = this.projectTrackingRepo.save(projectTracking);
+        projectTracking.setProjectTrackingId(order.getProjectTracking().getProjectTrackingId());
+
+        projectTrackingRepo.save(projectTracking);
+
 
         order.setProjectTracking(projectTracking);
+
 
         this.orderRepo.save(order);
     }
