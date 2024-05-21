@@ -13,7 +13,7 @@ public class ProjectTracking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int projectId;
+    private int projectTrackingId;
 
     @Column(name = "order_slip")
     private boolean orderSlip = false;
