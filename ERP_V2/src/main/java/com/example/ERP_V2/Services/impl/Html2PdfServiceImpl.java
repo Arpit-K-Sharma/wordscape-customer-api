@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.Html2PdfService;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
@@ -15,7 +16,7 @@ import java.io.FileOutputStream;
 @Service
 public class Html2PdfServiceImpl implements Html2PdfService {
 
-    public File htmlToPdf(String processedHtml, OrderDTO orderDTO) {
+    public File htmlToPdf(String processedHtml, Customer customer, OrderDTO orderDTO) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
         try {
@@ -25,7 +26,7 @@ public class Html2PdfServiceImpl implements Html2PdfService {
             converterProperties.setFontProvider(defaultFont);
             HtmlConverter.convertToPdf(processedHtml, pdfwriter, converterProperties);
 
-            String filename = orderDTO.getOrderId() + "_" + orderDTO.getName().replaceAll(" ", "_");
+            String filename = orderDTO.getOrderId() + "_" + customer.getFullName().replaceAll(" ", "_");
             String filePath = "ERP_V2/src/main/resources/static/invoice/" + filename + ".pdf";
             File pdfFile = new File(filePath);
             FileOutputStream fout = new FileOutputStream(pdfFile);

@@ -18,9 +18,9 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping
-    public ResponseEntity<String> addOrder(@RequestBody OrderDTO orderDTO) throws MessagingException {
-        this.orderService.handleOrder(orderDTO);
+    @PostMapping("{id}")
+    public ResponseEntity<String> addOrder(@PathVariable int id,@RequestBody OrderDTO orderDTO) throws MessagingException {
+        this.orderService.handleOrder(id, orderDTO);
         return ResponseEntity.ok("Order Added !!!");
     }
 

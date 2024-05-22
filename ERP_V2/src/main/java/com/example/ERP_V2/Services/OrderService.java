@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.List;
 
 public interface OrderService {
-    void handleOrder(OrderDTO orderDTO) throws MessagingException;
+    void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException;
 
     List<OrderDTO> getAllOrders();
 

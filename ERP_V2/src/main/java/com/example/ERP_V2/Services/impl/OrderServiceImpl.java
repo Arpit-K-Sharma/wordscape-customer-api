@@ -48,21 +48,8 @@ public class OrderServiceImpl implements OrderService {
     private ProjectTrackingRepo projectTrackingRepo;
 
     @Override
-    public void handleOrder(OrderDTO orderDTO) throws MessagingException {
-        Order order = this.covertToOrder(orderDTO);
-
-        Customer customer = new Customer();
-        customer.setFullName(orderDTO.getName());
-        customer.setCompanyName(orderDTO.getCompanyName());
-        customer.setEmail(orderDTO.getEmail());
-        customer.setAddress(orderDTO.getAddress());
-        customer.setStatus(true);
-
-        order.setCustomer(customer);
-
-        customer.getOrderList().add(order);
-
-        this.customerRepo.save(customer);
+    public void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException {
+        Order order = this.covertToOrder(customer_id, orderDTO);
 
         ProjectTracking projectTracking =  new ProjectTracking();
         projectTracking.setOrderSlip(true);
@@ -73,8 +60,7 @@ public class OrderServiceImpl implements OrderService {
         Order savedOrder = this.orderRepo.save(order);
 
         orderDTO.setOrderId(savedOrder.getOrderId());
-        emailService.sendHTMLEmail(customer.getEmail(),orderDTO);
-//        emailService.sendEmail(customer.getEmail(),customer.getFullName());
+        emailService.sendHTMLEmail(order.getCustomer(),orderDTO);
     }
 
     @Override
@@ -120,7 +106,7 @@ public class OrderServiceImpl implements OrderService {
         return this.orderRepo.findAllByCustomerId(id);
     }
 
-    private Order covertToOrder(OrderDTO orderDTO){
+    private Order covertToOrder(int id, OrderDTO orderDTO){
         Order order = new Order();
         order.setDate(new Date());
         order.setPaperSize(orderDTO.getPaperSize());
@@ -158,9 +144,9 @@ public class OrderServiceImpl implements OrderService {
 
         order.setRemarks(orderDTO.getRemarks());
 
-        // Set Customer
-//        order.setCustomer(customerRepo.findById(orderDTO.getCustomerId())
-//                .orElseThrow(() -> new IllegalArgumentException("Customer not found with ID: " + orderDTO.getCustomerId())));
+//         Set Customer
+        order.setCustomer(customerRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Customer not found with ID: " + id)));
 
         return order;
     }
@@ -183,7 +169,6 @@ public class OrderServiceImpl implements OrderService {
 //        orderDTO.setPlateSize(order.getPlate().getPlateSize());
         orderDTO.setInkType(order.getInkType());
         orderDTO.setRemarks(order.getRemarks());
-        orderDTO.setName(order.getCustomer().getFullName());
         orderDTO.setStatus(order.getStatus());
 
         return orderDTO;

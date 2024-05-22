@@ -32,9 +32,7 @@ public class OrderDTO {
     private String plateSize;
     private String inkType;
     private String remarks;
-    private String name;
     private String companyName;
-    private String email;
     private String address;
     private OrderStatus status;
 }

@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.EmailService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,16 +41,16 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendHTMLEmail(String to, OrderDTO orderDTO) throws MessagingException {
+    public void sendHTMLEmail(Customer customer, OrderDTO orderDTO) throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setTo(to);
+        helper.setTo(customer.getEmail());
         helper.setSubject("Order Invoice");
 
         // Load the HTML template
         Context context = new Context();
-        context.setVariable("name", orderDTO.getName());
+        context.setVariable("name", customer.getFullName());
         context.setVariable("paperSize", orderDTO.getPaperSize());
         context.setVariable("pages", orderDTO.getPages());
         context.setVariable("quantity", orderDTO.getQuantity());
@@ -65,7 +66,7 @@ public class EmailServiceImpl implements EmailService {
 
         String htmlContent = templateEngine.process("email-template", context);
 
-        File pdfFile = html2PdfServiceImpl.htmlToPdf(htmlContent, orderDTO);
+        File pdfFile = html2PdfServiceImpl.htmlToPdf(htmlContent, customer, orderDTO);
 
 
         // Set the HTML content
