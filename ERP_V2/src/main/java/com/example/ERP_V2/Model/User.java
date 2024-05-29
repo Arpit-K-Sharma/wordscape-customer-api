@@ -26,9 +26,14 @@ public class User {
     private String email;
 
     @Column
-    private boolean status;
+    private boolean status = true;
 
     private final RoleEnum role = RoleEnum.ROLE_USER;
 
+    public User(String fullName, String password, String email) {
+        this.fullName = fullName;
+        this.password = password;
+        this.email = email;
+    }
 }
 

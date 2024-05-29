@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -52,5 +53,18 @@ public class UserServiceImpl implements UserService {
 
         // Save the updated user
         userRepository.save(existingUser);
+    }
+
+    @Override
+    public void insertDummyData() {
+        List<User> dummyUsers = Arrays.asList(
+                new User("John Doe", "password123", "john.doe@example.com"),
+                new User("Jane Smith", "password123", "jane.smith@example.com"),
+                new User("Alice Johnson", "password123", "alice.johnson@example.com"),
+                new User("Bob Brown", "password123", "bob.brown@example.com"),
+                new User("Charlie Davis", "password123", "charlie.davis@example.com")
+        );
+
+        userRepository.saveAll(dummyUsers);
     }
 }

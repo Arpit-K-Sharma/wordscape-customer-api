@@ -8,5 +8,6 @@ public interface UserService {
     void createUser(User user);
     List<User> getAllUsers();
     void updateUser(int id, User updatedUser);
+    void insertDummyData();
 
 }
