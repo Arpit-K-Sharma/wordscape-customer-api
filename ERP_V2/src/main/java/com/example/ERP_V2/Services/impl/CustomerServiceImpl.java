@@ -90,6 +90,9 @@ public class CustomerServiceImpl implements CustomerService {
         if (updatedCustomer.getPassword() != null) {
             existingCustomer.setPassword(updatedCustomer.getPassword());
         }
+        if (updatedCustomer.getCompanyName() != null){
+            existingCustomer.setCompanyName(updatedCustomer.getCompanyName());
+        }
         if (updatedCustomer.getPhoneNumber() != null) {
             existingCustomer.setPhoneNumber(updatedCustomer.getPhoneNumber());
         }
