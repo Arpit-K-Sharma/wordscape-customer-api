@@ -142,6 +142,7 @@ public class OrderServiceImpl implements OrderService {
 
         order.setInkType(orderDTO.getInkType());
 
+
         order.setRemarks(orderDTO.getRemarks());
 
 //         Set Customer
@@ -170,6 +171,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setInkType(order.getInkType());
         orderDTO.setRemarks(order.getRemarks());
         orderDTO.setStatus(order.getStatus());
+        orderDTO.setCustomer(order.getCustomer().getFullName());
 
         return orderDTO;
     }
