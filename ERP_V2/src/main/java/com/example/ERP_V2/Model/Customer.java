@@ -39,7 +39,7 @@ public class Customer {
     private String companyName;
 
     @Column
-    private boolean status;
+    private boolean status = true;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     @JsonBackReference
