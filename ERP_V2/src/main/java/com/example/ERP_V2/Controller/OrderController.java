@@ -46,6 +46,11 @@ public class OrderController {
         return this.orderService.getOrderByCustomerId(id);
     }
 
+    @PutMapping("cancel/{id}")
+    public ResponseEntity<String> cancelOrder(@PathVariable int id){
+        this.orderService.cancelOrder(id);
+        return ResponseEntity.ok("Order Cancelled");
+    }
 
 
 

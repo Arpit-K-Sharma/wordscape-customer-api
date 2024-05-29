@@ -21,5 +21,7 @@ public interface OrderService {
     List<Order> getOrderByCustomerId(int id);
 
     public void insertDummyData();
+
+    void cancelOrder(int id);
 }
 

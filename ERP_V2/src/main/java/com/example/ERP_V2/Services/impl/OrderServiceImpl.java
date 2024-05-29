@@ -6,6 +6,7 @@ import com.example.ERP_V2.Repository.*;
 import com.example.ERP_V2.Services.CustomerService;
 import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.Services.OrderService;
+import com.example.ERP_V2.enums.OrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -262,8 +263,12 @@ public class OrderServiceImpl implements OrderService {
         orderRepo.save(order3);
     }
 
-
-
+    @Override
+    public void cancelOrder(int id) {
+        Order order = orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found !!!"));
+        order.setStatus(OrderStatus.CANCELED);
+        this.orderRepo.save(order);
+    }
 
 
 }
