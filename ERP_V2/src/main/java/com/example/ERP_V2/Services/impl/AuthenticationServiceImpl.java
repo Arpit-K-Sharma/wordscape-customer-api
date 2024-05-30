@@ -160,7 +160,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         // Manually mapping fields from Customer to CustomerDTO
         CustomerDTO customerDTO = new CustomerDTO();
 
-        customerDTO.setCustomerId(customerDTO.getCustomerId());
+        customerDTO.setCustomerId(customer.getCustomerId());
         customerDTO.setEmail(customer.getEmail());
         customerDTO.setPassword(customer.getPassword());
         customerDTO.setAddress(customer.getAddress());
