@@ -3,6 +3,7 @@ package com.example.ERP_V2.Services.impl;
 import com.example.ERP_V2.DTO.*;
 import com.example.ERP_V2.Model.Admin;
 import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Repository.AdminRepo;
 import com.example.ERP_V2.Repository.CustomerRepo;
@@ -20,9 +21,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -80,7 +83,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     private CustomerDTO getCustomerByEmail(String email) {
         Customer customer = this.customerRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Customer not found"));
-        return modelMapper.map(customer, CustomerDTO.class);
+//        return modelMapper.map(customer, CustomerDTO.class);
+        return convertToCustomerDTO(customer);
     }
 
     private UserDTO getUserByEmail(String email) {
@@ -141,6 +145,32 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                     authorities);
         }
     }
+
+    private CustomerDTO convertToCustomerDTO(Customer customer){
+        if (customer == null) {
+            return null;
+        }
+
+        // Manually mapping fields from Customer to CustomerDTO
+        CustomerDTO customerDTO = new CustomerDTO();
+
+        customerDTO.setCustomerId(customerDTO.getCustomerId());
+        customerDTO.setEmail(customer.getEmail());
+        customerDTO.setPassword(customer.getPassword());
+        customerDTO.setAddress(customer.getAddress());
+        customerDTO.setPhoneNumber(customer.getPhoneNumber());
+        customerDTO.setCompanyName(customer.getCompanyName());
+        customerDTO.setStatus(customer.isStatus());
+
+
+        return customerDTO;
+    }
+
+
+
+
+
+
 }
 
 
