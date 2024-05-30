@@ -33,5 +33,17 @@ public class UserController {
         userService.updateUser(id, updatedUser);
         return ResponseEntity.ok("User updated !!!");
     }
+
+    @PutMapping("deactivate/{id}")
+    public ResponseEntity<String> deactivateCustomer(@PathVariable int id){
+        userService.deactivateUser(id);
+        return ResponseEntity.ok("User Deactivated !!!");
+    }
+
+    @PutMapping("reactivate/{id}")
+    public ResponseEntity<String> reactivateCustomer(@PathVariable int id){
+        userService.reactivateUser(id);
+        return ResponseEntity.ok("User Reactivated !!!");
+    }
 }
 

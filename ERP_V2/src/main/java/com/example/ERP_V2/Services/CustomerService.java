@@ -15,4 +15,8 @@ public interface CustomerService {
     void updateCustomer(int id, Customer updatedCustomer);
 
     public CustomerDTO getCustomer(int id);
+
+    void deactivateCustomer(int id);
+
+    void reactivateCustomer(int id);
 }

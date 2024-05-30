@@ -83,12 +83,18 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     private CustomerDTO getCustomerByEmail(String email) {
         Customer customer = this.customerRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Customer not found"));
+        if (!customer.isStatus()){
+            throw new RuntimeException("Customer is deactivated");
+        }
 //        return modelMapper.map(customer, CustomerDTO.class);
         return convertToCustomerDTO(customer);
     }
 
     private UserDTO getUserByEmail(String email) {
         User user = this.userRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        if (!user.isStatus()){
+            throw new RuntimeException("User is Deactivated");
+        }
         return modelMapper.map(user, UserDTO.class);
     }
 

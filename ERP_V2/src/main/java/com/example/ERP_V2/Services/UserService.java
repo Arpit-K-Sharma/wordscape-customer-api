@@ -10,4 +10,7 @@ public interface UserService {
     void updateUser(int id, User updatedUser);
     void insertDummyData();
 
+    void deactivateUser(int id);
+
+    void reactivateUser(int id);
 }

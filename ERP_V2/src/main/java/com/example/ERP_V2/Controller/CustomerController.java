@@ -42,5 +42,17 @@ public class CustomerController {
         customerService.updateCustomer(id, updatedCustomer);
         return ResponseEntity.ok("Customer updated !!!");
     }
+
+    @PutMapping("deactivate/{id}")
+    public ResponseEntity<String> deactivateCustomer(@PathVariable int id){
+        customerService.deactivateCustomer(id);
+        return ResponseEntity.ok("Customer Deactivated !!!");
+    }
+
+    @PutMapping("reactivate/{id}")
+    public ResponseEntity<String> reactivateCustomer(@PathVariable int id){
+        customerService.reactivateCustomer(id);
+        return ResponseEntity.ok("Customer Reactivated !!!");
+    }
 }
 
