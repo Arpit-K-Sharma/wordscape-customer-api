@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -67,6 +68,9 @@ public class Order {
     private String remarks;
 
     private OrderStatus status = OrderStatus.PENDING;
+
+    @Column(precision = 6, scale = 2)
+    private BigDecimal estimatedAmount;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
