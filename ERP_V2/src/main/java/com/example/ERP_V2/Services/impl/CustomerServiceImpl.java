@@ -112,6 +112,20 @@ public class CustomerServiceImpl implements CustomerService {
         return convertToDTO(customer);
     }
 
+    @Override
+    public void deactivateCustomer(int id) {
+        Customer customer = customerRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
+        customer.setStatus(false);
+        this.customerRepo.save(customer);
+    }
+
+    @Override
+    public void reactivateCustomer(int id) {
+        Customer customer = customerRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
+        customer.setStatus(true);
+        this.customerRepo.save(customer);
+    }
+
     private CustomerDTO convertToDTO(Customer customer){
         CustomerDTO customerDTO = new CustomerDTO();
         customerDTO.setCustomerId(customer.getCustomerId());

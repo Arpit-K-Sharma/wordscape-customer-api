@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Services.impl;
 
+import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.UserService;
@@ -66,5 +67,19 @@ public class UserServiceImpl implements UserService {
         );
 
         userRepository.saveAll(dummyUsers);
+    }
+
+    @Override
+    public void deactivateUser(int id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found !!!"));
+        user.setStatus(false);
+        this.userRepository.save(user);
+    }
+
+    @Override
+    public void reactivateUser(int id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found !!!"));
+        user.setStatus(true);
+        this.userRepository.save(user);
     }
 }

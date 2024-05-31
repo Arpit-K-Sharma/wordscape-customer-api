@@ -25,6 +25,7 @@ public class PlateData {
     private String colour3;
     private String colour4;
     private String special;
+    private String total;
 
     @ManyToOne
     @JoinColumn(name = "plateDetailData_id")
