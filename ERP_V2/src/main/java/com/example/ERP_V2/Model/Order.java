@@ -70,7 +70,7 @@ public class Order {
     private OrderStatus status = OrderStatus.PENDING;
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal estimatedAmount;
+    private Long estimatedAmount;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

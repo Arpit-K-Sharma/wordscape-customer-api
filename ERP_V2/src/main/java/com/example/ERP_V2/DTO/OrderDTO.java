@@ -21,7 +21,7 @@ public class OrderDTO {
 
     private int orderId;
     private Date date;
-    private BigDecimal estimatedAmount;
+    private Long estimatedAmount;
     private String paperSize;
     private int pages;
     private int quantity;

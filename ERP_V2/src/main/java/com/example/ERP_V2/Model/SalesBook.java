@@ -25,7 +25,7 @@ public class SalesBook {
     private int quantity;
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal amount;
+    private Long amount;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
