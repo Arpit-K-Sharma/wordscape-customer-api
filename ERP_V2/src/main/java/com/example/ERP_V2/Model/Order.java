@@ -75,9 +75,6 @@ public class Order {
     private BigDecimal bindingRate;
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal coverTreatmentRate;
-
-    @Column(precision = 6, scale = 2)
     private BigDecimal innerPaperRate;
 
     @Column(precision = 6, scale = 2)
