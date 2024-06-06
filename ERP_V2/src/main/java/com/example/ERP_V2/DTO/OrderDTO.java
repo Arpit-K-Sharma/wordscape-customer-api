@@ -4,6 +4,7 @@ package com.example.ERP_V2.DTO;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +22,6 @@ public class OrderDTO {
 
     private int orderId;
     private Date date;
-    private BigDecimal estimatedAmount;
     private String paperSize;
     private int pages;
     private int quantity;
@@ -40,4 +40,15 @@ public class OrderDTO {
     private OrderStatus status;
     private String customer;
 
+    private BigDecimal bindingCost;
+
+    private BigDecimal coverTreatmentCost;
+
+    private BigDecimal innerPaperRate;
+
+    private BigDecimal laminationPrice;
+
+    private BigDecimal outerPaperRate;
+
+    private BigDecimal estimatedAmount;
 }

@@ -114,6 +114,12 @@ public class OrderServiceImpl implements OrderService {
         order.setPages(orderDTO.getPages());
         order.setQuantity(orderDTO.getQuantity());
         order.setEstimatedAmount(orderDTO.getEstimatedAmount());
+        order.setBindingCost(orderDTO.getBindingCost());
+        order.setCoverTreatmentCost(orderDTO.getCoverTreatmentCost());
+        order.setInnerPaperRate(orderDTO.getInnerPaperRate());
+        order.setLaminationPrice(orderDTO.getLaminationPrice());
+        order.setOuterPaperRate(orderDTO.getOuterPaperRate());
+
         // Set Binding
         order.setBinding(bindingRepo.findByBindingType(orderDTO.getBindingType())
                 .orElseThrow(() -> new IllegalArgumentException("Binding not found with name: " + orderDTO.getBindingType())));
@@ -159,7 +165,14 @@ public class OrderServiceImpl implements OrderService {
 
         orderDTO.setOrderId(order.getOrderId());
         orderDTO.setDate(order.getDate());
+
         orderDTO.setEstimatedAmount(order.getEstimatedAmount());
+        orderDTO.setBindingCost(order.getBindingCost());
+        orderDTO.setCoverTreatmentCost(order.getCoverTreatmentCost());
+        orderDTO.setInnerPaperRate(order.getInnerPaperRate());
+        orderDTO.setOuterPaperRate(order.getOuterPaperRate());
+        orderDTO.setLaminationPrice(order.getLaminationPrice());
+
         orderDTO.setPaperSize(order.getPaperSize());
         orderDTO.setPages(order.getPages());
         orderDTO.setQuantity(order.getQuantity());

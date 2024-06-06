@@ -69,6 +69,23 @@ public class Order {
 
     private OrderStatus status = OrderStatus.PENDING;
 
+    //COSTS
+
+    @Column(precision = 6, scale = 2)
+    private BigDecimal bindingCost;
+
+    @Column(precision = 6, scale = 2)
+    private BigDecimal coverTreatmentCost;
+
+    @Column(precision = 6, scale = 2)
+    private BigDecimal innerPaperRate;
+
+    @Column(precision = 6, scale = 2)
+    private BigDecimal laminationPrice;
+
+    @Column(precision = 6, scale = 2)
+    private BigDecimal outerPaperRate;
+
     @Column(precision = 6, scale = 2)
     private BigDecimal estimatedAmount;
 
