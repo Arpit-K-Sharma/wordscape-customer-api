@@ -50,5 +50,5 @@ public class OrderDTO {
 
     private BigDecimal plateRate;
 
-    private long estimatedAmount;
+    private int estimatedAmount;
 }

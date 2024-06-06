@@ -86,7 +86,7 @@ public class Order {
     @Column(precision = 6, scale = 2)
     private BigDecimal plateRate;
 
-    private long estimatedAmount;
+    private int estimatedAmount;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
