@@ -87,7 +87,7 @@ public class Order {
     private BigDecimal outerPaperRate;
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal estimatedAmount;
+    private Long estimatedAmount;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
