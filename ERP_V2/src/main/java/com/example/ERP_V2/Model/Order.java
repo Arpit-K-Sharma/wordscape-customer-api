@@ -72,22 +72,25 @@ public class Order {
     //COSTS
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal bindingCost;
+    private BigDecimal bindingRate;
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal coverTreatmentCost;
+    private BigDecimal coverTreatmentRate;
 
     @Column(precision = 6, scale = 2)
     private BigDecimal innerPaperRate;
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal laminationPrice;
+    private BigDecimal laminationRate;
 
     @Column(precision = 6, scale = 2)
     private BigDecimal outerPaperRate;
 
     @Column(precision = 6, scale = 2)
-    private Long estimatedAmount;
+    private BigDecimal plateRate;
+
+    @Column(precision = 6, scale = 2)
+    private BigDecimal estimatedAmount;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

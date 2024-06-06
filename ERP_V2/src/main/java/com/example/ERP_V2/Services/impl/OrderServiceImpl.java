@@ -114,11 +114,12 @@ public class OrderServiceImpl implements OrderService {
         order.setPages(orderDTO.getPages());
         order.setQuantity(orderDTO.getQuantity());
         order.setEstimatedAmount(orderDTO.getEstimatedAmount());
-        order.setBindingCost(orderDTO.getBindingCost());
-        order.setCoverTreatmentCost(orderDTO.getCoverTreatmentCost());
+        order.setBindingRate(orderDTO.getBindingRate());
+        order.setCoverTreatmentRate(orderDTO.getCoverTreatmentRate());
         order.setInnerPaperRate(orderDTO.getInnerPaperRate());
-        order.setLaminationPrice(orderDTO.getLaminationPrice());
+        order.setLaminationRate(orderDTO.getLaminationRate());
         order.setOuterPaperRate(orderDTO.getOuterPaperRate());
+        order.setPlateRate(orderDTO.getPlateRate());
 
         // Set Binding
         order.setBinding(bindingRepo.findByBindingType(orderDTO.getBindingType())
@@ -167,11 +168,12 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setDate(order.getDate());
 
         orderDTO.setEstimatedAmount(order.getEstimatedAmount());
-        orderDTO.setBindingCost(order.getBindingCost());
-        orderDTO.setCoverTreatmentCost(order.getCoverTreatmentCost());
+        orderDTO.setBindingRate(order.getBindingRate());
+        orderDTO.setCoverTreatmentRate(order.getCoverTreatmentRate());
         orderDTO.setInnerPaperRate(order.getInnerPaperRate());
         orderDTO.setOuterPaperRate(order.getOuterPaperRate());
-        orderDTO.setLaminationPrice(order.getLaminationPrice());
+        orderDTO.setLaminationRate(order.getLaminationRate());
+        orderDTO.setPlateRate(order.getPlateRate());
 
         orderDTO.setPaperSize(order.getPaperSize());
         orderDTO.setPages(order.getPages());

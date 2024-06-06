@@ -40,15 +40,17 @@ public class OrderDTO {
     private OrderStatus status;
     private String customer;
 
-    private BigDecimal bindingCost;
+    private BigDecimal bindingRate;
 
-    private BigDecimal coverTreatmentCost;
+    private BigDecimal coverTreatmentRate;
 
     private BigDecimal innerPaperRate;
 
-    private BigDecimal laminationPrice;
+    private BigDecimal laminationRate;
 
     private BigDecimal outerPaperRate;
+
+    private BigDecimal plateRate;
 
     private BigDecimal estimatedAmount;
 }
