@@ -4,83 +4,98 @@
     <meta charset="UTF-8">
     <title>Example Email</title>
     <style>
-        /* Import Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Kode+Mono:wght@400..700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=DM+Serif+Display:ital@0;1&family=Kode+Mono:wght@400..700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap');
 
+    body {
+        font-family: 'Archivo', sans-serif;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+        color: #333333;
+    }
 
-        body {
-            font-family: "Archivo", sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            font-family: "Poppins", sans-serif;
-        }
+    .heading {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 20px 0;
+        text-align: left;
+    }
 
-        .heading {
-            color: #333;
-            margin: 25px auto;
-            width: 90%;
-            font-size: 65px;
-            font-optical-sizing: auto;
-            font-style: normal;
-            font-family: "Archivo", sans-serif;
+    .byline {
+        font-size: 16px;
+        margin-bottom: 10px;
+        text-align: left;
+        color: #777;
+    }
 
-            font-variation-settings:
-                    "wdth" 117.6;
-        }
+    .intro, .outro {
+        font-size: 16px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
 
-        .intro, .outro {
-            color: #555;
-            text-align: center;
-            font-size: 24px;
-            font-family: "Archivo", sans-serif;
-        }
+    .invoice-details {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
 
-        .intro span, .outro span {
-            font-weight: bold;
-        }
+    .invoice-details td {
+        padding: 10px;
+        border: 1px solid #dddddd;
+    }
 
-        /* Invoice Styles */
-        .invoice-details {
-            background-color: #000000;
-            width: 60%;
-            margin: 0 auto;
-        }
+    .invoice-details td:first-child {
+        background-color: #f5f5f5;
+        width: 40%;
+    }
 
-        .byline{
-            font-size: 22px;
-            font-family: Archivo, sans-serif;
-        }
+    .invoice-details td:nth-child(2) {
+        text-align: right;
+    }
 
-        .invoice-details td {
-            padding: 8px;
+    .invoice-details tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
 
-            font-size: 18px;
-        }
+    .invoice-details tr:nth-child(even) {
+        background-color: #ffffff;
+    }
 
-        .invoice-details td:first-child {
-            width: 40%;
-        }
+    .invoice-details td {
+        font-size: 14px;
+    }
 
+    .invoice-details td span {
+        font-weight: bold;
+    }
 
+    .footer {
+        text-align: center;
+        font-size: 12px;
+        color: #777777;
+        margin-top: 20px;
+    }
 
-        .invoice-details tr {
-            background-color: #f5f5f5;
-        }
+    .footer a {
+        color: #0000ee;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1 class="heading">Your Invoice by WordScape</h1>
+    <h1 class="heading">Order Invoice</h1>
     <h3 class="byline">by WordScape</h3>
     <h2 class="intro">Dear <span th:text="${name}"></span>,</h2>
     <p class="intro">Your order for the following has been placed.</p>
