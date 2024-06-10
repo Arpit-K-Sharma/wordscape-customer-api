@@ -34,6 +34,8 @@ public class ProjectTracking {
 
     private boolean delivery = false;
 
+    private boolean invoice = false;
+
     @Column(name = "is_end")
     private boolean end = false;
 

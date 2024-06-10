@@ -31,5 +31,7 @@ public class ProjectTrackingDTO {
 
     private boolean delivery = false;
 
+    private boolean invoice = false;
+
     private boolean end = false;
 }

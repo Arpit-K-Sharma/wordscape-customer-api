@@ -59,6 +59,7 @@ public class ProjectTrackingServiceImpl implements ProjectTrackingService {
         projectTracking.setPrinting(projectTrackingDTO.isPrinting());
         projectTracking.setPostPress(projectTrackingDTO.isPostPress());
         projectTracking.setDelivery(projectTrackingDTO.isDelivery());
+        projectTracking.setInvoice(projectTrackingDTO.isInvoice());
         projectTracking.setEnd(projectTrackingDTO.isEnd());
 
         return projectTracking;
@@ -75,6 +76,7 @@ public class ProjectTrackingServiceImpl implements ProjectTrackingService {
         projectTrackingDTO.setPrinting(projectTracking.isPrinting());
         projectTrackingDTO.setPostPress(projectTracking.isPostPress());
         projectTrackingDTO.setDelivery(projectTracking.isDelivery());
+        projectTrackingDTO.setInvoice(projectTracking.isInvoice());
         projectTrackingDTO.setEnd(projectTracking.isEnd());
 
         return projectTrackingDTO;
