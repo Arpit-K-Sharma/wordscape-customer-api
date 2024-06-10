@@ -40,8 +40,8 @@ public class CostServiceImpl implements CostService {
     @Override
     public void addInitialPaperCosts() {
         List<Paper> initialPapers = Arrays.asList(
-                new Paper("Art_Paper", BigDecimal.valueOf(185)),
-                new Paper("Art_Board", BigDecimal.valueOf(185)),
+                new Paper("Art Paper", BigDecimal.valueOf(185)),
+                new Paper("Art Board", BigDecimal.valueOf(185)),
                 new Paper("Ivory", BigDecimal.valueOf(280)),
                 new Paper("Wood Free", BigDecimal.valueOf(200)),
                 new Paper("Off White", BigDecimal.valueOf(250))
@@ -52,7 +52,6 @@ public class CostServiceImpl implements CostService {
     @Override
     public void addInitialPlateCost() {
         List<Plate> initialPLateCosts = Arrays.asList(
-                new Plate("18 X 24", BigDecimal.valueOf(400), BigDecimal.valueOf(350)),
                 new Plate("19 X 25", BigDecimal.valueOf(300), BigDecimal.valueOf(200)),
                 new Plate("20 X 30", BigDecimal.valueOf(500), BigDecimal.valueOf(500))
         );
@@ -94,8 +93,9 @@ public class CostServiceImpl implements CostService {
     @Override
     public void addInitialInks() {
         List<Ink> initialInks = Arrays.asList(
-                new Ink("Black and White"),
-                new Ink("CMYK")
+                new Ink("B/W"),
+                new Ink("CMYK"),
+                new Ink("Spot")
         );
         inkRepo.saveAll(initialInks);
     }
@@ -113,9 +113,13 @@ public class CostServiceImpl implements CostService {
     @Override
     public void addInitialPaperThicknesses() {
         List<PaperThickness> initialThicknesses = Arrays.asList(
+                new PaperThickness(70),
+                new PaperThickness(80),
+                new PaperThickness(90),
                 new PaperThickness(100),
                 new PaperThickness(110),
                 new PaperThickness(120),
+                new PaperThickness(128),
                 new PaperThickness(130),
                 new PaperThickness(140),
                 new PaperThickness(150),
