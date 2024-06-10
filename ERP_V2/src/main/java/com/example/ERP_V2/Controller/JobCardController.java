@@ -20,6 +20,13 @@ public class JobCardController {
         return ResponseEntity.ok("JobCard Added !!!");
     }
 
+    @PutMapping("/update/{order_id}")
+    public ResponseEntity<String> updateJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO){
+//        jobCardService.updateJobCard(order_id, jobCardDTO);
+        return ResponseEntity.ok("JobCard Updated !!!");
+
+    }
+
     @GetMapping("/{id}")
     public Order getJobCard(@PathVariable int id){
         return jobCardService.getJobCardById(id);

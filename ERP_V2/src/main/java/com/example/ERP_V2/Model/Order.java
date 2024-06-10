@@ -26,6 +26,8 @@ public class Order {
     @Column(nullable = false)
     private Date date;
 
+    private Date deadline;
+
     @Column(length = 15)
     private String paperSize;
 

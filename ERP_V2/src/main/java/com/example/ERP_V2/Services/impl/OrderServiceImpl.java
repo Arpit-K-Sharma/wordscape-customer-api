@@ -110,6 +110,7 @@ public class OrderServiceImpl implements OrderService {
     private Order covertToOrder(int id, OrderDTO orderDTO){
         Order order = new Order();
         order.setDate(new Date());
+        order.setDeadline(orderDTO.getDeadline());
         order.setPaperSize(orderDTO.getPaperSize());
         order.setPages(orderDTO.getPages());
         order.setQuantity(orderDTO.getQuantity());
@@ -165,7 +166,7 @@ public class OrderServiceImpl implements OrderService {
 
         orderDTO.setOrderId(order.getOrderId());
         orderDTO.setDate(order.getDate());
-
+        orderDTO.setDeadline(order.getDeadline());
         orderDTO.setEstimatedAmount(order.getEstimatedAmount());
         orderDTO.setBindingRate(order.getBindingRate());
         orderDTO.setInnerPaperRate(order.getInnerPaperRate());

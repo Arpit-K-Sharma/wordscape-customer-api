@@ -24,6 +24,8 @@ public class JobCardDTO {
 
     private PrePressUnit prePressUnitList;
 
+    private Date deadline;
+
     @JsonProperty("deliveryDetail")
     private Delivery delivery;
 

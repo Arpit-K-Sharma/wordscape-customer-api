@@ -89,6 +89,7 @@ public class JobCardServiceImpl implements JobCardService {
         // Update the properties of the Order entity
         oldOrder.setPrePressUnitList(jobCardDTO.getPrePressUnitList());
         oldOrder.setDelivery(jobCardDTO.getDelivery());
+        oldOrder.setDeadline(jobCardDTO.getDeadline());
         oldOrder.setPrePressData(jobCardDTO.getPrePressData());
         oldOrder.setPaperDetailData(jobCardDTO.getPaperDetailData());
         oldOrder.setPlateDetailData(jobCardDTO.getPlateDetailData());

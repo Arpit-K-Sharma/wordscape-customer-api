@@ -22,6 +22,7 @@ public class OrderDTO {
 
     private int orderId;
     private Date date;
+    private Date deadline;
     private String paperSize;
     private int pages;
     private int quantity;
