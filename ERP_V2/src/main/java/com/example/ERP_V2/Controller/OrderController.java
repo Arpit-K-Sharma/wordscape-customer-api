@@ -21,7 +21,7 @@ public class OrderController {
     @PostMapping("{id}")
     public ResponseEntity<String> addOrder(@PathVariable int id,@RequestBody OrderDTO orderDTO) throws MessagingException {
         this.orderService.handleOrder(id, orderDTO);
-        return ResponseEntity.ok("Order Added !!!");
+        return ResponseEntity.ok("Order Added !!! The order invoice is being sent !!!");
     }
 
     @GetMapping
