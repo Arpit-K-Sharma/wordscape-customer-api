@@ -75,9 +75,6 @@ public class Order {
     private BigDecimal bindingRate;
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal coverTreatmentRate;
-
-    @Column(precision = 6, scale = 2)
     private BigDecimal innerPaperRate;
 
     @Column(precision = 6, scale = 2)
@@ -89,8 +86,7 @@ public class Order {
     @Column(precision = 6, scale = 2)
     private BigDecimal plateRate;
 
-    @Column(precision = 6, scale = 2)
-    private BigDecimal estimatedAmount;
+    private int estimatedAmount;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

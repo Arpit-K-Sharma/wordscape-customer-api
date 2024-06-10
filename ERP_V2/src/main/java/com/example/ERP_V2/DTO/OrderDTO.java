@@ -42,8 +42,6 @@ public class OrderDTO {
 
     private BigDecimal bindingRate;
 
-    private BigDecimal coverTreatmentRate;
-
     private BigDecimal innerPaperRate;
 
     private BigDecimal laminationRate;
@@ -52,5 +50,5 @@ public class OrderDTO {
 
     private BigDecimal plateRate;
 
-    private BigDecimal estimatedAmount;
+    private int estimatedAmount;
 }

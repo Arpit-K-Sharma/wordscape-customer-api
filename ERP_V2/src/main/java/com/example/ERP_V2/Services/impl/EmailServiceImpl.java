@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -16,9 +18,11 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.nio.file.Path;
+import java.util.concurrent.CompletableFuture;
 
 
 @Service
+@EnableAsync
 public class EmailServiceImpl implements EmailService {
 
     @Autowired
@@ -40,42 +44,48 @@ public class EmailServiceImpl implements EmailService {
         emailSender.send(message);
     }
 
+    @Async
     @Override
-    public void sendHTMLEmail(Customer customer, OrderDTO orderDTO) throws MessagingException {
-        MimeMessage message = emailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+    public CompletableFuture<Void> sendHTMLEmail(Customer customer, OrderDTO orderDTO) {
+        try {
+            MimeMessage message = emailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setTo(customer.getEmail());
-        helper.setSubject("Order Invoice");
+            helper.setTo(customer.getEmail());
+            helper.setSubject("Order Invoice");
 
-        // Load the HTML template
-        Context context = new Context();
-        context.setVariable("name", customer.getFullName());
-        context.setVariable("paperSize", orderDTO.getPaperSize());
-        context.setVariable("pages", orderDTO.getPages());
-        context.setVariable("quantity", orderDTO.getQuantity());
-        context.setVariable("bindingType", orderDTO.getBindingType());
-        context.setVariable("coverTreatment", orderDTO.getCoverTreatmentType());
-        context.setVariable("innerPaperType", orderDTO.getInnerPaperType());
-        context.setVariable("innerPaperThickness", orderDTO.getInnerPaperThickness());
-        context.setVariable("outerPaperType", orderDTO.getOuterPaperType());
-        context.setVariable("outerPaperThickness", orderDTO.getOuterPaperThickness());
-        context.setVariable("laminationType", orderDTO.getLaminationType());
-        context.setVariable("inkType", orderDTO.getInkType());
-        context.setVariable("remarks", orderDTO.getRemarks());
+            // Load the HTML template
+            Context context = new Context();
+            context.setVariable("name", customer.getFullName());
+            context.setVariable("paperSize", orderDTO.getPaperSize());
+            context.setVariable("pages", orderDTO.getPages());
+            context.setVariable("quantity", orderDTO.getQuantity());
+            context.setVariable("bindingType", orderDTO.getBindingType());
+            context.setVariable("coverTreatment", orderDTO.getCoverTreatmentType());
+            context.setVariable("innerPaperType", orderDTO.getInnerPaperType());
+            context.setVariable("innerPaperThickness", orderDTO.getInnerPaperThickness());
+            context.setVariable("outerPaperType", orderDTO.getOuterPaperType());
+            context.setVariable("outerPaperThickness", orderDTO.getOuterPaperThickness());
+            context.setVariable("laminationType", orderDTO.getLaminationType());
+            context.setVariable("inkType", orderDTO.getInkType());
+            context.setVariable("remarks", orderDTO.getRemarks());
 
-        String htmlContent = templateEngine.process("email-template", context);
+            String htmlContent = templateEngine.process("email-template", context);
 
-        File pdfFile = html2PdfServiceImpl.htmlToPdf(htmlContent, customer, orderDTO);
+            File pdfFile = html2PdfServiceImpl.htmlToPdf(htmlContent, customer, orderDTO);
 
+            // Set the HTML content
+            helper.setText(htmlContent, true);
 
-        // Set the HTML content
-        helper.setText(htmlContent, true);
+            helper.addAttachment(pdfFile.getName(), pdfFile);
 
+            emailSender.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            // Log or handle the exception as needed
+        }
 
-        helper.addAttachment(pdfFile.getName(), pdfFile);
-
-        emailSender.send(message);
+        return CompletableFuture.completedFuture(null);
     }
 
 
