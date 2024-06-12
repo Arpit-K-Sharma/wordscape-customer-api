@@ -131,7 +131,7 @@ public class OrderServiceImpl implements OrderService {
 
         //Set InnerPaperType
         order.setInnerPaper(paperRepo.findByPaperType(orderDTO.getInnerPaperType())
-                .orElseThrow(() -> new IllegalArgumentException("Paper not found with name: " + orderDTO.getCoverTreatmentType())));
+                .orElseThrow(() -> new IllegalArgumentException("Paper not found with name: " + orderDTO.getInnerPaperType())));
 
         order.setInnerPaperThickness(orderDTO.getInnerPaperThickness());
 
