@@ -64,8 +64,10 @@ public class CostServiceImpl implements CostService {
                 new Binding("Center Stitch", BigDecimal.valueOf(50)),
                 new Binding("Juju", BigDecimal.valueOf(150)),
                 new Binding("Wiro", BigDecimal.valueOf(100)),
-                new Binding("Spiral", BigDecimal.valueOf(120))
-        );
+                new Binding("Spiral", BigDecimal.valueOf(120)),
+                new Binding("Perforation", BigDecimal.valueOf(100)),
+                new Binding("Padding", BigDecimal.valueOf(100))
+                );
         bindingRepo.saveAll(initialBindingCosts);
     }
 
@@ -127,7 +129,17 @@ public class CostServiceImpl implements CostService {
                 new PaperThickness(170),
                 new PaperThickness(180),
                 new PaperThickness(190),
-                new PaperThickness(200)
+                new PaperThickness(200),
+                new PaperThickness(210),
+                new PaperThickness(220),
+                new PaperThickness(230),
+                new PaperThickness(240),
+                new PaperThickness(250),
+                new PaperThickness(260),
+                new PaperThickness(270),
+                new PaperThickness(280),
+                new PaperThickness(290),
+                new PaperThickness(300)
         );
         paperThicknessRepo.saveAll(initialThicknesses);
     }
