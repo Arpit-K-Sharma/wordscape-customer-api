@@ -279,8 +279,9 @@ public class OrderServiceImpl implements OrderService {
         order3.setInnerPaperThickness(140);
         order3.setOuterPaper(outerPaper); // Replace with actual Paper object if available
         order3.setOuterPaperThickness(220);
-        order2.setInnerLamination(lamination); // Replace with actual Lamination object if available
-        order2.setOuterLamination(lamination); // Replace with actual Lamination object if available        order3.setPlate(plate); // Replace with actual Plate object if available
+        order3.setInnerLamination(lamination); // Replace with actual Lamination object if available
+        order3.setOuterLamination(lamination); // Replace with actual Lamination object if available
+        order3.setPlate(plate); // Replace with actual Plate object if available
         order3.setInkType("CMYK");
         order3.setRemarks("Sample order 3");
         order3.setCustomer(dummyCustomer);
