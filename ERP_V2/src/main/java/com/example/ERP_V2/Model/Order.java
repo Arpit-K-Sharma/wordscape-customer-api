@@ -66,6 +66,8 @@ public class Order {
     @Column(length = 20)
     private String inkType;
 
+    private String deliveryOption;
+
     @Column
     private String remarks;
 

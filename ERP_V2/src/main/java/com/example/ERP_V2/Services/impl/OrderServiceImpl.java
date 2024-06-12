@@ -119,6 +119,7 @@ public class OrderServiceImpl implements OrderService {
         order.setInnerPaperRate(orderDTO.getInnerPaperRate());
         order.setLaminationRate(orderDTO.getLaminationRate());
         order.setOuterPaperRate(orderDTO.getOuterPaperRate());
+        order.setDeliveryOption(orderDTO.getDeliveryOption());
         order.setPlateRate(orderDTO.getPlateRate());
 
         // Set Binding
@@ -189,6 +190,8 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setRemarks(order.getRemarks());
         orderDTO.setStatus(order.getStatus());
         orderDTO.setCustomer(order.getCustomer().getFullName());
+
+        orderDTO.setDeliveryOption(order.getDeliveryOption());
 
         return orderDTO;
     }
