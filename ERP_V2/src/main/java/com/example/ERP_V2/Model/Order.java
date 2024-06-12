@@ -56,8 +56,12 @@ public class Order {
     private int outerPaperThickness;
 
     @ManyToOne
-    @JoinColumn(name = "lamination_type_id")
-    private Lamination lamination;
+    @JoinColumn(name = "inner_lamination_type_id")
+    private Lamination innerLamination;
+
+    @ManyToOne
+    @JoinColumn(name = "outer_lamination_type_id")
+    private Lamination outerLamination;
 
     @ManyToOne
     @JoinColumn(name = "plate_size_id")

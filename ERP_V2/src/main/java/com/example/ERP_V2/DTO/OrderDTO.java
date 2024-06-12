@@ -32,7 +32,8 @@ public class OrderDTO {
     private int innerPaperThickness;
     private String outerPaperType;
     private int outerPaperThickness;
-    private String laminationType;
+    private String innerLamination;
+    private String outerLamination;
     private String plateSize;
     private String inkType;
     private String deliveryOption;

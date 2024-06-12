@@ -143,8 +143,11 @@ public class OrderServiceImpl implements OrderService {
         order.setOuterPaperThickness(orderDTO.getOuterPaperThickness());
 
         // Set Lamination
-        order.setLamination(laminationRepo.findByLaminationType(orderDTO.getLaminationType())
-                .orElseThrow(() -> new IllegalArgumentException("Lamination not found with name: " + orderDTO.getLaminationType())));
+        order.setInnerLamination(laminationRepo.findByLaminationType(orderDTO.getInnerLamination())
+                .orElseThrow(() -> new IllegalArgumentException("Lamination not found with name: " + orderDTO.getInnerLamination())));
+
+        order.setOuterLamination(laminationRepo.findByLaminationType(orderDTO.getOuterLamination())
+                .orElseThrow(() -> new IllegalArgumentException("Lamination not found with name: " + orderDTO.getOuterLamination())));
 
 //        // Set Plate
 //        order.setPlate(plateRepo.findByPlateSize(orderDTO.getPlateSize())
@@ -184,7 +187,8 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setInnerPaperThickness(order.getInnerPaperThickness());
         orderDTO.setOuterPaperType(order.getOuterPaper().getPaperType());
         orderDTO.setOuterPaperThickness(order.getOuterPaperThickness());
-        orderDTO.setLaminationType(order.getLamination().getLaminationType());
+        orderDTO.setInnerLamination(order.getInnerLamination().getLaminationType());
+        orderDTO.setOuterLamination(order.getOuterLamination().getLaminationType());
 //        orderDTO.setPlateSize(order.getPlate().getPlateSize());
         orderDTO.setInkType(order.getInkType());
         orderDTO.setRemarks(order.getRemarks());
@@ -233,7 +237,8 @@ public class OrderServiceImpl implements OrderService {
         order1.setInnerPaperThickness(120);
         order1.setOuterPaper(outerPaper); // Replace with actual Paper object if available
         order1.setOuterPaperThickness(200);
-        order1.setLamination(lamination); // Replace with actual Lamination object if available
+        order1.setInnerLamination(lamination); // Replace with actual Lamination object if available
+        order1.setOuterLamination(lamination); // Replace with actual Lamination object if available
         order1.setPlate(plate); // Replace with actual Plate object if available
         order1.setInkType("CMYK");
         order1.setRemarks("Sample order 1");
@@ -253,7 +258,8 @@ public class OrderServiceImpl implements OrderService {
         order2.setInnerPaperThickness(130);
         order2.setOuterPaper(outerPaper); // Replace with actual Paper object if available
         order2.setOuterPaperThickness(210);
-        order2.setLamination(lamination); // Replace with actual Lamination object if available
+        order2.setInnerLamination(lamination); // Replace with actual Lamination object if available
+        order2.setOuterLamination(lamination); // Replace with actual Lamination object if available
         order2.setPlate(plate); // Replace with actual Plate object if available
         order2.setInkType("RGB");
         order2.setRemarks("Sample order 2");
@@ -273,8 +279,8 @@ public class OrderServiceImpl implements OrderService {
         order3.setInnerPaperThickness(140);
         order3.setOuterPaper(outerPaper); // Replace with actual Paper object if available
         order3.setOuterPaperThickness(220);
-        order3.setLamination(lamination); // Replace with actual Lamination object if available
-        order3.setPlate(plate); // Replace with actual Plate object if available
+        order2.setInnerLamination(lamination); // Replace with actual Lamination object if available
+        order2.setOuterLamination(lamination); // Replace with actual Lamination object if available        order3.setPlate(plate); // Replace with actual Plate object if available
         order3.setInkType("CMYK");
         order3.setRemarks("Sample order 3");
         order3.setCustomer(dummyCustomer);
