@@ -69,7 +69,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public List<CustomerDTO> getAllCustomers(Integer pageSize, Integer pageNumber) {
+    public List<CustomerDTO> getAllCustomers(Integer pageNumber, Integer pageSize) {
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         Page<Customer> pagedResult = this.customerRepo.findAll(pageable);

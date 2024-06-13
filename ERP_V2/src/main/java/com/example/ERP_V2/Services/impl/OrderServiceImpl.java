@@ -17,6 +17,7 @@ import javax.mail.MessagingException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -70,13 +71,21 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderDTO> getAllOrders(Integer pageNumber,Integer pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        Page<Order> pagedResult = this.orderRepo.findAll(pageable);
+        Page<Order> pagedResult = orderRepo.findAll(pageable);
 
-        List<Order> allOrder = pagedResult.getContent();
 
-        return allOrder.stream()
-                .map(this::convertToOrderDTO)
-                .collect(Collectors.toList());
+        System.out.println("Page Number: " + pageNumber);
+        System.out.println("Page Size: " + pageSize);
+        System.out.println("Total Elements: " + pagedResult.getTotalElements());
+        System.out.println("Total Pages: " + pagedResult.getTotalPages());
+
+        if (pagedResult.hasContent()) {
+            return pagedResult.getContent().stream()
+                    .map(this::convertToOrderDTO)
+                    .collect(Collectors.toList());
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     @Override
