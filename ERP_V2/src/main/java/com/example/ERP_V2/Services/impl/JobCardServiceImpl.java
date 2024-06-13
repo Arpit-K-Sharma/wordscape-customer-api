@@ -122,6 +122,10 @@ public class JobCardServiceImpl implements JobCardService {
             oldOrder.setBindingData(jobCardDTO.getBindingData());
         }
 
+        if(jobCardDTO.getCostCalculation() != null){
+            oldOrder.setCostCalculation(jobCardDTO.getCostCalculation());
+        }
+
     }
 
     private Order convertToOrder(int orderId, JobCardDTO jobCardDTO) {
@@ -136,6 +140,7 @@ public class JobCardServiceImpl implements JobCardService {
         jobCardDTO.getPaperData().setOrder(oldOrder);
         jobCardDTO.getPressUnitData().setOrder(oldOrder);
         jobCardDTO.getBindingData().setOrder(oldOrder);
+        jobCardDTO.getCostCalculation().setOrder(oldOrder);
 
         //Set rest foreign keys
         PlateDetailData plateDetailData = jobCardDTO.getPlateDetailData();
@@ -178,6 +183,7 @@ public class JobCardServiceImpl implements JobCardService {
         oldOrder.setPaperData(jobCardDTO.getPaperData());
         oldOrder.setPressUnitData(jobCardDTO.getPressUnitData());
         oldOrder.setBindingData(jobCardDTO.getBindingData());
+        oldOrder.setCostCalculation(jobCardDTO.getCostCalculation());
         oldOrder.setStatus(OrderStatus.APPROVED);
         return oldOrder;
     }

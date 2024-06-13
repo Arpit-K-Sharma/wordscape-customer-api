@@ -34,7 +34,7 @@ public class CostCalculation {
 
     private String approvedBy;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id")
     private Order order;
 

@@ -39,6 +39,8 @@ public class JobCardDTO {
 
     private PressUnitData pressUnitData;
 
+    private CostCalculation costCalculation;
+
     @JsonProperty("binderyData")
     private BindingData bindingData;
 }

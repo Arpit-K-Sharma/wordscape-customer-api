@@ -134,8 +134,8 @@ public class Order {
     private BindingData bindingData;
 
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<CostCalculation> costCalculationList = new ArrayList<>();
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private CostCalculation costCalculation;
 
     @OneToOne
     private ProjectTracking projectTracking;
