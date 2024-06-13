@@ -96,6 +96,9 @@ public class Order {
 
     private int estimatedAmount;
 
+    @Column(name = "pdf_filename")
+    private String pdfFilename;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
