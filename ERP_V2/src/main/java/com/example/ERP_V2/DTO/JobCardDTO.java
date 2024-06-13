@@ -22,9 +22,9 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobCardDTO {
 
-    private PrePressUnit prePressUnitList;
-
     private Date deadline;
+
+    private PrePressUnit prePressUnitList;
 
     @JsonProperty("deliveryDetail")
     private Delivery delivery;
@@ -38,6 +38,8 @@ public class JobCardDTO {
     private PaperData paperData;
 
     private PressUnitData pressUnitData;
+
+    private CostCalculation costCalculation;
 
     @JsonProperty("binderyData")
     private BindingData bindingData;

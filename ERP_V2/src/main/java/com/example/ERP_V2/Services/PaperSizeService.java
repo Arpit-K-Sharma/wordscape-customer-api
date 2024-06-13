@@ -15,4 +15,3 @@ public interface PaperSizeService {
 
     void deletePaperSize(int paperSizeId);  // Delete PaperSize
 }
-

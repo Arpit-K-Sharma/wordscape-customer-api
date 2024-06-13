@@ -22,7 +22,7 @@ public class JobCardController {
 
     @PutMapping("/update/{order_id}")
     public ResponseEntity<String> updateJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO){
-//        jobCardService.updateJobCard(order_id, jobCardDTO);
+        jobCardService.updateJobCard(order_id, jobCardDTO);
         return ResponseEntity.ok("JobCard Updated !!!");
 
     }

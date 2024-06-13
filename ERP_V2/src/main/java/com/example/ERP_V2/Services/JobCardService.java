@@ -7,4 +7,6 @@ public interface JobCardService {
     void createJobCard(int orderId, JobCardDTO jobCardDTO);
 
     Order getJobCardById(int id);
+
+    void updateJobCard(int orderId, JobCardDTO jobCardDTO);
 }

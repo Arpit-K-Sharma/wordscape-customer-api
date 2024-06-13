@@ -14,8 +14,7 @@ import java.math.BigDecimal;
 public class CostCalculation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int costCalculationId;
+    private String costCalculationId;
 
     private BigDecimal plates;
     private BigDecimal printing;
@@ -35,7 +34,7 @@ public class CostCalculation {
 
     private String approvedBy;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id")
     private Order order;
 

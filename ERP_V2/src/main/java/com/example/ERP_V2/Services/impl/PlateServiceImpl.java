@@ -21,7 +21,7 @@ public class PlateServiceImpl implements PlateService {
 
     @Override
     public void createPlate(Plate plate) {
-         plateRepository.save(plate);
+        plateRepository.save(plate);
     }
 
     @Override

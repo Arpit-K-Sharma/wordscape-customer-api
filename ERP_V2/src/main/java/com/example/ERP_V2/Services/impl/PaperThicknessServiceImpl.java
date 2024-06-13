@@ -43,4 +43,3 @@ public class PaperThicknessServiceImpl implements PaperThicknessService {
         paperThicknessRepository.delete(existingThickness);
     }
 }
-

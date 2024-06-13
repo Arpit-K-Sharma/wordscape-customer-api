@@ -51,4 +51,3 @@ public class PaperSizeServiceImpl implements PaperSizeService {
         paperSizeRepository.delete(existingPaperSize);
     }
 }
-

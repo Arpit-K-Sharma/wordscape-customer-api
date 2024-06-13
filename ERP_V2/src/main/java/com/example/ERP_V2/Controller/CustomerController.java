@@ -25,8 +25,11 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
-        List<CustomerDTO> customers = customerService.getAllCustomers();
+    public ResponseEntity<List<CustomerDTO>> getAllCustomers(
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(value = "pageNumber", defaultValue = "1", required = false) Integer pageNumber
+    ) {
+        List<CustomerDTO> customers = customerService.getAllCustomers(pageSize, pageNumber);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
