@@ -27,4 +27,3 @@ public class Binding {
         this.rate = rate;
     }
 }
-

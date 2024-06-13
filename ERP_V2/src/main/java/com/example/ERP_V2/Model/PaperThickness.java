@@ -23,4 +23,3 @@ public class PaperThickness {
         this.thickness = thickness;
     }
 }
-

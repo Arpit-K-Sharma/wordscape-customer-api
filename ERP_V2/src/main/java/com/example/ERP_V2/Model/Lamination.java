@@ -26,5 +26,3 @@ public class Lamination {
         this.rate = rate;
     }
 }
-
-

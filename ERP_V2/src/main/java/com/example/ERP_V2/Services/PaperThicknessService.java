@@ -15,4 +15,3 @@ public interface PaperThicknessService {
 
     void deletePaperThickness(int thicknessId);  // Delete PaperThickness
 }
-
