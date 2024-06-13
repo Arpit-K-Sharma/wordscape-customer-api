@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.DTO.PdfUploadDTO;
 import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,23 @@ public class OrderController {
     public ResponseEntity<String> addOrder(@PathVariable int id,@RequestBody OrderDTO orderDTO) throws MessagingException {
         this.orderService.handleOrder(id, orderDTO);
         return ResponseEntity.ok("Order Added !!! The order invoice is being sent !!!");
+    }
+
+    @PostMapping("/files")
+    public ResponseEntity<String> uploadPDF(@ModelAttribute PdfUploadDTO pdfUploadDTO){
+        String filename = this.orderService.savePdfFile(pdfUploadDTO);
+        return ResponseEntity.ok(filename);
+    }
+
+    @GetMapping("files/download/{orderId}")
+    public ResponseEntity<byte[]> downloadOrderPdf(@PathVariable int orderId) {
+        byte[] pdfData = orderService.getOrderPdf(orderId);
+        if (pdfData == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "attachment; filename=order_" + orderId + ".pdf")
+                .body(pdfData);
     }
 
     @GetMapping

@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -42,6 +43,8 @@ public class OrderDTO {
     private String address;
     private OrderStatus status;
     private String customer;
+
+    private String pdfFile;
 
     private BigDecimal bindingRate;
 
