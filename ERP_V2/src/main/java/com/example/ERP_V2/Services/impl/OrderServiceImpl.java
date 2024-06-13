@@ -8,6 +8,9 @@ import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.Services.OrderService;
 import com.example.ERP_V2.enums.OrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
@@ -52,7 +55,7 @@ public class OrderServiceImpl implements OrderService {
     public void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException {
         Order order = this.covertToOrder(customer_id, orderDTO);
 
-        ProjectTracking projectTracking =  new ProjectTracking();
+        ProjectTracking projectTracking = new ProjectTracking();
         projectTracking.setOrderSlip(true);
         order.setProjectTracking(projectTracking);
 
@@ -61,12 +64,17 @@ public class OrderServiceImpl implements OrderService {
         Order savedOrder = this.orderRepo.save(order);
 
         orderDTO.setOrderId(savedOrder.getOrderId());
-        emailService.sendHTMLEmail(order.getCustomer(),orderDTO);
+        emailService.sendHTMLEmail(order.getCustomer(), orderDTO);
     }
 
     @Override
-    public List<OrderDTO> getAllOrders() {
-        return this.orderRepo.findAll().stream()
+    public List<OrderDTO> getAllOrders(Integer pageNumber,Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<Order> pagedResult = this.orderRepo.findAll(pageable);
+
+        List<Order> allOrder = pagedResult.getContent();
+
+        return allOrder.stream()
                 .map(this::convertToOrderDTO)
                 .collect(Collectors.toList());
     }
@@ -74,7 +82,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public byte[] getInvoiceById(int id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found with id: " + id));
-        String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
+        String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ", "_");
         String filePath = "ERP_V2/src/main/resources/static/invoice/" + filename + ".pdf";
         File pdfFile = new File(filePath);
 
@@ -107,7 +115,7 @@ public class OrderServiceImpl implements OrderService {
         return this.orderRepo.findAllByCustomerId(id);
     }
 
-    private Order covertToOrder(int id, OrderDTO orderDTO){
+    private Order covertToOrder(int id, OrderDTO orderDTO) {
         Order order = new Order();
         order.setDate(new Date());
         order.setDeadline(orderDTO.getDeadline());
@@ -165,7 +173,7 @@ public class OrderServiceImpl implements OrderService {
         return order;
     }
 
-    private OrderDTO convertToOrderDTO(Order order){
+    private OrderDTO convertToOrderDTO(Order order) {
         OrderDTO orderDTO = new OrderDTO();
 
         orderDTO.setOrderId(order.getOrderId());

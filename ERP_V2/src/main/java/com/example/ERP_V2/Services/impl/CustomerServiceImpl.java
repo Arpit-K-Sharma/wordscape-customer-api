@@ -4,6 +4,7 @@ import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.UserDTO;
 import com.example.ERP_V2.Model.Admin;
 import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Repository.AdminRepo;
 import com.example.ERP_V2.Repository.CustomerRepo;
@@ -11,6 +12,9 @@ import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.CustomerService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -65,11 +69,16 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public List<CustomerDTO> getAllCustomers() {
-        return customerRepo.findAll()
-                .stream()  // Convert the list to a stream
-                .map(this::convertToDTO)  // Convert each Customer to CustomerDTO
-                .collect(Collectors.toList());  // Collect the results into a list
+    public List<CustomerDTO> getAllCustomers(Integer pageSize, Integer pageNumber) {
+
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<Customer> pagedResult = this.customerRepo.findAll(pageable);
+
+        List<Customer> allCustomer = pagedResult.getContent();
+
+        return allCustomer.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override

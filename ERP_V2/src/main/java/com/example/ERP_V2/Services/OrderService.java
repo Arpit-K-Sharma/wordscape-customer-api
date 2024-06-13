@@ -10,7 +10,7 @@ import java.util.List;
 public interface OrderService {
     void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException;
 
-    List<OrderDTO> getAllOrders();
+    List<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize);
 
     byte[] getInvoiceById(int id);
 

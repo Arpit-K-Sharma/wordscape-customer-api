@@ -25,6 +25,11 @@ public class User {
     @Column(length = 60)
     private String email;
 
+    private String address;
+
+    private long phoneNumber;
+
+
     @Column
     private boolean status = true;
 

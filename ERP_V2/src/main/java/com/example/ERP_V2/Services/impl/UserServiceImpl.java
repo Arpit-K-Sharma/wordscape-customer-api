@@ -1,15 +1,19 @@
 package com.example.ERP_V2.Services.impl;
 
-import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.DTO.UserDTO;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,8 +31,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDTO> getAllUsers(Integer pageSize, Integer pageNumber) {
+
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<User> pagedResult = this.userRepository.findAll(pageable);
+
+        List<User> allUser = pagedResult.getContent();
+
+        return allUser.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -81,5 +93,19 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found !!!"));
         user.setStatus(true);
         this.userRepository.save(user);
+    }
+
+    private UserDTO convertToDTO(User user){
+
+        UserDTO userDTO = new UserDTO();
+
+        userDTO.setUserId(user.getUserId());
+        userDTO.setFullName(user.getFullName());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setAddress(user.getAddress());
+        userDTO.setPhoneNumber(user.getPhoneNumber());
+        userDTO.setStatus(user.isStatus());
+
+        return userDTO;
     }
 }

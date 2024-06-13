@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Controller;
 
+import com.example.ERP_V2.DTO.UserDTO;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,11 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<UserDTO>> getAllUsers(
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(value = "pageNumber", defaultValue = "1", required = false) Integer pageNumber
+    ) {
+        List<UserDTO> users = userService.getAllUsers(pageSize, pageNumber);
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 

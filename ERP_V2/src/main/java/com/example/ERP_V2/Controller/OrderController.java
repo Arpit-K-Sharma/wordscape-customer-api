@@ -25,8 +25,11 @@ public class OrderController {
     }
 
     @GetMapping
-    public ResponseEntity<List<OrderDTO>> getAllOrders(){
-        List<OrderDTO> orderDTOList = this.orderService.getAllOrders();
+    public ResponseEntity<List<OrderDTO>> getAllOrders(
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(value = "pageNumber", defaultValue = "1", required = false) Integer pageNumber
+    ){
+        List<OrderDTO> orderDTOList = this.orderService.getAllOrders(pageSize, pageNumber);
         return ResponseEntity.ok(orderDTOList);
     }
 
