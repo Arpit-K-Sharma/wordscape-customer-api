@@ -41,7 +41,9 @@ public class JobCardServiceImpl implements JobCardService {
 
     @Override
     public Order getJobCardById(int id) {
-        return this.orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found"));
+        Order order = orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found"));
+        order.getCustomer().setPassword(null);
+        return order;
     }
 
     @Override
@@ -119,16 +121,6 @@ public class JobCardServiceImpl implements JobCardService {
         if (jobCardDTO.getBindingData() != null) {
             oldOrder.setBindingData(jobCardDTO.getBindingData());
         }
-
-        //Set rest foreign keys
-
-
-        //PAPER DATA
-
-
-        //PRESSUNITDATA
-
-
 
     }
 
