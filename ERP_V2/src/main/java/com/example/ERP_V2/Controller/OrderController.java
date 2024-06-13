@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/orders")
@@ -26,9 +28,14 @@ public class OrderController {
     }
 
     @PostMapping("/files")
-    public ResponseEntity<String> uploadPDF(@ModelAttribute PdfUploadDTO pdfUploadDTO){
+    public ResponseEntity<Map<String, String>> uploadPDF(@ModelAttribute PdfUploadDTO pdfUploadDTO){
         String filename = this.orderService.savePdfFile(pdfUploadDTO);
-        return ResponseEntity.ok(filename);
+
+        // Prepare JSON response
+        Map<String, String> response = new HashMap<>();
+        response.put("filename", filename);
+
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("files/download/{orderId}")
