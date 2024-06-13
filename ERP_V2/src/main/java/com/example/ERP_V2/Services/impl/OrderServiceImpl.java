@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import javax.mail.MessagingException;
 import java.io.File;
@@ -109,8 +112,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderDTO> getAllOrders() {
-        return this.orderRepo.findAll().stream()
+    public List<OrderDTO> getAllOrders(Integer pageNumber,Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        Page<Order> pagedResult = this.orderRepo.findAll(pageable);
+
+        List<Order> allOrder = pagedResult.getContent();
+
+        return allOrder.stream()
                 .map(this::convertToOrderDTO)
                 .collect(Collectors.toList());
     }
