@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
+import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,13 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CustomerDTO>> getAllCustomers(
+    public ResponseEntity<PaginatedResponse<CustomerDTO>> getAllCustomers(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
             @RequestParam(value = "sortField", defaultValue = "customerId", required = false) String sortField,
             @RequestParam(value = "sortDirection", defaultValue = "desc", required = false) String sortDirection
     ) {
-        List<CustomerDTO> customers = customerService.getAllCustomers(pageNumber, pageSize, sortField, sortDirection);
+        PaginatedResponse<CustomerDTO> customers = customerService.getAllCustomers(pageNumber, pageSize, sortField, sortDirection);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 

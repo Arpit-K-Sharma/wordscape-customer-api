@@ -1,6 +1,8 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
+import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.DTO.UserDTO;
 import com.example.ERP_V2.Model.Admin;
 import com.example.ERP_V2.Model.Customer;
@@ -21,6 +23,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -71,7 +74,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public List<CustomerDTO> getAllCustomers(Integer pageNumber, Integer pageSize, String sortField, String sortDirection) {
+    public PaginatedResponse<CustomerDTO> getAllCustomers(Integer pageNumber, Integer pageSize, String sortField, String sortDirection) {
 
         checkValidSortFields(sortField);
 
@@ -81,9 +84,14 @@ public class CustomerServiceImpl implements CustomerService {
 
         List<Customer> allCustomer = pagedResult.getContent();
 
-        return allCustomer.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+        List<CustomerDTO> customers = pagedResult.hasContent() ?
+                pagedResult.getContent().stream()
+                        .map(this::convertToDTO)
+                        .collect(Collectors.toList()) : new ArrayList<>();
+
+        long totalElements = pagedResult.getTotalElements();
+
+        return new PaginatedResponse<>(customers, totalElements);
     }
 
     public void checkValidSortFields(String sortField){

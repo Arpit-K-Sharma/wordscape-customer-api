@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Services;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.DTO.PdfUploadDTO;
 import com.example.ERP_V2.Model.Order;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,7 +17,7 @@ public interface OrderService {
 
     byte[] getOrderPdf(int orderId);
 
-    List<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection);
+    PaginatedResponse<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection);
 
     byte[] getInvoiceById(int id);
 

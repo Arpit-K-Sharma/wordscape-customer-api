@@ -2,6 +2,7 @@ package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.DTO.PdfUploadDTO;
 import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Repository.OrderRepo;
@@ -60,13 +61,13 @@ public class OrderController {
     }
 
     @GetMapping
-    public ResponseEntity<List<OrderDTO>> getAllOrders(
+    public ResponseEntity<PaginatedResponse<OrderDTO>> getAllOrders(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
             @RequestParam(value = "sortField", defaultValue = "orderId", required = false) String sortField,
             @RequestParam(value = "sortDirection", defaultValue = "desc", required = false) String sortDirection
     ){
-        List<OrderDTO> orders = orderService.getAllOrders(pageNumber, pageSize, sortField, sortDirection);
+        PaginatedResponse<OrderDTO> orders = orderService.getAllOrders(pageNumber, pageSize, sortField, sortDirection);
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 

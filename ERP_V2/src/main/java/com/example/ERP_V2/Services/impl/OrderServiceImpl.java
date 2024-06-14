@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.OrderDTO;
+import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.DTO.PdfUploadDTO;
 import com.example.ERP_V2.Model.*;
 import com.example.ERP_V2.Repository.*;
@@ -111,7 +112,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection) {
+    public PaginatedResponse<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection) {
 
         checkValidSortFields(sortField);
 
@@ -120,14 +121,14 @@ public class OrderServiceImpl implements OrderService {
 
         Page<Order> pagedResult = orderRepo.findAll(pageable);
 
+        List<OrderDTO> orders = pagedResult.hasContent() ?
+                pagedResult.getContent().stream()
+                        .map(this::convertToOrderDTO)
+                        .collect(Collectors.toList()) : new ArrayList<>();
 
-        if (pagedResult.hasContent()) {
-            return pagedResult.getContent().stream()
-                    .map(this::convertToOrderDTO)
-                    .collect(Collectors.toList());
-        } else {
-            return new ArrayList<>();
-        }
+        long totalElements = pagedResult.getTotalElements();
+
+        return new PaginatedResponse<>(orders, totalElements);
     }
 
     public void checkValidSortFields(String sortField){
