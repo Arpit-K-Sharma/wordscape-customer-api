@@ -28,7 +28,7 @@ public class PaperServiceImpl implements PaperService {
     @Override
     public void updatePaper(int id, Paper updatedPaper) {
         Paper existingPaper = paperRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Paper with id " + id + " not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Paper not found"));
 
         // Update fields if they are not null in the updatedPaper object
         if (updatedPaper.getPaperType() != null) {

@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUser(int id, User updatedUser) {
         User existingUser = userRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("User with id " + id + " not found"));
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
         // Update fields if they are not null in the updatedUser object
         if (updatedUser.getFullName() != null) {

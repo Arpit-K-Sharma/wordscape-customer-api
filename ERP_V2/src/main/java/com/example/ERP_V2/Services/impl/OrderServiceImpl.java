@@ -102,7 +102,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public byte[] getOrderPdf(int orderId) {
         Order order = orderRepo.findById(orderId)
-                .orElseThrow(() -> new IllegalArgumentException("Order not found with ID: " + orderId));
+                .orElseThrow(() -> new IllegalArgumentException("Order not found "));
         Path pdfPath = Paths.get(pdfDirectory + order.getPdfFilename());
         try {
             return Files.readAllBytes(pdfPath);
@@ -134,13 +134,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public byte[] getInvoiceById(int id) {
-        Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found with id: " + id));
+        Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found" ));
         String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
         String filePath = "ERP_V2/src/main/resources/static/invoice/" + filename + ".pdf";
         File pdfFile = new File(filePath);
 
         if (!pdfFile.exists()) {
-            throw new RuntimeException("Invoice file not found for order ID: " + id);
+            throw new RuntimeException("Invoice file not found for order");
         }
 
         try (FileInputStream inputStream = new FileInputStream(pdfFile)) {
@@ -153,7 +153,7 @@ public class OrderServiceImpl implements OrderService {
 
             return fileContent;
         } catch (IOException e) {
-            throw new RuntimeException("Error reading invoice file: " + e.getMessage());
+            throw new RuntimeException("Error reading invoice file ");
         }
     }
 
@@ -223,7 +223,7 @@ public class OrderServiceImpl implements OrderService {
 
 //         Set Customer
         order.setCustomer(customerRepo.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Customer not found with ID: " + id)));
+                .orElseThrow(() -> new IllegalArgumentException("Customer not found ")));
 
         return order;
     }
