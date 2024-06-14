@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
 @RequestMapping("jobCard")
 public class JobCardController {
@@ -24,7 +28,12 @@ public class JobCardController {
     public ResponseEntity<String> updateJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO){
         jobCardService.updateJobCard(order_id, jobCardDTO);
         return ResponseEntity.ok("JobCard Updated !!!");
+    }
 
+    @PutMapping("/updateDeadline/{order_id}")
+    public ResponseEntity<String> updateDeadline(@PathVariable int order_id,@RequestBody String deadline){
+        jobCardService.updateDeadline(order_id, deadline);
+        return ResponseEntity.ok("Deadline Updated");
     }
 
     @GetMapping("/{id}")

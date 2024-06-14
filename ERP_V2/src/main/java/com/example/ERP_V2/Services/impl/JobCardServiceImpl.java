@@ -5,11 +5,18 @@ import com.example.ERP_V2.Model.*;
 import com.example.ERP_V2.Repository.*;
 import com.example.ERP_V2.Services.JobCardService;
 import com.example.ERP_V2.enums.OrderStatus;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
 @Service
 public class JobCardServiceImpl implements JobCardService {
@@ -54,6 +61,33 @@ public class JobCardServiceImpl implements JobCardService {
         orderRepo.save(oldOrder);
 
 
+    }
+
+    @Override
+    public void updateDeadline(int order_id, String jsonPayload) {
+        Order order = orderRepo.findById(order_id).orElseThrow(() -> new RuntimeException(("Order Not Found")));
+
+        try {
+            // Parse the JSON payload
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode jsonNode = objectMapper.readTree(jsonPayload);
+            String deadline = jsonNode.get("deadline").asText();
+
+            // Parse the date string
+            if (deadline != null && !deadline.isEmpty()) {
+                try {
+                    LocalDate localDate = LocalDate.parse(deadline);
+                    Date deadlineDate = Date.from(localDate.atStartOfDay(ZoneId.of("UTC")).toInstant());
+
+                    order.setDeadline(deadlineDate);
+                    orderRepo.save(order);
+                } catch (Exception e) {
+                    e.printStackTrace(); // Handle parsing exception
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle JSON parsing exceptions
+        }
     }
 
     private void updateOrderFromDTO(Order oldOrder, JobCardDTO jobCardDTO) {
