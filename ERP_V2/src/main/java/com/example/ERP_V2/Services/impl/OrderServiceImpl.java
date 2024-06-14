@@ -9,6 +9,7 @@ import com.example.ERP_V2.Services.OrderService;
 import com.example.ERP_V2.enums.OrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,14 +21,11 @@ import javax.mail.MessagingException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -113,15 +111,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderDTO> getAllOrders(Integer pageNumber,Integer pageSize) {
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+    public List<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection) {
+
+        checkValidSortFields(sortField);
+
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
+
         Page<Order> pagedResult = orderRepo.findAll(pageable);
 
-
-        System.out.println("Page Number: " + pageNumber);
-        System.out.println("Page Size: " + pageSize);
-        System.out.println("Total Elements: " + pagedResult.getTotalElements());
-        System.out.println("Total Pages: " + pagedResult.getTotalPages());
 
         if (pagedResult.hasContent()) {
             return pagedResult.getContent().stream()
@@ -129,6 +127,15 @@ public class OrderServiceImpl implements OrderService {
                     .collect(Collectors.toList());
         } else {
             return new ArrayList<>();
+        }
+    }
+
+    public void checkValidSortFields(String sortField){
+
+        // List of valid sort fields
+        List<String> validSortFields = Arrays.asList("date", "deadline", "orderId");
+        if (!validSortFields.contains(sortField)) {
+            throw new IllegalArgumentException("Invalid sort field: " + sortField);
         }
     }
 

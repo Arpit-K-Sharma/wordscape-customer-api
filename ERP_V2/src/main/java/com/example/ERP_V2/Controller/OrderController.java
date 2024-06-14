@@ -62,9 +62,11 @@ public class OrderController {
     @GetMapping
     public ResponseEntity<List<OrderDTO>> getAllOrders(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
-            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(value = "sortField", defaultValue = "orderId", required = false) String sortField,
+            @RequestParam(value = "sortDirection", defaultValue = "desc", required = false) String sortDirection
     ){
-        List<OrderDTO> orders = orderService.getAllOrders(pageNumber, pageSize);
+        List<OrderDTO> orders = orderService.getAllOrders(pageNumber, pageSize, sortField, sortDirection);
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 

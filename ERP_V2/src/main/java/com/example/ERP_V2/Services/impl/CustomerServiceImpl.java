@@ -15,11 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -69,9 +71,12 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public List<CustomerDTO> getAllCustomers(Integer pageNumber, Integer pageSize) {
+    public List<CustomerDTO> getAllCustomers(Integer pageNumber, Integer pageSize, String sortField, String sortDirection) {
 
-        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        checkValidSortFields(sortField);
+
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
         Page<Customer> pagedResult = this.customerRepo.findAll(pageable);
 
         List<Customer> allCustomer = pagedResult.getContent();
@@ -80,6 +85,16 @@ public class CustomerServiceImpl implements CustomerService {
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
+
+    public void checkValidSortFields(String sortField){
+
+        // List of valid sort fields
+        List<String> validSortFields = Arrays.asList("created_at", "customerId");
+        if (!validSortFields.contains(sortField)) {
+            throw new IllegalArgumentException("Invalid sort field: " + sortField);
+        }
+    }
+
 
     @Override
     public void updateCustomer(int id, Customer updatedCustomer) {

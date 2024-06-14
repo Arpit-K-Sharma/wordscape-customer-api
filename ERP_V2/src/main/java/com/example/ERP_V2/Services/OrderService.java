@@ -16,7 +16,7 @@ public interface OrderService {
 
     byte[] getOrderPdf(int orderId);
 
-    List<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize);
+    List<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection);
 
     byte[] getInvoiceById(int id);
 

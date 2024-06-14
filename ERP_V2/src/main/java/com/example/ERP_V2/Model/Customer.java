@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -23,6 +24,9 @@ public class Customer {
 
     @Column(length = 60)
     private String fullName;
+
+    @Column(name = "created_at")
+    private Date created_at;
 
     @Column(length = 150)
     private String address;

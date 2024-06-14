@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CustomerService {
 
-    List<CustomerDTO> getAllCustomers(Integer pageNumber, Integer pageSize);
+    List<CustomerDTO> getAllCustomers(Integer pageNumber, Integer pageSize, String sortField, String sortDirection);
 
     public void registerAsCustomer(CustomerDTO customerDTO);
 
