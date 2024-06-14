@@ -86,7 +86,10 @@ public class Order {
     private BigDecimal innerPaperRate;
 
     @Column(precision = 6, scale = 2)
-    private BigDecimal laminationRate;
+    private BigDecimal innerLaminationRate;
+
+    @Column(precision = 6, scale = 2)
+    private BigDecimal outerLaminationRate;
 
     @Column(precision = 6, scale = 2)
     private BigDecimal outerPaperRate;

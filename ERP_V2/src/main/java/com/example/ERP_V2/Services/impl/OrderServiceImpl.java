@@ -178,7 +178,8 @@ public class OrderServiceImpl implements OrderService {
         order.setEstimatedAmount(orderDTO.getEstimatedAmount());
         order.setBindingRate(orderDTO.getBindingRate());
         order.setInnerPaperRate(orderDTO.getInnerPaperRate());
-        order.setLaminationRate(orderDTO.getLaminationRate());
+        order.setInnerLaminationRate(orderDTO.getInnerLaminationRate());
+        order.setOuterLaminationRate(orderDTO.getOuterLaminationRate());
         order.setOuterPaperRate(orderDTO.getOuterPaperRate());
         order.setDeliveryOption(orderDTO.getDeliveryOption());
         order.setPlateRate(orderDTO.getPlateRate());
@@ -237,7 +238,8 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setBindingRate(order.getBindingRate());
         orderDTO.setInnerPaperRate(order.getInnerPaperRate());
         orderDTO.setOuterPaperRate(order.getOuterPaperRate());
-        orderDTO.setLaminationRate(order.getLaminationRate());
+        orderDTO.setInnerLaminationRate(order.getInnerLaminationRate());
+        orderDTO.setOuterLaminationRate(order.getOuterLaminationRate());
         orderDTO.setPlateRate(order.getPlateRate());
 
         orderDTO.setPaperSize(order.getPaperSize());

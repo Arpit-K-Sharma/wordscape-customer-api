@@ -50,9 +50,11 @@ public class OrderDTO {
 
     private BigDecimal innerPaperRate;
 
-    private BigDecimal laminationRate;
-
     private BigDecimal outerPaperRate;
+
+    private BigDecimal innerLaminationRate;
+
+    private BigDecimal outerLaminationRate;
 
     private BigDecimal plateRate;
 
