@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService {
     void createUser(User user);
-    List<UserDTO> getAllUsers(Integer pageSize, Integer pageNumber);
+    List<UserDTO> getAllUsers(Integer pageNumber, Integer pageSize);
     void updateUser(int id, User updatedUser);
     void insertDummyData();
 

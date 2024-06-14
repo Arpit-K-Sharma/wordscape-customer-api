@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getAllUsers(Integer pageSize, Integer pageNumber) {
+    public List<UserDTO> getAllUsers(Integer pageNumber, Integer pageSize) {
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         Page<User> pagedResult = this.userRepository.findAll(pageable);
