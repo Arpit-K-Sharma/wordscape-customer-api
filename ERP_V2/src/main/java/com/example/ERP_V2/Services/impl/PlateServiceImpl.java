@@ -27,7 +27,7 @@ public class PlateServiceImpl implements PlateService {
     @Override
     public void updatePlate(int id, Plate updatedPlate) {
         Plate existingPlate = plateRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Plate with id " + id + " not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Plate not found"));
 
         // Update fields if they are not null in the updatedPlate object
         if (updatedPlate.getPlateSize() != null) {

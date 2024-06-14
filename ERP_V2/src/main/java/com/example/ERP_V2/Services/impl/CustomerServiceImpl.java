@@ -99,7 +99,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void updateCustomer(int id, Customer updatedCustomer) {
         Customer existingCustomer = customerRepo.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Customer with id " + id + " not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
 
         // Update fields if they are not null in the updatedCustomer object
         if (updatedCustomer.getFullName() != null) {
