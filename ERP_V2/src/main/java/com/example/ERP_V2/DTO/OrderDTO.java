@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -27,7 +28,7 @@ public class OrderDTO {
     private String paperSize;
     private int pages;
     private int quantity;
-    private String bindingType;
+    private List<String> bindingType;
     private String coverTreatmentType;
     private String innerPaperType;
     private int innerPaperThickness;

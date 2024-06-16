@@ -1,15 +1,15 @@
 package com.example.ERP_V2.Model;
 
 import com.example.ERP_V2.enums.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Entity
@@ -35,9 +35,11 @@ public class Order {
 
     private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "binding_type_id")
-    private Binding binding;
+//    @ManyToOne
+//    @JoinColumn(name = "binding_type_id")
+//    private Binding binding;
+
+    private String binding;
 
     @ManyToOne
     @JoinColumn(name = "cover_treatment_id")

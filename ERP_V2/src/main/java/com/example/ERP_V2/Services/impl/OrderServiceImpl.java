@@ -194,8 +194,10 @@ public class OrderServiceImpl implements OrderService {
         order.setPdfFilename(orderDTO.getPdfFile());
 
         // Set Binding
-        order.setBinding(bindingRepo.findByBindingType(orderDTO.getBindingType())
-                .orElseThrow(() -> new IllegalArgumentException("Binding not found with name: " + orderDTO.getBindingType())));
+//        order.setBinding(bindingRepo.findByBindingType(orderDTO.getBindingType())
+//                .orElseThrow(() -> new IllegalArgumentException("Binding not found with name: " + orderDTO.getBindingType())));
+
+        order.setBinding(orderDTO.getBindingType().stream().collect(Collectors.joining(",")));
 
         // Set CoverTreatment
         order.setCoverTreatment(coverTreatmentRepo.findByCoverTreatmentType(orderDTO.getCoverTreatmentType())
@@ -253,7 +255,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setPaperSize(order.getPaperSize());
         orderDTO.setPages(order.getPages());
         orderDTO.setQuantity(order.getQuantity());
-        orderDTO.setBindingType(order.getBinding().getBindingType());
+        orderDTO.setBindingType(Collections.singletonList(order.getBinding()));
         orderDTO.setCoverTreatmentType(order.getCoverTreatment().getCoverTreatmentType());
         orderDTO.setInnerPaperType(order.getInnerPaper().getPaperType());
         orderDTO.setInnerPaperThickness(order.getInnerPaperThickness());
@@ -305,7 +307,7 @@ public class OrderServiceImpl implements OrderService {
         order1.setPaperSize("A4");
         order1.setPages(100);
         order1.setQuantity(50);
-        order1.setBinding(binding); // Replace with actual Binding object if available
+        order1.setBinding("Wiro"); // Replace with actual Binding object if available
         order1.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
         order1.setInnerPaper(innerPaper); // Replace with actual Paper object if available
         order1.setInnerPaperThickness(120);
@@ -326,7 +328,7 @@ public class OrderServiceImpl implements OrderService {
         order2.setPaperSize("A5");
         order2.setPages(200);
         order2.setQuantity(100);
-        order2.setBinding(binding); // Replace with actual Binding object if available
+        order2.setBinding("Spiral"); // Replace with actual Binding object if available
         order2.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
         order2.setInnerPaper(innerPaper); // Replace with actual Paper object if available
         order2.setInnerPaperThickness(130);
@@ -347,7 +349,7 @@ public class OrderServiceImpl implements OrderService {
         order3.setPaperSize("A3");
         order3.setPages(150);
         order3.setQuantity(75);
-        order3.setBinding(binding); // Replace with actual Binding object if available
+        order3.setBinding("Juju"); // Replace with actual Binding object if available
         order3.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
         order3.setInnerPaper(innerPaper); // Replace with actual Paper object if available
         order3.setInnerPaperThickness(140);

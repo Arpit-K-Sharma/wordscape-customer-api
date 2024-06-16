@@ -36,6 +36,8 @@ public class BindingData {
     private Order order;
 
     // Helper method to convert List<String> to comma-separated String
+    // Custom setter to handle JSON deserialization
+    @JsonProperty("binderySelectedOption")
     public void setBindingSelectedOption(List<String> options) {
         this.binderySelectedOption = options.stream()
                 .collect(Collectors.joining(","));
@@ -49,9 +51,4 @@ public class BindingData {
                 Collections.emptyList();
     }
 
-    // Custom setter to handle JSON deserialization
-    @JsonProperty("binderySelectedOption")
-    public void setBindingSelectedOptionList(List<String> options) {
-        setBindingSelectedOption(options);
-    }
 }
