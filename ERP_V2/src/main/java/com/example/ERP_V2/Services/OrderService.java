@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
 import java.io.File;
+import java.text.ParseException;
 import java.util.List;
 
 public interface OrderService {
@@ -27,7 +28,7 @@ public interface OrderService {
 
     List<Order> getOrderByCustomerId(int id);
 
-    public void insertDummyData();
+    public void insertDummyData() throws ParseException;
 
     void cancelOrder(int id);
 }

@@ -22,6 +22,8 @@ import javax.mail.MessagingException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -278,7 +280,9 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    public void insertDummyData() {
+    public void insertDummyData() throws ParseException {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         // Fetch existing entities from the database
         Binding binding = bindingRepo.findById(1).orElse(null); // Replace 1 with the actual ID
@@ -303,7 +307,7 @@ public class OrderServiceImpl implements OrderService {
 
         // Create dummy Order object 1
         Order order1 = new Order();
-        order1.setDate(new Date());
+        order1.setDate(dateFormat.parse("2023-06-01"));
         order1.setPaperSize("A4");
         order1.setPages(100);
         order1.setQuantity(50);
@@ -324,7 +328,7 @@ public class OrderServiceImpl implements OrderService {
 
         // Create dummy Order object 2
         Order order2 = new Order();
-        order2.setDate(new Date());
+        order2.setDate(dateFormat.parse("2023-06-15"));
         order2.setPaperSize("A5");
         order2.setPages(200);
         order2.setQuantity(100);
@@ -345,7 +349,7 @@ public class OrderServiceImpl implements OrderService {
 
         // Create dummy Order object 3
         Order order3 = new Order();
-        order3.setDate(new Date());
+        order3.setDate(dateFormat.parse("2023-06-30"));
         order3.setPaperSize("A3");
         order3.setPages(150);
         order3.setQuantity(75);
