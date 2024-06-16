@@ -38,7 +38,7 @@ public class Order {
 //    @ManyToOne
 //    @JoinColumn(name = "binding_type_id")
 //    private Binding binding;
-
+    @Column(length = 1000)
     private String binding;
 
     @ManyToOne
