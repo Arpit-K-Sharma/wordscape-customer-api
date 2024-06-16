@@ -1,6 +1,7 @@
 package com.example.ERP_V2.exception;
 
 import com.example.ERP_V2.DTO.ErrorMessage;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
@@ -25,6 +26,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 
 @ControllerAdvice
+@Slf4j
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
 //    @ExceptionHandler(UserAlreadyExistsException.class)
@@ -51,6 +53,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<ErrorMessage> runTimeException(
             RuntimeException runTimeException, WebRequest request) {
         ErrorMessage errorMessage = new ErrorMessage(runTimeException.getMessage());
+        logger.error("Exception occurred: ", runTimeException); // Logging the exception with stack trace
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorMessage);
     }
 
@@ -58,6 +61,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<ErrorMessage> illegalArgumentException(
             IllegalArgumentException illegalArgumentException, WebRequest request) {
         ErrorMessage errorMessage = new ErrorMessage(illegalArgumentException.getMessage());
+        logger.error("Exception occurred: ", illegalArgumentException); // Logging the exception with stack trace
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
     }
 
