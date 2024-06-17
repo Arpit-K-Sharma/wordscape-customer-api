@@ -1,6 +1,5 @@
 package com.example.ERP_V2.Controller;
 
-import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.DTO.PdfUploadDTO;
@@ -9,18 +8,14 @@ import com.example.ERP_V2.Repository.OrderRepo;
 import com.example.ERP_V2.Services.OrderService;
 import com.example.ERP_V2.Services.PDFService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 import java.util.Map;
 
 @RestController
@@ -34,9 +29,10 @@ public class OrderController {
     private OrderService orderService;
 
 
-    @PostMapping("{id}")
-    public ResponseEntity<String> addOrder(@PathVariable int id,@RequestBody OrderDTO orderDTO) throws MessagingException {
-        this.orderService.handleOrder(id, orderDTO);
+
+    @PostMapping
+    public ResponseEntity<String> addOrder(Authentication authentication, @RequestBody OrderDTO orderDTO) throws MessagingException {
+        this.orderService.handleOrder(Integer.parseInt(authentication.getName()), orderDTO);
         return ResponseEntity.ok("Order Added !!! The order invoice is being sent !!!");
     }
 
@@ -84,9 +80,9 @@ public class OrderController {
         return this.orderService.getInvoiceById(id);
     }
 
-    @GetMapping("customer/{id}")
-    public List<Order> getOrdersByCustomerId(@PathVariable int id){
-        return this.orderService.getOrderByCustomerId(id);
+    @GetMapping("customer")
+    public List<Order> getOrdersByCustomerId(Authentication authentication){
+        return this.orderService.getOrderByCustomerId(Integer.parseInt(authentication.getName()));
     }
 
     @PutMapping("cancel/{id}")
@@ -94,7 +90,5 @@ public class OrderController {
         this.orderService.cancelOrder(id);
         return ResponseEntity.ok("Order Cancelled");
     }
-
-
 
 }

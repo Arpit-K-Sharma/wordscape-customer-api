@@ -36,8 +36,8 @@ public class JobCardController {
         return ResponseEntity.ok("Deadline Updated");
     }
 
-    @GetMapping("/{id}")
-    public Order getJobCard(@PathVariable int id){
-        return jobCardService.getJobCardById(id);
+    @GetMapping("/{order_id}")
+    public Order getJobCard(@PathVariable int order_id){
+        return jobCardService.getJobCardById(order_id);
     }
 }

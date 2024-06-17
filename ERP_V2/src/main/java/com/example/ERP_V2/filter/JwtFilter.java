@@ -3,16 +3,14 @@ package com.example.ERP_V2.filter;
 import com.example.ERP_V2.Services.AuthenticationService;
 import com.example.ERP_V2.enums.RoleEnum;
 import com.example.ERP_V2.utils.JwtUtil;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.UnsupportedJwtException;
+import io.jsonwebtoken.*;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -32,15 +30,22 @@ public class JwtFilter extends OncePerRequestFilter {
     @Autowired
     private AuthenticationService authenticationService;
 
+    @Value("${jwt.secret}") // Example: Retrieve secret from application.properties
+    private String jwtSecret;
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String jwtToken = jwtUtil.extractTokenFromRequest(request);
         if (Objects.nonNull(jwtToken)) {
             try {
-                String username = jwtUtil.getUsernameFromToken(jwtToken);
+                String email = jwtUtil.getUsernameFromToken(jwtToken);
                 RoleEnum role = jwtUtil.getRoleFromToken(jwtToken);
 
-                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = this.authenticationService.getUsernamePasswordAuthenticationToken(username, role);
+                Claims claims = extractClaims(jwtToken);
+
+                int id = claims.get("id", Integer.class);
+
+                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = this.authenticationService.getUsernamePasswordAuthenticationToken(id, role);
 
                 if (jwtUtil.validateToken(jwtToken, usernamePasswordAuthenticationToken.getName())) {
                     SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
@@ -52,4 +57,9 @@ public class JwtFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
+
+    private Claims extractClaims(String token) {
+        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
+    }
+
 }

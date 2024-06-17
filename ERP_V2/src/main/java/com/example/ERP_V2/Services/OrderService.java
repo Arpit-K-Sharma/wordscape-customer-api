@@ -12,7 +12,7 @@ import java.text.ParseException;
 import java.util.List;
 
 public interface OrderService {
-    void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException;
+    void handleOrder(int id, OrderDTO orderDTO) throws MessagingException;
 
 
     PaginatedResponse<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection);
