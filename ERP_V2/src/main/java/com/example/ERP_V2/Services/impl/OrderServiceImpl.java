@@ -61,8 +61,6 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private ProjectTrackingRepo projectTrackingRepo;
 
-    @Value("${order.pdf.directory}")
-    private String pdfDirectory;
 
     @Override
     public void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException {
@@ -81,37 +79,6 @@ public class OrderServiceImpl implements OrderService {
         emailService.sendHTMLEmail(order.getCustomer(),orderDTO);
     }
 
-    @Override
-    public String savePdfFile(PdfUploadDTO pdfUploadDTO) {
-        MultipartFile pdfFile = pdfUploadDTO.getPdfFile();
-        if (pdfFile.isEmpty()) throw new RuntimeException("File not found");
-
-        String originalFilename = StringUtils.cleanPath(pdfFile.getOriginalFilename());
-        String extension = StringUtils.getFilenameExtension(originalFilename);
-        String filename = String.valueOf(UUID.randomUUID() + "." + extension);
-        Path uploadPath = Paths.get(pdfDirectory + filename);
-        try {
-            Files.createDirectories(uploadPath.getParent());
-            Files.copy(pdfFile.getInputStream(), uploadPath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle the exception appropriately
-        }
-        return filename;
-    }
-
-    @Override
-    public byte[] getOrderPdf(int orderId) {
-        Order order = orderRepo.findById(orderId)
-                .orElseThrow(() -> new IllegalArgumentException("Order not found "));
-        Path pdfPath = Paths.get(pdfDirectory + order.getPdfFilename());
-        try {
-            return Files.readAllBytes(pdfPath);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     @Override
     public PaginatedResponse<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection) {

@@ -90,44 +90,4 @@ public class EmailServiceImpl implements EmailService {
     }
 
 
-
-    @Override
-    public void sendJobCard(Path filepath) throws MessagingException {
-        MimeMessage message = emailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message,true);
-
-        helper.setTo("sweing222@gmail.com");
-        helper.setSubject("Job Card Invoice");
-
-        File file = filepath.toFile();
-        helper.addAttachment("floppa.jpg",file);
-
-        emailSender.send(message);
-    }
-
-//    @Override
-//    public void sendJobCard(Path filepath) throws MessagingException, IOException {
-//        MimeMessage message = emailSender.createMimeMessage();
-//        MimeMessageHelper helper = new MimeMessageHelper(message, true);
-//
-//        try {
-//            helper.setTo("sweing222@gmail.com");
-//            helper.setSubject("Job Card Invoice");
-//
-//            // Read the image file
-//            byte[] imageBytes = Files.readAllBytes(filepath);
-//
-//            // Attach the image as a multipart
-//            ByteArrayDataSource dataSource = new ByteArrayDataSource(imageBytes, "image/jpeg");
-//            helper.addAttachment("floppa.jpg", dataSource);
-//
-//            // Send email
-//            emailSender.send(message);
-//        } catch (MessagingException | IOException e) {
-//            // Handle exceptions
-//            e.printStackTrace();
-//            throw e;
-//        }
-//    }
-
 }

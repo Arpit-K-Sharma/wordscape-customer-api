@@ -14,9 +14,6 @@ import java.util.List;
 public interface OrderService {
     void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException;
 
-    String savePdfFile(PdfUploadDTO pdfUploadDTO);
-
-    byte[] getOrderPdf(int orderId);
 
     PaginatedResponse<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection);
 
