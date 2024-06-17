@@ -6,6 +6,8 @@ import com.example.ERP_V2.Repository.OrderRepo;
 import com.example.ERP_V2.Services.PDFService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,38 +22,35 @@ import java.util.UUID;
 @Service
 public class PDFServiceImpl implements PDFService {
 
-    @Autowired
-    private OrderRepo orderRepo;
-
-    @Value("${order.pdf.directory}")
-    private String pdfDirectory;
-
+    @Async("taskExecutor")
     @Override
-    public String savePdfFile(PdfUploadDTO pdfUploadDTO) {
+    public void savePdfFile(PdfUploadDTO pdfUploadDTO, Path path) {
         MultipartFile pdfFile = pdfUploadDTO.getPdfFile();
         if (pdfFile.isEmpty()) throw new RuntimeException("File not found");
 
-        String originalFilename = StringUtils.cleanPath(pdfFile.getOriginalFilename());
-        String extension = StringUtils.getFilenameExtension(originalFilename);
-        String filename = String.valueOf(UUID.randomUUID() + "." + extension);
-        Path uploadPath = Paths.get(pdfDirectory + filename);
         try {
-            Files.createDirectories(uploadPath.getParent());
-            Files.copy(pdfFile.getInputStream(), uploadPath, StandardCopyOption.REPLACE_EXISTING);
+            Files.createDirectories(path.getParent());
+            Files.copy(pdfFile.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error occurred while uploading the file. Error message = "+e);
             // Handle the exception appropriately
         }
-        return filename;
     }
 
     @Override
-    public byte[] getOrderPdf(int orderId) {
-        Order order = orderRepo.findById(orderId)
-                .orElseThrow(() -> new IllegalArgumentException("Order not found "));
-        Path pdfPath = Paths.get(pdfDirectory + order.getPdfFilename());
+    public String generateFilename(MultipartFile pdfFile) {
+        String originalFilename = StringUtils.cleanPath(pdfFile.getOriginalFilename());
+        String extension = StringUtils.getFilenameExtension(originalFilename);
+        String filename = String.valueOf(UUID.randomUUID() + "." + extension);
+
+        return filename;
+    }
+
+
+    @Override
+    public byte[] downloadPdf(Path path) {
         try {
-            return Files.readAllBytes(pdfPath);
+            return Files.readAllBytes(path);
         } catch (IOException e) {
             e.printStackTrace();
             return null;

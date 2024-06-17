@@ -22,7 +22,6 @@ import java.util.concurrent.CompletableFuture;
 
 
 @Service
-@EnableAsync
 public class EmailServiceImpl implements EmailService {
 
     @Autowired
@@ -44,7 +43,7 @@ public class EmailServiceImpl implements EmailService {
         emailSender.send(message);
     }
 
-    @Async
+    @Async("taskExecutor")
     @Override
     public CompletableFuture<Void> sendHTMLEmail(Customer customer, OrderDTO orderDTO) {
         try {

@@ -28,5 +28,9 @@ public interface OrderService {
     public void insertDummyData() throws ParseException;
 
     void cancelOrder(int id);
+
+    byte[] getOrderPdf(int orderId);
+
+    String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO);
 }
 

@@ -33,8 +33,6 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @Autowired
-    private PDFService pdfService;
 
     @PostMapping("{id}")
     public ResponseEntity<String> addOrder(@PathVariable int id,@RequestBody OrderDTO orderDTO) throws MessagingException {
@@ -44,7 +42,7 @@ public class OrderController {
 
     @PostMapping("/files")
     public ResponseEntity<Map<String, String>> uploadPDF(@ModelAttribute PdfUploadDTO pdfUploadDTO){
-        String filename = this.pdfService.savePdfFile(pdfUploadDTO);
+        String filename = this.orderService.saveOrderPdfFile(pdfUploadDTO);
 
         // Prepare JSON response
         Map<String, String> response = new HashMap<>();
@@ -55,7 +53,7 @@ public class OrderController {
 
     @GetMapping("files/download/{orderId}")
     public ResponseEntity<byte[]> downloadOrderPdf(@PathVariable int orderId) {
-        byte[] pdfData = pdfService.getOrderPdf(orderId);
+        byte[] pdfData = orderService.getOrderPdf(orderId);
         if (pdfData == null) {
             return ResponseEntity.notFound().build();
         }

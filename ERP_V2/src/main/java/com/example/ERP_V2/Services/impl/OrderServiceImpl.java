@@ -7,6 +7,7 @@ import com.example.ERP_V2.Model.*;
 import com.example.ERP_V2.Repository.*;
 import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.Services.OrderService;
+import com.example.ERP_V2.Services.PDFService;
 import com.example.ERP_V2.enums.OrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -61,6 +62,11 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private ProjectTrackingRepo projectTrackingRepo;
 
+    @Autowired
+    private PDFService pdfService;
+
+    @Value("${order.pdf.directory}")
+    private String pdfDirectory;
 
     @Override
     public void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException {
@@ -341,6 +347,22 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found !!!"));
         order.setStatus(OrderStatus.CANCELED);
         this.orderRepo.save(order);
+    }
+
+    @Override
+    public byte[] getOrderPdf(int orderId) {
+        Order order = orderRepo.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found "));
+        Path pdfPath = Paths.get(pdfDirectory + order.getPdfFilename());
+        return pdfService.downloadPdf(pdfPath);
+    }
+
+    @Override
+    public String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO) {
+        String filename = pdfService.generateFilename(pdfUploadDTO.getPdfFile());
+        Path uploadPath = Paths.get(pdfDirectory + filename);
+        pdfService.savePdfFile(pdfUploadDTO, uploadPath);
+        return filename;
     }
 
 
