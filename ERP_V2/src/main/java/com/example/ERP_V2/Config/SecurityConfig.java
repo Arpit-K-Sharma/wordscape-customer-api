@@ -27,11 +27,16 @@ public class SecurityConfig implements WebMvcConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.disable())
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers("/customers/register", "/home/login").permitAll()
+//                        .requestMatchers("/api/current-user").hasAnyAuthority("ROLE_ADMIN")
+                        .anyRequest().authenticated())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
+
+
 
     @Bean
     public CorsFilter corsFilter() {

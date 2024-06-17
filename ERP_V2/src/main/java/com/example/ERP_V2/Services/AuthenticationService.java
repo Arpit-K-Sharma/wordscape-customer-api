@@ -9,5 +9,5 @@ public interface AuthenticationService {
     LoginResponseDTO login(LoginRequestDTO authRequest);
 
 
-    UsernamePasswordAuthenticationToken getUsernamePasswordAuthenticationToken(String username, RoleEnum role);
+    UsernamePasswordAuthenticationToken getUsernamePasswordAuthenticationToken(int id, RoleEnum role);
 }

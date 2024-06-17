@@ -38,8 +38,8 @@ public class CustomerDTO extends PersonDTO {
     private final RoleEnum role = RoleEnum.ROLE_CUSTOMER;
 
 
-    public CustomerDTO(String email, String password) {
-        this.email = email;
+    public CustomerDTO(int id, String password) {
+        this.customerId = id;
         this.password = password;
     }
 }
