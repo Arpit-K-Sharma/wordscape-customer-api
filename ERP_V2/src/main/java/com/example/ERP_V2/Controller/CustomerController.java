@@ -37,9 +37,9 @@ public class CustomerController {
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable int id) {
-        CustomerDTO customer = customerService.getCustomer(id);
+    @GetMapping("/self")
+    public ResponseEntity<CustomerDTO> getCustomer(Authentication authentication) {
+        CustomerDTO customer = customerService.getCustomer(Integer.parseInt(authentication.getName()));
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
