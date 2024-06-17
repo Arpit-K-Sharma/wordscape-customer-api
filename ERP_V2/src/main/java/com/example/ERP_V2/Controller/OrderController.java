@@ -6,6 +6,7 @@ import com.example.ERP_V2.DTO.PdfUploadDTO;
 import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Repository.OrderRepo;
 import com.example.ERP_V2.Services.OrderService;
+import com.example.ERP_V2.Services.PDFService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,8 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+
+
     @PostMapping
     public ResponseEntity<String> addOrder(Authentication authentication, @RequestBody OrderDTO orderDTO) throws MessagingException {
         this.orderService.handleOrder(Integer.parseInt(authentication.getName()), orderDTO);
@@ -35,7 +38,7 @@ public class OrderController {
 
     @PostMapping("/files")
     public ResponseEntity<Map<String, String>> uploadPDF(@ModelAttribute PdfUploadDTO pdfUploadDTO){
-        String filename = this.orderService.savePdfFile(pdfUploadDTO);
+        String filename = this.orderService.saveOrderPdfFile(pdfUploadDTO);
 
         // Prepare JSON response
         Map<String, String> response = new HashMap<>();

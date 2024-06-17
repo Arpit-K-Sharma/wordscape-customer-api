@@ -11,5 +11,4 @@ public interface EmailService {
 
     public CompletableFuture<Void> sendHTMLEmail(Customer customer, OrderDTO orderDTO) throws MessagingException;
 
-    public void sendJobCard(Path filepath) throws MessagingException;
 }

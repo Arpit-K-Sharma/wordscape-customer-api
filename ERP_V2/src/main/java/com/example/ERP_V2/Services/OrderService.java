@@ -14,9 +14,6 @@ import java.util.List;
 public interface OrderService {
     void handleOrder(int id, OrderDTO orderDTO) throws MessagingException;
 
-    String savePdfFile(PdfUploadDTO pdfUploadDTO);
-
-    byte[] getOrderPdf(int orderId);
 
     PaginatedResponse<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection);
 
@@ -31,5 +28,9 @@ public interface OrderService {
     public void insertDummyData() throws ParseException;
 
     void cancelOrder(int id);
+
+    byte[] getOrderPdf(int orderId);
+
+    String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO);
 }
 
