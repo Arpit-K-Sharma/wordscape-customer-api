@@ -211,6 +211,8 @@ public class OrderServiceImpl implements OrderService {
         order.setCustomer(customerRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Customer not found ")));
 
+        order.getCustomer().setCompanyName(orderDTO.getCompanyName());
+
         return order;
     }
 
