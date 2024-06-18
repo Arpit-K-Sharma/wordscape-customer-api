@@ -19,7 +19,6 @@ public class PaperController {
     @Autowired
     private PaperService paperService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Paper>> getAllPapers() {
         log.info("ENDPOINT CALLED: /papers (GET)");

@@ -19,7 +19,6 @@ public class LaminationController {
     @Autowired
     private LaminationService laminationService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Lamination>> getAllLaminations() {
         log.info("ENDPOINT CALLED: /laminations (GET)");

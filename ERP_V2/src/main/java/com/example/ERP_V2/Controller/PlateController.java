@@ -19,7 +19,6 @@ public class PlateController {
     @Autowired
     private PlateService plateService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Plate>> getAllPlates() {
         log.info("ENDPOINT CALLED: /plates (GET)");

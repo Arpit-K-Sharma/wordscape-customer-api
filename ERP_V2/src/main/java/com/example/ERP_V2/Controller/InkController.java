@@ -28,7 +28,6 @@ public class InkController {
         return ResponseEntity.status(201).body(newInk);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Ink>> getAllInks() {
         log.info("ENDPOINT CALLED: /inks (GET)");

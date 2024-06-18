@@ -19,7 +19,6 @@ public class BindingController {
     @Autowired
     private BindingService bindingService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Binding>> getAllBindings() {
         log.info("ENDPOINT CALLED: /bindings (GET)");

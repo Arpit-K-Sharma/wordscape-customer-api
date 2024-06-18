@@ -19,7 +19,6 @@ public class CoverTreatmentController {
     @Autowired
     private CoverTreatmentService coverTreatmentService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<CoverTreatment>> getAllCoverTreatments() {
         log.info("ENDPOINT CALLED: /coverTreatments (GET)");

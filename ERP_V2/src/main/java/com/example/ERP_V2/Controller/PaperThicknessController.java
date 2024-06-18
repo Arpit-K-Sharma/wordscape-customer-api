@@ -28,7 +28,6 @@ public class PaperThicknessController {
         return ResponseEntity.status(201).body(newThickness);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<PaperThickness>> getAllPaperThicknesses() {
         log.info("ENDPOINT CALLED: /paperThickness (GET)");
