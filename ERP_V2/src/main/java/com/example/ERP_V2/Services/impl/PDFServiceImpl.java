@@ -1,21 +1,13 @@
 package com.example.ERP_V2.Services.impl;
-
 import com.example.ERP_V2.DTO.PdfUploadDTO;
-import com.example.ERP_V2.Model.Order;
-import com.example.ERP_V2.Repository.OrderRepo;
 import com.example.ERP_V2.Services.PDFService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
