@@ -2,6 +2,7 @@ package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.Model.Binding;
 import com.example.ERP_V2.Services.BindingService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/bindings")
 public class BindingController {
 
@@ -18,20 +20,27 @@ public class BindingController {
 
     @GetMapping
     public ResponseEntity<List<Binding>> getAllBindings() {
+        log.info("ENDPOINT CALLED: /bindings (GET)");
         List<Binding> bindings = bindingService.getAllBindings();
+        log.info("RESPONSE: {} bindings found", bindings.size());
         return new ResponseEntity<>(bindings, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<String> createBinding(@RequestBody Binding binding) {
+        log.info("ENDPOINT CALLED: /bindings (POST)");
+        log.info("REQUEST BODY: {}", binding);
         bindingService.createBinding(binding);
+        log.info("Binding created successfully");
         return ResponseEntity.ok("Binding Added!!");
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<String> updateBinding(@PathVariable int id, @RequestBody Binding updatedBinding) {
+        log.info("ENDPOINT CALLED: /bindings/{} (PUT)", id);
+        log.info("REQUEST BODY: {}", updatedBinding);
         bindingService.updateBinding(id, updatedBinding);
+        log.info("Binding with ID {} updated successfully", id);
         return ResponseEntity.ok("Binding Updated !!!");
     }
 }
-
