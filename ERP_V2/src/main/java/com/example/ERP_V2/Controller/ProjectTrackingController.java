@@ -2,26 +2,33 @@ package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.DTO.ProjectTrackingDTO;
 import com.example.ERP_V2.Services.ProjectTrackingService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("projectTracking")
+@Slf4j
 public class ProjectTrackingController {
 
     @Autowired
-    ProjectTrackingService projectTrackingService;
+    private ProjectTrackingService projectTrackingService;
 
     @PostMapping("/{id}")
-    ResponseEntity<String> setProjectTracking(@PathVariable int id, @RequestBody ProjectTrackingDTO projectTrackingDTO){
-        projectTrackingService.setProjectTracking(id,projectTrackingDTO);
+    public ResponseEntity<String> setProjectTracking(@PathVariable int id, @RequestBody ProjectTrackingDTO projectTrackingDTO){
+        log.info("ENDPOINT CALLED: /projectTracking/{} (POST)", id);
+        log.info("REQUEST BODY: {}", projectTrackingDTO);
+        projectTrackingService.setProjectTracking(id, projectTrackingDTO);
+        log.info("Project Tracking updated successfully for ID {}", id);
         return ResponseEntity.ok("Project Tracking Updated !!!");
     }
 
     @GetMapping("/{id}")
-    ProjectTrackingDTO getProjectTracking(@PathVariable int id){
-
-        return projectTrackingService.getProjectTracking(id);
+    public ProjectTrackingDTO getProjectTracking(@PathVariable int id){
+        log.info("ENDPOINT CALLED: /projectTracking/{} (GET)", id);
+        ProjectTrackingDTO projectTrackingDTO = projectTrackingService.getProjectTracking(id);
+        log.info("RESPONSE: {}", projectTrackingDTO);
+        return projectTrackingDTO;
     }
 }

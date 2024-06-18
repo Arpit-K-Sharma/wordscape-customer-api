@@ -4,6 +4,7 @@ import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.CustomerService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +12,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/customers")
 public class CustomerController {
 
@@ -22,6 +23,7 @@ public class CustomerController {
 
     @PostMapping("register")
     public ResponseEntity<String> registerAsUser(@RequestBody @Valid CustomerDTO customerDTO) {
+        log.info("\nENDPOINT CALLED: /customers/register\nREQUEST DTO: {}", customerDTO);
         this.customerService.registerAsCustomer(customerDTO);
         return ResponseEntity.ok("Registered Successfully !!!");
     }
@@ -33,33 +35,40 @@ public class CustomerController {
             @RequestParam(value = "sortField", defaultValue = "customerId", required = false) String sortField,
             @RequestParam(value = "sortDirection", defaultValue = "desc", required = false) String sortDirection
     ) {
+        log.info("\nENDPOINT CALLED: /customers\nPAGE NUMBER: {}\nPAGE SIZE: {}\nSORT FIELD: {}\nSORT DIRECTION: {}",
+                pageNumber, pageSize, sortField, sortDirection);
         PaginatedResponse<CustomerDTO> customers = customerService.getAllCustomers(pageNumber, pageSize, sortField, sortDirection);
+        log.info("RESPONSE: {}", customers);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CustomerDTO> getCustomer(@PathVariable int id) {
-        CustomerDTO customer = customerService.getCustomer(id);
+    @GetMapping("/self")
+    public ResponseEntity<CustomerDTO> getCustomer(Authentication authentication) {
+        log.info("\nENDPOINT CALLED: /customers/self\nAUTHENTICATION: {}", authentication.getName());
+        CustomerDTO customer = customerService.getCustomer(Integer.parseInt(authentication.getName()));
+        log.info("RESPONSE: {}", customer);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
-
     @PutMapping
     public ResponseEntity<String> updateCustomer(Authentication authentication, @RequestBody Customer updatedCustomer) {
+        log.info("\nENDPOINT CALLED: /customers\nAUTHENTICATION: {}\nUPDATED CUSTOMER: {}",
+                authentication.getName(), updatedCustomer);
         customerService.updateCustomer(Integer.parseInt(authentication.getName()), updatedCustomer);
         return ResponseEntity.ok("Customer updated !!!");
     }
 
     @PutMapping("deactivate/{id}")
-    public ResponseEntity<String> deactivateCustomer(@PathVariable int id){
+    public ResponseEntity<String> deactivateCustomer(@PathVariable int id) {
+        log.info("\nENDPOINT CALLED: /customers/deactivate/{}\nID: {}", id);
         customerService.deactivateCustomer(id);
         return ResponseEntity.ok("Customer Deactivated !!!");
     }
 
     @PutMapping("reactivate/{id}")
-    public ResponseEntity<String> reactivateCustomer(@PathVariable int id){
+    public ResponseEntity<String> reactivateCustomer(@PathVariable int id) {
+        log.info("\nENDPOINT CALLED: /customers/reactivate/{}\nID: {}", id);
         customerService.reactivateCustomer(id);
         return ResponseEntity.ok("Customer Reactivated !!!");
     }
 }
-

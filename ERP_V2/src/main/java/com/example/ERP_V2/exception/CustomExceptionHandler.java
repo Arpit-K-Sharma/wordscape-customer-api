@@ -53,7 +53,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<ErrorMessage> runTimeException(
             RuntimeException runTimeException, WebRequest request) {
         ErrorMessage errorMessage = new ErrorMessage(runTimeException.getMessage());
-        logger.error("Exception occurred: ", runTimeException); // Logging the exception with stack trace
+        logger.error ("Exception occurred: ", runTimeException); // Logging the exception with stack trace
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorMessage);
     }
 
