@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<String> createUser(@RequestBody User user) {
         log.info("ENDPOINT CALLED: /users (POST)");
@@ -28,6 +30,7 @@ public class UserController {
         return ResponseEntity.ok("New User Added !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
@@ -40,6 +43,7 @@ public class UserController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody User updatedUser) {
         log.info("ENDPOINT CALLED: /users/{} (PUT)", id);
@@ -49,6 +53,7 @@ public class UserController {
         return ResponseEntity.ok("User updated !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("deactivate/{id}")
     public ResponseEntity<String> deactivateCustomer(@PathVariable int id){
         log.info("ENDPOINT CALLED: /users/deactivate/{} (PUT)", id);
@@ -57,6 +62,7 @@ public class UserController {
         return ResponseEntity.ok("User Deactivated !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("reactivate/{id}")
     public ResponseEntity<String> reactivateCustomer(@PathVariable int id){
         log.info("ENDPOINT CALLED: /users/reactivate/{} (PUT)", id);

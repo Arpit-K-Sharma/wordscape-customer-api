@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class CoverTreatmentController {
     @Autowired
     private CoverTreatmentService coverTreatmentService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<CoverTreatment>> getAllCoverTreatments() {
         log.info("ENDPOINT CALLED: /coverTreatments (GET)");
@@ -26,6 +28,7 @@ public class CoverTreatmentController {
         return new ResponseEntity<>(coverTreatments, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<String> createCoverTreatment(@RequestBody CoverTreatment coverTreatment) {
         log.info("ENDPOINT CALLED: /coverTreatments (POST)");
@@ -35,6 +38,7 @@ public class CoverTreatmentController {
         return ResponseEntity.ok("Cover Treatment Added !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updateCoverTreatment(@PathVariable int id, @RequestBody CoverTreatment updatedCoverTreatment) {
         log.info("ENDPOINT CALLED: /coverTreatments/{} (PUT)", id);
@@ -42,5 +46,15 @@ public class CoverTreatmentController {
         coverTreatmentService.updateCoverTreatment(id, updatedCoverTreatment);
         log.info("Cover Treatment with ID {} updated successfully", id);
         return ResponseEntity.ok("Cover Treatment updated !!!");
+    }
+
+
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @DeleteMapping("/{coverTreatmentId}")
+    public ResponseEntity<Void> deletePaper(@PathVariable int coverTreatmentId) {
+        log.info("ENDPOINT CALLED: /papers/{} (DELETE)", coverTreatmentId);
+        coverTreatmentService.deleteCoverTreatment(coverTreatmentId);
+        log.info("Paper with ID {} deleted successfully", coverTreatmentId);
+        return ResponseEntity.noContent().build();
     }
 }

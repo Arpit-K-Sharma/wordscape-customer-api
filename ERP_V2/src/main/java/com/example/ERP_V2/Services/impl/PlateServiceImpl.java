@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Services.impl;
 
+import com.example.ERP_V2.Model.PaperThickness;
 import com.example.ERP_V2.Model.Plate;
 import com.example.ERP_V2.Repository.PlateRepo;
 import com.example.ERP_V2.Services.PlateService;
@@ -42,5 +43,10 @@ public class PlateServiceImpl implements PlateService {
 
         // Save the updated plate
         plateRepository.save(existingPlate);
+    }
+
+    @Override
+    public void deletePlate(int plateId) {
+       plateRepository.deleteById(plateId);
     }
 }

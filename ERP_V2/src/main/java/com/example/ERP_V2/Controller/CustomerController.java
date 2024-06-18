@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,7 @@ public class CustomerController {
         return ResponseEntity.ok("Registered Successfully !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<PaginatedResponse<CustomerDTO>> getAllCustomers(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
@@ -42,6 +44,7 @@ public class CustomerController {
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
     @GetMapping("/self")
     public ResponseEntity<CustomerDTO> getCustomer(Authentication authentication) {
         log.info("\nENDPOINT CALLED: /customers/self\nAUTHENTICATION: {}", authentication.getName());
@@ -50,6 +53,7 @@ public class CustomerController {
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
     @PutMapping
     public ResponseEntity<String> updateCustomer(Authentication authentication, @RequestBody Customer updatedCustomer) {
         log.info("\nENDPOINT CALLED: /customers\nAUTHENTICATION: {}\nUPDATED CUSTOMER: {}",
@@ -58,6 +62,7 @@ public class CustomerController {
         return ResponseEntity.ok("Customer updated !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("deactivate/{id}")
     public ResponseEntity<String> deactivateCustomer(@PathVariable int id) {
         log.info("\nENDPOINT CALLED: /customers/deactivate/{}\nID: {}", id);
@@ -65,6 +70,7 @@ public class CustomerController {
         return ResponseEntity.ok("Customer Deactivated !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("reactivate/{id}")
     public ResponseEntity<String> reactivateCustomer(@PathVariable int id) {
         log.info("\nENDPOINT CALLED: /customers/reactivate/{}\nID: {}", id);

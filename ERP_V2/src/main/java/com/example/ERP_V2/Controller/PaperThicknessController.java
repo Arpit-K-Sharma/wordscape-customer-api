@@ -5,6 +5,7 @@ import com.example.ERP_V2.Services.PaperThicknessService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class PaperThicknessController {
     @Autowired
     private PaperThicknessService paperThicknessService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<PaperThickness> createPaperThickness(@RequestBody PaperThickness paperThickness) {
         log.info("ENDPOINT CALLED: /paperThickness (POST)");
@@ -26,6 +28,7 @@ public class PaperThicknessController {
         return ResponseEntity.status(201).body(newThickness);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<PaperThickness>> getAllPaperThicknesses() {
         log.info("ENDPOINT CALLED: /paperThickness (GET)");
@@ -34,6 +37,7 @@ public class PaperThicknessController {
         return ResponseEntity.ok(allThicknesses);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/{thicknessId}")
     public ResponseEntity<PaperThickness> getPaperThicknessById(@PathVariable int thicknessId) {
         log.info("ENDPOINT CALLED: /paperThickness/{} (GET)", thicknessId);
@@ -46,6 +50,7 @@ public class PaperThicknessController {
         return ResponseEntity.ok(thickness);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/{thicknessId}")
     public ResponseEntity<PaperThickness> updatePaperThickness(
             @PathVariable int thicknessId,
@@ -62,6 +67,7 @@ public class PaperThicknessController {
         return ResponseEntity.ok(updated);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @DeleteMapping("/{thicknessId}")
     public ResponseEntity<Void> deletePaperThickness(@PathVariable int thicknessId) {
         log.info("ENDPOINT CALLED: /paperThickness/{} (DELETE)", thicknessId);

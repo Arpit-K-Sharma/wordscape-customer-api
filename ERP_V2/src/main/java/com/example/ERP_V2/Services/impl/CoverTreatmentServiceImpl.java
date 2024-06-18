@@ -38,4 +38,9 @@ public class CoverTreatmentServiceImpl implements CoverTreatmentService {
 
         coverTreatmentRepository.save(existingCoverTreatment);
     }
+
+    @Override
+    public void deleteCoverTreatment(int coverTreatmentId) {
+        coverTreatmentRepository.deleteById(coverTreatmentId);
+    }
 }

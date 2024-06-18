@@ -40,4 +40,9 @@ public class LaminationServiceImpl implements LaminationService {
         // Save the updated lamination
         laminationRepository.save(existingLamination);
     }
+
+    @Override
+    public void deleteLamination(int laminationId) {
+        laminationRepository.deleteById(laminationId);
+    }
 }

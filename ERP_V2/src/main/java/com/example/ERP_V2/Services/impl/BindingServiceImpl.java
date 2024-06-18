@@ -38,4 +38,9 @@ public class BindingServiceImpl implements BindingService {
 
         bindingRepository.save(existingBinding);
     }
+
+    @Override
+    public void deleteBinding(int bindingId) {
+        bindingRepository.deleteById(bindingId);
+    }
 }

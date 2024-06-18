@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class LaminationController {
     @Autowired
     private LaminationService laminationService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Lamination>> getAllLaminations() {
         log.info("ENDPOINT CALLED: /laminations (GET)");
@@ -26,6 +28,7 @@ public class LaminationController {
         return new ResponseEntity<>(laminations, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<String> createLamination(@RequestBody Lamination lamination) {
         log.info("ENDPOINT CALLED: /laminations (POST)");
@@ -35,6 +38,7 @@ public class LaminationController {
         return ResponseEntity.ok("New Lamination Added !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updateLamination(@PathVariable int id, @RequestBody Lamination updatedLamination) {
         log.info("ENDPOINT CALLED: /laminations/{} (PUT)", id);
@@ -42,5 +46,15 @@ public class LaminationController {
         laminationService.updateLamination(id, updatedLamination);
         log.info("Lamination with ID {} updated successfully", id);
         return ResponseEntity.ok("Lamination updated !!!");
+    }
+
+
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @DeleteMapping("/{laminationId}")
+    public ResponseEntity<Void> deletePaper(@PathVariable int laminationId) {
+        log.info("ENDPOINT CALLED: /papers/{} (DELETE)", laminationId);
+        laminationService.deleteLamination(laminationId);
+        log.info("Paper with ID {} deleted successfully", laminationId);
+        return ResponseEntity.noContent().build();
     }
 }

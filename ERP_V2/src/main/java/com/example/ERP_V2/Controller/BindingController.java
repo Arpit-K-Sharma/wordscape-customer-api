@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class BindingController {
     @Autowired
     private BindingService bindingService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Binding>> getAllBindings() {
         log.info("ENDPOINT CALLED: /bindings (GET)");
@@ -26,6 +28,7 @@ public class BindingController {
         return new ResponseEntity<>(bindings, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<String> createBinding(@RequestBody Binding binding) {
         log.info("ENDPOINT CALLED: /bindings (POST)");
@@ -35,6 +38,7 @@ public class BindingController {
         return ResponseEntity.ok("Binding Added!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updateBinding(@PathVariable int id, @RequestBody Binding updatedBinding) {
         log.info("ENDPOINT CALLED: /bindings/{} (PUT)", id);
@@ -42,5 +46,15 @@ public class BindingController {
         bindingService.updateBinding(id, updatedBinding);
         log.info("Binding with ID {} updated successfully", id);
         return ResponseEntity.ok("Binding Updated !!!");
+    }
+
+
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @DeleteMapping("/{bindingId}")
+    public ResponseEntity<Void> deletePaper(@PathVariable int bindingId) {
+        log.info("ENDPOINT CALLED: /papers/{} (DELETE)", bindingId);
+        bindingService.deleteBinding(bindingId);
+        log.info("Paper with ID {} deleted successfully", bindingId);
+        return ResponseEntity.noContent().build();
     }
 }

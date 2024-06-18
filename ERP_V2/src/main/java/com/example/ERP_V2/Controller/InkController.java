@@ -5,6 +5,7 @@ import com.example.ERP_V2.Services.InkService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class InkController {
     @Autowired
     private InkService inkService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<Ink> createInk(@RequestBody Ink ink) {
         log.info("ENDPOINT CALLED: /inks (POST)");
@@ -26,6 +28,7 @@ public class InkController {
         return ResponseEntity.status(201).body(newInk);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Ink>> getAllInks() {
         log.info("ENDPOINT CALLED: /inks (GET)");
@@ -34,6 +37,7 @@ public class InkController {
         return ResponseEntity.ok(inks);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/{inkId}")
     public ResponseEntity<Ink> getInkById(@PathVariable int inkId) {
         log.info("ENDPOINT CALLED: /inks/{} (GET)", inkId);
@@ -42,6 +46,7 @@ public class InkController {
         return ResponseEntity.ok(ink);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/{inkId}")
     public ResponseEntity<Ink> updateInk(@PathVariable int inkId, @RequestBody Ink updatedInk) {
         log.info("ENDPOINT CALLED: /inks/{} (PUT)", inkId);
@@ -51,6 +56,7 @@ public class InkController {
         return ResponseEntity.ok(updated);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @DeleteMapping("/{inkId}")
     public ResponseEntity<Void> deleteInk(@PathVariable int inkId) {
         log.info("ENDPOINT CALLED: /inks/{} (DELETE)", inkId);

@@ -8,4 +8,6 @@ public interface PlateService {
     List<Plate> getAllPlates();
     void createPlate(Plate plate);
     void updatePlate(int id, Plate updatedPlate);
+
+    void deletePlate(int plateId);
 }

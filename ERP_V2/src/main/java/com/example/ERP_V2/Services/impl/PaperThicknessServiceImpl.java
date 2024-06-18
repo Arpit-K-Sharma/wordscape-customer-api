@@ -39,7 +39,6 @@ public class PaperThicknessServiceImpl implements PaperThicknessService {
 
     @Override
     public void deletePaperThickness(int thicknessId) {
-        PaperThickness existingThickness = getPaperThicknessById(thicknessId);
-        paperThicknessRepository.delete(existingThickness);
+        paperThicknessRepository.deleteById(thicknessId);
     }
 }

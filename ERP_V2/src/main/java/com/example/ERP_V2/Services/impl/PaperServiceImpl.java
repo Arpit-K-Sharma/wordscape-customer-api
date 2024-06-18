@@ -41,4 +41,11 @@ public class PaperServiceImpl implements PaperService {
         // Save the updated paper
         paperRepository.save(existingPaper);
     }
+
+    @Override
+    public void deletePaper(int paperId) {
+        paperRepository.deleteById(paperId);
+    }
+
+
 }

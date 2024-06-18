@@ -8,4 +8,6 @@ public interface LaminationService {
     List<Lamination> getAllLaminations();
     void createLamination(Lamination lamination);
     void updateLamination(int id, Lamination updatedLamination);
+
+    void deleteLamination(int laminationId);
 }

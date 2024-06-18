@@ -9,4 +9,6 @@ public interface PaperService {
     void createPaper(Paper paper);
     void updatePaper(int id, Paper updatedPaper);
 
+    void deletePaper(int paperId);
+
 }

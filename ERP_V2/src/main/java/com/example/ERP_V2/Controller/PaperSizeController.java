@@ -5,6 +5,7 @@ import com.example.ERP_V2.Services.PaperSizeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class PaperSizeController {
     @Autowired
     private PaperSizeService paperSizeService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<PaperSize> createPaperSize(@RequestBody PaperSize paperSize) {
         log.info("ENDPOINT CALLED: /paperSizes (POST)");
@@ -26,6 +28,7 @@ public class PaperSizeController {
         return ResponseEntity.status(201).body(newPaperSize);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<PaperSize>> getAllPaperSizes() {
         log.info("ENDPOINT CALLED: /paperSizes (GET)");
@@ -34,6 +37,7 @@ public class PaperSizeController {
         return ResponseEntity.ok(paperSizes);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/{paperSizeId}")
     public ResponseEntity<PaperSize> getPaperSizeById(@PathVariable int paperSizeId) {
         log.info("ENDPOINT CALLED: /paperSizes/{} (GET)", paperSizeId);

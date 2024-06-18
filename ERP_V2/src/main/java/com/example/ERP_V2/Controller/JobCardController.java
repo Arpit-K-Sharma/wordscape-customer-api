@@ -6,6 +6,7 @@ import com.example.ERP_V2.Services.JobCardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -20,6 +21,7 @@ public class JobCardController {
     @Autowired
     private JobCardService jobCardService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping("/{order_id}")
     public ResponseEntity<String> createJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO) {
         log.info("ENDPOINT CALLED: /jobCard/{} (POST)", order_id);
@@ -29,6 +31,7 @@ public class JobCardController {
         return ResponseEntity.ok("JobCard Added !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/update/{order_id}")
     public ResponseEntity<String> updateJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO) {
         log.info("ENDPOINT CALLED: /jobCard/update/{} (PUT)", order_id);
@@ -38,6 +41,7 @@ public class JobCardController {
         return ResponseEntity.ok("JobCard Updated !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/updateDeadline/{order_id}")
     public ResponseEntity<String> updateDeadline(@PathVariable int order_id, @RequestBody String deadline) {
         log.info("ENDPOINT CALLED: /jobCard/updateDeadline/{} (PUT)", order_id);
@@ -47,6 +51,7 @@ public class JobCardController {
         return ResponseEntity.ok("Deadline Updated");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("/{order_id}")
     public Order getJobCard(@PathVariable int order_id) {
         log.info("ENDPOINT CALLED: /jobCard/{} (GET)", order_id);

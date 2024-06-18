@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class PaperController {
     @Autowired
     private PaperService paperService;
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<List<Paper>> getAllPapers() {
         log.info("ENDPOINT CALLED: /papers (GET)");
@@ -26,6 +28,7 @@ public class PaperController {
         return new ResponseEntity<>(papers, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<String> createPaper(@RequestBody Paper paper) {
         log.info("ENDPOINT CALLED: /papers (POST)");
@@ -35,6 +38,7 @@ public class PaperController {
         return ResponseEntity.ok("New Paper Added !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updatePaper(@PathVariable int id, @RequestBody Paper updatedPaper) {
         log.info("ENDPOINT CALLED: /papers/{} (PUT)", id);
@@ -42,5 +46,14 @@ public class PaperController {
         paperService.updatePaper(id, updatedPaper);
         log.info("Paper with ID {} updated successfully", id);
         return ResponseEntity.ok("Paper updated !!!");
+    }
+
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @DeleteMapping("/{paperId}")
+    public ResponseEntity<Void> deletePaper(@PathVariable int paperId) {
+        log.info("ENDPOINT CALLED: /papers/{} (DELETE)", paperId);
+        paperService.deletePaper(paperId);
+        log.info("Paper with ID {} deleted successfully", paperId);
+        return ResponseEntity.noContent().build();
     }
 }

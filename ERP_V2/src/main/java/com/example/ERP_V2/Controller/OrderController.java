@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @PreAuthorize("hasAuthority('ROLE_CUSTOMER')")
     @PostMapping
     public ResponseEntity<String> addOrder(Authentication authentication, @RequestBody OrderDTO orderDTO) throws MessagingException {
         log.info("ENDPOINT CALLED: /orders (POST)");
@@ -39,6 +41,7 @@ public class OrderController {
         return ResponseEntity.ok("Order Added !!! The order invoice is being sent !!!");
     }
 
+    @PreAuthorize("hasAuthority('ROLE_CUSTOMER')")
     @PostMapping("/files")
     public ResponseEntity<Map<String, String>> uploadPDF(@ModelAttribute PdfUploadDTO pdfUploadDTO) {
         log.info("ENDPOINT CALLED: /orders/files (POST)");
@@ -53,6 +56,7 @@ public class OrderController {
         return ResponseEntity.ok(response);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
     @GetMapping("files/download/{orderId}")
     public ResponseEntity<byte[]> downloadOrderPdf(@PathVariable int orderId) {
         log.info("ENDPOINT CALLED: /orders/files/download/{} (GET)", orderId);
@@ -66,6 +70,7 @@ public class OrderController {
                 .body(pdfData);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping
     public ResponseEntity<PaginatedResponse<OrderDTO>> getAllOrders(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
@@ -80,6 +85,7 @@ public class OrderController {
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
     @GetMapping("{id}")
     public ResponseEntity<OrderDTO> getOrderById(@PathVariable int id){
         log.info("ENDPOINT CALLED: /orders/{} (GET)", id);
@@ -88,12 +94,14 @@ public class OrderController {
         return ResponseEntity.ok(orderDTO);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
     @GetMapping(value = "invoice/{id}")
     public byte[] getInvoiceById(@PathVariable int id){
         log.info("ENDPOINT CALLED: /orders/invoice/{} (GET)", id);
         return this.orderService.getInvoiceById(id);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_CUSTOMER')")
     @GetMapping("customer")
     public List<Order> getOrdersByCustomerId(Authentication authentication){
         log.info("ENDPOINT CALLED: /orders/customer (GET)");
@@ -103,6 +111,7 @@ public class OrderController {
         return orders;
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("cancel/{id}")
     public ResponseEntity<String> cancelOrder(@PathVariable int id){
         log.info("ENDPOINT CALLED: /orders/cancel/{} (PUT)", id);
