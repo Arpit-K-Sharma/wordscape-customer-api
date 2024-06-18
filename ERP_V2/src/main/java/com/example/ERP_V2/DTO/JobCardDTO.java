@@ -22,8 +22,6 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobCardDTO {
 
-    private Date deadline;
-
     private PrePressUnit prePressUnitList;
 
     @JsonProperty("deliveryDetail")
