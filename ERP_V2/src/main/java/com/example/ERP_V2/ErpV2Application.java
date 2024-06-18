@@ -39,7 +39,7 @@ public class ErpV2Application implements CommandLineRunner {
 		this.costService.addInitialPaperSizes();
 		this.costService.addInitialPaperThicknesses();
 		this.adminService.createAdmin();
-		this.orderService.insertDummyData();
-		this.userService.insertDummyData();
+//		this.orderService.insertDummyData();
+//		this.userService.insertDummyData();
 	}
 }

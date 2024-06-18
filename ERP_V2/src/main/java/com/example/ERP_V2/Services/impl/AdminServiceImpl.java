@@ -23,11 +23,14 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void createAdmin() {
-        Admin admin = new Admin();
-        admin.setFullName("Arpit Sharma");
-        admin.setEmail("admin@gmail.com");
-        admin.setPassword(passwordEncoder.encode("1234"));
-        this.adminRepo.save(admin);
+        // Check if admin table is empty
+        if (adminRepo.count() == 0) {
+            Admin admin = new Admin();
+            admin.setFullName("Arpit Sharma");
+            admin.setEmail("admin@gmail.com");
+            admin.setPassword(passwordEncoder.encode("1234"));
+            adminRepo.save(admin);
+        }
     }
 
 }
