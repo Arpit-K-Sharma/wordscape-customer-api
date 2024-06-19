@@ -361,8 +361,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO) {
-        String filename = pdfService.generateFilename(pdfUploadDTO.getPdfFile());
+    public String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO, String customer_id) {
+        String filename = pdfService.generateFilename(pdfUploadDTO.getPdfFile(),customer_id);
         Path uploadPath = Paths.get(pdfDirectory + filename);
         pdfService.savePdfFile(pdfUploadDTO, uploadPath);
         return filename;

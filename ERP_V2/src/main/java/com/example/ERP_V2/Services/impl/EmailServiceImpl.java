@@ -4,6 +4,7 @@ import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.EmailService;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -22,6 +23,7 @@ import java.util.concurrent.CompletableFuture;
 
 
 @Service
+@Slf4j
 public class EmailServiceImpl implements EmailService {
 
     @Autowired
@@ -46,6 +48,7 @@ public class EmailServiceImpl implements EmailService {
     @Async("taskExecutor")
     @Override
     public CompletableFuture<Void> sendHTMLEmail(Customer customer, OrderDTO orderDTO) {
+        log.info("Starting to send HTML email to {}", customer.getEmail());
         try {
             MimeMessage message = emailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -80,9 +83,9 @@ public class EmailServiceImpl implements EmailService {
             helper.addAttachment(pdfFile.getName(), pdfFile);
 
             emailSender.send(message);
+            log.info("Email successfully sent to {}", customer.getEmail());
         } catch (MessagingException e) {
-            e.printStackTrace();
-            // Log or handle the exception as needed
+            log.error("Error while sending email to {}: {}", customer.getEmail(), e.getMessage(), e);
         }
 
         return CompletableFuture.completedFuture(null);

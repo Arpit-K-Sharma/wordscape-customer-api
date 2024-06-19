@@ -31,6 +31,6 @@ public interface OrderService {
 
     byte[] getOrderPdf(int orderId);
 
-    String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO);
+    String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO,String customer_id);
 }
 

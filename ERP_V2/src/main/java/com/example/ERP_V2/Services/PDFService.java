@@ -9,7 +9,7 @@ public interface PDFService {
 
     public void savePdfFile(PdfUploadDTO pdfUploadDTO, Path path);
 
-    public String generateFilename(MultipartFile pdfFile);
+    public String generateFilename(MultipartFile pdfFile, String customer_id);
 
     public byte[] downloadPdf(Path path);
 }

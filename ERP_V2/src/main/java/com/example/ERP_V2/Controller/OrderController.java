@@ -43,10 +43,11 @@ public class OrderController {
 
     @PreAuthorize("hasAuthority('ROLE_CUSTOMER')")
     @PostMapping("/files")
-    public ResponseEntity<Map<String, String>> uploadPDF(@ModelAttribute PdfUploadDTO pdfUploadDTO) {
+    public ResponseEntity<Map<String, String>> uploadPDF(Authentication authentication,@ModelAttribute PdfUploadDTO pdfUploadDTO) {
         log.info("ENDPOINT CALLED: /orders/files (POST)");
         log.info("PDF FILENAME: {}", pdfUploadDTO.getPdfFile().getOriginalFilename());
-        String filename = this.orderService.saveOrderPdfFile(pdfUploadDTO);
+        String customer_id = authentication.getName();
+        String filename = this.orderService.saveOrderPdfFile(pdfUploadDTO,customer_id);
         log.info("PDF uploaded and saved successfully with filename: {}", filename);
 
         // Prepare JSON response
