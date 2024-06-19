@@ -98,25 +98,21 @@ public class JobCardServiceImpl implements JobCardService {
         if (jobCardDTO.getPrePressUnitList() != null) {
             jobCardDTO.getPrePressUnitList().setOrder(oldOrder);
             oldOrder.setPrePressUnitList(jobCardDTO.getPrePressUnitList());
-            System.out.println("Updated PrePressUnitList");
         }
 
         if (jobCardDTO.getDelivery() != null) {
             jobCardDTO.getDelivery().setOrder(oldOrder);
             oldOrder.setDelivery(jobCardDTO.getDelivery());
-            System.out.println("Updated Delivery");
         }
 
         if (jobCardDTO.getPrePressData() != null) {
             jobCardDTO.getPrePressData().setOrder(oldOrder);
             oldOrder.setPrePressData(jobCardDTO.getPrePressData());
-            System.out.println("Updated PrePressData");
         }
 
         if (jobCardDTO.getPaperDetailData() != null) {
             jobCardDTO.getPaperDetailData().setOrder(oldOrder);
             oldOrder.setPaperDetailData(jobCardDTO.getPaperDetailData());
-            System.out.println("Updated PaperDetailData");
         }
 
         if (jobCardDTO.getPlateDetailData() != null) {
@@ -126,8 +122,7 @@ public class JobCardServiceImpl implements JobCardService {
             for (PlateData plateData : plateDetailData.getPlateData()) {
                 plateData.setPlateDetailData(plateDetailData);
             }
-            oldOrder.setPlateDetailData(plateDetailData);
-            System.out.println("Updated PlateDetailData");
+            oldOrder.setPlateDetailData(jobCardDTO.getPlateDetailData());
         }
 
         if (jobCardDTO.getPaperData() != null) {
@@ -146,8 +141,7 @@ public class JobCardServiceImpl implements JobCardService {
                 paperData3.setPaperData(paperData);
             }
 
-            oldOrder.setPaperData(paperData);
-            System.out.println("Updated PaperData");
+            oldOrder.setPaperData(jobCardDTO.getPaperData());
         }
 
         if (jobCardDTO.getPressUnitData() != null) {
@@ -157,20 +151,17 @@ public class JobCardServiceImpl implements JobCardService {
             for (PressData pressData: pressUnitData.getPressData()) {
                 pressData.setPressUnitData(pressUnitData);
             }
-            oldOrder.setPressUnitData(pressUnitData);
-            System.out.println("Updated PressUnitData");
+            oldOrder.setPressUnitData(jobCardDTO.getPressUnitData());
         }
 
         if (jobCardDTO.getBindingData() != null) {
             jobCardDTO.getBindingData().setOrder(oldOrder);
             oldOrder.setBindingData(jobCardDTO.getBindingData());
-            System.out.println("Updated BindingData");
         }
 
         if (jobCardDTO.getCostCalculation() != null) {
             jobCardDTO.getCostCalculation().setOrder(oldOrder);
             oldOrder.setCostCalculation(jobCardDTO.getCostCalculation());
-            System.out.println("Updated CostCalculation");
         }
     }
 
