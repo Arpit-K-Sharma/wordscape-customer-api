@@ -18,7 +18,7 @@ public class PaperThicknessController {
     @Autowired
     private PaperThicknessService paperThicknessService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping
     public ResponseEntity<PaperThickness> createPaperThickness(@RequestBody PaperThickness paperThickness) {
         log.info("ENDPOINT CALLED: /paperThickness (POST)");
@@ -36,7 +36,7 @@ public class PaperThicknessController {
         return ResponseEntity.ok(allThicknesses);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/{thicknessId}")
     public ResponseEntity<PaperThickness> getPaperThicknessById(@PathVariable int thicknessId) {
         log.info("ENDPOINT CALLED: /paperThickness/{} (GET)", thicknessId);
@@ -49,7 +49,7 @@ public class PaperThicknessController {
         return ResponseEntity.ok(thickness);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{thicknessId}")
     public ResponseEntity<PaperThickness> updatePaperThickness(
             @PathVariable int thicknessId,
@@ -66,7 +66,7 @@ public class PaperThicknessController {
         return ResponseEntity.ok(updated);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{thicknessId}")
     public ResponseEntity<Void> deletePaperThickness(@PathVariable int thicknessId) {
         log.info("ENDPOINT CALLED: /paperThickness/{} (DELETE)", thicknessId);

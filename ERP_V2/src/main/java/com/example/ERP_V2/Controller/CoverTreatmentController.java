@@ -27,7 +27,7 @@ public class CoverTreatmentController {
         return new ResponseEntity<>(coverTreatments, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping
     public ResponseEntity<String> createCoverTreatment(@RequestBody CoverTreatment coverTreatment) {
         log.info("ENDPOINT CALLED: /coverTreatments (POST)");
@@ -37,7 +37,7 @@ public class CoverTreatmentController {
         return ResponseEntity.ok("Cover Treatment Added !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updateCoverTreatment(@PathVariable int id, @RequestBody CoverTreatment updatedCoverTreatment) {
         log.info("ENDPOINT CALLED: /coverTreatments/{} (PUT)", id);
@@ -48,7 +48,7 @@ public class CoverTreatmentController {
     }
 
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{coverTreatmentId}")
     public ResponseEntity<Void> deletePaper(@PathVariable int coverTreatmentId) {
         log.info("ENDPOINT CALLED: /papers/{} (DELETE)", coverTreatmentId);

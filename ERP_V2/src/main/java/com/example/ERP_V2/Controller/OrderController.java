@@ -57,7 +57,7 @@ public class OrderController {
         return ResponseEntity.ok(response);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_USER')")
     @GetMapping("files/download/{orderId}")
     public ResponseEntity<byte[]> downloadOrderPdf(@PathVariable int orderId) {
         log.info("ENDPOINT CALLED: /orders/files/download/{} (GET)", orderId);
@@ -71,7 +71,7 @@ public class OrderController {
                 .body(pdfData);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping
     public ResponseEntity<PaginatedResponse<OrderDTO>> getAllOrders(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
@@ -86,7 +86,7 @@ public class OrderController {
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_USER')")
     @GetMapping("{id}")
     public ResponseEntity<OrderDTO> getOrderById(@PathVariable int id){
         log.info("ENDPOINT CALLED: /orders/{} (GET)", id);
@@ -95,7 +95,7 @@ public class OrderController {
         return ResponseEntity.ok(orderDTO);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_USER')")
     @GetMapping(value = "invoice/{id}")
     public byte[] getInvoiceById(@PathVariable int id){
         log.info("ENDPOINT CALLED: /orders/invoice/{} (GET)", id);
@@ -112,7 +112,7 @@ public class OrderController {
         return orders;
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("cancel/{id}")
     public ResponseEntity<String> cancelOrder(@PathVariable int id){
         log.info("ENDPOINT CALLED: /orders/cancel/{} (PUT)", id);

@@ -27,7 +27,7 @@ public class PlateController {
         return new ResponseEntity<>(plates, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping
     public ResponseEntity<String> createPlate(@RequestBody Plate plate) {
         log.info("ENDPOINT CALLED: /plates (POST)");
@@ -37,7 +37,7 @@ public class PlateController {
         return ResponseEntity.ok("New Plate Added !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updatePlate(@PathVariable int id, @RequestBody Plate updatedPlate) {
         log.info("ENDPOINT CALLED: /plates/{} (PUT)", id);
@@ -47,7 +47,7 @@ public class PlateController {
         return ResponseEntity.ok("Plate updated !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{plateId}")
     public ResponseEntity<Void> deletePlate(@PathVariable int plateId) {
         log.info("ENDPOINT CALLED: /plates/{} (DELETE)", plateId);

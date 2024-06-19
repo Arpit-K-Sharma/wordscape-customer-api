@@ -18,7 +18,7 @@ public class PaperSizeController {
     @Autowired
     private PaperSizeService paperSizeService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping
     public ResponseEntity<PaperSize> createPaperSize(@RequestBody PaperSize paperSize) {
         log.info("ENDPOINT CALLED: /paperSizes (POST)");
@@ -36,7 +36,7 @@ public class PaperSizeController {
         return ResponseEntity.ok(paperSizes);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/{paperSizeId}")
     public ResponseEntity<PaperSize> getPaperSizeById(@PathVariable int paperSizeId) {
         log.info("ENDPOINT CALLED: /paperSizes/{} (GET)", paperSizeId);

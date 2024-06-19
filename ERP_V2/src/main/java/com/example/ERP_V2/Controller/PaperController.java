@@ -27,7 +27,7 @@ public class PaperController {
         return new ResponseEntity<>(papers, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping
     public ResponseEntity<String> createPaper(@RequestBody Paper paper) {
         log.info("ENDPOINT CALLED: /papers (POST)");
@@ -37,7 +37,7 @@ public class PaperController {
         return ResponseEntity.ok("New Paper Added !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updatePaper(@PathVariable int id, @RequestBody Paper updatedPaper) {
         log.info("ENDPOINT CALLED: /papers/{} (PUT)", id);
@@ -47,7 +47,7 @@ public class PaperController {
         return ResponseEntity.ok("Paper updated !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{paperId}")
     public ResponseEntity<Void> deletePaper(@PathVariable int paperId) {
         log.info("ENDPOINT CALLED: /papers/{} (DELETE)", paperId);
