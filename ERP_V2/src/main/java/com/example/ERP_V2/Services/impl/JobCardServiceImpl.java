@@ -55,9 +55,13 @@ public class JobCardServiceImpl implements JobCardService {
 
     @Override
     public void updateJobCard(int orderId, JobCardDTO jobCardDTO) {
-        Order oldOrder = orderRepo.findById(orderId).orElseThrow(() -> new RuntimeException("Order Not Found !!!"));
+        Order oldOrder = orderRepo.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order Not Found !!!"));
+
 
         updateOrderFromDTO(oldOrder, jobCardDTO);
+
+
         orderRepo.save(oldOrder);
 
 
@@ -91,37 +95,43 @@ public class JobCardServiceImpl implements JobCardService {
     }
 
     private void updateOrderFromDTO(Order oldOrder, JobCardDTO jobCardDTO) {
-
-
         if (jobCardDTO.getPrePressUnitList() != null) {
+            jobCardDTO.getPrePressUnitList().setOrder(oldOrder);
             oldOrder.setPrePressUnitList(jobCardDTO.getPrePressUnitList());
-
+            System.out.println("Updated PrePressUnitList");
         }
 
         if (jobCardDTO.getDelivery() != null) {
+            jobCardDTO.getDelivery().setOrder(oldOrder);
             oldOrder.setDelivery(jobCardDTO.getDelivery());
+            System.out.println("Updated Delivery");
         }
 
         if (jobCardDTO.getPrePressData() != null) {
+            jobCardDTO.getPrePressData().setOrder(oldOrder);
             oldOrder.setPrePressData(jobCardDTO.getPrePressData());
+            System.out.println("Updated PrePressData");
         }
 
         if (jobCardDTO.getPaperDetailData() != null) {
+            jobCardDTO.getPaperDetailData().setOrder(oldOrder);
             oldOrder.setPaperDetailData(jobCardDTO.getPaperDetailData());
+            System.out.println("Updated PaperDetailData");
         }
 
         if (jobCardDTO.getPlateDetailData() != null) {
+            jobCardDTO.getPlateDetailData().setOrder(oldOrder);
             PlateDetailData plateDetailData = jobCardDTO.getPlateDetailData();
 
             for (PlateData plateData : plateDetailData.getPlateData()) {
                 plateData.setPlateDetailData(plateDetailData);
             }
             oldOrder.setPlateDetailData(plateDetailData);
-
+            System.out.println("Updated PlateDetailData");
         }
 
         if (jobCardDTO.getPaperData() != null) {
-
+            jobCardDTO.getPaperData().setOrder(oldOrder);
             jobCardDTO.getPaperData().getPaperData0().setPaperData(jobCardDTO.getPaperData());
 
             PaperData paperData = jobCardDTO.getPaperData();
@@ -137,26 +147,31 @@ public class JobCardServiceImpl implements JobCardService {
             }
 
             oldOrder.setPaperData(paperData);
-
+            System.out.println("Updated PaperData");
         }
 
         if (jobCardDTO.getPressUnitData() != null) {
+            jobCardDTO.getPressUnitData().setOrder(oldOrder);
             PressUnitData pressUnitData = jobCardDTO.getPressUnitData();
 
             for (PressData pressData: pressUnitData.getPressData()) {
                 pressData.setPressUnitData(pressUnitData);
             }
             oldOrder.setPressUnitData(pressUnitData);
+            System.out.println("Updated PressUnitData");
         }
 
         if (jobCardDTO.getBindingData() != null) {
+            jobCardDTO.getBindingData().setOrder(oldOrder);
             oldOrder.setBindingData(jobCardDTO.getBindingData());
+            System.out.println("Updated BindingData");
         }
 
-        if(jobCardDTO.getCostCalculation() != null){
+        if (jobCardDTO.getCostCalculation() != null) {
+            jobCardDTO.getCostCalculation().setOrder(oldOrder);
             oldOrder.setCostCalculation(jobCardDTO.getCostCalculation());
+            System.out.println("Updated CostCalculation");
         }
-
     }
 
     private Order convertToOrder(int orderId, JobCardDTO jobCardDTO) {

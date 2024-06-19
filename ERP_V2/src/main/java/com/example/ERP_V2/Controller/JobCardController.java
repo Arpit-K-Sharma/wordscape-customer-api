@@ -31,7 +31,7 @@ public class JobCardController {
         return ResponseEntity.ok("JobCard Added !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PutMapping("/update/{order_id}")
     public ResponseEntity<String> updateJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO) {
         log.info("ENDPOINT CALLED: /jobCard/update/{} (PUT)", order_id);
