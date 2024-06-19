@@ -30,7 +30,7 @@ public class UserController {
         return ResponseEntity.ok("New User Added !!!");
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
+//    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers(
             @RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,

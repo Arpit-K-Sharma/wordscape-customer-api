@@ -29,4 +29,9 @@ public class UserDTO extends PersonDTO {
         this.email = email;
         this.password = password;
     }
+
+    public UserDTO(int userId, String password) {
+        this.userId = userId;
+        this.password = password;
+    }
 }

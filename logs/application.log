@@ -11908,3 +11908,1573 @@ java.lang.IllegalArgumentException: Selector declaration is invalid
 2024-06-19 16:06:03.689 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-06-19 16:06:03.691 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-06-19 16:06:03.701 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 18:44:37.645 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 19572 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 18:44:37.647 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 18:44:38.851 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 18:44:38.985 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 124 ms. Found 18 JPA repository interfaces.
+2024-06-19 18:44:39.753 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 18:44:39.769 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 18:44:39.772 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 18:44:39.773 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 18:44:39.848 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 18:44:39.848 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2139 ms
+2024-06-19 18:44:40.088 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 18:44:40.188 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 18:44:40.245 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 18:44:40.631 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 18:44:40.679 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 18:44:40.917 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@312f3050
+2024-06-19 18:44:40.919 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 18:44:40.976 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 18:44:43.291 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 18:44:44.174 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 18:44:45.491 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 18:44:45.891 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 18:44:45.935 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9a9263e4-bbfa-4658-b623-b9bf49b605fe
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 18:44:46.321 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@35b8b69f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6fca831e, org.springframework.security.web.context.SecurityContextHolderFilter@4e739968, org.springframework.security.web.header.HeaderWriterFilter@33012e6f, org.springframework.web.filter.CorsFilter@11ce61d1, org.springframework.security.web.authentication.logout.LogoutFilter@3208e15, com.example.ERP_V2.filter.JwtFilter@3fc064cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e903c69, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1dc37d4f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b67c637, org.springframework.security.web.session.SessionManagementFilter@620ba2b0, org.springframework.security.web.access.ExceptionTranslationFilter@681ba763, org.springframework.security.web.access.intercept.AuthorizationFilter@51b1732d]
+2024-06-19 18:44:46.700 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 18:44:46.718 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 18:44:46.727 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 9.831 seconds (process running for 10.868)
+2024-06-19 18:47:43.334 [http-nio-8081-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19 18:47:43.334 [http-nio-8081-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-19 18:47:43.335 [http-nio-8081-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-19 18:47:43.464 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 18:47:43.707 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@34ff6ac6
+2024-06-19 18:48:02.810 [http-nio-8081-exec-2] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 18:48:02.810 [http-nio-8081-exec-2] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=null, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 18:48:02.927 [http-nio-8081-exec-2] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 18:50:57.985 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (GET)
+2024-06-19 18:50:57.985 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - pageNumber: 0, pageSize: 10
+2024-06-19 18:50:57.993 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - RESPONSE: 1 users returned
+2024-06-19 18:53:43.593 [http-nio-8081-exec-9] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 18:53:43.703 [http-nio-8081-exec-9] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@12c05f72
+2024-06-19 18:54:09.881 [http-nio-8081-exec-10] INFO  c.e.E.Controller.CustomerController - 
+ENDPOINT CALLED: /customers/register
+REQUEST DTO: CustomerDTO(customerId=0, address=Kathmandu, phoneNumber=98089897878, companyName=TBC, status=true, orderList=null, salesBookList=null, salesRecordList=null, role=ROLE_CUSTOMER)
+2024-06-19 18:54:22.161 [http-nio-8081-exec-1] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 18:54:22.181 [http-nio-8081-exec-1] ERROR c.e.E.e.CustomExceptionHandler - Exception occurred: 
+org.springframework.security.core.userdetails.UsernameNotFoundException: Customer not found
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.lambda$getCustomerByEmail$2(AuthenticationServiceImpl.java:90)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.getCustomerByEmail(AuthenticationServiceImpl.java:90)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.loginAsCustomer(AuthenticationServiceImpl.java:70)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.login(AuthenticationServiceImpl.java:59)
+	at com.example.ERP_V2.Controller.AuthenticationController.login(AuthenticationController.java:25)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.ERP_V2.filter.JwtFilter.doFilterInternal(JwtFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 18:54:36.371 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 18:54:36.376 [http-nio-8081-exec-3] ERROR c.e.E.e.CustomExceptionHandler - Exception occurred: 
+org.springframework.security.core.userdetails.UsernameNotFoundException: Customer not found
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.lambda$getCustomerByEmail$2(AuthenticationServiceImpl.java:90)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.getCustomerByEmail(AuthenticationServiceImpl.java:90)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.loginAsCustomer(AuthenticationServiceImpl.java:70)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.login(AuthenticationServiceImpl.java:59)
+	at com.example.ERP_V2.Controller.AuthenticationController.login(AuthenticationController.java:25)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.ERP_V2.filter.JwtFilter.doFilterInternal(JwtFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 18:54:50.019 [http-nio-8081-exec-2] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 18:54:50.132 [http-nio-8081-exec-2] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@4b70af11
+2024-06-19 18:55:12.675 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - ENDPOINT CALLED: /orders (POST)
+2024-06-19 18:55:12.676 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - REQUEST BODY: OrderDTO(orderId=0, date=Thu Jun 06 13:46:01 NPT 2024, deadline=Wed Apr 10 05:45:00 NPT 2024, paperSize=A4, pages=0, quantity=0, bindingType=[Center Stitch, Spiral], coverTreatmentType=Die Cutting, innerPaperType=Art Paper, innerPaperThickness=100, outerPaperType=Art Paper, outerPaperThickness=100, innerLamination=Normal Glossy, outerLamination=Normal Glossy, plateSize=null, inkType=B/W, deliveryOption=null, remarks=null, companyName=name, address=name, status=null, customer=null, pdfFile=98bc2872-48af-4efb-835b-85fece4499c8.pdf, bindingRate=50, innerPaperRate=185, outerPaperRate=185, innerLaminationRate=0.02, outerLaminationRate=0.02, plateRate=400, estimatedAmount=0)
+2024-06-19 18:55:12.741 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - Order added successfully
+2024-06-19 18:55:12.741 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Starting to send HTML email to frozenboyarp@gmail.com
+2024-06-19 18:55:13.396 [Async-1] ERROR c.i.s.css.parse.CssRuleSetParser - Error while parsing css selector: 1
+java.lang.IllegalArgumentException: Selector declaration is invalid
+	at com.itextpdf.styledxmlparser.css.parse.CssSelectorParser.parseSelectorItems(CssSelectorParser.java:160)
+	at com.itextpdf.styledxmlparser.css.selector.CssSelector.<init>(CssSelector.java:76)
+	at com.itextpdf.styledxmlparser.css.parse.CssRuleSetParser.parseRuleSet(CssRuleSetParser.java:132)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.processProperties(CssParserStateController.java:390)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.storeCurrentProperties(CssParserStateController.java:315)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.PropertiesState.process(PropertiesState.java:71)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.process(CssParserStateController.java:179)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:84)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:112)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:125)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.collectCssDeclarations(DefaultCssResolver.java:291)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.<init>(DefaultCssResolver.java:144)
+	at com.itextpdf.html2pdf.attach.impl.DefaultHtmlProcessor.processDocument(DefaultHtmlProcessor.java:286)
+	at com.itextpdf.html2pdf.attach.Attacher.attach(Attacher.java:78)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToDocument(HtmlConverter.java:374)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:150)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:137)
+	at com.example.ERP_V2.Services.impl.Html2PdfServiceImpl.htmlToPdf(Html2PdfServiceImpl.java:27)
+	at com.example.ERP_V2.Services.impl.EmailServiceImpl.sendHTMLEmail(EmailServiceImpl.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 18:55:48.199 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Email successfully sent to frozenboyarp@gmail.com
+2024-06-19 18:56:09.096 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 18:56:09.102 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 18:56:09.114 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 18:56:15.414 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 7240 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 18:56:15.418 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 18:56:17.325 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 18:56:17.461 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 128 ms. Found 18 JPA repository interfaces.
+2024-06-19 18:56:18.107 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 18:56:18.119 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 18:56:18.121 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 18:56:18.122 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 18:56:18.182 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 18:56:18.183 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2712 ms
+2024-06-19 18:56:18.370 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 18:56:18.452 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 18:56:18.494 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 18:56:18.767 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 18:56:18.800 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 18:56:18.984 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@324e8baa
+2024-06-19 18:56:18.985 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 18:56:19.026 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 18:56:20.701 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 18:56:21.206 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 18:56:22.026 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 18:56:22.322 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 18:56:22.353 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f1ae0134-3781-4f9d-8a78-001c9f6830c3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 18:56:22.693 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@746f1505, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1507bc3, org.springframework.security.web.context.SecurityContextHolderFilter@1621264e, org.springframework.security.web.header.HeaderWriterFilter@6dbe6891, org.springframework.web.filter.CorsFilter@27a8bfa1, org.springframework.security.web.authentication.logout.LogoutFilter@3a5e591b, com.example.ERP_V2.filter.JwtFilter@386ec37d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5392c0a7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@bb9bad9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@202ed88d, org.springframework.security.web.session.SessionManagementFilter@66f15ce5, org.springframework.security.web.access.ExceptionTranslationFilter@7f77d839, org.springframework.security.web.access.intercept.AuthorizationFilter@18dda2e1]
+2024-06-19 18:56:23.060 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 18:56:23.076 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 18:56:23.085 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 8.388 seconds (process running for 12.259)
+2024-06-19 18:56:54.141 [http-nio-8081-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19 18:56:54.141 [http-nio-8081-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-19 18:56:54.143 [http-nio-8081-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-19 18:56:54.327 [http-nio-8081-exec-3] INFO  c.e.E.Controller.CustomerController - 
+ENDPOINT CALLED: /customers/register
+REQUEST DTO: CustomerDTO(customerId=0, address=Kathmandu, phoneNumber=98089897878, companyName=TBC, status=true, orderList=null, salesBookList=null, salesRecordList=null, role=ROLE_CUSTOMER)
+2024-06-19 18:57:02.676 [http-nio-8081-exec-4] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 18:57:02.826 [http-nio-8081-exec-4] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@12d3cf32
+2024-06-19 18:57:18.373 [http-nio-8081-exec-2] INFO  c.e.E.Controller.OrderController - ENDPOINT CALLED: /orders (POST)
+2024-06-19 18:57:18.373 [http-nio-8081-exec-2] INFO  c.e.E.Controller.OrderController - REQUEST BODY: OrderDTO(orderId=0, date=Thu Jun 06 13:46:01 NPT 2024, deadline=Wed Apr 10 05:45:00 NPT 2024, paperSize=A4, pages=0, quantity=0, bindingType=[Center Stitch, Spiral], coverTreatmentType=Die Cutting, innerPaperType=Art Paper, innerPaperThickness=100, outerPaperType=Art Paper, outerPaperThickness=100, innerLamination=Normal Glossy, outerLamination=Normal Glossy, plateSize=null, inkType=B/W, deliveryOption=null, remarks=null, companyName=name, address=name, status=null, customer=null, pdfFile=98bc2872-48af-4efb-835b-85fece4499c8.pdf, bindingRate=50, innerPaperRate=185, outerPaperRate=185, innerLaminationRate=0.02, outerLaminationRate=0.02, plateRate=400, estimatedAmount=0)
+2024-06-19 18:57:18.429 [http-nio-8081-exec-2] INFO  c.e.E.Controller.OrderController - Order added successfully
+2024-06-19 18:57:18.429 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Starting to send HTML email to frozenboyarp@gmail.com
+2024-06-19 18:57:18.981 [Async-1] ERROR c.i.s.css.parse.CssRuleSetParser - Error while parsing css selector: 1
+java.lang.IllegalArgumentException: Selector declaration is invalid
+	at com.itextpdf.styledxmlparser.css.parse.CssSelectorParser.parseSelectorItems(CssSelectorParser.java:160)
+	at com.itextpdf.styledxmlparser.css.selector.CssSelector.<init>(CssSelector.java:76)
+	at com.itextpdf.styledxmlparser.css.parse.CssRuleSetParser.parseRuleSet(CssRuleSetParser.java:132)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.processProperties(CssParserStateController.java:390)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.storeCurrentProperties(CssParserStateController.java:315)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.PropertiesState.process(PropertiesState.java:71)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.process(CssParserStateController.java:179)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:84)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:112)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:125)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.collectCssDeclarations(DefaultCssResolver.java:291)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.<init>(DefaultCssResolver.java:144)
+	at com.itextpdf.html2pdf.attach.impl.DefaultHtmlProcessor.processDocument(DefaultHtmlProcessor.java:286)
+	at com.itextpdf.html2pdf.attach.Attacher.attach(Attacher.java:78)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToDocument(HtmlConverter.java:374)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:150)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:137)
+	at com.example.ERP_V2.Services.impl.Html2PdfServiceImpl.htmlToPdf(Html2PdfServiceImpl.java:27)
+	at com.example.ERP_V2.Services.impl.EmailServiceImpl.sendHTMLEmail(EmailServiceImpl.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 18:57:28.864 [http-nio-8081-exec-5] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 18:57:28.864 [http-nio-8081-exec-5] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=null, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 18:57:28.979 [http-nio-8081-exec-5] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 18:57:38.653 [http-nio-8081-exec-10] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 18:57:38.766 [http-nio-8081-exec-10] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@5d0be506
+2024-06-19 18:57:53.633 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Email successfully sent to frozenboyarp@gmail.com
+2024-06-19 18:58:48.388 [http-nio-8081-exec-8] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 18:58:48.506 [http-nio-8081-exec-8] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@1cda4c5d
+2024-06-19 18:58:58.713 [http-nio-8081-exec-9] INFO  c.e.E.Controller.JobCardController - ENDPOINT CALLED: /jobCard/1 (POST)
+2024-06-19 18:58:58.714 [http-nio-8081-exec-9] INFO  c.e.E.Controller.JobCardController - REQUEST BODY: JobCardDTO(prePressUnitList=PrePressUnit(prePressUnitId=0, paymentMethod=Advance, serviceRequired=Post-press,Press, order=null), delivery=Delivery(deliveryId=0, destination=null, deliveryDate=null, deliveryTime=null, company=32, venue=121, contactPersonName=2, contactPersonNumber=121, driver=null, order=null), prePressData=PrePressData(prePressDataId=0, paymentMethod=PS/PDF, materialReceived=CD/DVD, flapSize=123, order=null), paperDetailData=PaperDetailData(paperDetailDataId=0, paperSize=123, gutterSize=21, gripperSize=2, coverPaperSize=12, innerPaperSize=12, folderName=12, plateProcessBy=12, order=null), plateDetailData=PlateDetailData(plateDetailDataId=0, screenType=asd, plateDamage=onCTP, plateRemake=213, plateData=[PlateData(plateDataId=0, size=as, colour1=d, colour2=ds, colour3=d, colour4=ds, special=sd, total=1234, plateDetailData=null), PlateData(plateDataId=0, size=null, colour1=null, colour2=null, colour3=null, colour4=null, special=null, total=null, plateDetailData=null), PlateData(plateDataId=0, size=null, colour1=null, colour2=null, colour3=null, colour4=null, special=null, total=null, plateDetailData=null), PlateData(plateDataId=0, size=null, colour1=null, colour2=null, colour3=null, colour4=null, special=null, total=null, plateDetailData=null)], order=null), paperData=PaperData(paperDataId=0, paperData0=PaperData0(paperData0_id=0, readyBy=123, date=2222-04-12, time=12:03, type=1231, size=121, numberOfPages=2, printrun=121, side=[bothside, singlesid], paperData=null), paperData1=[PaperData1(paperData1_id=0, type=Paper, fullSheetSize=123, weight=121, paperType=2, totalSheets=1, paperData=null), PaperData1(paperData1_id=0, type=Cover Paper, fullSheetSize=null, weight=null, paperType=null, totalSheets=null, paperData=null), PaperData1(paperData1_id=0, type=Inner Paper, fullSheetSize=null, weight=null, paperType=null, totalSheets=null, paperData=null), PaperData1(paperData1_id=0, type=Other Paper, fullSheetSize=null, weight=null, paperType=null, totalSheets=null, paperData=null)], paperData2=[PaperData2(paperData2_id=0, type=Paper, cutSheetSize=1, wastage=21, totalCutSheet=21, paperData=null), PaperData2(paperData2_id=0, type=Cover Paper, cutSheetSize=null, wastage=null, totalCutSheet=null, paperData=null), PaperData2(paperData2_id=0, type=Inner Paper, cutSheetSize=null, wastage=null, totalCutSheet=null, paperData=null), PaperData2(paperData2_id=0, type=Other Paper, cutSheetSize=null, wastage=null, totalCutSheet=null, paperData=null)], paperData3=[PaperData3(paperData3_id=0, type=Paper, paperType=asd, gsm=2, printColor=1212, lamination=12, paperData=null), PaperData3(paperData3_id=0, type=Cover Paper, paperType=null, gsm=null, printColor=null, lamination=null, paperData=null), PaperData3(paperData3_id=0, type=Inner Paper, paperType=null, gsm=null, printColor=null, lamination=null, paperData=null), PaperData3(paperData3_id=0, type=Other Paper, paperType=null, gsm=null, printColor=null, lamination=null, paperData=null)], order=null), pressUnitData=PressUnitData(pressUnitDataId=0, totalSet=123, forma=12, workAndTurn=121, pressData=[PressData(pressDataId=0, paperType=1, size=12, signature=121, ordered=211, produced=1, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null)], order=null), costCalculation=CostCalculation(costCalculationId=0, plates=18, printing=12, paper=23, coverPaper=32, innerPaper=34, otherPaper=34, lamination=45, binding=34, finishing=345, extraCharges=341, subTotal=12345, vat=13, grandTotal=232453, preparedBy=Arpit Sharma, approvedBy=Arpit Sharma, order=null), bindingData=BindingData(bindingUnitId=0, binderySelectedOption=padding,performance, filledInBy=123, approvedBy=12312, order=null))
+2024-06-19 18:58:58.812 [http-nio-8081-exec-9] INFO  c.e.E.Controller.JobCardController - JobCard created successfully for order ID: 1
+2024-06-19 19:25:59.232 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 2124 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 19:25:59.235 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 19:26:01.607 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 19:26:01.772 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 153 ms. Found 18 JPA repository interfaces.
+2024-06-19 19:26:02.716 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 19:26:02.728 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 19:26:02.731 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 19:26:02.731 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 19:26:02.800 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 19:26:02.800 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3503 ms
+2024-06-19 19:26:03.058 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 19:26:03.155 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 19:26:03.204 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 19:26:03.552 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 19:26:03.592 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 19:26:03.819 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d4d65f5
+2024-06-19 19:26:03.821 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 19:26:03.869 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 19:26:05.814 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 19:26:06.472 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 19:26:07.475 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 19:26:07.787 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 19:26:07.817 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 16b96962-8107-4c49-87c5-66ea7891df79
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 19:26:08.241 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46ebd87a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6dbe6891, org.springframework.security.web.context.SecurityContextHolderFilter@20d1737, org.springframework.security.web.header.HeaderWriterFilter@7c9d2ed7, org.springframework.web.filter.CorsFilter@11ce61d1, org.springframework.security.web.authentication.logout.LogoutFilter@780e6b63, com.example.ERP_V2.filter.JwtFilter@3fc064cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f31385e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a592d22, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30be77cd, org.springframework.security.web.session.SessionManagementFilter@4f290f46, org.springframework.security.web.access.ExceptionTranslationFilter@6ec5c4e2, org.springframework.security.web.access.intercept.AuthorizationFilter@414d5660]
+2024-06-19 19:26:08.851 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 19:26:08.869 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 19:26:08.877 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 10.377 seconds (process running for 12.322)
+2024-06-19 19:26:45.983 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19 19:26:45.983 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-19 19:26:45.984 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-06-19 19:26:46.184 [http-nio-8081-exec-2] INFO  c.e.E.Controller.CustomerController - 
+ENDPOINT CALLED: /customers/register
+REQUEST DTO: CustomerDTO(customerId=0, address=Kathmandu, phoneNumber=98089897878, companyName=TBC, status=true, orderList=null, salesBookList=null, salesRecordList=null, role=ROLE_CUSTOMER)
+2024-06-19 19:27:36.656 [http-nio-8081-exec-3] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 19:27:36.656 [http-nio-8081-exec-3] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=null, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 19:27:36.762 [http-nio-8081-exec-3] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 19:27:42.608 [http-nio-8081-exec-4] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (GET)
+2024-06-19 19:27:42.608 [http-nio-8081-exec-4] INFO  c.e.ERP_V2.Controller.UserController - pageNumber: 0, pageSize: 10
+2024-06-19 19:27:42.622 [http-nio-8081-exec-4] INFO  c.e.ERP_V2.Controller.UserController - RESPONSE: 1 users returned
+2024-06-19 19:28:11.725 [http-nio-8081-exec-6] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:28:11.850 [http-nio-8081-exec-6] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@643ce202
+2024-06-19 19:32:19.861 [http-nio-8081-exec-1] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:32:19.968 [http-nio-8081-exec-1] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@6573eb5
+2024-06-19 19:32:30.878 [http-nio-8081-exec-2] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 19:32:30.878 [http-nio-8081-exec-2] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=Arpit, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 19:32:30.991 [http-nio-8081-exec-2] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 19:32:51.570 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:32:51.602 [http-nio-8081-exec-3] ERROR c.e.E.e.CustomExceptionHandler - Exception occurred: 
+org.springframework.dao.IncorrectResultSizeDataAccessException: Query did not return a unique result: 2 results were returned
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:301)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:244)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:550)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:335)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy2/jdk.proxy2.$Proxy129.findByEmail(Unknown Source)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.getUserByEmail(AuthenticationServiceImpl.java:99)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.loginAsUser(AuthenticationServiceImpl.java:75)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.login(AuthenticationServiceImpl.java:57)
+	at com.example.ERP_V2.Controller.AuthenticationController.login(AuthenticationController.java:25)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.ERP_V2.filter.JwtFilter.doFilterInternal(JwtFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.hibernate.NonUniqueResultException: Query did not return a unique result: 2 results were returned
+	at org.hibernate.query.spi.AbstractSelectionQuery.uniqueElement(AbstractSelectionQuery.java:586)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:570)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:223)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:149)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 115 common frames omitted
+2024-06-19 19:34:25.761 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 19:34:25.763 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 19:34:25.771 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 19:34:31.337 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 10328 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 19:34:31.339 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 19:34:32.370 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 19:34:32.520 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 138 ms. Found 18 JPA repository interfaces.
+2024-06-19 19:34:33.297 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 19:34:33.312 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 19:34:33.314 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 19:34:33.314 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 19:34:33.379 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 19:34:33.379 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1987 ms
+2024-06-19 19:34:33.663 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 19:34:33.770 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 19:34:33.822 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 19:34:34.140 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 19:34:34.177 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 19:34:34.400 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@d8e4250
+2024-06-19 19:34:34.402 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 19:34:34.458 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 19:34:36.839 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 19:34:37.359 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 19:34:38.524 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 19:34:38.846 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 19:34:38.900 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 78a8ff42-6e92-45fe-95b8-441fe8b4bac3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 19:34:39.399 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@adc06b2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@728cf276, org.springframework.security.web.context.SecurityContextHolderFilter@3d0f2154, org.springframework.security.web.header.HeaderWriterFilter@1dc37d4f, org.springframework.web.filter.CorsFilter@712eb075, org.springframework.security.web.authentication.logout.LogoutFilter@771deee6, com.example.ERP_V2.filter.JwtFilter@217abcc9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@106dee26, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b0aa757, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66f15ce5, org.springframework.security.web.session.SessionManagementFilter@5b1dd206, org.springframework.security.web.access.ExceptionTranslationFilter@71d2bc34, org.springframework.security.web.access.intercept.AuthorizationFilter@4ac64dc2]
+2024-06-19 19:34:39.853 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 19:34:39.872 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 19:34:39.882 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 9.216 seconds (process running for 9.988)
+2024-06-19 19:34:43.304 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19 19:34:43.304 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-19 19:34:43.305 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-19 19:34:43.446 [http-nio-8081-exec-1] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:34:43.672 [http-nio-8081-exec-1] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@25cef92
+2024-06-19 19:34:57.909 [http-nio-8081-exec-3] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 19:34:57.909 [http-nio-8081-exec-3] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=Arpit, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 19:34:58.030 [http-nio-8081-exec-3] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 19:35:11.819 [http-nio-8081-exec-4] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (GET)
+2024-06-19 19:35:11.819 [http-nio-8081-exec-4] INFO  c.e.ERP_V2.Controller.UserController - pageNumber: 0, pageSize: 10
+2024-06-19 19:35:11.827 [http-nio-8081-exec-4] INFO  c.e.ERP_V2.Controller.UserController - RESPONSE: 1 users returned
+2024-06-19 19:35:25.247 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:35:25.367 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@4ad16991
+2024-06-19 19:44:27.996 [http-nio-8081-exec-9] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:44:28.112 [http-nio-8081-exec-9] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@2832916
+2024-06-19 19:44:49.654 [http-nio-8081-exec-2] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:44:49.760 [http-nio-8081-exec-2] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@1d65ae4f
+2024-06-19 19:44:59.476 [http-nio-8081-exec-1] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (GET)
+2024-06-19 19:44:59.477 [http-nio-8081-exec-1] INFO  c.e.ERP_V2.Controller.UserController - pageNumber: 0, pageSize: 10
+2024-06-19 19:44:59.480 [http-nio-8081-exec-1] INFO  c.e.ERP_V2.Controller.UserController - RESPONSE: 1 users returned
+2024-06-19 19:46:49.214 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:46:49.221 [http-nio-8081-exec-5] ERROR c.e.E.e.CustomExceptionHandler - Exception occurred: 
+org.springframework.security.core.userdetails.UsernameNotFoundException: Admin not found
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.lambda$getAdminByEmail$0(AuthenticationServiceImpl.java:80)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.getAdminByEmail(AuthenticationServiceImpl.java:80)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.loginAsAdmin(AuthenticationServiceImpl.java:65)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.login(AuthenticationServiceImpl.java:55)
+	at com.example.ERP_V2.Controller.AuthenticationController.login(AuthenticationController.java:25)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.ERP_V2.filter.JwtFilter.doFilterInternal(JwtFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 19:46:59.636 [http-nio-8081-exec-6] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:46:59.642 [http-nio-8081-exec-6] ERROR c.e.E.e.CustomExceptionHandler - Exception occurred: 
+org.springframework.security.core.userdetails.UsernameNotFoundException: Customer not found
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.lambda$getCustomerByEmail$2(AuthenticationServiceImpl.java:90)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.getCustomerByEmail(AuthenticationServiceImpl.java:90)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.loginAsCustomer(AuthenticationServiceImpl.java:70)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.login(AuthenticationServiceImpl.java:59)
+	at com.example.ERP_V2.Controller.AuthenticationController.login(AuthenticationController.java:25)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.ERP_V2.filter.JwtFilter.doFilterInternal(JwtFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 19:47:05.610 [http-nio-8081-exec-7] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:47:05.715 [http-nio-8081-exec-7] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@5342323f
+2024-06-19 19:47:12.823 [http-nio-8081-exec-8] INFO  c.e.E.Controller.CustomerController - 
+ENDPOINT CALLED: /customers/register
+REQUEST DTO: CustomerDTO(customerId=0, address=Kathmandu, phoneNumber=98089897878, companyName=TBC, status=true, orderList=null, salesBookList=null, salesRecordList=null, role=ROLE_CUSTOMER)
+2024-06-19 19:47:31.051 [http-nio-8081-exec-9] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 19:47:31.173 [http-nio-8081-exec-9] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@5577fdb2
+2024-06-19 19:47:57.192 [http-nio-8081-exec-10] INFO  c.e.E.Controller.OrderController - ENDPOINT CALLED: /orders (POST)
+2024-06-19 19:47:57.192 [http-nio-8081-exec-10] INFO  c.e.E.Controller.OrderController - REQUEST BODY: OrderDTO(orderId=0, date=Thu Jun 06 13:46:01 NPT 2024, deadline=Wed Apr 10 05:45:00 NPT 2024, paperSize=A4, pages=0, quantity=0, bindingType=[Center Stitch, Spiral], coverTreatmentType=Die Cutting, innerPaperType=Art Paper, innerPaperThickness=100, outerPaperType=Art Paper, outerPaperThickness=100, innerLamination=Normal Glossy, outerLamination=Normal Glossy, plateSize=null, inkType=B/W, deliveryOption=null, remarks=null, companyName=name, address=name, status=null, customer=null, pdfFile=98bc2872-48af-4efb-835b-85fece4499c8.pdf, bindingRate=50, innerPaperRate=185, outerPaperRate=185, innerLaminationRate=0.02, outerLaminationRate=0.02, plateRate=400, estimatedAmount=0)
+2024-06-19 19:47:57.244 [http-nio-8081-exec-10] INFO  c.e.E.Controller.OrderController - Order added successfully
+2024-06-19 19:47:57.246 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Starting to send HTML email to frozenboyarp@gmail.com
+2024-06-19 19:47:57.869 [Async-1] ERROR c.i.s.css.parse.CssRuleSetParser - Error while parsing css selector: 1
+java.lang.IllegalArgumentException: Selector declaration is invalid
+	at com.itextpdf.styledxmlparser.css.parse.CssSelectorParser.parseSelectorItems(CssSelectorParser.java:160)
+	at com.itextpdf.styledxmlparser.css.selector.CssSelector.<init>(CssSelector.java:76)
+	at com.itextpdf.styledxmlparser.css.parse.CssRuleSetParser.parseRuleSet(CssRuleSetParser.java:132)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.processProperties(CssParserStateController.java:390)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.storeCurrentProperties(CssParserStateController.java:315)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.PropertiesState.process(PropertiesState.java:71)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.process(CssParserStateController.java:179)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:84)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:112)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:125)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.collectCssDeclarations(DefaultCssResolver.java:291)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.<init>(DefaultCssResolver.java:144)
+	at com.itextpdf.html2pdf.attach.impl.DefaultHtmlProcessor.processDocument(DefaultHtmlProcessor.java:286)
+	at com.itextpdf.html2pdf.attach.Attacher.attach(Attacher.java:78)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToDocument(HtmlConverter.java:374)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:150)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:137)
+	at com.example.ERP_V2.Services.impl.Html2PdfServiceImpl.htmlToPdf(Html2PdfServiceImpl.java:27)
+	at com.example.ERP_V2.Services.impl.EmailServiceImpl.sendHTMLEmail(EmailServiceImpl.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 19:48:32.781 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Email successfully sent to frozenboyarp@gmail.com
+2024-06-19 20:50:13.990 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 20:50:13.992 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 20:50:13.996 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 20:50:18.208 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 13480 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 20:50:18.211 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 20:50:19.081 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 20:50:19.191 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 103 ms. Found 18 JPA repository interfaces.
+2024-06-19 20:50:19.699 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 20:50:19.707 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 20:50:19.709 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 20:50:19.709 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 20:50:19.756 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 20:50:19.756 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1493 ms
+2024-06-19 20:50:19.903 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 20:50:19.946 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 20:50:19.973 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 20:50:20.172 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 20:50:20.193 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 20:50:20.338 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6df2a206
+2024-06-19 20:50:20.340 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 20:50:20.366 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 20:50:21.759 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 20:50:22.083 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 20:50:22.789 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 20:50:23.014 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 20:50:23.032 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 1ce00171-07e1-4637-be3c-b332bc278279
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 20:50:23.276 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@135ec43a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69fc5803, org.springframework.security.web.context.SecurityContextHolderFilter@35b8b69f, org.springframework.security.web.header.HeaderWriterFilter@3d0f2154, org.springframework.web.filter.CorsFilter@203b98cf, org.springframework.security.web.authentication.logout.LogoutFilter@1435feb6, com.example.ERP_V2.filter.JwtFilter@2db07651, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b67c637, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@31b11287, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f50b08a, org.springframework.security.web.session.SessionManagementFilter@51b1732d, org.springframework.security.web.access.ExceptionTranslationFilter@3ea4dcc5, org.springframework.security.web.access.intercept.AuthorizationFilter@3de8e614]
+2024-06-19 20:50:23.615 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 20:50:23.633 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 20:50:23.641 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 6.152 seconds (process running for 6.717)
+2024-06-19 20:50:23.703 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19 20:50:23.704 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-19 20:50:23.706 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-06-19 20:50:23.868 [http-nio-8081-exec-1] INFO  c.e.E.Controller.CustomerController - 
+ENDPOINT CALLED: /customers/register
+REQUEST DTO: CustomerDTO(customerId=0, address=Kathmandu, phoneNumber=98089897878, companyName=TBC, status=true, orderList=null, salesBookList=null, salesRecordList=null, role=ROLE_CUSTOMER)
+2024-06-19 20:50:29.084 [http-nio-8081-exec-3] INFO  c.e.E.Controller.OrderController - ENDPOINT CALLED: /orders (POST)
+2024-06-19 20:50:29.084 [http-nio-8081-exec-3] INFO  c.e.E.Controller.OrderController - REQUEST BODY: OrderDTO(orderId=0, date=Thu Jun 06 13:46:01 NPT 2024, deadline=Wed Apr 10 05:45:00 NPT 2024, paperSize=A4, pages=0, quantity=0, bindingType=[Center Stitch, Spiral], coverTreatmentType=Die Cutting, innerPaperType=Art Paper, innerPaperThickness=100, outerPaperType=Art Paper, outerPaperThickness=100, innerLamination=Normal Glossy, outerLamination=Normal Glossy, plateSize=null, inkType=B/W, deliveryOption=null, remarks=null, companyName=name, address=name, status=null, customer=null, pdfFile=98bc2872-48af-4efb-835b-85fece4499c8.pdf, bindingRate=50, innerPaperRate=185, outerPaperRate=185, innerLaminationRate=0.02, outerLaminationRate=0.02, plateRate=400, estimatedAmount=0)
+2024-06-19 20:50:29.125 [http-nio-8081-exec-3] INFO  c.e.E.Controller.OrderController - Order added successfully
+2024-06-19 20:50:29.125 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Starting to send HTML email to frozenboyarp@gmail.com
+2024-06-19 20:50:29.530 [Async-1] ERROR c.i.s.css.parse.CssRuleSetParser - Error while parsing css selector: 1
+java.lang.IllegalArgumentException: Selector declaration is invalid
+	at com.itextpdf.styledxmlparser.css.parse.CssSelectorParser.parseSelectorItems(CssSelectorParser.java:160)
+	at com.itextpdf.styledxmlparser.css.selector.CssSelector.<init>(CssSelector.java:76)
+	at com.itextpdf.styledxmlparser.css.parse.CssRuleSetParser.parseRuleSet(CssRuleSetParser.java:132)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.processProperties(CssParserStateController.java:390)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.storeCurrentProperties(CssParserStateController.java:315)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.PropertiesState.process(PropertiesState.java:71)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.process(CssParserStateController.java:179)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:84)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:112)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:125)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.collectCssDeclarations(DefaultCssResolver.java:291)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.<init>(DefaultCssResolver.java:144)
+	at com.itextpdf.html2pdf.attach.impl.DefaultHtmlProcessor.processDocument(DefaultHtmlProcessor.java:286)
+	at com.itextpdf.html2pdf.attach.Attacher.attach(Attacher.java:78)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToDocument(HtmlConverter.java:374)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:150)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:137)
+	at com.example.ERP_V2.Services.impl.Html2PdfServiceImpl.htmlToPdf(Html2PdfServiceImpl.java:27)
+	at com.example.ERP_V2.Services.impl.EmailServiceImpl.sendHTMLEmail(EmailServiceImpl.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 20:50:38.438 [http-nio-8081-exec-4] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 20:50:38.444 [http-nio-8081-exec-4] ERROR c.e.E.e.CustomExceptionHandler - Exception occurred: 
+org.springframework.security.core.userdetails.UsernameNotFoundException: User not found
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.lambda$getUserByEmail$3(AuthenticationServiceImpl.java:99)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.getUserByEmail(AuthenticationServiceImpl.java:99)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.loginAsUser(AuthenticationServiceImpl.java:75)
+	at com.example.ERP_V2.Services.impl.AuthenticationServiceImpl.login(AuthenticationServiceImpl.java:57)
+	at com.example.ERP_V2.Controller.AuthenticationController.login(AuthenticationController.java:25)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.example.ERP_V2.filter.JwtFilter.doFilterInternal(JwtFilter.java:58)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 20:50:42.747 [http-nio-8081-exec-5] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 20:50:42.747 [http-nio-8081-exec-5] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=Arpit, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 20:50:42.830 [http-nio-8081-exec-5] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 20:50:46.064 [http-nio-8081-exec-6] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 20:50:46.179 [http-nio-8081-exec-6] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@4da31378
+2024-06-19 20:51:03.984 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Email successfully sent to frozenboyarp@gmail.com
+2024-06-19 20:51:33.878 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 20:51:33.879 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 20:51:33.882 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 20:51:38.003 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 7708 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 20:51:38.004 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 20:51:38.644 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 20:51:38.736 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 18 JPA repository interfaces.
+2024-06-19 20:51:39.211 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 20:51:39.220 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 20:51:39.221 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 20:51:39.221 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 20:51:39.266 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 20:51:39.266 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1220 ms
+2024-06-19 20:51:39.414 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 20:51:39.456 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 20:51:39.481 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 20:51:39.668 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 20:51:39.687 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 20:51:39.816 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1958c0d9
+2024-06-19 20:51:39.817 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 20:51:39.842 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 20:51:41.061 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 20:51:41.363 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 20:51:41.977 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 20:51:42.167 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 20:51:42.186 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 6ea4795a-12be-4dbd-9844-59888d7359a2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 20:51:42.433 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c61011b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75af5f2a, org.springframework.security.web.context.SecurityContextHolderFilter@3ea4dcc5, org.springframework.security.web.header.HeaderWriterFilter@71d2bc34, org.springframework.web.filter.CorsFilter@33da0fad, org.springframework.security.web.authentication.logout.LogoutFilter@71c9c7f3, com.example.ERP_V2.filter.JwtFilter@16baf8d0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d0f2154, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8374911, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@adc06b2, org.springframework.security.web.session.SessionManagementFilter@12ebfc66, org.springframework.security.web.access.ExceptionTranslationFilter@2c634c0, org.springframework.security.web.access.intercept.AuthorizationFilter@47b5c247]
+2024-06-19 20:51:42.710 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 20:51:42.730 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 20:51:42.735 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 5.171 seconds (process running for 5.763)
+2024-06-19 20:57:02.226 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 20:57:02.229 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 20:57:02.245 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 20:57:05.927 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 4632 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 20:57:05.929 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 20:57:06.544 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 20:57:06.637 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 18 JPA repository interfaces.
+2024-06-19 20:57:07.112 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 20:57:07.120 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 20:57:07.121 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 20:57:07.121 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 20:57:07.165 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 20:57:07.165 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1191 ms
+2024-06-19 20:57:07.395 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 20:57:07.453 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 20:57:07.494 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 20:57:07.754 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 20:57:07.779 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 20:57:07.967 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3e39f08c
+2024-06-19 20:57:07.968 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 20:57:07.998 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 20:57:09.402 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 20:57:09.726 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 20:57:10.394 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 20:57:10.591 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 20:57:10.612 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 7393e2e1-ecbb-4630-8af0-dea55f17cc3e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 20:57:10.903 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@135ec43a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69fc5803, org.springframework.security.web.context.SecurityContextHolderFilter@35b8b69f, org.springframework.security.web.header.HeaderWriterFilter@3d0f2154, org.springframework.web.filter.CorsFilter@203b98cf, org.springframework.security.web.authentication.logout.LogoutFilter@1435feb6, com.example.ERP_V2.filter.JwtFilter@2db07651, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b67c637, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@31b11287, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f50b08a, org.springframework.security.web.session.SessionManagementFilter@51b1732d, org.springframework.security.web.access.ExceptionTranslationFilter@3ea4dcc5, org.springframework.security.web.access.intercept.AuthorizationFilter@3de8e614]
+2024-06-19 20:57:11.377 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 20:57:11.399 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 20:57:11.412 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 5.943 seconds (process running for 6.523)
+2024-06-19 20:57:12.584 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19 20:57:12.584 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-19 20:57:12.585 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-19 20:57:12.721 [http-nio-8081-exec-2] INFO  c.e.E.Controller.CustomerController - 
+ENDPOINT CALLED: /customers/register
+REQUEST DTO: CustomerDTO(customerId=0, address=Kathmandu, phoneNumber=98089897878, companyName=TBC, status=true, orderList=null, salesBookList=null, salesRecordList=null, role=ROLE_CUSTOMER)
+2024-06-19 20:57:22.192 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 20:57:22.312 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@511ed46e
+2024-06-19 20:57:32.524 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - ENDPOINT CALLED: /orders (POST)
+2024-06-19 20:57:32.525 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - REQUEST BODY: OrderDTO(orderId=0, date=Thu Jun 06 13:46:01 NPT 2024, deadline=Wed Apr 10 05:45:00 NPT 2024, paperSize=A4, pages=0, quantity=0, bindingType=[Center Stitch, Spiral], coverTreatmentType=Die Cutting, innerPaperType=Art Paper, innerPaperThickness=100, outerPaperType=Art Paper, outerPaperThickness=100, innerLamination=Normal Glossy, outerLamination=Normal Glossy, plateSize=null, inkType=B/W, deliveryOption=null, remarks=null, companyName=name, address=name, status=null, customer=null, pdfFile=98bc2872-48af-4efb-835b-85fece4499c8.pdf, bindingRate=50, innerPaperRate=185, outerPaperRate=185, innerLaminationRate=0.02, outerLaminationRate=0.02, plateRate=400, estimatedAmount=0)
+2024-06-19 20:57:32.558 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - Order added successfully
+2024-06-19 20:57:32.559 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Starting to send HTML email to frozenboyarp@gmail.com
+2024-06-19 20:57:32.961 [Async-1] ERROR c.i.s.css.parse.CssRuleSetParser - Error while parsing css selector: 1
+java.lang.IllegalArgumentException: Selector declaration is invalid
+	at com.itextpdf.styledxmlparser.css.parse.CssSelectorParser.parseSelectorItems(CssSelectorParser.java:160)
+	at com.itextpdf.styledxmlparser.css.selector.CssSelector.<init>(CssSelector.java:76)
+	at com.itextpdf.styledxmlparser.css.parse.CssRuleSetParser.parseRuleSet(CssRuleSetParser.java:132)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.processProperties(CssParserStateController.java:390)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.storeCurrentProperties(CssParserStateController.java:315)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.PropertiesState.process(PropertiesState.java:71)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.process(CssParserStateController.java:179)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:84)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:112)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:125)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.collectCssDeclarations(DefaultCssResolver.java:291)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.<init>(DefaultCssResolver.java:144)
+	at com.itextpdf.html2pdf.attach.impl.DefaultHtmlProcessor.processDocument(DefaultHtmlProcessor.java:286)
+	at com.itextpdf.html2pdf.attach.Attacher.attach(Attacher.java:78)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToDocument(HtmlConverter.java:374)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:150)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:137)
+	at com.example.ERP_V2.Services.impl.Html2PdfServiceImpl.htmlToPdf(Html2PdfServiceImpl.java:27)
+	at com.example.ERP_V2.Services.impl.EmailServiceImpl.sendHTMLEmail(EmailServiceImpl.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 20:57:46.862 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 20:57:46.977 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@68778088
+2024-06-19 20:58:10.948 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Email successfully sent to frozenboyarp@gmail.com
+2024-06-19 20:58:26.702 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 20:58:26.702 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=Arpit, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 20:58:26.784 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 20:58:30.919 [http-nio-8081-exec-7] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 20:58:31.009 [http-nio-8081-exec-7] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@3aca7d5b
+2024-06-19 21:07:44.685 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:07:44.687 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 21:07:44.690 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 21:07:57.343 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 3148 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 21:07:57.344 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 21:07:57.914 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 21:07:57.996 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 76 ms. Found 18 JPA repository interfaces.
+2024-06-19 21:07:58.436 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 21:07:58.443 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:07:58.444 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 21:07:58.444 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 21:07:58.484 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 21:07:58.484 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1107 ms
+2024-06-19 21:07:58.623 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 21:07:58.699 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 21:07:58.728 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 21:07:58.909 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 21:07:58.927 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 21:07:59.053 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@16e07bae
+2024-06-19 21:07:59.054 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 21:07:59.080 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 21:08:04.008 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 15268 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 21:08:04.011 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 21:08:04.590 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 21:08:04.679 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 84 ms. Found 18 JPA repository interfaces.
+2024-06-19 21:08:05.215 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 21:08:05.222 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:08:05.224 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 21:08:05.224 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 21:08:05.268 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 21:08:05.268 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1222 ms
+2024-06-19 21:08:05.416 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 21:08:05.459 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 21:08:05.488 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 21:08:05.698 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 21:08:05.720 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 21:08:05.850 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6fa3def8
+2024-06-19 21:08:05.853 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 21:08:05.879 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 21:08:07.180 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 21:08:07.513 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:08:08.192 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 21:08:08.382 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 21:08:08.402 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: add07aa5-b36c-4e7e-bdc2-e8b129fe80a5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 21:08:08.689 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@12a0f131, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4eff65ce, org.springframework.security.web.context.SecurityContextHolderFilter@17e96b3c, org.springframework.security.web.header.HeaderWriterFilter@5327c503, org.springframework.web.filter.CorsFilter@440d45c5, org.springframework.security.web.authentication.logout.LogoutFilter@6a4bd9e4, com.example.ERP_V2.filter.JwtFilter@57629340, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6316b9e3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@186f7553, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2138386f, org.springframework.security.web.session.SessionManagementFilter@3f60ba06, org.springframework.security.web.access.ExceptionTranslationFilter@65640109, org.springframework.security.web.access.intercept.AuthorizationFilter@2f2e75ae]
+2024-06-19 21:08:08.988 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:08:09.001 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 21:08:09.009 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 5.413 seconds (process running for 6.421)
+2024-06-19 21:08:12.599 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19 21:08:12.599 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-19 21:08:12.601 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-06-19 21:08:12.739 [http-nio-8081-exec-2] INFO  c.e.E.Controller.CustomerController - 
+ENDPOINT CALLED: /customers/register
+REQUEST DTO: CustomerDTO(customerId=0, address=Kathmandu, phoneNumber=98089897878, companyName=TBC, status=true, orderList=null, salesBookList=null, salesRecordList=null, role=ROLE_CUSTOMER)
+2024-06-19 21:08:22.240 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 21:08:22.345 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@734745c3
+2024-06-19 21:08:32.624 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - ENDPOINT CALLED: /orders (POST)
+2024-06-19 21:08:32.624 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - REQUEST BODY: OrderDTO(orderId=0, date=Thu Jun 06 13:46:01 NPT 2024, deadline=Wed Apr 10 05:45:00 NPT 2024, paperSize=A4, pages=0, quantity=0, bindingType=[Center Stitch, Spiral], coverTreatmentType=Die Cutting, innerPaperType=Art Paper, innerPaperThickness=100, outerPaperType=Art Paper, outerPaperThickness=100, innerLamination=Normal Glossy, outerLamination=Normal Glossy, plateSize=null, inkType=B/W, deliveryOption=null, remarks=null, companyName=name, address=name, status=null, customer=null, pdfFile=98bc2872-48af-4efb-835b-85fece4499c8.pdf, bindingRate=50, innerPaperRate=185, outerPaperRate=185, innerLaminationRate=0.02, outerLaminationRate=0.02, plateRate=400, estimatedAmount=0)
+2024-06-19 21:08:32.660 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - Order added successfully
+2024-06-19 21:08:32.661 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Starting to send HTML email to frozenboyarp@gmail.com
+2024-06-19 21:08:33.047 [Async-1] ERROR c.i.s.css.parse.CssRuleSetParser - Error while parsing css selector: 1
+java.lang.IllegalArgumentException: Selector declaration is invalid
+	at com.itextpdf.styledxmlparser.css.parse.CssSelectorParser.parseSelectorItems(CssSelectorParser.java:160)
+	at com.itextpdf.styledxmlparser.css.selector.CssSelector.<init>(CssSelector.java:76)
+	at com.itextpdf.styledxmlparser.css.parse.CssRuleSetParser.parseRuleSet(CssRuleSetParser.java:132)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.processProperties(CssParserStateController.java:390)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.storeCurrentProperties(CssParserStateController.java:315)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.PropertiesState.process(PropertiesState.java:71)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.process(CssParserStateController.java:179)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:84)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:112)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:125)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.collectCssDeclarations(DefaultCssResolver.java:291)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.<init>(DefaultCssResolver.java:144)
+	at com.itextpdf.html2pdf.attach.impl.DefaultHtmlProcessor.processDocument(DefaultHtmlProcessor.java:286)
+	at com.itextpdf.html2pdf.attach.Attacher.attach(Attacher.java:78)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToDocument(HtmlConverter.java:374)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:150)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:137)
+	at com.example.ERP_V2.Services.impl.Html2PdfServiceImpl.htmlToPdf(Html2PdfServiceImpl.java:27)
+	at com.example.ERP_V2.Services.impl.EmailServiceImpl.sendHTMLEmail(EmailServiceImpl.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run$$$capture(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 21:08:38.703 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 21:08:38.801 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@31e7fda5
+2024-06-19 21:08:48.230 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 21:08:48.230 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=Arpit, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 21:08:48.309 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 21:08:51.877 [http-nio-8081-exec-7] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 21:08:51.951 [http-nio-8081-exec-7] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@4eccbaec
+2024-06-19 21:09:07.705 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Email successfully sent to frozenboyarp@gmail.com
+2024-06-19 21:09:26.185 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:09:26.187 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 21:09:26.191 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 21:11:50.347 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 7216 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 21:11:50.349 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 21:11:51.069 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 21:11:51.170 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 94 ms. Found 18 JPA repository interfaces.
+2024-06-19 21:11:51.658 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 21:11:51.666 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:11:51.668 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 21:11:51.668 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 21:11:51.712 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 21:11:51.713 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1323 ms
+2024-06-19 21:11:51.849 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 21:11:51.892 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 21:11:51.929 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 21:11:52.112 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 21:11:52.134 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 21:11:52.257 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@c67395
+2024-06-19 21:11:52.257 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 21:11:52.283 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 21:11:53.468 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 21:11:53.787 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:11:54.441 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 21:11:54.641 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 21:11:54.662 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: b85da373-9eb6-490a-84c8-afad48defe75
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 21:11:54.925 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@69a8191e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3ab7b0f, org.springframework.security.web.context.SecurityContextHolderFilter@6b0aa757, org.springframework.security.web.header.HeaderWriterFilter@4a23be9, org.springframework.web.filter.CorsFilter@78c34153, org.springframework.security.web.authentication.logout.LogoutFilter@2d854c13, com.example.ERP_V2.filter.JwtFilter@7473cfe2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d0695da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62e55482, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1621264e, org.springframework.security.web.session.SessionManagementFilter@3d0f2154, org.springframework.security.web.access.ExceptionTranslationFilter@4f290f46, org.springframework.security.web.access.intercept.AuthorizationFilter@adc06b2]
+2024-06-19 21:11:55.334 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:11:55.346 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 21:11:55.352 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 5.456 seconds (process running for 6.039)
+2024-06-19 21:15:13.046 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:15:13.104 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 21:15:13.153 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 21:15:19.521 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 19024 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 21:15:19.523 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 21:15:20.152 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 21:15:20.247 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 18 JPA repository interfaces.
+2024-06-19 21:15:20.875 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 21:15:20.884 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:15:20.885 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 21:15:20.886 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 21:15:20.938 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 21:15:20.939 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1383 ms
+2024-06-19 21:15:21.087 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 21:15:21.132 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 21:15:21.159 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 21:15:21.357 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 21:15:21.378 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 21:15:21.500 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@596afb2f
+2024-06-19 21:15:21.501 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 21:15:21.527 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 21:15:22.929 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 21:15:23.286 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:15:23.936 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 21:15:24.135 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 21:15:24.155 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: b5941167-2f91-41ad-997f-7ecd064990fe
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 21:15:24.415 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34fe89a5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@71acf065, org.springframework.security.web.context.SecurityContextHolderFilter@4ba99bb7, org.springframework.security.web.header.HeaderWriterFilter@38ed9fb2, org.springframework.web.filter.CorsFilter@106e6dfe, org.springframework.security.web.authentication.logout.LogoutFilter@75af5f2a, com.example.ERP_V2.filter.JwtFilter@4a5a8c6f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d4f1a44, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a9861de, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3705e3fb, org.springframework.security.web.session.SessionManagementFilter@5ceb6796, org.springframework.security.web.access.ExceptionTranslationFilter@20072ff1, org.springframework.security.web.access.intercept.AuthorizationFilter@5392c0a7]
+2024-06-19 21:15:24.723 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:15:24.737 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 21:15:24.743 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 5.684 seconds (process running for 6.328)
+2024-06-19 21:15:44.484 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:15:44.486 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 21:15:44.541 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-19 21:15:48.285 [main] INFO  com.example.ERP_V2.ErpV2Application - Starting ErpV2Application using Java 21.0.2 with PID 19100 (C:\Users\SHADOW\IdeaProjects\ERP_V2\ERP_V2\target\classes started by SHADOW in C:\Users\SHADOW\IdeaProjects\ERP_V2)
+2024-06-19 21:15:48.287 [main] INFO  com.example.ERP_V2.ErpV2Application - No active profile set, falling back to 1 default profile: "default"
+2024-06-19 21:15:49.034 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-19 21:15:49.133 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 94 ms. Found 18 JPA repository interfaces.
+2024-06-19 21:15:49.657 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-06-19 21:15:49.666 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:15:49.667 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-19 21:15:49.668 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-19 21:15:49.713 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-19 21:15:49.713 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1382 ms
+2024-06-19 21:15:49.868 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-19 21:15:49.942 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-19 21:15:49.983 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-19 21:15:50.205 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-19 21:15:50.230 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-19 21:15:50.368 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46a388cc
+2024-06-19 21:15:50.369 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-19 21:15:50.397 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-19 21:15:51.737 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-19 21:15:52.115 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:15:52.775 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-19 21:15:52.968 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-19 21:15:52.989 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 736c9d02-9f6c-484d-b796-b9c4ba6caec1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-06-19 21:15:53.249 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1435feb6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34fe89a5, org.springframework.security.web.context.SecurityContextHolderFilter@3208e15, org.springframework.security.web.header.HeaderWriterFilter@6e48b9ed, org.springframework.web.filter.CorsFilter@324afa73, org.springframework.security.web.authentication.logout.LogoutFilter@1c61011b, com.example.ERP_V2.filter.JwtFilter@6cca70e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4cf99283, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d4f1a44, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@71acf065, org.springframework.security.web.session.SessionManagementFilter@62e55482, org.springframework.security.web.access.ExceptionTranslationFilter@4a592d22, org.springframework.security.web.access.intercept.AuthorizationFilter@7a5b561b]
+2024-06-19 21:15:53.567 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-06-19 21:15:53.580 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-06-19 21:15:53.585 [main] INFO  com.example.ERP_V2.ErpV2Application - Started ErpV2Application in 5.771 seconds (process running for 6.349)
+2024-06-19 21:15:59.242 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19 21:15:59.242 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-19 21:15:59.243 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-19 21:15:59.396 [http-nio-8081-exec-1] INFO  c.e.E.Controller.CustomerController - 
+ENDPOINT CALLED: /customers/register
+REQUEST DTO: CustomerDTO(customerId=0, address=Kathmandu, phoneNumber=98089897878, companyName=TBC, status=true, orderList=null, salesBookList=null, salesRecordList=null, role=ROLE_CUSTOMER)
+2024-06-19 21:16:07.022 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 21:16:07.146 [http-nio-8081-exec-5] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@53ca9ee7
+2024-06-19 21:16:20.077 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - ENDPOINT CALLED: /orders (POST)
+2024-06-19 21:16:20.077 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - REQUEST BODY: OrderDTO(orderId=0, date=Thu Jun 06 13:46:01 NPT 2024, deadline=Wed Apr 10 05:45:00 NPT 2024, paperSize=A4, pages=0, quantity=0, bindingType=[Center Stitch, Spiral], coverTreatmentType=Die Cutting, innerPaperType=Art Paper, innerPaperThickness=100, outerPaperType=Art Paper, outerPaperThickness=100, innerLamination=Normal Glossy, outerLamination=Normal Glossy, plateSize=null, inkType=B/W, deliveryOption=null, remarks=null, companyName=name, address=name, status=null, customer=null, pdfFile=98bc2872-48af-4efb-835b-85fece4499c8.pdf, bindingRate=50, innerPaperRate=185, outerPaperRate=185, innerLaminationRate=0.02, outerLaminationRate=0.02, plateRate=400, estimatedAmount=0)
+2024-06-19 21:16:20.116 [http-nio-8081-exec-4] INFO  c.e.E.Controller.OrderController - Order added successfully
+2024-06-19 21:16:20.116 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Starting to send HTML email to frozenboyarp@gmail.com
+2024-06-19 21:16:20.515 [Async-1] ERROR c.i.s.css.parse.CssRuleSetParser - Error while parsing css selector: 1
+java.lang.IllegalArgumentException: Selector declaration is invalid
+	at com.itextpdf.styledxmlparser.css.parse.CssSelectorParser.parseSelectorItems(CssSelectorParser.java:160)
+	at com.itextpdf.styledxmlparser.css.selector.CssSelector.<init>(CssSelector.java:76)
+	at com.itextpdf.styledxmlparser.css.parse.CssRuleSetParser.parseRuleSet(CssRuleSetParser.java:132)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.processProperties(CssParserStateController.java:390)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.storeCurrentProperties(CssParserStateController.java:315)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.PropertiesState.process(PropertiesState.java:71)
+	at com.itextpdf.styledxmlparser.css.parse.syntax.CssParserStateController.process(CssParserStateController.java:179)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:84)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:112)
+	at com.itextpdf.styledxmlparser.css.parse.CssStyleSheetParser.parse(CssStyleSheetParser.java:125)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.collectCssDeclarations(DefaultCssResolver.java:291)
+	at com.itextpdf.html2pdf.css.resolve.DefaultCssResolver.<init>(DefaultCssResolver.java:144)
+	at com.itextpdf.html2pdf.attach.impl.DefaultHtmlProcessor.processDocument(DefaultHtmlProcessor.java:286)
+	at com.itextpdf.html2pdf.attach.Attacher.attach(Attacher.java:78)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToDocument(HtmlConverter.java:374)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:150)
+	at com.itextpdf.html2pdf.HtmlConverter.convertToPdf(HtmlConverter.java:137)
+	at com.example.ERP_V2.Services.impl.Html2PdfServiceImpl.htmlToPdf(Html2PdfServiceImpl.java:27)
+	at com.example.ERP_V2.Services.impl.EmailServiceImpl.sendHTMLEmail(EmailServiceImpl.java:78)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-19 21:16:25.683 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 21:16:25.783 [http-nio-8081-exec-3] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@efba0cf
+2024-06-19 21:16:33.617 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - ENDPOINT CALLED: /users (POST)
+2024-06-19 21:16:33.617 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - REQUEST BODY: User(userId=0, fullName=Arpit, password=apple6969, email=arpit@gmail.com, address=Kupandole, phoneNumber=9847047980, status=true, role=ROLE_USER)
+2024-06-19 21:16:33.696 [http-nio-8081-exec-6] INFO  c.e.ERP_V2.Controller.UserController - New User created successfully
+2024-06-19 21:16:36.408 [http-nio-8081-exec-7] INFO  c.e.E.C.AuthenticationController - 
+ENDPOINT CALLED: /home/login
+
+2024-06-19 21:16:36.490 [http-nio-8081-exec-7] INFO  c.e.E.C.AuthenticationController - RESPONSE: com.example.ERP_V2.DTO.LoginResponseDTO@ed9d02a
+2024-06-19 21:16:48.782 [http-nio-8081-exec-8] INFO  c.e.E.Controller.JobCardController - ENDPOINT CALLED: /jobCard/1 (POST)
+2024-06-19 21:16:48.782 [http-nio-8081-exec-8] INFO  c.e.E.Controller.JobCardController - REQUEST BODY: JobCardDTO(prePressUnitList=PrePressUnit(prePressUnitId=0, paymentMethod=Advance, serviceRequired=Post-press,Press, order=null), delivery=Delivery(deliveryId=0, destination=null, deliveryDate=null, deliveryTime=null, company=32, venue=121, contactPersonName=2, contactPersonNumber=121, driver=null, order=null), prePressData=PrePressData(prePressDataId=0, paymentMethod=PS/PDF, materialReceived=CD/DVD, flapSize=123, order=null), paperDetailData=PaperDetailData(paperDetailDataId=0, paperSize=123, gutterSize=21, gripperSize=2, coverPaperSize=12, innerPaperSize=12, folderName=12, plateProcessBy=12, order=null), plateDetailData=PlateDetailData(plateDetailDataId=0, screenType=asd, plateDamage=onCTP, plateRemake=213, plateData=[PlateData(plateDataId=0, size=as, colour1=d, colour2=ds, colour3=d, colour4=ds, special=sd, total=1234, plateDetailData=null), PlateData(plateDataId=0, size=null, colour1=null, colour2=null, colour3=null, colour4=null, special=null, total=null, plateDetailData=null), PlateData(plateDataId=0, size=null, colour1=null, colour2=null, colour3=null, colour4=null, special=null, total=null, plateDetailData=null), PlateData(plateDataId=0, size=null, colour1=null, colour2=null, colour3=null, colour4=null, special=null, total=null, plateDetailData=null)], order=null), paperData=PaperData(paperDataId=0, paperData0=PaperData0(paperData0_id=0, readyBy=123, date=2222-04-12, time=12:03, type=1231, size=121, numberOfPages=2, printrun=121, side=[bothside, singlesid], paperData=null), paperData1=[PaperData1(paperData1_id=0, type=Paper, fullSheetSize=123, weight=121, paperType=2, totalSheets=1, paperData=null), PaperData1(paperData1_id=0, type=Cover Paper, fullSheetSize=null, weight=null, paperType=null, totalSheets=null, paperData=null), PaperData1(paperData1_id=0, type=Inner Paper, fullSheetSize=null, weight=null, paperType=null, totalSheets=null, paperData=null), PaperData1(paperData1_id=0, type=Other Paper, fullSheetSize=null, weight=null, paperType=null, totalSheets=null, paperData=null)], paperData2=[PaperData2(paperData2_id=0, type=Paper, cutSheetSize=1, wastage=21, totalCutSheet=21, paperData=null), PaperData2(paperData2_id=0, type=Cover Paper, cutSheetSize=null, wastage=null, totalCutSheet=null, paperData=null), PaperData2(paperData2_id=0, type=Inner Paper, cutSheetSize=null, wastage=null, totalCutSheet=null, paperData=null), PaperData2(paperData2_id=0, type=Other Paper, cutSheetSize=null, wastage=null, totalCutSheet=null, paperData=null)], paperData3=[PaperData3(paperData3_id=0, type=Paper, paperType=asd, gsm=2, printColor=1212, lamination=12, paperData=null), PaperData3(paperData3_id=0, type=Cover Paper, paperType=null, gsm=null, printColor=null, lamination=null, paperData=null), PaperData3(paperData3_id=0, type=Inner Paper, paperType=null, gsm=null, printColor=null, lamination=null, paperData=null), PaperData3(paperData3_id=0, type=Other Paper, paperType=null, gsm=null, printColor=null, lamination=null, paperData=null)], order=null), pressUnitData=PressUnitData(pressUnitDataId=0, totalSet=123, forma=12, workAndTurn=121, pressData=[PressData(pressDataId=0, paperType=1, size=12, signature=121, ordered=211, produced=1, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null), PressData(pressDataId=0, paperType=null, size=null, signature=null, ordered=null, produced=null, pressUnitData=null)], order=null), costCalculation=CostCalculation(costCalculationId=0, plates=18, printing=12, paper=23, coverPaper=32, innerPaper=34, otherPaper=34, lamination=45, binding=34, finishing=345, extraCharges=341, subTotal=12345, vat=13, grandTotal=232453, preparedBy=Arpit Sharma, approvedBy=Arpit Sharma, order=null), bindingData=BindingData(bindingUnitId=0, binderySelectedOption=padding,performance, filledInBy=123, approvedBy=12312, order=null))
+2024-06-19 21:16:48.850 [http-nio-8081-exec-8] INFO  c.e.E.Controller.JobCardController - JobCard created successfully for order ID: 1
+2024-06-19 21:16:55.880 [Async-1] INFO  c.e.E.Services.impl.EmailServiceImpl - Email successfully sent to frozenboyarp@gmail.com
+2024-06-19 21:18:50.954 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-19 21:18:50.956 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-19 21:18:51.032 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -115,7 +115,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     private UserDTO getUserByIdAuthentication(int id) {
         User user = this.userRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return new UserDTO(user.getEmail(), user.getPassword());
+        return new UserDTO(user.getUserId(), user.getPassword());
     }
 
     private CustomerDTO getCustomerByIdAuthentication(int id) {
