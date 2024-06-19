@@ -122,7 +122,7 @@ public class JobCardServiceImpl implements JobCardService {
             for (PlateData plateData : plateDetailData.getPlateData()) {
                 plateData.setPlateDetailData(plateDetailData);
             }
-            oldOrder.setPlateDetailData(jobCardDTO.getPlateDetailData());
+            oldOrder.setPlateDetailData(plateDetailData);
         }
 
         if (jobCardDTO.getPaperData() != null) {
@@ -141,7 +141,7 @@ public class JobCardServiceImpl implements JobCardService {
                 paperData3.setPaperData(paperData);
             }
 
-            oldOrder.setPaperData(jobCardDTO.getPaperData());
+            oldOrder.setPaperData(paperData);
         }
 
         if (jobCardDTO.getPressUnitData() != null) {
@@ -151,7 +151,7 @@ public class JobCardServiceImpl implements JobCardService {
             for (PressData pressData: pressUnitData.getPressData()) {
                 pressData.setPressUnitData(pressUnitData);
             }
-            oldOrder.setPressUnitData(jobCardDTO.getPressUnitData());
+            oldOrder.setPressUnitData(pressUnitData);
         }
 
         if (jobCardDTO.getBindingData() != null) {
