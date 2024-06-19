@@ -1,7 +1,11 @@
 package com.example.ERP_V2.Services.impl;
+import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.PdfUploadDTO;
+import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Services.CustomerService;
 import com.example.ERP_V2.Services.PDFService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -12,11 +16,14 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.UUID;
+
 
 @Service
 @Slf4j
 public class PDFServiceImpl implements PDFService {
+
+    @Autowired
+    private CustomerService customerService;
 
     @Async("taskExecutor")
     @Override
@@ -47,10 +54,10 @@ public class PDFServiceImpl implements PDFService {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         String currentDateTime = dateFormat.format(new Date());
 
-        // Concatenate customerId, currentDateTime and extension to form the unique filename
-        String filename = customerId + "_" + currentDateTime + "." + extension;
+        String fullName = getCustomerName(customerId);
 
-        return filename;
+        // Concatenate customerId, currentDateTime and extension to form the unique filename
+        return customerId + "_" + fullName + "_" + currentDateTime + "." + extension;
     }
 
 
@@ -62,5 +69,11 @@ public class PDFServiceImpl implements PDFService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private String getCustomerName(String id){
+        int customer_id = Integer.parseInt(id);
+        CustomerDTO customerDTO = this.customerService.getCustomer(customer_id);
+        return customerDTO.getFullName().replaceAll(" ","_");
     }
 }
