@@ -31,7 +31,7 @@ public class Customer {
     @Column(length = 150)
     private String address;
 
-    @Column(length = 60)
+    @Column(length = 60, unique = true)
     private String email;
 
     private String password; // Hashed and secured password storage recommended (important)

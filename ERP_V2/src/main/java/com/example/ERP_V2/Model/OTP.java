@@ -1,29 +1,27 @@
 package com.example.ERP_V2.Model;
-import com.example.ERP_V2.enums.RoleEnum;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Entity
-public class Admin {
-
+public class OTP {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int admin_id;
+    private int otp_id;
 
-    @Column(length = 60)
-    private String fullName;
+    @Column
+    private int otp;
 
     @Column(length = 60, unique = true)
     private String email;
 
-    private String password;
-
-    private final RoleEnum role = RoleEnum.ROLE_ADMIN;
+    private Date updated_at;
 
 }

@@ -22,7 +22,7 @@ public class User {
 
     private String password; // Hashed and secured password storage recommended
 
-    @Column(length = 60)
+    @Column(length = 60, unique = true)
     private String email;
 
     private String address;

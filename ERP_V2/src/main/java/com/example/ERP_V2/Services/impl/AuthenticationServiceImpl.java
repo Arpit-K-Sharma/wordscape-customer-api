@@ -1,14 +1,14 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.*;
-import com.example.ERP_V2.Model.Admin;
-import com.example.ERP_V2.Model.Customer;
-import com.example.ERP_V2.Model.Order;
-import com.example.ERP_V2.Model.User;
+import com.example.ERP_V2.Model.*;
 import com.example.ERP_V2.Repository.AdminRepo;
 import com.example.ERP_V2.Repository.CustomerRepo;
+import com.example.ERP_V2.Repository.OTPRepo;
 import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.AuthenticationService;
+import com.example.ERP_V2.Services.EmailService;
+import com.example.ERP_V2.Services.OTPService;
 import com.example.ERP_V2.enums.RoleEnum;
 import com.example.ERP_V2.utils.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -22,9 +22,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Null;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -45,6 +43,15 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Autowired
     private CustomerRepo customerRepo;
+
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    private OTPService otpService;
+
+    @Autowired
+    private OTPRepo otpRepo;
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -166,6 +173,61 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                     authorities);
         }
     }
+
+    @Override
+    public void forgotPassword(LoginRequestDTO loginRequestDTO) {
+        // Check if an OTP already exists for the given email
+        Optional<OTP> existingOTP = otpRepo.findByEmail(loginRequestDTO.getEmail());
+
+        OTP otp;
+        otp = existingOTP.map(this::updateOTP).orElseGet(() -> this.generateOTP(loginRequestDTO));
+        this.otpService.addOtp(otp);
+        this.emailService.sendEmail(loginRequestDTO.getEmail(), otp.getOtp());
+    }
+
+    @Override
+    public void verifyAndChangePassword(NewPasswordDTO newPasswordDTO) {
+        OTP otp = this.otpRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("OTP for email not found"));
+        if(otp.getOtp() == newPasswordDTO.getOtp()){
+            if (newPasswordDTO.getRole().equals(RoleEnum.ROLE_CUSTOMER)){
+                Customer customer = this.customerRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("Customer nor found"));
+                customer.setPassword(passwordEncoder.encode(newPasswordDTO.getNewPassword()));
+                this.customerRepo.save(customer);
+            }
+            else if(newPasswordDTO.getRole().equals(RoleEnum.ROLE_USER)){
+                User user = this.userRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+                user.setPassword(passwordEncoder.encode(newPasswordDTO.getNewPassword()));
+                this.userRepo.save(user);
+            }
+            else{
+                Admin admin = this.adminRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("Admin not found"));
+                admin.setPassword(passwordEncoder.encode(newPasswordDTO.getNewPassword()));
+                this.adminRepo.save(admin);
+            }
+
+        }
+        else{
+            throw new RuntimeException("OTP does not match");
+        }
+
+    }
+
+    private OTP generateOTP(LoginRequestDTO loginRequestDTO){
+        OTP otp = new OTP();
+        otp.setOtp((int) (Math.random() * 1000000));
+        otp.setUpdated_at(new Date());
+        otp.setEmail(loginRequestDTO.getEmail());
+
+        return otp;
+    }
+
+    private OTP updateOTP(OTP otp){
+        otp.setOtp((int) (Math.random() * 1000000));
+        otp.setUpdated_at(new Date());
+        return otp;
+    }
+
+
 
     private CustomerDTO convertToCustomerDTO(Customer customer){
         if (customer == null) {

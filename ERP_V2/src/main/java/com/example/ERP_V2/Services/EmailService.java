@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 public interface EmailService {
-    public void sendEmail(String to,String name);
+    public void sendEmail(String to, int otp);
 
     public CompletableFuture<Void> sendHTMLEmail(Customer customer, OrderDTO orderDTO) throws MessagingException;
 

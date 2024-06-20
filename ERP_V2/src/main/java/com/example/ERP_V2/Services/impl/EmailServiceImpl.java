@@ -35,13 +35,14 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     private Html2PdfServiceImpl html2PdfServiceImpl;
 
+    @Async("taskExecutor")
     @Override
-    public void sendEmail(String to,String name) {
+    public void sendEmail(String to, int otp) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("luciferdynamic598@gmail.com");
         message.setTo(to);
-        message.setSubject("Order Invoice");
-        message.setText("Your order has been received !!!");
+        message.setSubject("OTP");
+        message.setText("Your OTP is: " + otp);
         emailSender.send(message);
     }
 
