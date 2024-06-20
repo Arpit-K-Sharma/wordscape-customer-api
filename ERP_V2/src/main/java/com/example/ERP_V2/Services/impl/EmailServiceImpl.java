@@ -3,22 +3,19 @@ package com.example.ERP_V2.Services.impl;
 import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Services.EmailService;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.File;
-import java.nio.file.Path;
+import javax.mail.util.ByteArrayDataSource;
 import java.util.concurrent.CompletableFuture;
 
 
@@ -76,12 +73,14 @@ public class EmailServiceImpl implements EmailService {
 
             String htmlContent = templateEngine.process("email-template", context);
 
-            File pdfFile = html2PdfServiceImpl.htmlToPdf(htmlContent, customer, orderDTO);
+            byte[] pdfBytes = html2PdfServiceImpl.htmlToPdf(htmlContent, customer, orderDTO);
 
-            // Set the HTML content
-            helper.setText(htmlContent, true);
-
-            helper.addAttachment(pdfFile.getName(), pdfFile);
+            if (pdfBytes != null) {
+                ByteArrayDataSource dataSource = new ByteArrayDataSource(pdfBytes, "application/pdf");
+                // Set the HTML content
+                helper.setText(htmlContent, true);
+                helper.addAttachment("Invoice.pdf", dataSource);
+            }
 
             emailSender.send(message);
             log.info("Email successfully sent to {}", customer.getEmail());

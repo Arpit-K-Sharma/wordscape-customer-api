@@ -6,7 +6,6 @@ import com.example.ERP_V2.DTO.PdfUploadDTO;
 import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Repository.OrderRepo;
 import com.example.ERP_V2.Services.OrderService;
-import com.example.ERP_V2.Services.PDFService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +43,7 @@ public class OrderController {
 
     @PreAuthorize("hasAuthority('ROLE_CUSTOMER')")
     @PostMapping("/files")
-    public ResponseEntity<Map<String, String>> uploadPDF(Authentication authentication,@ModelAttribute PdfUploadDTO pdfUploadDTO) {
+    public ResponseEntity<Map<String, String>> uploadPDF(Authentication authentication,@ModelAttribute PdfUploadDTO pdfUploadDTO) throws IOException {
         log.info("ENDPOINT CALLED: /orders/files (POST)");
         log.info("PDF FILENAME: {}", pdfUploadDTO.getPdfFile().getOriginalFilename());
         String customer_id = authentication.getName();

@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,10 +24,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.stream.Collectors;
 
 @Service
@@ -65,7 +59,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private PDFService pdfService;
 
-    @Value("${order.pdf.directory}")
+    @Value("${aws.s3.order.path}")
     private String pdfDirectory;
 
     @Override
@@ -356,18 +350,17 @@ public class OrderServiceImpl implements OrderService {
     public byte[] getOrderPdf(int orderId) {
         Order order = orderRepo.findById(orderId)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found "));
-        Path pdfPath = Paths.get(pdfDirectory + order.getPdfFilename());
-        return pdfService.downloadPdf(pdfPath);
+        String fullFilePath = pdfDirectory + order.getPdfFilename();
+        return pdfService.downloadPdf(fullFilePath);
     }
 
     @Override
-    public String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO, String customer_id) {
+    public String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO, String customer_id) throws IOException {
         String filename = pdfService.generateFilename(pdfUploadDTO.getPdfFile(),customer_id);
-        Path uploadPath = Paths.get(pdfDirectory + filename);
-        pdfService.savePdfFile(pdfUploadDTO, uploadPath);
+        String fullFilePath = pdfDirectory + filename;
+        pdfService.savePdfFile(pdfUploadDTO.getPdfFile().getInputStream(), fullFilePath);
         return filename;
     }
-
 
 }
 

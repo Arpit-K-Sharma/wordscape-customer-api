@@ -1,15 +1,14 @@
 package com.example.ERP_V2.Services;
 
-import com.example.ERP_V2.DTO.PdfUploadDTO;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.nio.file.Path;
+import java.io.InputStream;
 
 public interface PDFService {
 
-    public void savePdfFile(PdfUploadDTO pdfUploadDTO, Path path);
+    public void savePdfFile(InputStream inputStream, String fileName);
 
     public String generateFilename(MultipartFile pdfFile, String customer_id);
 
-    public byte[] downloadPdf(Path path);
+    public byte[] downloadPdf(String fileName);
 }
