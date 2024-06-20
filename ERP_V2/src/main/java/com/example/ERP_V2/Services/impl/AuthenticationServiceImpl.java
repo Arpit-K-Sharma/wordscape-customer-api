@@ -182,6 +182,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         OTP otp;
         otp = existingOTP.map(this::updateOTP).orElseGet(() -> this.generateOTP(loginRequestDTO));
         this.otpService.addOtp(otp);
+
+        if (loginRequestDTO.getRole().equals(RoleEnum.ROLE_CUSTOMER)){
+            Customer customer = this.customerRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("Customer not found"));
+        }
+        else if(loginRequestDTO.getRole().equals(RoleEnum.ROLE_USER)){
+            User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+        }
+        else{
+            Admin admin = this.adminRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("Admin not found"));
+        }
+
         this.emailService.sendEmail(loginRequestDTO.getEmail(), otp.getOtp());
     }
 
@@ -190,7 +201,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         OTP otp = this.otpRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("OTP for email not found"));
         if(otp.getOtp() == newPasswordDTO.getOtp()){
             if (newPasswordDTO.getRole().equals(RoleEnum.ROLE_CUSTOMER)){
-                Customer customer = this.customerRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("Customer nor found"));
+                Customer customer = this.customerRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("Customer not found"));
                 customer.setPassword(passwordEncoder.encode(newPasswordDTO.getNewPassword()));
                 this.customerRepo.save(customer);
             }
