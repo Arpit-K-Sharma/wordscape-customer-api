@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Service
 public class Html2PdfServiceImpl implements Html2PdfService {
@@ -36,7 +38,10 @@ public class Html2PdfServiceImpl implements Html2PdfService {
 
             byte[] pdfBytes = byteArrayOutputStream.toByteArray();
 
-            String filename = orderDTO.getOrderId() + "_" + customer.getFullName().replaceAll(" ", "_") + ".pdf";
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+            String currentDateTime = dateFormat.format(new Date());
+
+            String filename = orderDTO.getOrderId() + "_" + currentDateTime+ "_" + customer.getFullName().replaceAll(" ", "_") + ".pdf";
             String fullFilePath = invoiceUploadDirectory  + filename;
 
             // Upload to S3
