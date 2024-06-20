@@ -16,7 +16,7 @@ public class ProjectTrackingController {
     @Autowired
     private ProjectTrackingService projectTrackingService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping("/{id}")
     public ResponseEntity<String> setProjectTracking(@PathVariable int id, @RequestBody ProjectTrackingDTO projectTrackingDTO){
         log.info("ENDPOINT CALLED: /projectTracking/{} (POST)", id);
@@ -26,7 +26,7 @@ public class ProjectTrackingController {
         return ResponseEntity.ok("Project Tracking Updated !!!");
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_USER')")
     @GetMapping("/{id}")
     public ProjectTrackingDTO getProjectTracking(@PathVariable int id){
         log.info("ENDPOINT CALLED: /projectTracking/{} (GET)", id);

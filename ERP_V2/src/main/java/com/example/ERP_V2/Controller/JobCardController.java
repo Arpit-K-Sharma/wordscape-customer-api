@@ -21,7 +21,7 @@ public class JobCardController {
     @Autowired
     private JobCardService jobCardService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping("/{order_id}")
     public ResponseEntity<String> createJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO) {
         log.info("ENDPOINT CALLED: /jobCard/{} (POST)", order_id);
@@ -31,7 +31,7 @@ public class JobCardController {
         return ResponseEntity.ok("JobCard Added !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/update/{order_id}")
     public ResponseEntity<String> updateJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO) {
         log.info("ENDPOINT CALLED: /jobCard/update/{} (PUT)", order_id);
@@ -41,7 +41,7 @@ public class JobCardController {
         return ResponseEntity.ok("JobCard Updated !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/updateDeadline/{order_id}")
     public ResponseEntity<String> updateDeadline(@PathVariable int order_id, @RequestBody String deadline) {
         log.info("ENDPOINT CALLED: /jobCard/updateDeadline/{} (PUT)", order_id);
@@ -51,7 +51,7 @@ public class JobCardController {
         return ResponseEntity.ok("Deadline Updated");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/{order_id}")
     public Order getJobCard(@PathVariable int order_id) {
         log.info("ENDPOINT CALLED: /jobCard/{} (GET)", order_id);

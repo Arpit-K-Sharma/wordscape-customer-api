@@ -18,7 +18,7 @@ public class InkController {
     @Autowired
     private InkService inkService;
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping
     public ResponseEntity<Ink> createInk(@RequestBody Ink ink) {
         log.info("ENDPOINT CALLED: /inks (POST)");
@@ -36,7 +36,7 @@ public class InkController {
         return ResponseEntity.ok(inks);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/{inkId}")
     public ResponseEntity<Ink> getInkById(@PathVariable int inkId) {
         log.info("ENDPOINT CALLED: /inks/{} (GET)", inkId);
@@ -45,7 +45,7 @@ public class InkController {
         return ResponseEntity.ok(ink);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{inkId}")
     public ResponseEntity<Ink> updateInk(@PathVariable int inkId, @RequestBody Ink updatedInk) {
         log.info("ENDPOINT CALLED: /inks/{} (PUT)", inkId);
@@ -55,7 +55,7 @@ public class InkController {
         return ResponseEntity.ok(updated);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{inkId}")
     public ResponseEntity<Void> deleteInk(@PathVariable int inkId) {
         log.info("ENDPOINT CALLED: /inks/{} (DELETE)", inkId);

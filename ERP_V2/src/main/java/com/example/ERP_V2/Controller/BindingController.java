@@ -27,7 +27,7 @@ public class BindingController {
         return new ResponseEntity<>(bindings, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping
     public ResponseEntity<String> createBinding(@RequestBody Binding binding) {
         log.info("ENDPOINT CALLED: /bindings (POST)");
@@ -37,7 +37,7 @@ public class BindingController {
         return ResponseEntity.ok("Binding Added!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updateBinding(@PathVariable int id, @RequestBody Binding updatedBinding) {
         log.info("ENDPOINT CALLED: /bindings/{} (PUT)", id);
@@ -48,7 +48,7 @@ public class BindingController {
     }
 
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{bindingId}")
     public ResponseEntity<Void> deletePaper(@PathVariable int bindingId) {
         log.info("ENDPOINT CALLED: /papers/{} (DELETE)", bindingId);

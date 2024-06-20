@@ -27,7 +27,7 @@ public class LaminationController {
         return new ResponseEntity<>(laminations, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping
     public ResponseEntity<String> createLamination(@RequestBody Lamination lamination) {
         log.info("ENDPOINT CALLED: /laminations (POST)");
@@ -37,7 +37,7 @@ public class LaminationController {
         return ResponseEntity.ok("New Lamination Added !!!");
     }
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
     public ResponseEntity<String> updateLamination(@PathVariable int id, @RequestBody Lamination updatedLamination) {
         log.info("ENDPOINT CALLED: /laminations/{} (PUT)", id);
@@ -48,7 +48,7 @@ public class LaminationController {
     }
 
 
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{laminationId}")
     public ResponseEntity<Void> deletePaper(@PathVariable int laminationId) {
         log.info("ENDPOINT CALLED: /papers/{} (DELETE)", laminationId);
