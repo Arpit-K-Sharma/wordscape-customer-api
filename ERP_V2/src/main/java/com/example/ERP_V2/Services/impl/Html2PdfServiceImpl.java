@@ -27,7 +27,15 @@ public class Html2PdfServiceImpl implements Html2PdfService {
             HtmlConverter.convertToPdf(processedHtml, pdfwriter, converterProperties);
 
             String filename = orderDTO.getOrderId() + "_" + customer.getFullName().replaceAll(" ", "_");
-            String filePath = "ERP_V2/src/main/resources/static/invoice/" + filename + ".pdf";
+            String directoryPath = "ERP_V2/src/main/resources/static/invoice/";
+            String filePath = directoryPath + filename + ".pdf";
+
+            // Create the directory if it doesn't exist
+            File directory = new File(directoryPath);
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+
             File pdfFile = new File(filePath);
             FileOutputStream fout = new FileOutputStream(pdfFile);
 
