@@ -38,10 +38,7 @@ public class Html2PdfServiceImpl implements Html2PdfService {
 
             byte[] pdfBytes = byteArrayOutputStream.toByteArray();
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-            String currentDateTime = dateFormat.format(new Date());
-
-            String filename = orderDTO.getOrderId() + "_" + currentDateTime+ "_" + customer.getFullName().replaceAll(" ", "_") + ".pdf";
+            String filename = orderDTO.getOrderId() + "_" + customer.getFullName().replaceAll(" ", "_");
             String fullFilePath = invoiceUploadDirectory  + filename;
 
             // Upload to S3
