@@ -1,6 +1,7 @@
 package com.example.ERP_V2.DTO;
 
 
+import com.example.ERP_V2.Model.Delivery;
 import com.example.ERP_V2.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -57,4 +58,6 @@ public class OrderDTO {
     private BigDecimal plateRate;
 
     private int estimatedAmount;
+
+    private Delivery delivery;
 }

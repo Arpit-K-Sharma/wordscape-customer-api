@@ -231,6 +231,8 @@ public class OrderServiceImpl implements OrderService {
 
         orderDTO.setPdfFile(order.getPdfFilename());
 
+        orderDTO.setDelivery(order.getDelivery());
+
         return orderDTO;
     }
 
