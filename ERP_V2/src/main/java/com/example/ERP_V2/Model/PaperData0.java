@@ -1,8 +1,6 @@
 package com.example.ERP_V2.Model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,14 +10,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaperData0 {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
     private int paperData0_id;
 
     private String readyBy;
@@ -30,13 +24,7 @@ public class PaperData0 {
     private String numberOfPages;
     private String printrun;
 
-    @Column(length = 1000)
     private String side;
-
-    @OneToOne
-    @JoinColumn(name = "paperData_id")
-    @JsonBackReference
-    private PaperData paperData;
 
     // Helper method to convert List<String> to comma-separated String
     // Custom setter to handle JSON deserialization

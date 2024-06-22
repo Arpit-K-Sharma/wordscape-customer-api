@@ -38,12 +38,11 @@ public class JwtFilter extends OncePerRequestFilter {
         String jwtToken = jwtUtil.extractTokenFromRequest(request);
         if (Objects.nonNull(jwtToken)) {
             try {
-                String email = jwtUtil.getUsernameFromToken(jwtToken);
                 RoleEnum role = jwtUtil.getRoleFromToken(jwtToken);
 
                 Claims claims = extractClaims(jwtToken);
 
-                int id = claims.get("id", Integer.class);
+                String id = claims.get("id", String.class);
 
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = this.authenticationService.getUsernamePasswordAuthenticationToken(id, role);
 

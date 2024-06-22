@@ -1,25 +1,24 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.math.BigDecimal;
 
-@Entity
+@Document(collection = "coverTreatment")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CoverTreatment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int coverTreatmentId;
+    private String coverTreatmentId;
 
-    @Column(length = 30)
     private String coverTreatmentType;
 
-    @Column(precision = 6, scale = 2)
     private BigDecimal rate;
 
     public CoverTreatment(String coverTreatmentType, BigDecimal rate) {

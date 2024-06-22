@@ -105,7 +105,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public void updateCustomer(int id, Customer updatedCustomer) {
+    public void updateCustomer(String id, Customer updatedCustomer) {
         Customer existingCustomer = customerRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
 
@@ -139,20 +139,20 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO getCustomer(int id) {
+    public CustomerDTO getCustomer(String id) {
         Customer customer = customerRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
         return convertToDTO(customer);
     }
 
     @Override
-    public void deactivateCustomer(int id) {
+    public void deactivateCustomer(String id) {
         Customer customer = customerRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
         customer.setStatus(false);
         this.customerRepo.save(customer);
     }
 
     @Override
-    public void reactivateCustomer(int id) {
+    public void reactivateCustomer(String id) {
         Customer customer = customerRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
         customer.setStatus(true);
         this.customerRepo.save(customer);

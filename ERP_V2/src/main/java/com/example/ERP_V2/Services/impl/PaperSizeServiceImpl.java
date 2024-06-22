@@ -25,13 +25,13 @@ public class PaperSizeServiceImpl implements PaperSizeService {
     }
 
     @Override
-    public PaperSize getPaperSizeById(int paperSizeId) {
+    public PaperSize getPaperSizeById(String paperSizeId) {
         return paperSizeRepository.findById(paperSizeId)
                 .orElseThrow(() -> new RuntimeException("PaperSize not found"));
     }
 
     @Override
-    public PaperSize updatePaperSize(int paperSizeId, PaperSize updatedPaperSize) {
+    public PaperSize updatePaperSize(String paperSizeId, PaperSize updatedPaperSize) {
         PaperSize existingPaperSize = getPaperSizeById(paperSizeId);
 
         if (updatedPaperSize.getPaperSize() != null) {
@@ -46,7 +46,7 @@ public class PaperSizeServiceImpl implements PaperSizeService {
     }
 
     @Override
-    public void deletePaperSize(int paperSizeId) {
+    public void deletePaperSize(String paperSizeId) {
         PaperSize existingPaperSize = getPaperSizeById(paperSizeId);
         paperSizeRepository.delete(existingPaperSize);
     }

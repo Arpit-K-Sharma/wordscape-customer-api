@@ -25,13 +25,13 @@ public class InkServiceImpl implements InkService {
     }
 
     @Override
-    public Ink getInkById(int inkId) {
+    public Ink getInkById(String inkId) {
         return inkRepository.findById(inkId)
                 .orElseThrow(() -> new RuntimeException("Ink not found"));
     }
 
     @Override
-    public Ink updateInk(int inkId, Ink updatedInk) {
+    public Ink updateInk(String inkId, Ink updatedInk) {
         Ink existingInk = getInkById(inkId);
         // Update only if the provided inkType is not null
         if (updatedInk.getInkType() != null) {
@@ -41,7 +41,7 @@ public class InkServiceImpl implements InkService {
     }
 
     @Override
-    public void deleteInk(int inkId) {
+    public void deleteInk(String inkId) {
         Ink existingInk = getInkById(inkId);
         inkRepository.delete(existingInk);
     }

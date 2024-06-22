@@ -38,7 +38,7 @@ public class PaperThicknessController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/{thicknessId}")
-    public ResponseEntity<PaperThickness> getPaperThicknessById(@PathVariable int thicknessId) {
+    public ResponseEntity<PaperThickness> getPaperThicknessById(@PathVariable String thicknessId) {
         log.info("ENDPOINT CALLED: /paperThickness/{} (GET)", thicknessId);
         PaperThickness thickness = paperThicknessService.getPaperThicknessById(thicknessId);
         if (thickness != null) {
@@ -52,7 +52,7 @@ public class PaperThicknessController {
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{thicknessId}")
     public ResponseEntity<PaperThickness> updatePaperThickness(
-            @PathVariable int thicknessId,
+            @PathVariable String thicknessId,
             @RequestBody PaperThickness updatedThickness
     ) {
         log.info("ENDPOINT CALLED: /paperThickness/{} (PUT)", thicknessId);
@@ -68,7 +68,7 @@ public class PaperThicknessController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{thicknessId}")
-    public ResponseEntity<Void> deletePaperThickness(@PathVariable int thicknessId) {
+    public ResponseEntity<Void> deletePaperThickness(@PathVariable String thicknessId) {
         log.info("ENDPOINT CALLED: /paperThickness/{} (DELETE)", thicknessId);
         paperThicknessService.deletePaperThickness(thicknessId);
         log.info("Paper Thickness with ID {} deleted successfully", thicknessId);

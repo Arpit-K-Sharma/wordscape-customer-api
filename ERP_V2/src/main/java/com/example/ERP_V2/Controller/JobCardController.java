@@ -23,7 +23,7 @@ public class JobCardController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping("/{order_id}")
-    public ResponseEntity<String> createJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO) {
+    public ResponseEntity<String> createJobCard(@PathVariable String order_id, @RequestBody JobCardDTO jobCardDTO) {
         log.info("ENDPOINT CALLED: /jobCard/{} (POST)", order_id);
         log.info("REQUEST BODY: {}", jobCardDTO);
         jobCardService.createJobCard(order_id, jobCardDTO);
@@ -33,7 +33,7 @@ public class JobCardController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/update/{order_id}")
-    public ResponseEntity<String> updateJobCard(@PathVariable int order_id, @RequestBody JobCardDTO jobCardDTO) {
+    public ResponseEntity<String> updateJobCard(@PathVariable String order_id, @RequestBody JobCardDTO jobCardDTO) {
         log.info("ENDPOINT CALLED: /jobCard/update/{} (PUT)", order_id);
         log.info("REQUEST BODY: {}", jobCardDTO);
         jobCardService.updateJobCard(order_id, jobCardDTO);
@@ -43,7 +43,7 @@ public class JobCardController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/updateDeadline/{order_id}")
-    public ResponseEntity<String> updateDeadline(@PathVariable int order_id, @RequestBody String deadline) {
+    public ResponseEntity<String> updateDeadline(@PathVariable String order_id, @RequestBody String deadline) {
         log.info("ENDPOINT CALLED: /jobCard/updateDeadline/{} (PUT)", order_id);
         log.info("REQUEST BODY: {}", deadline);
         jobCardService.updateDeadline(order_id, deadline);
@@ -53,7 +53,7 @@ public class JobCardController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/{order_id}")
-    public Order getJobCard(@PathVariable int order_id) {
+    public Order getJobCard(@PathVariable String order_id) {
         log.info("ENDPOINT CALLED: /jobCard/{} (GET)", order_id);
         Order order = jobCardService.getJobCardById(order_id);
         log.info("RESPONSE: JobCard found for order ID: {}", order_id);

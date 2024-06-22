@@ -25,7 +25,7 @@ public class BindingServiceImpl implements BindingService {
     }
 
     @Override
-    public void updateBinding(int id, Binding updatedBinding) {
+    public void updateBinding(String  id, Binding updatedBinding) {
         Binding existingBinding = bindingRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Binding not found"));
 
@@ -40,7 +40,7 @@ public class BindingServiceImpl implements BindingService {
     }
 
     @Override
-    public void deleteBinding(int bindingId) {
+    public void deleteBinding(String bindingId) {
         bindingRepository.deleteById(bindingId);
     }
 }

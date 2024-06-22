@@ -39,7 +39,7 @@ public class LaminationController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateLamination(@PathVariable int id, @RequestBody Lamination updatedLamination) {
+    public ResponseEntity<String> updateLamination(@PathVariable String id, @RequestBody Lamination updatedLamination) {
         log.info("ENDPOINT CALLED: /laminations/{} (PUT)", id);
         log.info("REQUEST BODY: {}", updatedLamination);
         laminationService.updateLamination(id, updatedLamination);
@@ -50,7 +50,7 @@ public class LaminationController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{laminationId}")
-    public ResponseEntity<Void> deletePaper(@PathVariable int laminationId) {
+    public ResponseEntity<Void> deletePaper(@PathVariable String laminationId) {
         log.info("ENDPOINT CALLED: /papers/{} (DELETE)", laminationId);
         laminationService.deleteLamination(laminationId);
         log.info("Paper with ID {} deleted successfully", laminationId);

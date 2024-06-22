@@ -1,7 +1,10 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.*;
-import com.example.ERP_V2.Model.*;
+import com.example.ERP_V2.Model.Admin;
+import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Model.OTP;
+import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Repository.AdminRepo;
 import com.example.ERP_V2.Repository.CustomerRepo;
 import com.example.ERP_V2.Repository.OTPRepo;
@@ -21,9 +24,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Null;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -88,7 +89,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         return modelMapper.map(admin, AdminDTO.class);
     }
 
-    private AdminDTO getAdminById(int id) {
+    private AdminDTO getAdminById(String id) {
         Admin admin = this.adminRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
         return modelMapper.map(admin, AdminDTO.class);
     }
@@ -112,7 +113,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     private UserDTO getUserByEmailAuthentication(String email) {
         User user = this.userRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return new UserDTO(user.getEmail(), user.getPassword());
+        return UserDTO.builder().email(user.getEmail()).password(user.getPassword()).build();
     }
 
 //    private CustomerDTO getCustomerByEmailAuthentication(String email) {
@@ -120,17 +121,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 //        return new CustomerDTO(customer.getEmail(), customer.getPassword());
 //    }
 
-    private UserDTO getUserByIdAuthentication(int id) {
+    private UserDTO getUserByIdAuthentication(String id) {
         User user = this.userRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return new UserDTO(user.getUserId(), user.getPassword());
+        return UserDTO.builder().userId(user.getUserId()).password(user.getPassword()).build();
     }
 
-    private CustomerDTO getCustomerByIdAuthentication(int id) {
+    private CustomerDTO getCustomerByIdAuthentication(String id) {
         Customer customer = this.customerRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Customer not found"));
         return new CustomerDTO(customer.getCustomerId(), customer.getPassword());
     }
 
-    private LoginResponseDTO authenticate(PersonDTO personDTO, String rawPassword, RoleEnum role, int id) throws UsernameNotFoundException {
+    private LoginResponseDTO authenticate(PersonDTO personDTO, String rawPassword, RoleEnum role, String id) throws UsernameNotFoundException {
         this.checkPassword(rawPassword, personDTO.getPassword());
         String accessToken = this.jwtUtil.generateToken(
                 personDTO.getEmail(),
@@ -155,7 +156,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
     @Override
-    public UsernamePasswordAuthenticationToken getUsernamePasswordAuthenticationToken(int id, RoleEnum role) {
+    public UsernamePasswordAuthenticationToken getUsernamePasswordAuthenticationToken(String id, RoleEnum role) {
         if (role.equals(RoleEnum.ROLE_USER)) {
             UserDTO userDTO = this.getUserByIdAuthentication(id);
             List<SimpleGrantedAuthority> authorities = this.addAuthority(userDTO.getRole());

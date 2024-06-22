@@ -1,25 +1,21 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.math.BigDecimal;
 
-@Entity
+@Document(collection = "binding")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Binding {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int bindingId;
+    String bindingId;
 
-    @Column(length = 20)
     private String bindingType;
 
-    @Column(precision = 6, scale = 2)
     private BigDecimal rate; // Use BigDecimal for monetary values
 
     public Binding(String bindingType, BigDecimal rate) {

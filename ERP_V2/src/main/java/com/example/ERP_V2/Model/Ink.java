@@ -1,20 +1,19 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "ink")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Ink {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int inkId;
+    private String inkId;
 
-    @Column(length = 30)
     private String inkType;
 
     public Ink(String inkType) {

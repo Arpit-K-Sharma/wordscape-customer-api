@@ -39,7 +39,7 @@ public class CoverTreatmentController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateCoverTreatment(@PathVariable int id, @RequestBody CoverTreatment updatedCoverTreatment) {
+    public ResponseEntity<String> updateCoverTreatment(@PathVariable String id, @RequestBody CoverTreatment updatedCoverTreatment) {
         log.info("ENDPOINT CALLED: /coverTreatments/{} (PUT)", id);
         log.info("REQUEST BODY: {}", updatedCoverTreatment);
         coverTreatmentService.updateCoverTreatment(id, updatedCoverTreatment);
@@ -50,7 +50,7 @@ public class CoverTreatmentController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{coverTreatmentId}")
-    public ResponseEntity<Void> deletePaper(@PathVariable int coverTreatmentId) {
+    public ResponseEntity<Void> deletePaper(@PathVariable String coverTreatmentId) {
         log.info("ENDPOINT CALLED: /papers/{} (DELETE)", coverTreatmentId);
         coverTreatmentService.deleteCoverTreatment(coverTreatmentId);
         log.info("Paper with ID {} deleted successfully", coverTreatmentId);

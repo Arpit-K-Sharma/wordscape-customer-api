@@ -11,24 +11,24 @@ import java.text.ParseException;
 import java.util.List;
 
 public interface OrderService {
-    void handleOrder(int id, OrderDTO orderDTO) throws MessagingException;
+    void handleOrder(String id, OrderDTO orderDTO) throws MessagingException;
 
 
     PaginatedResponse<OrderDTO> getAllOrders(Integer pageNumber, Integer pageSize, String sortField, String sortDirection);
 
-    byte[] getInvoiceById(int id);
+    byte[] getInvoiceById(String id);
 
 
 
-    public OrderDTO getOrderById(int id);
+    public OrderDTO getOrderById(String id);
 
-    List<Order> getOrderByCustomerId(int id);
+    List<Order> getOrderByCustomerId(String id);
 
     public void insertDummyData() throws ParseException;
 
-    void cancelOrder(int id);
+    void cancelOrder(String id);
 
-    byte[] getOrderPdf(int orderId);
+    byte[] getOrderPdf(String orderId);
 
     String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO,String customer_id) throws IOException;
 }

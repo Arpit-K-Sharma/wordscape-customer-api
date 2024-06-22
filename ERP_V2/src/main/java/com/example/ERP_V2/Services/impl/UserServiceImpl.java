@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(int id, User updatedUser) {
+    public void updateUser(String id, User updatedUser) {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
@@ -82,14 +82,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deactivateUser(int id) {
+    public void deactivateUser(String id) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found !!!"));
         user.setStatus(false);
         this.userRepository.save(user);
     }
 
     @Override
-    public void reactivateUser(int id) {
+    public void reactivateUser(String id) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found !!!"));
         user.setStatus(true);
         this.userRepository.save(user);

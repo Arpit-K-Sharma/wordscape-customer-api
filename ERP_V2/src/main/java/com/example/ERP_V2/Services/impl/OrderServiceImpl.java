@@ -66,7 +66,7 @@ public class OrderServiceImpl implements OrderService {
     private String invoiceDirectory;
 
     @Override
-    public void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException {
+    public void handleOrder(String customer_id, OrderDTO orderDTO) throws MessagingException {
 
         Order order = this.covertToOrder(customer_id, orderDTO);
 
@@ -114,7 +114,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public byte[] getInvoiceById(int id) {
+    public byte[] getInvoiceById(String id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found" ));
         String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
         String filePath = invoiceDirectory + filename + ".pdf";
@@ -122,17 +122,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderDTO getOrderById(int id) {
+    public OrderDTO getOrderById(String id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found !!!"));
         return convertToOrderDTO(order);
     }
 
     @Override
-    public List<Order> getOrderByCustomerId(int id) {
-        return this.orderRepo.findAllByCustomerId(id);
+    public List<Order> getOrderByCustomerId(String id) {
+        return this.orderRepo.findByCustomerCustomerId(id);
     }
 
-    private Order covertToOrder(int id, OrderDTO orderDTO){
+    private Order covertToOrder(String id, OrderDTO orderDTO){
         Order order = new Order();
         order.setDate(new Date());
         order.setDeadline(orderDTO.getDeadline());
@@ -241,12 +241,12 @@ public class OrderServiceImpl implements OrderService {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         // Fetch existing entities from the database
-        Binding binding = bindingRepo.findById(1).orElse(null); // Replace 1 with the actual ID
-        CoverTreatment coverTreatment = coverTreatmentRepo.findById(1).orElse(null); // Replace 1 with the actual ID
-        Paper innerPaper = paperRepo.findById(1).orElse(null); // Replace 1 with the actual ID
-        Paper outerPaper = paperRepo.findById(2).orElse(null); // Replace 2 with the actual ID
-        Lamination lamination = laminationRepo.findById(1).orElse(null); // Replace 1 with the actual ID
-        Plate plate = plateRepo.findById(1).orElse(null); // Replace 1 with the actual ID
+        Binding binding = bindingRepo.findById("1").orElse(null); // Replace 1 with the actual ID
+        CoverTreatment coverTreatment = coverTreatmentRepo.findById("1").orElse(null); // Replace 1 with the actual ID
+        Paper innerPaper = paperRepo.findById("1").orElse(null); // Replace 1 with the actual ID
+        Paper outerPaper = paperRepo.findById("1").orElse(null); // Replace 2 with the actual ID
+        Lamination lamination = laminationRepo.findById("1").orElse(null); // Replace 1 with the actual ID
+        Plate plate = plateRepo.findById("1").orElse(null); // Replace 1 with the actual ID
 
         // Create dummy Customer object
         Customer dummyCustomer = new Customer(
@@ -326,14 +326,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void cancelOrder(int id) {
+    public void cancelOrder(String id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found !!!"));
         order.setStatus(OrderStatus.CANCELED);
         this.orderRepo.save(order);
     }
 
     @Override
-    public byte[] getOrderPdf(int orderId) {
+    public byte[] getOrderPdf(String orderId) {
         Order order = orderRepo.findById(orderId)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found "));
         String fullFilePath = pdfDirectory + order.getPdfFilename();

@@ -1,22 +1,22 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
+@Document(collection = "saleBook")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SalesBook {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int invoiceNumber;
+    private String invoiceNumber;
 
     private Date date;
 
@@ -24,15 +24,12 @@ public class SalesBook {
 
     private int quantity;
 
-    @Column(precision = 6, scale = 2)
     private Long amount;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @DBRef
     private Customer customer;
 
-    @OneToOne
-    @JoinColumn(name = "order_id")
+    @DBRef
     private Order order;
 }
 

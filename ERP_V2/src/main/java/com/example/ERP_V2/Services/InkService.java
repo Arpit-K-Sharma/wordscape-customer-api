@@ -9,9 +9,9 @@ public interface InkService {
 
     List<Ink> getAllInks();  // Get all inks
 
-    Ink getInkById(int inkId);  // Get ink by ID
+    Ink getInkById(String inkId);  // Get ink by ID
 
-    Ink updateInk(int inkId, Ink ink);  // Update ink
+    Ink updateInk(String inkId, Ink ink);  // Update ink
 
-    void deleteInk(int inkId);  // Delete ink
+    void deleteInk(String inkId);  // Delete ink
 }

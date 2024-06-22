@@ -1,21 +1,18 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "paperThickness")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaperThickness {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int thicknessId;
+    private String thicknessId;
 
     private int thickness;
 

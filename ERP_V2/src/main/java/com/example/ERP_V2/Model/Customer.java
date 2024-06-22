@@ -1,61 +1,40 @@
 package com.example.ERP_V2.Model;
 
 import com.example.ERP_V2.enums.RoleEnum;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
-@Entity
+@Document(collection = "customer")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int customerId; // Use primitive int for id
+    private String customerId; // Use primitive int for id
 
-    @Column(length = 60)
     private String fullName;
 
-    @Column(name = "created_at")
     private Date created_at;
 
-    @Column(length = 150)
     private String address;
 
-    @Column(length = 60, unique = true)
     private String email;
 
     private String password; // Hashed and secured password storage recommended (important)
 
-    @Column(length = 40)
     private String phoneNumber;
 
-    @Column(length = 150)
     private String companyName;
 
-    @Column
     private boolean status = true;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    @JsonBackReference
-    private List<Order> orderList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<SalesBook> salesBookList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<SalesRecord> salesRecordList = new ArrayList<>();
-
-    private final RoleEnum role = RoleEnum.ROLE_CUSTOMER;
+    private RoleEnum role = RoleEnum.ROLE_CUSTOMER;
 
     public Customer(String fullName, String address, String email, String password, String phoneNumber, String companyName, boolean status) {
         this.fullName = fullName;

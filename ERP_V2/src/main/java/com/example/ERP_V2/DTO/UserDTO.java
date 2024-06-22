@@ -14,8 +14,9 @@ import lombok.NoArgsConstructor;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO extends PersonDTO {
-    private int userId;
-
+    private String userId;
+    private String password;
+    private String email;
     private String address;
 
     private long phoneNumber;
@@ -24,14 +25,4 @@ public class UserDTO extends PersonDTO {
 
 
     private final RoleEnum role = RoleEnum.ROLE_USER;
-
-    public UserDTO(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
-    public UserDTO(int userId, String password) {
-        this.userId = userId;
-        this.password = password;
-    }
 }

@@ -18,7 +18,7 @@ public class ProjectTrackingController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping("/{id}")
-    public ResponseEntity<String> setProjectTracking(@PathVariable int id, @RequestBody ProjectTrackingDTO projectTrackingDTO){
+    public ResponseEntity<String> setProjectTracking(@PathVariable String id, @RequestBody ProjectTrackingDTO projectTrackingDTO){
         log.info("ENDPOINT CALLED: /projectTracking/{} (POST)", id);
         log.info("REQUEST BODY: {}", projectTrackingDTO);
         projectTrackingService.setProjectTracking(id, projectTrackingDTO);
@@ -28,7 +28,7 @@ public class ProjectTrackingController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_USER')")
     @GetMapping("/{id}")
-    public ProjectTrackingDTO getProjectTracking(@PathVariable int id){
+    public ProjectTrackingDTO getProjectTracking(@PathVariable String id){
         log.info("ENDPOINT CALLED: /projectTracking/{} (GET)", id);
         ProjectTrackingDTO projectTrackingDTO = projectTrackingService.getProjectTracking(id);
         log.info("RESPONSE: {}", projectTrackingDTO);

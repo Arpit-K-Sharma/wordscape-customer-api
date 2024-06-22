@@ -23,7 +23,7 @@ public class OTPServiceImpl implements OTPService {
     }
 
     @Override
-    public void deleteOtp(int otpId) {
+    public void deleteOtp(String otpId) {
         otpRepository.deleteById(otpId);
     }
 }

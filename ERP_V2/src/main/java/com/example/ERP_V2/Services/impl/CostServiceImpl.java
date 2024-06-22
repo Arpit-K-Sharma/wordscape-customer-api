@@ -116,6 +116,7 @@ public class CostServiceImpl implements CostService {
 
     @Override
     public void addInitialPaperSizes() {
+        List<PaperSize> papers = paperSizeRepo.findAll();
         if (paperSizeRepo.count() == 0) {
             List<PaperSize> initialPaperSizes = Arrays.asList(
                     new PaperSize("A2", "420 x 594 mm"),

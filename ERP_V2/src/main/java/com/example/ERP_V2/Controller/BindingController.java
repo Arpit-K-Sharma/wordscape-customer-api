@@ -39,7 +39,7 @@ public class BindingController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateBinding(@PathVariable int id, @RequestBody Binding updatedBinding) {
+    public ResponseEntity<String> updateBinding(@PathVariable String id, @RequestBody Binding updatedBinding) {
         log.info("ENDPOINT CALLED: /bindings/{} (PUT)", id);
         log.info("REQUEST BODY: {}", updatedBinding);
         bindingService.updateBinding(id, updatedBinding);
@@ -50,7 +50,7 @@ public class BindingController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{bindingId}")
-    public ResponseEntity<Void> deletePaper(@PathVariable int bindingId) {
+    public ResponseEntity<Void> deletePaper(@PathVariable String bindingId) {
         log.info("ENDPOINT CALLED: /papers/{} (DELETE)", bindingId);
         bindingService.deleteBinding(bindingId);
         log.info("Paper with ID {} deleted successfully", bindingId);

@@ -25,20 +25,20 @@ public class PaperThicknessServiceImpl implements PaperThicknessService {
     }
 
     @Override
-    public PaperThickness getPaperThicknessById(int thicknessId) {
+    public PaperThickness getPaperThicknessById(String thicknessId) {
         return paperThicknessRepository.findById(thicknessId)
                 .orElseThrow(() -> new RuntimeException("PaperThickness not found"));
     }
 
     @Override
-    public PaperThickness updatePaperThickness(int thicknessId, PaperThickness updatedThickness) {
+    public PaperThickness updatePaperThickness(String thicknessId, PaperThickness updatedThickness) {
         PaperThickness existingThickness = getPaperThicknessById(thicknessId);
         existingThickness.setThickness(updatedThickness.getThickness());
         return paperThicknessRepository.save(existingThickness);
     }
 
     @Override
-    public void deletePaperThickness(int thicknessId) {
+    public void deletePaperThickness(String thicknessId) {
         paperThicknessRepository.deleteById(thicknessId);
     }
 }

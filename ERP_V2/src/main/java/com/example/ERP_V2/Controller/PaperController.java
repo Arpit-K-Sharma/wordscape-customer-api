@@ -39,7 +39,7 @@ public class PaperController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updatePaper(@PathVariable int id, @RequestBody Paper updatedPaper) {
+    public ResponseEntity<String> updatePaper(@PathVariable String id, @RequestBody Paper updatedPaper) {
         log.info("ENDPOINT CALLED: /papers/{} (PUT)", id);
         log.info("REQUEST BODY: {}", updatedPaper);
         paperService.updatePaper(id, updatedPaper);
@@ -49,7 +49,7 @@ public class PaperController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{paperId}")
-    public ResponseEntity<Void> deletePaper(@PathVariable int paperId) {
+    public ResponseEntity<Void> deletePaper(@PathVariable String paperId) {
         log.info("ENDPOINT CALLED: /papers/{} (DELETE)", paperId);
         paperService.deletePaper(paperId);
         log.info("Paper with ID {} deleted successfully", paperId);

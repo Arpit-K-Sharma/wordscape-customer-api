@@ -38,7 +38,7 @@ public class InkController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/{inkId}")
-    public ResponseEntity<Ink> getInkById(@PathVariable int inkId) {
+    public ResponseEntity<Ink> getInkById(@PathVariable String inkId) {
         log.info("ENDPOINT CALLED: /inks/{} (GET)", inkId);
         Ink ink = inkService.getInkById(inkId);
         log.info("RESPONSE: Ink found with ID: {}", inkId);
@@ -47,7 +47,7 @@ public class InkController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{inkId}")
-    public ResponseEntity<Ink> updateInk(@PathVariable int inkId, @RequestBody Ink updatedInk) {
+    public ResponseEntity<Ink> updateInk(@PathVariable String inkId, @RequestBody Ink updatedInk) {
         log.info("ENDPOINT CALLED: /inks/{} (PUT)", inkId);
         log.info("REQUEST BODY: {}", updatedInk);
         Ink updated = inkService.updateInk(inkId, updatedInk);
@@ -57,7 +57,7 @@ public class InkController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{inkId}")
-    public ResponseEntity<Void> deleteInk(@PathVariable int inkId) {
+    public ResponseEntity<Void> deleteInk(@PathVariable String inkId) {
         log.info("ENDPOINT CALLED: /inks/{} (DELETE)", inkId);
         inkService.deleteInk(inkId);
         log.info("Ink deleted successfully with ID: {}", inkId);

@@ -1,26 +1,24 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
-@Entity
+@Document(collection = "paper")
 @Data // Lombok for getters, setters, etc.
 @AllArgsConstructor
 @NoArgsConstructor
 public class Paper {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int paperId;
+    private String paperId;
 
-    @Column(length = 30)
     private String paperType;
 
-    @Column(precision = 6, scale = 2)
     private BigDecimal rate;
 
     public Paper(String paperType, BigDecimal rate) {

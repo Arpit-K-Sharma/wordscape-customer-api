@@ -10,7 +10,7 @@ public interface AuthenticationService {
     LoginResponseDTO login(LoginRequestDTO authRequest);
 
 
-    UsernamePasswordAuthenticationToken getUsernamePasswordAuthenticationToken(int id, RoleEnum role);
+    UsernamePasswordAuthenticationToken getUsernamePasswordAuthenticationToken(String id, RoleEnum role);
 
     void forgotPassword(LoginRequestDTO loginRequestDTO);
 

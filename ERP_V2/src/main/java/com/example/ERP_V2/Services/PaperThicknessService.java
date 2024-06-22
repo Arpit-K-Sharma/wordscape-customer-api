@@ -9,9 +9,9 @@ public interface PaperThicknessService {
 
     List<PaperThickness> getAllPaperThicknesses();  // Get all PaperThicknesses
 
-    PaperThickness getPaperThicknessById(int thicknessId);  // Get by ID
+    PaperThickness getPaperThicknessById(String thicknessId);  // Get by ID
 
-    PaperThickness updatePaperThickness(int thicknessId, PaperThickness updatedThickness);  // Update PaperThickness
+    PaperThickness updatePaperThickness(String thicknessId, PaperThickness updatedThickness);  // Update PaperThickness
 
-    void deletePaperThickness(int thicknessId);  // Delete PaperThickness
+    void deletePaperThickness(String thicknessId);  // Delete PaperThickness
 }

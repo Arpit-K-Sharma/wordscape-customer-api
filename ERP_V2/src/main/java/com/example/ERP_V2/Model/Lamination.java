@@ -1,24 +1,23 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.math.BigDecimal;
-@Entity
+@Document(collection = "lamination")
 @Data // Lombok for getters, setters, etc.
 @AllArgsConstructor
 @NoArgsConstructor
 public class Lamination {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int laminationId;
+    private String laminationId;
 
-    @Column(length = 20)
     private String laminationType;
 
-    @Column(precision = 6, scale = 2)
     private BigDecimal rate;
 
     public Lamination(String laminationType, BigDecimal rate) {

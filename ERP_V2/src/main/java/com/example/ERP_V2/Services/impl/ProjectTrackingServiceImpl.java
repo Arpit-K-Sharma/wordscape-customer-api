@@ -19,25 +19,18 @@ public class ProjectTrackingServiceImpl implements ProjectTrackingService {
     private ProjectTrackingRepo projectTrackingRepo;
 
     @Override
-    public void setProjectTracking(int id, ProjectTrackingDTO projectTrackingDTO) {
+    public void setProjectTracking(String id, ProjectTrackingDTO projectTrackingDTO) {
 
         Order order = this.orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not Found"));
 
         ProjectTracking projectTracking = convertToProjectTracking(projectTrackingDTO);
 
-        projectTracking.setProjectTrackingId(order.getProjectTracking().getProjectTrackingId());
-
-        projectTrackingRepo.save(projectTracking);
-
-
         order.setProjectTracking(projectTracking);
-
-
         this.orderRepo.save(order);
     }
 
     @Override
-    public ProjectTrackingDTO getProjectTracking(int id) {
+    public ProjectTrackingDTO getProjectTracking(String id) {
 
         Order order = this.orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not Found"));
 
@@ -68,7 +61,6 @@ public class ProjectTrackingServiceImpl implements ProjectTrackingService {
     public ProjectTrackingDTO convertToProjectTrackingDTO(ProjectTracking projectTracking) {
         ProjectTrackingDTO projectTrackingDTO = new ProjectTrackingDTO();
 
-        projectTrackingDTO.setProjectTrackingId(projectTracking.getProjectTrackingId());
         projectTrackingDTO.setOrderSlip(projectTracking.isOrderSlip());
         projectTrackingDTO.setJobCard(projectTracking.isJobCard());
         projectTrackingDTO.setPaperCutting(projectTracking.isPaperCutting());

@@ -8,10 +8,10 @@ import java.util.List;
 public interface UserService {
     void createUser(User user);
     List<UserDTO> getAllUsers(Integer pageNumber, Integer pageSize);
-    void updateUser(int id, User updatedUser);
+    void updateUser(String id, User updatedUser);
     void insertDummyData();
 
-    void deactivateUser(int id);
+    void deactivateUser(String id);
 
-    void reactivateUser(int id);
+    void reactivateUser(String id);
 }

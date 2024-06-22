@@ -25,7 +25,7 @@ public class LaminationServiceImpl implements LaminationService {
     }
 
     @Override
-    public void updateLamination(int id, Lamination updatedLamination) {
+    public void updateLamination(String id, Lamination updatedLamination) {
         Lamination existingLamination = laminationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Lamination not found"));
 
@@ -42,7 +42,7 @@ public class LaminationServiceImpl implements LaminationService {
     }
 
     @Override
-    public void deleteLamination(int laminationId) {
+    public void deleteLamination(String laminationId) {
         laminationRepository.deleteById(laminationId);
     }
 }

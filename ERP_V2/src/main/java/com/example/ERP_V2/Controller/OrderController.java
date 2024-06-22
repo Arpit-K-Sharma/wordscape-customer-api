@@ -36,7 +36,7 @@ public class OrderController {
     public ResponseEntity<String> addOrder(Authentication authentication, @RequestBody OrderDTO orderDTO) throws MessagingException {
         log.info("ENDPOINT CALLED: /orders (POST)");
         log.info("REQUEST BODY: {}", orderDTO);
-        this.orderService.handleOrder(Integer.parseInt(authentication.getName()), orderDTO);
+        this.orderService.handleOrder(authentication.getName(), orderDTO);
         log.info("Order added successfully");
         return ResponseEntity.ok("Order Added !!! The order invoice is being sent !!!");
     }
@@ -59,7 +59,7 @@ public class OrderController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_USER')")
     @GetMapping("files/download/{orderId}")
-    public ResponseEntity<byte[]> downloadOrderPdf(@PathVariable int orderId) {
+    public ResponseEntity<byte[]> downloadOrderPdf(@PathVariable String orderId) {
         log.info("ENDPOINT CALLED: /orders/files/download/{} (GET)", orderId);
         byte[] pdfData = orderService.getOrderPdf(orderId);
         if (pdfData == null) {
@@ -88,7 +88,7 @@ public class OrderController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_USER')")
     @GetMapping("{id}")
-    public ResponseEntity<OrderDTO> getOrderById(@PathVariable int id){
+    public ResponseEntity<OrderDTO> getOrderById(@PathVariable String id){
         log.info("ENDPOINT CALLED: /orders/{} (GET)", id);
         OrderDTO orderDTO = this.orderService.getOrderById(id);
         log.info("RESPONSE: Order found with ID: {}", id);
@@ -97,7 +97,7 @@ public class OrderController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER','ROLE_USER')")
     @GetMapping(value = "invoice/{id}")
-    public byte[] getInvoiceById(@PathVariable int id){
+    public byte[] getInvoiceById(@PathVariable String id){
         log.info("ENDPOINT CALLED: /orders/invoice/{} (GET)", id);
         return this.orderService.getInvoiceById(id);
     }
@@ -106,15 +106,14 @@ public class OrderController {
     @GetMapping("customer")
     public List<Order> getOrdersByCustomerId(Authentication authentication){
         log.info("ENDPOINT CALLED: /orders/customer (GET)");
-        int customerId = Integer.parseInt(authentication.getName());
-        List<Order> orders = this.orderService.getOrderByCustomerId(customerId);
-        log.info("RESPONSE: {} orders found for customer ID: {}", orders.size(), customerId);
+        List<Order> orders = this.orderService.getOrderByCustomerId(authentication.getName());
+        log.info("RESPONSE: {} orders found for customer ID: {}", orders.size(), authentication.getName());
         return orders;
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("cancel/{id}")
-    public ResponseEntity<String> cancelOrder(@PathVariable int id){
+    public ResponseEntity<String> cancelOrder(@PathVariable String id){
         log.info("ENDPOINT CALLED: /orders/cancel/{} (PUT)", id);
         this.orderService.cancelOrder(id);
         log.info("Order with ID {} cancelled successfully", id);

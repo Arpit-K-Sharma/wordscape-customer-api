@@ -1,41 +1,40 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
+@Document(collection = "salesRecord")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SalesRecord {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int invoiceNumber;
+    @Field("invoiceNumber")
+    private String invoiceNumber;
 
-    @Column(length = 70)
     private String productName;
 
     private int quantity;
 
-    @Column(precision = 6, scale = 2)
     private BigDecimal Rate;
 
     private Date date;
 
     private Date deliveryDate;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @DBRef
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
+    @DBRef
     private Order order;
 
 }

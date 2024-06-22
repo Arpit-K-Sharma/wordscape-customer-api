@@ -45,7 +45,7 @@ public class UserController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody User updatedUser) {
+    public ResponseEntity<String> updateUser(@PathVariable String id, @RequestBody User updatedUser) {
         log.info("ENDPOINT CALLED: /users/{} (PUT)", id);
         log.info("REQUEST BODY: {}", updatedUser);
         userService.updateUser(id, updatedUser);
@@ -55,7 +55,7 @@ public class UserController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("deactivate/{id}")
-    public ResponseEntity<String> deactivateCustomer(@PathVariable int id){
+    public ResponseEntity<String> deactivateCustomer(@PathVariable String id){
         log.info("ENDPOINT CALLED: /users/deactivate/{} (PUT)", id);
         userService.deactivateUser(id);
         log.info("User with ID {} deactivated successfully", id);
@@ -64,7 +64,7 @@ public class UserController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("reactivate/{id}")
-    public ResponseEntity<String> reactivateCustomer(@PathVariable int id){
+    public ResponseEntity<String> reactivateCustomer(@PathVariable String id){
         log.info("ENDPOINT CALLED: /users/reactivate/{} (PUT)", id);
         userService.reactivateUser(id);
         log.info("User with ID {} reactivated successfully", id);

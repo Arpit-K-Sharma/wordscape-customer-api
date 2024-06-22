@@ -1,23 +1,21 @@
 package com.example.ERP_V2.Model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "paperSize")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaperSize {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int paperSizeId;
+    private String paperSizeId;
 
-    @Column(length = 20)
     private String paperSize;
 
-    @Column(length = 20)
     private String dimensions;
 
     public PaperSize(String paperSize, String dimensions) {

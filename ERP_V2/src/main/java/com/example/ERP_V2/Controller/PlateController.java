@@ -39,7 +39,7 @@ public class PlateController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updatePlate(@PathVariable int id, @RequestBody Plate updatedPlate) {
+    public ResponseEntity<String> updatePlate(@PathVariable String id, @RequestBody Plate updatedPlate) {
         log.info("ENDPOINT CALLED: /plates/{} (PUT)", id);
         log.info("REQUEST BODY: {}", updatedPlate);
         plateService.updatePlate(id, updatedPlate);
@@ -49,7 +49,7 @@ public class PlateController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @DeleteMapping("/{plateId}")
-    public ResponseEntity<Void> deletePlate(@PathVariable int plateId) {
+    public ResponseEntity<Void> deletePlate(@PathVariable String plateId) {
         log.info("ENDPOINT CALLED: /plates/{} (DELETE)", plateId);
         plateService.deletePlate(plateId);
         log.info("Plate with ID {} deleted successfully", plateId);

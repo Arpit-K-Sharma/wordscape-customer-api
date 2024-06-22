@@ -13,11 +13,11 @@ public interface CustomerService {
 
     public void registerAsCustomer(CustomerDTO customerDTO);
 
-    void updateCustomer(int id, Customer updatedCustomer);
+    void updateCustomer(String id, Customer updatedCustomer);
 
-    public CustomerDTO getCustomer(int id);
+    public CustomerDTO getCustomer(String id);
 
-    void deactivateCustomer(int id);
+    void deactivateCustomer(String id);
 
-    void reactivateCustomer(int id);
+    void reactivateCustomer(String id);
 }

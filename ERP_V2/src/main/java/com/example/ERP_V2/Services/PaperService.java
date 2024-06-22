@@ -7,8 +7,8 @@ import java.util.List;
 public interface PaperService {
     List<Paper> getAllPapers();
     void createPaper(Paper paper);
-    void updatePaper(int id, Paper updatedPaper);
+    void updatePaper(String id, Paper updatedPaper);
 
-    void deletePaper(int paperId);
+    void deletePaper(String paperId);
 
 }

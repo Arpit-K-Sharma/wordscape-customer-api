@@ -7,7 +7,7 @@ import java.util.List;
 public interface LaminationService {
     List<Lamination> getAllLaminations();
     void createLamination(Lamination lamination);
-    void updateLamination(int id, Lamination updatedLamination);
+    void updateLamination(String id, Lamination updatedLamination);
 
-    void deleteLamination(int laminationId);
+    void deleteLamination(String laminationId);
 }

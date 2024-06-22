@@ -1,6 +1,5 @@
 package com.example.ERP_V2.Services.impl;
 
-import com.example.ERP_V2.Model.PaperThickness;
 import com.example.ERP_V2.Model.Plate;
 import com.example.ERP_V2.Repository.PlateRepo;
 import com.example.ERP_V2.Services.PlateService;
@@ -26,7 +25,7 @@ public class PlateServiceImpl implements PlateService {
     }
 
     @Override
-    public void updatePlate(int id, Plate updatedPlate) {
+    public void updatePlate(String id, Plate updatedPlate) {
         Plate existingPlate = plateRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Plate not found"));
 
@@ -46,7 +45,7 @@ public class PlateServiceImpl implements PlateService {
     }
 
     @Override
-    public void deletePlate(int plateId) {
+    public void deletePlate(String plateId) {
        plateRepository.deleteById(plateId);
     }
 }

@@ -81,8 +81,7 @@ public class S3PDFServiceImpl implements PDFService {
         return customerId + "_" + fullName + "_" + currentDateTime + "." + extension;
     }
 
-    private String getCustomerName(String id) {
-        int customer_id = Integer.parseInt(id);
+    private String getCustomerName(String customer_id) {
         CustomerDTO customerDTO = this.customerService.getCustomer(customer_id);
         return customerDTO.getFullName().replaceAll(" ", "_");
     }

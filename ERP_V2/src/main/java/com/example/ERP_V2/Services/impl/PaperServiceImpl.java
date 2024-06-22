@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PaperServiceImpl implements PaperService {
@@ -26,7 +25,7 @@ public class PaperServiceImpl implements PaperService {
     }
 
     @Override
-    public void updatePaper(int id, Paper updatedPaper) {
+    public void updatePaper(String id, Paper updatedPaper) {
         Paper existingPaper = paperRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Paper not found"));
 
@@ -43,7 +42,7 @@ public class PaperServiceImpl implements PaperService {
     }
 
     @Override
-    public void deletePaper(int paperId) {
+    public void deletePaper(String paperId) {
         paperRepository.deleteById(paperId);
     }
 

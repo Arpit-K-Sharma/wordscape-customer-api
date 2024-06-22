@@ -7,7 +7,7 @@ import java.util.List;
 public interface BindingService {
     List<Binding> getAllBindings();
     void createBinding(Binding binding);
-    void updateBinding(int id, Binding updatedBinding);
+    void updateBinding(String  id, Binding updatedBinding);
 
-    void deleteBinding(int bindingId);
+    void deleteBinding(String bindingId);
 }

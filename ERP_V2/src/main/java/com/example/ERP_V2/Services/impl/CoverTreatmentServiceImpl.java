@@ -25,7 +25,7 @@ public class CoverTreatmentServiceImpl implements CoverTreatmentService {
     }
 
     @Override
-    public void updateCoverTreatment(int id, CoverTreatment updatedCoverTreatment) {
+    public void updateCoverTreatment(String id, CoverTreatment updatedCoverTreatment) {
         CoverTreatment existingCoverTreatment = coverTreatmentRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Cover Treatment not found"));
 
@@ -40,7 +40,7 @@ public class CoverTreatmentServiceImpl implements CoverTreatmentService {
     }
 
     @Override
-    public void deleteCoverTreatment(int coverTreatmentId) {
+    public void deleteCoverTreatment(String coverTreatmentId) {
         coverTreatmentRepository.deleteById(coverTreatmentId);
     }
 }

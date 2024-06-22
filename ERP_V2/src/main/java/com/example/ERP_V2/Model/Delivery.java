@@ -1,25 +1,17 @@
 package com.example.ERP_V2.Model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.sql.Time;
 import java.util.Date;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Delivery {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated ID
-    private int deliveryId;
-
-    @Column(length = 100)
     private String destination;
 
     private Date deliveryDate;
@@ -36,13 +28,7 @@ public class Delivery {
 
     private String contactPersonNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "driver_id")
+    @DBRef
     private Driver driver;
-
-    @OneToOne
-    @JoinColumn(name = "order_id")
-    @JsonBackReference
-    private Order order;
 }
 

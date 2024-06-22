@@ -38,7 +38,7 @@ public class PaperSizeController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/{paperSizeId}")
-    public ResponseEntity<PaperSize> getPaperSizeById(@PathVariable int paperSizeId) {
+    public ResponseEntity<PaperSize> getPaperSizeById(@PathVariable String paperSizeId) {
         log.info("ENDPOINT CALLED: /paperSizes/{} (GET)", paperSizeId);
         PaperSize paperSize = paperSizeService.getPaperSizeById(paperSizeId);
         log.info("RESPONSE: Paper Size found with ID: {}", paperSizeId);
@@ -47,7 +47,7 @@ public class PaperSizeController {
 
     @PutMapping("/{paperSizeId}")
     public ResponseEntity<PaperSize> updatePaperSize(
-            @PathVariable int paperSizeId,
+            @PathVariable String paperSizeId,
             @RequestBody PaperSize updatedPaperSize) {
         log.info("ENDPOINT CALLED: /paperSizes/{} (PUT)", paperSizeId);
         log.info("REQUEST BODY: {}", updatedPaperSize);
@@ -57,7 +57,7 @@ public class PaperSizeController {
     }
 
     @DeleteMapping("/{paperSizeId}")
-    public ResponseEntity<Void> deletePaperSize(@PathVariable int paperSizeId) {
+    public ResponseEntity<Void> deletePaperSize(@PathVariable String paperSizeId) {
         log.info("ENDPOINT CALLED: /paperSizes/{} (DELETE)", paperSizeId);
         paperSizeService.deletePaperSize(paperSizeId);
         log.info("Paper Size with ID {} deleted successfully", paperSizeId);

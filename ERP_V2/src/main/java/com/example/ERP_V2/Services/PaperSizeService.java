@@ -9,9 +9,9 @@ public interface PaperSizeService {
 
     List<PaperSize> getAllPaperSizes();  // Get all PaperSizes
 
-    PaperSize getPaperSizeById(int paperSizeId);  // Get PaperSize by ID
+    PaperSize getPaperSizeById(String paperSizeId);  // Get PaperSize by ID
 
-    PaperSize updatePaperSize(int paperSizeId, PaperSize updatedPaperSize);  // Update PaperSize
+    PaperSize updatePaperSize(String paperSizeId, PaperSize updatedPaperSize);  // Update PaperSize
 
-    void deletePaperSize(int paperSizeId);  // Delete PaperSize
+    void deletePaperSize(String paperSizeId);  // Delete PaperSize
 }

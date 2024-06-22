@@ -48,7 +48,7 @@ public class CustomerController {
     @GetMapping("/self")
     public ResponseEntity<CustomerDTO> getCustomer(Authentication authentication) {
         log.info("\nENDPOINT CALLED: /customers/self\nAUTHENTICATION: {}", authentication.getName());
-        CustomerDTO customer = customerService.getCustomer(Integer.parseInt(authentication.getName()));
+        CustomerDTO customer = customerService.getCustomer(authentication.getName());
         log.info("RESPONSE: {}", customer);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
@@ -58,13 +58,13 @@ public class CustomerController {
     public ResponseEntity<String> updateCustomer(Authentication authentication, @RequestBody Customer updatedCustomer) {
         log.info("\nENDPOINT CALLED: /customers\nAUTHENTICATION: {}\nUPDATED CUSTOMER: {}",
                 authentication.getName(), updatedCustomer);
-        customerService.updateCustomer(Integer.parseInt(authentication.getName()), updatedCustomer);
+        customerService.updateCustomer(authentication.getName(), updatedCustomer);
         return ResponseEntity.ok("Customer updated !!!");
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("deactivate/{id}")
-    public ResponseEntity<String> deactivateCustomer(@PathVariable int id) {
+    public ResponseEntity<String> deactivateCustomer(@PathVariable String id) {
         log.info("\nENDPOINT CALLED: /customers/deactivate/{}\nID: {}", id);
         customerService.deactivateCustomer(id);
         return ResponseEntity.ok("Customer Deactivated !!!");
@@ -72,7 +72,7 @@ public class CustomerController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PutMapping("reactivate/{id}")
-    public ResponseEntity<String> reactivateCustomer(@PathVariable int id) {
+    public ResponseEntity<String> reactivateCustomer(@PathVariable String id) {
         log.info("\nENDPOINT CALLED: /customers/reactivate/{}\nID: {}", id);
         customerService.reactivateCustomer(id);
         return ResponseEntity.ok("Customer Reactivated !!!");
