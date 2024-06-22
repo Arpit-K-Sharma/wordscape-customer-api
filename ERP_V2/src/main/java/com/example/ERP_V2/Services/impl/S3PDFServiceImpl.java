@@ -49,6 +49,7 @@ public class S3PDFServiceImpl implements PDFService {
 
     @Override
     public byte[] downloadPdf(String filename) {
+        log.info("downlaod PDF for : " + filename);
         try (S3Object s3Object = amazonS3.getObject(bucketName, filename);
              S3ObjectInputStream s3Input = s3Object.getObjectContent();
              ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {

@@ -62,6 +62,9 @@ public class OrderServiceImpl implements OrderService {
     @Value("${aws.s3.order.path}")
     private String pdfDirectory;
 
+    @Value("${aws.s3.invoice.path}")
+    private String invoiceDirectory;
+
     @Override
     public void handleOrder(int customer_id, OrderDTO orderDTO) throws MessagingException {
 
@@ -114,25 +117,8 @@ public class OrderServiceImpl implements OrderService {
     public byte[] getInvoiceById(int id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found" ));
         String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
-        String filePath = pdfDirectory + filename + ".pdf";
-        File pdfFile = new File(filePath);
-
-        if (!pdfFile.exists()) {
-            throw new RuntimeException("Invoice file not found for order");
-        }
-
-        try (FileInputStream inputStream = new FileInputStream(pdfFile)) {
-            byte[] fileContent = new byte[(int) pdfFile.length()];
-            int bytesRead = inputStream.read(fileContent);
-
-            if (bytesRead < 0) {
-                throw new IOException("Failed to read invoice file content");
-            }
-
-            return fileContent;
-        } catch (IOException e) {
-            throw new RuntimeException("Error reading invoice file ");
-        }
+        String filePath = invoiceDirectory + filename + ".pdf";
+        return this.pdfService.downloadPdf(filePath);
     }
 
     @Override

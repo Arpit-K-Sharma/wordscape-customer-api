@@ -38,7 +38,7 @@ public class Html2PdfServiceImpl implements Html2PdfService {
 
             byte[] pdfBytes = byteArrayOutputStream.toByteArray();
 
-            String filename = orderDTO.getOrderId() + "_" + customer.getFullName().replaceAll(" ", "_");
+            String filename = orderDTO.getOrderId() + "_" + customer.getFullName().replaceAll(" ", "_") + ".pdf";
             String fullFilePath = invoiceUploadDirectory  + filename;
 
             // Upload to S3
