@@ -1,3 +1,35 @@
-/.idea/*
-target
-/ERP_V2/target/*
+# Ignore Maven/Gradle specific files
+target/
+build/
+
+# Ignore IDE specific files
+/.idea/
+/*.iml
+/.classpath
+/.project
+/.settings/
+/.vscode/
+
+# Ignore logs
+/logs
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Ignore compiled Java files
+*.class
+
+# Ignore configuration files
+*.env
+
+# Ignore other specific files/folders
+/node_modules
+/dist
