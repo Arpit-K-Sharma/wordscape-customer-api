@@ -32,7 +32,7 @@ public class SalesRecord {
     private Date deliveryDate;
 
     @DBRef
-    private Customer customer;
+    private User user;
 
     @DBRef
     private Order order;

@@ -11,15 +11,13 @@ import com.example.ERP_V2.Services.PDFService;
 import com.example.ERP_V2.enums.OrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
     private PlateRepo plateRepo;
 
     @Autowired
-    private CustomerRepo customerRepo;
+    private UserRepo userRepo;
 
     @Autowired
     private EmailService emailService;
@@ -80,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
 
         orderDTO.setOrderId(savedOrder.getOrderId());
 
-        emailService.sendHTMLEmail(order.getCustomer(),orderDTO);
+        emailService.sendHTMLEmail(order.getUser(),orderDTO);
     }
 
 
@@ -116,7 +114,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public byte[] getInvoiceById(String id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found" ));
-        String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
+        String filename = order.getOrderId() + "_" + order.getUser().getFullName().replaceAll(" ","_");
         String filePath = invoiceDirectory + filename + ".pdf";
         return this.pdfService.downloadPdf(filePath);
     }
@@ -129,7 +127,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getOrderByCustomerId(String id) {
-        return this.orderRepo.findByCustomerCustomerId(id);
+        return this.orderRepo.findByUser_UserId(id);
     }
 
     private Order covertToOrder(String id, OrderDTO orderDTO){
@@ -188,10 +186,10 @@ public class OrderServiceImpl implements OrderService {
         order.setRemarks(orderDTO.getRemarks());
 
 //         Set Customer
-        order.setCustomer(customerRepo.findById(id)
+        order.setUser(userRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Customer not found ")));
 
-        order.getCustomer().setCompanyName(orderDTO.getCompanyName());
+        order.getUser().setCompanyName(orderDTO.getCompanyName());
 
         return order;
     }
@@ -225,7 +223,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setInkType(order.getInkType());
         orderDTO.setRemarks(order.getRemarks());
         orderDTO.setStatus(order.getStatus());
-        orderDTO.setCustomer(order.getCustomer().getFullName());
+        orderDTO.setCustomer(order.getUser().getFullName());
 
         orderDTO.setDeliveryOption(order.getDeliveryOption());
 
@@ -251,7 +249,7 @@ public class OrderServiceImpl implements OrderService {
         Plate plate = plateRepo.findById("1").orElse(null); // Replace 1 with the actual ID
 
         // Create dummy Customer object
-        Customer dummyCustomer = new Customer(
+        User dummyCustomer = new User(
                 "John Doe",
                 "1234 Elm Street",
                 "john.doe@example.com",
@@ -261,7 +259,7 @@ public class OrderServiceImpl implements OrderService {
                 true
         );
 
-        customerRepo.save(dummyCustomer);
+        userRepo.save(dummyCustomer);
 
         // Create dummy Order object 1
         Order order1 = new Order();
@@ -280,7 +278,7 @@ public class OrderServiceImpl implements OrderService {
         order1.setPlate(plate); // Replace with actual Plate object if available
         order1.setInkType("CMYK");
         order1.setRemarks("Sample order 1");
-        order1.setCustomer(dummyCustomer);
+        order1.setUser(dummyCustomer);
 
         orderRepo.save(order1);
 
@@ -301,7 +299,7 @@ public class OrderServiceImpl implements OrderService {
         order2.setPlate(plate); // Replace with actual Plate object if available
         order2.setInkType("RGB");
         order2.setRemarks("Sample order 2");
-        order2.setCustomer(dummyCustomer);
+        order2.setUser(dummyCustomer);
 
         orderRepo.save(order2);
 
@@ -322,7 +320,7 @@ public class OrderServiceImpl implements OrderService {
         order3.setPlate(plate); // Replace with actual Plate object if available
         order3.setInkType("CMYK");
         order3.setRemarks("Sample order 3");
-        order3.setCustomer(dummyCustomer);
+        order3.setUser(dummyCustomer);
 
         orderRepo.save(order3);
     }

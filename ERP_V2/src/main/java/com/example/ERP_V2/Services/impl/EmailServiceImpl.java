@@ -1,7 +1,7 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.OrderDTO;
-import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Services.EmailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class EmailServiceImpl implements EmailService {
 
     @Async("taskExecutor")
     @Override
-    public CompletableFuture<Void> sendHTMLEmail(Customer customer, OrderDTO orderDTO) {
+    public CompletableFuture<Void> sendHTMLEmail(User customer, OrderDTO orderDTO) {
         log.info("Starting to send HTML email to {}", customer.getEmail());
         try {
             MimeMessage message = emailSender.createMimeMessage();

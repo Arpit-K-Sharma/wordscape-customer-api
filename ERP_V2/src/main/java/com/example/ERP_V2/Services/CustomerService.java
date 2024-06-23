@@ -2,10 +2,7 @@ package com.example.ERP_V2.Services;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
-import com.example.ERP_V2.Model.CoverTreatment;
-import com.example.ERP_V2.Model.Customer;
-
-import java.util.List;
+import com.example.ERP_V2.Model.User;
 
 public interface CustomerService {
 
@@ -13,7 +10,7 @@ public interface CustomerService {
 
     public void registerAsCustomer(CustomerDTO customerDTO);
 
-    void updateCustomer(String id, Customer updatedCustomer);
+    void updateCustomer(String id, User updatedCustomer);
 
     public CustomerDTO getCustomer(String id);
 

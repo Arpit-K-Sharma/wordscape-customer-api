@@ -19,7 +19,7 @@ public class UserDTO extends PersonDTO {
     private String email;
     private String address;
 
-    private long phoneNumber;
+    private String phoneNumber;
 
     private boolean status;
 

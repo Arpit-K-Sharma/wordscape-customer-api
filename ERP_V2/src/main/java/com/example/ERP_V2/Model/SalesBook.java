@@ -27,7 +27,7 @@ public class SalesBook {
     private Long amount;
 
     @DBRef
-    private Customer customer;
+    private User user;
 
     @DBRef
     private Order order;

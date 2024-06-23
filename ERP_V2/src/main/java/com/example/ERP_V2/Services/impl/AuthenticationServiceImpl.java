@@ -1,12 +1,8 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.*;
-import com.example.ERP_V2.Model.Admin;
-import com.example.ERP_V2.Model.Customer;
 import com.example.ERP_V2.Model.OTP;
 import com.example.ERP_V2.Model.User;
-import com.example.ERP_V2.Repository.AdminRepo;
-import com.example.ERP_V2.Repository.CustomerRepo;
 import com.example.ERP_V2.Repository.OTPRepo;
 import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.AuthenticationService;
@@ -37,13 +33,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private ModelMapper modelMapper;
 
     @Autowired
-    private AdminRepo adminRepo;
-
-    @Autowired
     private UserRepo userRepo;
-
-    @Autowired
-    private CustomerRepo customerRepo;
 
     @Autowired
     private EmailService emailService;
@@ -85,17 +75,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     private AdminDTO getAdminByEmail(String email) {
-        Admin admin = this.adminRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
+        User admin = this.userRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
         return modelMapper.map(admin, AdminDTO.class);
     }
 
     private AdminDTO getAdminById(String id) {
-        Admin admin = this.adminRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
+        User admin = this.userRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
         return modelMapper.map(admin, AdminDTO.class);
     }
 
     private CustomerDTO getCustomerByEmail(String email) {
-        Customer customer = this.customerRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Customer not found"));
+        User customer = this.userRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Customer not found"));
         if (!customer.isStatus()){
             throw new RuntimeException("Customer is deactivated");
         }
@@ -127,8 +117,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     private CustomerDTO getCustomerByIdAuthentication(String id) {
-        Customer customer = this.customerRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Customer not found"));
-        return new CustomerDTO(customer.getCustomerId(), customer.getPassword());
+        User customer = this.userRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Customer not found"));
+        return new CustomerDTO(customer.getUserId(), customer.getPassword());
     }
 
     private LoginResponseDTO authenticate(PersonDTO personDTO, String rawPassword, RoleEnum role, String id) throws UsernameNotFoundException {
@@ -184,15 +174,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         otp = existingOTP.map(this::updateOTP).orElseGet(() -> this.generateOTP(loginRequestDTO));
         this.otpService.addOtp(otp);
 
-        if (loginRequestDTO.getRole().equals(RoleEnum.ROLE_CUSTOMER)){
-            Customer customer = this.customerRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("Customer not found"));
-        }
-        else if(loginRequestDTO.getRole().equals(RoleEnum.ROLE_USER)){
-            User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
-        }
-        else{
-            Admin admin = this.adminRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("Admin not found"));
-        }
+        User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
 
         this.emailService.sendEmail(loginRequestDTO.getEmail(), otp.getOtp());
     }
@@ -201,22 +183,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public void verifyAndChangePassword(NewPasswordDTO newPasswordDTO) {
         OTP otp = this.otpRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("OTP for email not found"));
         if(otp.getOtp() == newPasswordDTO.getOtp()){
-            if (newPasswordDTO.getRole().equals(RoleEnum.ROLE_CUSTOMER)){
-                Customer customer = this.customerRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("Customer not found"));
-                customer.setPassword(passwordEncoder.encode(newPasswordDTO.getNewPassword()));
-                this.customerRepo.save(customer);
-            }
-            else if(newPasswordDTO.getRole().equals(RoleEnum.ROLE_USER)){
-                User user = this.userRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
-                user.setPassword(passwordEncoder.encode(newPasswordDTO.getNewPassword()));
-                this.userRepo.save(user);
-            }
-            else{
-                Admin admin = this.adminRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("Admin not found"));
-                admin.setPassword(passwordEncoder.encode(newPasswordDTO.getNewPassword()));
-                this.adminRepo.save(admin);
-            }
-
+            User user = this.userRepo.findByEmail(newPasswordDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+            user.setPassword(passwordEncoder.encode(newPasswordDTO.getNewPassword()));
+            this.userRepo.save(user);
         }
         else{
             throw new RuntimeException("OTP does not match");
@@ -241,7 +210,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
 
-    private CustomerDTO convertToCustomerDTO(Customer customer){
+    private CustomerDTO convertToCustomerDTO(User customer){
         if (customer == null) {
             return null;
         }
@@ -249,7 +218,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         // Manually mapping fields from Customer to CustomerDTO
         CustomerDTO customerDTO = new CustomerDTO();
 
-        customerDTO.setCustomerId(customer.getCustomerId());
+        customerDTO.setCustomerId(customer.getUserId());
         customerDTO.setEmail(customer.getEmail());
         customerDTO.setPassword(customer.getPassword());
         customerDTO.setAddress(customer.getAddress());

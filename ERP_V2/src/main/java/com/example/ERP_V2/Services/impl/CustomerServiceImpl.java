@@ -1,17 +1,11 @@
 package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
-import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
-import com.example.ERP_V2.DTO.UserDTO;
-import com.example.ERP_V2.Model.Admin;
-import com.example.ERP_V2.Model.Customer;
-import com.example.ERP_V2.Model.Order;
 import com.example.ERP_V2.Model.User;
-import com.example.ERP_V2.Repository.AdminRepo;
-import com.example.ERP_V2.Repository.CustomerRepo;
 import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.CustomerService;
+import com.example.ERP_V2.enums.RoleEnum;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,8 +15,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,10 +23,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-
-    @Autowired
-    private CustomerRepo customerRepo;
-
     @Autowired
     private ModelMapper modelMapper;
 
@@ -44,12 +32,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private UserRepo userRepo;
 
-    @Autowired
-    private AdminRepo adminRepo;
-
     @Override
     public void registerAsCustomer(CustomerDTO customerDTO) {
-        Customer customer = convertToCustomer(customerDTO);
+        User customer = convertToCustomer(customerDTO);
         if (this.emailExists(customer.getEmail())) {
             throw new RuntimeException("Email already taken");
         }
@@ -57,18 +42,16 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RuntimeException("Phone number already taken");
         }
         customer.setPassword(passwordEncoder.encode(customerDTO.getPassword()));
-        this.customerRepo.save(customer);
+        this.userRepo.save(customer);
     }
 
     private Boolean emailExists(String email) {
-        Optional<Admin> savedAdmin = this.adminRepo.findByEmail(email);
         Optional<User> savedUser = this.userRepo.findByEmail(email);
-        Optional<Customer> savedCustomer = this.customerRepo.findByEmail(email);
-        return savedAdmin.isPresent() || savedUser.isPresent() || savedCustomer.isPresent();
+        return savedUser.isPresent();
     }
 
     private Boolean phoneExists(String phone){
-        Optional<Customer> savedUser = this.customerRepo.findByPhoneNumber(phone);
+        Optional<User> savedUser = this.userRepo.findByPhoneNumber(phone);
         return savedUser.isPresent();
     }
 
@@ -80,9 +63,9 @@ public class CustomerServiceImpl implements CustomerService {
 
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
-        Page<Customer> pagedResult = this.customerRepo.findAll(pageable);
+        Page<User> pagedResult = this.userRepo.findAll(pageable);
 
-        List<Customer> allCustomer = pagedResult.getContent();
+        List<User> allCustomer = pagedResult.getContent();
 
         List<CustomerDTO> customers = pagedResult.hasContent() ?
                 pagedResult.getContent().stream()
@@ -105,8 +88,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public void updateCustomer(String id, Customer updatedCustomer) {
-        Customer existingCustomer = customerRepo.findById(id)
+    public void updateCustomer(String id, User updatedCustomer) {
+        User existingCustomer = userRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
 
         // Update fields if they are not null in the updatedCustomer object
@@ -135,32 +118,32 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
         // Save the updated customer
-        customerRepo.save(existingCustomer);
+        userRepo.save(existingCustomer);
     }
 
     @Override
     public CustomerDTO getCustomer(String id) {
-        Customer customer = customerRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
+        User customer = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
         return convertToDTO(customer);
     }
 
     @Override
     public void deactivateCustomer(String id) {
-        Customer customer = customerRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
+        User customer = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
         customer.setStatus(false);
-        this.customerRepo.save(customer);
+        this.userRepo.save(customer);
     }
 
     @Override
     public void reactivateCustomer(String id) {
-        Customer customer = customerRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
+        User customer = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
         customer.setStatus(true);
-        this.customerRepo.save(customer);
+        this.userRepo.save(customer);
     }
 
-    private CustomerDTO convertToDTO(Customer customer){
+    private CustomerDTO convertToDTO(User customer){
         CustomerDTO customerDTO = new CustomerDTO();
-        customerDTO.setCustomerId(customer.getCustomerId());
+        customerDTO.setCustomerId(customer.getUserId());
         customerDTO.setFullName(customer.getFullName());
         customerDTO.setAddress(customer.getAddress());
         customerDTO.setEmail(customer.getEmail());
@@ -170,16 +153,17 @@ public class CustomerServiceImpl implements CustomerService {
         return customerDTO;
     }
 
-    private Customer convertToCustomer(CustomerDTO customerDTO){
-        Customer customer = new Customer();
-        customer.setCustomerId(customerDTO.getCustomerId());
-        customer.setFullName(customerDTO.getFullName());
-        customer.setAddress(customerDTO.getAddress());
-        customer.setEmail(customerDTO.getEmail());
-        customer.setPhoneNumber(customerDTO.getPhoneNumber());
-        customer.setCompanyName(customerDTO.getCompanyName());
-        customer.setStatus(customerDTO.isStatus());
-        return customer;
+    private User convertToCustomer(CustomerDTO customerDTO){
+        User user = new User();
+        user.setUserId(customerDTO.getCustomerId());
+        user.setFullName(customerDTO.getFullName());
+        user.setAddress(customerDTO.getAddress());
+        user.setEmail(customerDTO.getEmail());
+        user.setPhoneNumber(customerDTO.getPhoneNumber());
+        user.setCompanyName(customerDTO.getCompanyName());
+        user.setStatus(customerDTO.isStatus());
+        user.setRole(RoleEnum.ROLE_CUSTOMER);
+        return user;
     }
 
 }

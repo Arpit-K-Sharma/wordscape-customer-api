@@ -84,7 +84,7 @@ public class Order {
     private String pdfFilename;
 
     @DBRef
-    private Customer customer;
+    private User user;
 
     @DBRef
     private SalesBook salesBook;

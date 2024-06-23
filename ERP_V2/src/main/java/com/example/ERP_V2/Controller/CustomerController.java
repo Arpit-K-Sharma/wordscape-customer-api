@@ -2,7 +2,7 @@ package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
-import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Services.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +55,7 @@ public class CustomerController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER','ROLE_CUSTOMER')")
     @PutMapping
-    public ResponseEntity<String> updateCustomer(Authentication authentication, @RequestBody Customer updatedCustomer) {
+    public ResponseEntity<String> updateCustomer(Authentication authentication, @RequestBody User updatedCustomer) {
         log.info("\nENDPOINT CALLED: /customers\nAUTHENTICATION: {}\nUPDATED CUSTOMER: {}",
                 authentication.getName(), updatedCustomer);
         customerService.updateCustomer(authentication.getName(), updatedCustomer);

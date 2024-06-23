@@ -2,7 +2,7 @@ package com.example.ERP_V2.Services.impl;
 
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.example.ERP_V2.DTO.OrderDTO;
-import com.example.ERP_V2.Model.Customer;
+import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Services.Html2PdfService;
 import com.example.ERP_V2.Services.PDFService;
 import com.itextpdf.html2pdf.ConverterProperties;
@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @Service
 public class Html2PdfServiceImpl implements Html2PdfService {
@@ -27,7 +25,7 @@ public class Html2PdfServiceImpl implements Html2PdfService {
     @Autowired
     private PDFService pdfService;
 
-    public byte[] htmlToPdf(String processedHtml, Customer customer, OrderDTO orderDTO) {
+    public byte[] htmlToPdf(String processedHtml, User customer, OrderDTO orderDTO) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             PdfWriter pdfwriter = new PdfWriter(byteArrayOutputStream);
