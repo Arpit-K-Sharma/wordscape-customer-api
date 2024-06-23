@@ -63,9 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
-        Page<User> pagedResult = this.userRepo.findAll(pageable);
-
-        List<User> allCustomer = pagedResult.getContent();
+        Page<User> pagedResult = this.userRepo.findAllByRole(RoleEnum.ROLE_CUSTOMER,pageable);
 
         List<CustomerDTO> customers = pagedResult.hasContent() ?
                 pagedResult.getContent().stream()
@@ -143,7 +141,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     private CustomerDTO convertToDTO(User customer){
         CustomerDTO customerDTO = new CustomerDTO();
-        customerDTO.setCustomerId(customer.getUserId());
+        customerDTO.setUserId(customer.getUserId());
         customerDTO.setFullName(customer.getFullName());
         customerDTO.setAddress(customer.getAddress());
         customerDTO.setEmail(customer.getEmail());
@@ -155,7 +153,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     private User convertToCustomer(CustomerDTO customerDTO){
         User user = new User();
-        user.setUserId(customerDTO.getCustomerId());
+        user.setUserId(customerDTO.getUserId());
         user.setFullName(customerDTO.getFullName());
         user.setAddress(customerDTO.getAddress());
         user.setEmail(customerDTO.getEmail());

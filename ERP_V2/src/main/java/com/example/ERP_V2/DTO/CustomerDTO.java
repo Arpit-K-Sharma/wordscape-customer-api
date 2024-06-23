@@ -19,7 +19,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerDTO extends PersonDTO {
 
-    private String customerId;
+    private String userId;
 
     private String address;
 
@@ -39,7 +39,7 @@ public class CustomerDTO extends PersonDTO {
 
 
     public CustomerDTO(String id, String password) {
-        this.customerId = id;
+        this.userId = id;
         this.password = password;
     }
 }

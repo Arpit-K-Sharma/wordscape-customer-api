@@ -49,61 +49,23 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public LoginResponseDTO login(LoginRequestDTO loginRequestDTO) {
         LoginResponseDTO loginResponseDTO;
-        if (loginRequestDTO.getRole().equals(RoleEnum.ROLE_ADMIN)) {
-            loginResponseDTO = this.loginAsAdmin(loginRequestDTO.getEmail(), loginRequestDTO.getPassword());
-        } else if (loginRequestDTO.getRole().equals(RoleEnum.ROLE_USER)) {
-            loginResponseDTO = this.loginAsUser(loginRequestDTO.getEmail(), loginRequestDTO.getPassword());
+        User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        if (user.getRole().equals(RoleEnum.ROLE_ADMIN)) {
+            AdminDTO adminDTO = this.modelMapper.map(user, AdminDTO.class);
+            loginResponseDTO = this.authenticate(adminDTO, loginRequestDTO.getPassword(), adminDTO.getRole(), adminDTO.getUserId());
+        } else if (user.getRole().equals(RoleEnum.ROLE_USER)) {
+            UserDTO userDTO = this.modelMapper.map(user, UserDTO.class);
+            loginResponseDTO = this.authenticate(userDTO,  loginRequestDTO.getPassword(), userDTO.getRole(), userDTO.getUserId());
         } else {
-            loginResponseDTO = this.loginAsCustomer(loginRequestDTO.getEmail(), loginRequestDTO.getPassword());
+            CustomerDTO customerDTO = this.modelMapper.map(user, CustomerDTO.class);
+            loginResponseDTO = this.authenticate(customerDTO, loginRequestDTO.getPassword(), customerDTO.getRole(), customerDTO.getUserId());
         }
         return loginResponseDTO;
-    }
-
-    private LoginResponseDTO loginAsAdmin(String email, String password) {
-        AdminDTO adminDTO = this.getAdminByEmail(email);
-        return this.authenticate(adminDTO, password, adminDTO.getRole(), adminDTO.getAdmin_id());
-    }
-
-    private LoginResponseDTO loginAsCustomer(String email, String password) {
-        CustomerDTO customerDTO = this.getCustomerByEmail(email);
-        return this.authenticate(customerDTO, password, customerDTO.getRole(), customerDTO.getCustomerId());
-    }
-
-    private LoginResponseDTO loginAsUser(String email, String password) {
-        UserDTO userDTO = this.getUserByEmail(email);
-        return this.authenticate(userDTO, password, userDTO.getRole(), userDTO.getUserId());
-    }
-
-    private AdminDTO getAdminByEmail(String email) {
-        User admin = this.userRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
-        return modelMapper.map(admin, AdminDTO.class);
     }
 
     private AdminDTO getAdminById(String id) {
         User admin = this.userRepo.findById(id).orElseThrow(() -> new UsernameNotFoundException("Admin not found"));
         return modelMapper.map(admin, AdminDTO.class);
-    }
-
-    private CustomerDTO getCustomerByEmail(String email) {
-        User customer = this.userRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Customer not found"));
-        if (!customer.isStatus()){
-            throw new RuntimeException("Customer is deactivated");
-        }
-//        return modelMapper.map(customer, CustomerDTO.class);
-        return convertToCustomerDTO(customer);
-    }
-
-    private UserDTO getUserByEmail(String email) {
-        User user = this.userRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        if (!user.isStatus()){
-            throw new RuntimeException("User is Deactivated");
-        }
-        return modelMapper.map(user, UserDTO.class);
-    }
-
-    private UserDTO getUserByEmailAuthentication(String email) {
-        User user = this.userRepo.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        return UserDTO.builder().email(user.getEmail()).password(user.getPassword()).build();
     }
 
 //    private CustomerDTO getCustomerByEmailAuthentication(String email) {
@@ -155,12 +117,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         } else if (role.equals(RoleEnum.ROLE_CUSTOMER)) {
             CustomerDTO customerDTO = this.getCustomerByIdAuthentication(id);
             List<SimpleGrantedAuthority> authorities = this.addAuthority(customerDTO.getRole());
-            return new UsernamePasswordAuthenticationToken(customerDTO.getCustomerId(), customerDTO.getPassword(),
+            return new UsernamePasswordAuthenticationToken(customerDTO.getUserId(), customerDTO.getPassword(),
                     authorities);
         } else {
             AdminDTO adminDTO = this.getAdminById(id);
             List<SimpleGrantedAuthority> authorities = this.addAuthority(adminDTO.getRole());
-            return new UsernamePasswordAuthenticationToken(adminDTO.getAdmin_id(), adminDTO.getPassword(),
+            return new UsernamePasswordAuthenticationToken(adminDTO.getUserId(), adminDTO.getPassword(),
                     authorities);
         }
     }
@@ -218,7 +180,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         // Manually mapping fields from Customer to CustomerDTO
         CustomerDTO customerDTO = new CustomerDTO();
 
-        customerDTO.setCustomerId(customer.getUserId());
+        customerDTO.setUserId(customer.getUserId());
         customerDTO.setEmail(customer.getEmail());
         customerDTO.setPassword(customer.getPassword());
         customerDTO.setAddress(customer.getAddress());

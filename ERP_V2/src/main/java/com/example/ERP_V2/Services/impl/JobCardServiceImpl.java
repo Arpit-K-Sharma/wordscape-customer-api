@@ -46,7 +46,7 @@ public class JobCardServiceImpl implements JobCardService {
     @Override
     public Order getJobCardById(String id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new RuntimeException("Order Not found"));
-        order.getUser().setPassword(null);
+        order.getCustomer().setPassword(null);
         return order;
     }
 

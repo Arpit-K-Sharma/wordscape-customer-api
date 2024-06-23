@@ -4,6 +4,7 @@ import com.example.ERP_V2.DTO.UserDTO;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Repository.UserRepo;
 import com.example.ERP_V2.Services.UserService;
+import com.example.ERP_V2.enums.RoleEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,6 +28,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(RoleEnum.ROLE_USER);
         this.userRepository.save(user);
     }
 
@@ -34,7 +36,7 @@ public class UserServiceImpl implements UserService {
     public List<UserDTO> getAllUsers(Integer pageNumber, Integer pageSize) {
 
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        Page<User> pagedResult = this.userRepository.findAll(pageable);
+        Page<User> pagedResult = this.userRepository.findAllByRole(RoleEnum.ROLE_USER,pageable);
 
         List<User> allUser = pagedResult.getContent();
 

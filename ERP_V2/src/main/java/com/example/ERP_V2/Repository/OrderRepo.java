@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface OrderRepo extends MongoRepository<Order,String> {
-    List<Order> findByUser_UserId(String customerId);
+    List<Order> findByCustomerUserId(String customerId);
 }

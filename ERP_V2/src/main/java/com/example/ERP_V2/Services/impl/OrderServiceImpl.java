@@ -78,7 +78,7 @@ public class OrderServiceImpl implements OrderService {
 
         orderDTO.setOrderId(savedOrder.getOrderId());
 
-        emailService.sendHTMLEmail(order.getUser(),orderDTO);
+        emailService.sendHTMLEmail(order.getCustomer(),orderDTO);
     }
 
 
@@ -114,7 +114,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public byte[] getInvoiceById(String id) {
         Order order = orderRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found" ));
-        String filename = order.getOrderId() + "_" + order.getUser().getFullName().replaceAll(" ","_");
+        String filename = order.getOrderId() + "_" + order.getCustomer().getFullName().replaceAll(" ","_");
         String filePath = invoiceDirectory + filename + ".pdf";
         return this.pdfService.downloadPdf(filePath);
     }
@@ -127,7 +127,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> getOrderByCustomerId(String id) {
-        return this.orderRepo.findByUser_UserId(id);
+        return this.orderRepo.findByCustomerUserId(id);
     }
 
     private Order covertToOrder(String id, OrderDTO orderDTO){
@@ -186,10 +186,10 @@ public class OrderServiceImpl implements OrderService {
         order.setRemarks(orderDTO.getRemarks());
 
 //         Set Customer
-        order.setUser(userRepo.findById(id)
+        order.setCustomer(userRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Customer not found ")));
 
-        order.getUser().setCompanyName(orderDTO.getCompanyName());
+        order.getCustomer().setCompanyName(orderDTO.getCompanyName());
 
         return order;
     }
@@ -223,7 +223,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setInkType(order.getInkType());
         orderDTO.setRemarks(order.getRemarks());
         orderDTO.setStatus(order.getStatus());
-        orderDTO.setCustomer(order.getUser().getFullName());
+        orderDTO.setCustomer(order.getCustomer().getFullName());
 
         orderDTO.setDeliveryOption(order.getDeliveryOption());
 
@@ -278,7 +278,7 @@ public class OrderServiceImpl implements OrderService {
         order1.setPlate(plate); // Replace with actual Plate object if available
         order1.setInkType("CMYK");
         order1.setRemarks("Sample order 1");
-        order1.setUser(dummyCustomer);
+        order1.setCustomer(dummyCustomer);
 
         orderRepo.save(order1);
 
@@ -299,7 +299,7 @@ public class OrderServiceImpl implements OrderService {
         order2.setPlate(plate); // Replace with actual Plate object if available
         order2.setInkType("RGB");
         order2.setRemarks("Sample order 2");
-        order2.setUser(dummyCustomer);
+        order2.setCustomer(dummyCustomer);
 
         orderRepo.save(order2);
 
@@ -320,7 +320,7 @@ public class OrderServiceImpl implements OrderService {
         order3.setPlate(plate); // Replace with actual Plate object if available
         order3.setInkType("CMYK");
         order3.setRemarks("Sample order 3");
-        order3.setUser(dummyCustomer);
+        order3.setCustomer(dummyCustomer);
 
         orderRepo.save(order3);
     }

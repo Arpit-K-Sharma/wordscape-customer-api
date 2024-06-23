@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class AdminDTO extends PersonDTO{
-    private String admin_id;
+    private String userId;
     private final RoleEnum role = RoleEnum.ROLE_ADMIN;
 }
