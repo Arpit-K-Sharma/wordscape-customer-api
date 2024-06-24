@@ -49,7 +49,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public LoginResponseDTO login(LoginRequestDTO loginRequestDTO) {
         LoginResponseDTO loginResponseDTO;
-        User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new UsernameNotFoundException("Invalid Credentials"));
         if (user.getRole().equals(RoleEnum.ROLE_ADMIN)) {
             AdminDTO adminDTO = this.modelMapper.map(user, AdminDTO.class);
             loginResponseDTO = this.authenticate(adminDTO, loginRequestDTO.getPassword(), adminDTO.getRole(), adminDTO.getUserId());
@@ -129,14 +129,15 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public void forgotPassword(LoginRequestDTO loginRequestDTO) {
+
+        User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+
         // Check if an OTP already exists for the given email
         Optional<OTP> existingOTP = otpRepo.findByEmail(loginRequestDTO.getEmail());
 
         OTP otp;
         otp = existingOTP.map(this::updateOTP).orElseGet(() -> this.generateOTP(loginRequestDTO));
         this.otpService.addOtp(otp);
-
-        User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
 
         this.emailService.sendEmail(loginRequestDTO.getEmail(), otp.getOtp());
     }
