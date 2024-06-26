@@ -18,8 +18,14 @@ public class PaperSize {
 
     private String dimensions;
 
-    public PaperSize(String paperSize, String dimensions) {
+    private double paperLength;
+
+    private double paperBreadth;
+
+    public PaperSize(String paperSize, String dimensions, double paperLength, double paperBreadth) {
         this.paperSize = paperSize;
         this.dimensions = dimensions;
+        this.paperLength = paperLength;
+        this.paperBreadth = paperBreadth;
     }
 }

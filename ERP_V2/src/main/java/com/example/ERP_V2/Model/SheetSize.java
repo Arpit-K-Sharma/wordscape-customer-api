@@ -17,10 +17,16 @@ public class SheetSize {
 
     private String sheetSize;
 
+    private int sheetLength;
+
+    private int sheetBreadth;
+
     private int value;
 
-    public SheetSize(String sheetSize, int value) {
+    public SheetSize(String sheetSize, int sheetLength, int sheetBreadth, int value) {
         this.sheetSize = sheetSize;
+        this.sheetLength = sheetLength;
+        this.sheetBreadth = sheetBreadth;
         this.value = value;
     }
 }

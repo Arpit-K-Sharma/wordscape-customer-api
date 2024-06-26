@@ -35,6 +35,8 @@ public class SheetSizeServiceImpl implements SheetSizeService {
         return sheetSizeRepo.findById(id).map(existingSheetSize -> {
             existingSheetSize.setSheetSize(sheetSize.getSheetSize());
             existingSheetSize.setValue(sheetSize.getValue());
+            existingSheetSize.setSheetLength(sheetSize.getSheetLength());
+            existingSheetSize.setSheetBreadth(sheetSize.getSheetBreadth());
             return sheetSizeRepo.save(existingSheetSize);
         });
     }

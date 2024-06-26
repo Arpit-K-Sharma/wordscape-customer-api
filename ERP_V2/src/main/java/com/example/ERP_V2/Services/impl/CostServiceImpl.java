@@ -122,9 +122,9 @@ public class CostServiceImpl implements CostService {
         List<PaperSize> papers = paperSizeRepo.findAll();
         if (paperSizeRepo.count() == 0) {
             List<PaperSize> initialPaperSizes = Arrays.asList(
-                    new PaperSize("A2", "420 x 594 mm"),
-                    new PaperSize("A3", "297 x 420 mm"),
-                    new PaperSize("A4", "210 x 297 mm")
+                    new PaperSize("A2", "420 x 594 mm", 16.5, 23.4),
+                    new PaperSize("A3", "297 x 420 mm", 11.7, 16.5),
+                    new PaperSize("A4", "210 x 297 mm", 8.3, 11.7)
             );
             paperSizeRepo.saveAll(initialPaperSizes);
         }
@@ -168,8 +168,8 @@ public class CostServiceImpl implements CostService {
     public void addInitialSheetSizes() {
         if (sheetSizeRepo.count() == 0) {
             List<SheetSize> initialSheetSizes = Arrays.asList(
-                    new SheetSize("20 X 30", 600),
-                    new SheetSize("24 X 36", 864)
+                    new SheetSize("20 X 30", 20, 30 ,600),
+                    new SheetSize("24 X 36", 24, 36 ,864)
             );
             sheetSizeRepo.saveAll(initialSheetSizes);
         }
