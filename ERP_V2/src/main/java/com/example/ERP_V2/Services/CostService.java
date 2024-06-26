@@ -16,4 +16,6 @@ public interface CostService {
     void addInitialPaperSizes();
 
     void addInitialPaperThicknesses();
+
+    void addInitialSheetSizes();
 }

@@ -37,6 +37,9 @@ public class CostServiceImpl implements CostService {
     @Autowired
     private PaperThicknessRepo paperThicknessRepo;
 
+    @Autowired
+    private SheetSizeRepo sheetSizeRepo;
+
     @Override
     public void addInitialPaperCosts() {
         if (paperRepo.count() == 0) {
@@ -160,4 +163,16 @@ public class CostServiceImpl implements CostService {
             paperThicknessRepo.saveAll(initialThicknesses);
         }
     }
+
+    @Override
+    public void addInitialSheetSizes() {
+        if (sheetSizeRepo.count() == 0) {
+            List<SheetSize> initialSheetSizes = Arrays.asList(
+                    new SheetSize("20 X 30", 600),
+                    new SheetSize("24 X 36", 864)
+            );
+            sheetSizeRepo.saveAll(initialSheetSizes);
+        }
+    }
+
 }
