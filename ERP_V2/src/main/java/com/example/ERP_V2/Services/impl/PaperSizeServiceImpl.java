@@ -34,12 +34,24 @@ public class PaperSizeServiceImpl implements PaperSizeService {
     public PaperSize updatePaperSize(String paperSizeId, PaperSize updatedPaperSize) {
         PaperSize existingPaperSize = getPaperSizeById(paperSizeId);
 
+        if (existingPaperSize == null) {
+            throw new RuntimeException("PaperSize not found " );
+        }
+
         if (updatedPaperSize.getPaperSize() != null) {
             existingPaperSize.setPaperSize(updatedPaperSize.getPaperSize());
         }
 
         if (updatedPaperSize.getDimensions() != null) {
             existingPaperSize.setDimensions(updatedPaperSize.getDimensions());
+        }
+
+        if (updatedPaperSize.getPaperLength() != 0) {
+            existingPaperSize.setPaperLength(updatedPaperSize.getPaperLength());
+        }
+
+        if (updatedPaperSize.getPaperBreadth() != 0) {
+            existingPaperSize.setPaperBreadth(updatedPaperSize.getPaperBreadth());
         }
 
         return paperSizeRepository.save(existingPaperSize);
