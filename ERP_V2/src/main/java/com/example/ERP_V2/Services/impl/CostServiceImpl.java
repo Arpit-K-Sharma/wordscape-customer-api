@@ -44,11 +44,14 @@ public class CostServiceImpl implements CostService {
     public void addInitialPaperCosts() {
         if (paperRepo.count() == 0) {
             List<Paper> initialPapers = Arrays.asList(
-                    new Paper("Art Paper", BigDecimal.valueOf(185)),
-                    new Paper("Art Board", BigDecimal.valueOf(185)),
-                    new Paper("Ivory", BigDecimal.valueOf(280)),
-                    new Paper("Wood Free", BigDecimal.valueOf(200)),
-                    new Paper("Off White", BigDecimal.valueOf(250))
+                    new Paper("Art Paper", BigDecimal.valueOf(185),90, 200),
+                    new Paper("Art Board", BigDecimal.valueOf(185), 250, 300),
+                    new Paper("Ivory", BigDecimal.valueOf(280), 180, 210),
+                    new Paper("Wood Free", BigDecimal.valueOf(200), 60, 120),
+                    new Paper("Off White", BigDecimal.valueOf(250), 70, 100),
+                    new Paper("Art Matte Paper", BigDecimal.valueOf(185), 90, 200),
+                    new Paper("Map Litho", BigDecimal.valueOf(150), 60, 80),
+                    new Paper("Weightless Paper", BigDecimal.valueOf(150), 60, 80)
             );
             paperRepo.saveAll(initialPapers);
         }
@@ -69,12 +72,12 @@ public class CostServiceImpl implements CostService {
     public void addInitialBindingCost() {
         if (bindingRepo.count() == 0) {
             List<Binding> initialBindingCosts = Arrays.asList(
-                    new Binding("Center Stitch", BigDecimal.valueOf(50)),
+                    new Binding("Center Stitch", BigDecimal.valueOf(3)),
                     new Binding("Juju", BigDecimal.valueOf(150)),
                     new Binding("Wiro", BigDecimal.valueOf(100)),
-                    new Binding("Spiral", BigDecimal.valueOf(120)),
                     new Binding("Perforation", BigDecimal.valueOf(100)),
-                    new Binding("Padding", BigDecimal.valueOf(100))
+                    new Binding("Folding", BigDecimal.valueOf(200)),
+                    new Binding("Perfect Binding", BigDecimal.valueOf(5))
             );
             bindingRepo.saveAll(initialBindingCosts);
         }
@@ -84,9 +87,7 @@ public class CostServiceImpl implements CostService {
     public void addInitialLaminationCost() {
         if (laminationRepo.count() == 0) {
             List<Lamination> initialLaminationCosts = Arrays.asList(
-                    new Lamination("Normal Glossy", BigDecimal.valueOf(0.015)),
-                    new Lamination("Normal Matte", BigDecimal.valueOf(0.015)),
-                    new Lamination("Thermal Glossy", BigDecimal.valueOf(0.03)),
+                    new Lamination("Thermal Glossy", BigDecimal.valueOf(0.02)),
                     new Lamination("Thermal Matte", BigDecimal.valueOf(0.03))
             );
             laminationRepo.saveAll(initialLaminationCosts);
@@ -134,6 +135,7 @@ public class CostServiceImpl implements CostService {
     public void addInitialPaperThicknesses() {
         if (paperThicknessRepo.count() == 0) {
             List<PaperThickness> initialThicknesses = Arrays.asList(
+                    new PaperThickness(60),
                     new PaperThickness(70),
                     new PaperThickness(80),
                     new PaperThickness(90),

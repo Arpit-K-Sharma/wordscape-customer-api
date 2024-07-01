@@ -4,6 +4,7 @@ import com.example.ERP_V2.Model.PaperThickness;
 import com.example.ERP_V2.Repository.PaperThicknessRepo;
 import com.example.ERP_V2.Services.PaperThicknessService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class PaperThicknessServiceImpl implements PaperThicknessService {
 
     @Override
     public List<PaperThickness> getAllPaperThicknesses() {
-        return paperThicknessRepository.findAll();
+        return paperThicknessRepository.findAll(Sort.by(Sort.Direction.ASC, "thickness"));
     }
 
     @Override

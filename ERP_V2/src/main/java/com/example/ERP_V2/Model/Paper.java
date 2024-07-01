@@ -21,8 +21,14 @@ public class Paper {
 
     private BigDecimal rate;
 
-    public Paper(String paperType, BigDecimal rate) {
+    private int minThickness;
+
+    private int maxThickness;
+
+    public Paper(String paperType, BigDecimal rate, int minThickness, int maxThickness) {
         this.paperType = paperType;
         this.rate = rate;
+        this.minThickness = minThickness;
+        this.maxThickness = maxThickness;
     }
 }
