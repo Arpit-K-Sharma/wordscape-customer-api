@@ -36,10 +36,17 @@ public class PaperServiceImpl implements PaperService {
         if (updatedPaper.getRate() != null) {
             existingPaper.setRate(updatedPaper.getRate());
         }
+        if (updatedPaper.getMinThickness() != null) {
+            existingPaper.setMinThickness(updatedPaper.getMinThickness());
+        }
+        if (updatedPaper.getMaxThickness() != null) {
+            existingPaper.setMaxThickness(updatedPaper.getMaxThickness());
+        }
 
         // Save the updated paper
         paperRepository.save(existingPaper);
     }
+
 
     @Override
     public void deletePaper(String paperId) {
