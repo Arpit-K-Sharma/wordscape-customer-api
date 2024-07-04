@@ -46,10 +46,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Autowired
     private JwtUtil jwtUtil;
+
     @Override
     public LoginResponseDTO login(LoginRequestDTO loginRequestDTO) {
         LoginResponseDTO loginResponseDTO;
         User user = this.userRepo.findByEmail(loginRequestDTO.getEmail()).orElseThrow(() -> new UsernameNotFoundException("Invalid Credentials"));
+        if(!user.isStatus()){
+            throw new RuntimeException("User is not activated");
+        }
         if (user.getRole().equals(RoleEnum.ROLE_ADMIN)) {
             AdminDTO adminDTO = this.modelMapper.map(user, AdminDTO.class);
             loginResponseDTO = this.authenticate(adminDTO, loginRequestDTO.getPassword(), adminDTO.getRole(), adminDTO.getUserId());

@@ -17,13 +17,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,13 +39,10 @@ public class CustomerServiceImpl implements CustomerService {
     private UserRepo userRepo;
 
     @Autowired
-    private AuthenticationService authenticationService;
-
-    @Autowired
-    private EmailService emailService;
-
-    @Autowired
     private OTPRepo otpRepo;
+
+    @Autowired
+    private JavaMailSender emailSender;
 
     @Override
     public void registerAsCustomer(CustomerDTO customerDTO) {
@@ -58,9 +56,29 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setPassword(passwordEncoder.encode(customerDTO.getPassword()));
         this.userRepo.save(customer);
 
-        OTP otp = authenticationService.generateOTP(customerDTO.getEmail());
-        this.emailService.sendEmail(customerDTO.getEmail(), otp.getOtp());
+        OTP otp = generateOTP(customerDTO.getEmail());
+        this.otpRepo.save(otp);
+        this.sendEmail(customerDTO.getEmail(), otp.getOtp());
+    }
 
+    public OTP generateOTP(String email){
+        OTP otp = new OTP();
+        otp.setOtp((int) (Math.random() * 1000000));
+        otp.setUpdated_at(new Date());
+        otp.setEmail(email);
+
+        return otp;
+    }
+
+    @Async("taskExecutor")
+    public CompletableFuture<Void> sendEmail(String to, int otp) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("luciferdynamic598@gmail.com");
+        message.setTo(to);
+        message.setSubject("OTP");
+        message.setText("Your OTP is: " + otp);
+        emailSender.send(message);
+        return CompletableFuture.completedFuture(null);
     }
 
     private Boolean emailExists(String email) {

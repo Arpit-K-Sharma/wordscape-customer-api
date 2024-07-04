@@ -34,13 +34,14 @@ public class EmailServiceImpl implements EmailService {
 
     @Async("taskExecutor")
     @Override
-    public void sendEmail(String to, int otp) {
+    public CompletableFuture<Void> sendEmail(String to, int otp) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("luciferdynamic598@gmail.com");
         message.setTo(to);
         message.setSubject("OTP");
         message.setText("Your OTP is: " + otp);
         emailSender.send(message);
+        return CompletableFuture.completedFuture(null);
     }
 
     @Async("taskExecutor")

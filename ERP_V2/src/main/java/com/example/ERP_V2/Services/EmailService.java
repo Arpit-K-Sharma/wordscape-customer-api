@@ -7,7 +7,7 @@ import javax.mail.MessagingException;
 import java.util.concurrent.CompletableFuture;
 
 public interface EmailService {
-    public void sendEmail(String to, int otp);
+    public CompletableFuture<Void> sendEmail(String to, int otp);
 
     public CompletableFuture<Void> sendHTMLEmail(User customer, OrderDTO orderDTO) throws MessagingException;
 
