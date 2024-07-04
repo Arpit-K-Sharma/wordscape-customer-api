@@ -136,7 +136,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Optional<OTP> existingOTP = otpRepo.findByEmail(loginRequestDTO.getEmail());
 
         OTP otp;
-        otp = existingOTP.map(this::updateOTP).orElseGet(() -> this.generateOTP(loginRequestDTO));
+        otp = existingOTP.map(this::updateOTP).orElseGet(() -> this.generateOTP(loginRequestDTO.getEmail()));
         this.otpService.addOtp(otp);
 
         this.emailService.sendEmail(loginRequestDTO.getEmail(), otp.getOtp());
@@ -156,16 +156,18 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     }
 
-    private OTP generateOTP(LoginRequestDTO loginRequestDTO){
+    @Override
+    public OTP generateOTP(String email){
         OTP otp = new OTP();
         otp.setOtp((int) (Math.random() * 1000000));
         otp.setUpdated_at(new Date());
-        otp.setEmail(loginRequestDTO.getEmail());
+        otp.setEmail(email);
 
         return otp;
     }
 
-    private OTP updateOTP(OTP otp){
+    @Override
+    public OTP updateOTP(OTP otp){
         otp.setOtp((int) (Math.random() * 1000000));
         otp.setUpdated_at(new Date());
         return otp;

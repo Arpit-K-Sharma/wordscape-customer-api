@@ -27,7 +27,7 @@ public class CustomerDTO extends PersonDTO {
 
     private String companyName;
 
-    private boolean status = true;
+    private boolean status = false;
 
     private List<OrderDTO> orderList;
 

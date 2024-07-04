@@ -2,6 +2,7 @@ package com.example.ERP_V2.Controller;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
+import com.example.ERP_V2.DTO.VerificationDTO;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Services.CustomerService;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,14 @@ public class CustomerController {
         log.info("\nENDPOINT CALLED: /customers/register\nREQUEST DTO: {}", customerDTO);
         this.customerService.registerAsCustomer(customerDTO);
         return ResponseEntity.ok("Registered Successfully !!!");
+    }
+
+    @PostMapping("verify")
+    public ResponseEntity<String> verifyCustomer(@RequestBody VerificationDTO verificationDTO){
+        log.info("\nENDPOINT CALLED: /customers/verify\nREQUEST DTO: {}", verificationDTO);
+        this.customerService.verifyCustomer(verificationDTO);
+        return ResponseEntity.ok("Your Account Has Been Verified");
+
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")

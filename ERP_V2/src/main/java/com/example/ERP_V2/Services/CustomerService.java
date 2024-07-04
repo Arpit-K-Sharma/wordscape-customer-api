@@ -2,6 +2,7 @@ package com.example.ERP_V2.Services;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
+import com.example.ERP_V2.DTO.VerificationDTO;
 import com.example.ERP_V2.Model.User;
 
 public interface CustomerService {
@@ -17,4 +18,6 @@ public interface CustomerService {
     void deactivateCustomer(String id);
 
     void reactivateCustomer(String id);
+
+    void verifyCustomer(VerificationDTO verificationDTO);
 }

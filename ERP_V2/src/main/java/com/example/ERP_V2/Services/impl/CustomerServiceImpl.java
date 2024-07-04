@@ -2,9 +2,14 @@ package com.example.ERP_V2.Services.impl;
 
 import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
+import com.example.ERP_V2.DTO.VerificationDTO;
+import com.example.ERP_V2.Model.OTP;
 import com.example.ERP_V2.Model.User;
+import com.example.ERP_V2.Repository.OTPRepo;
 import com.example.ERP_V2.Repository.UserRepo;
+import com.example.ERP_V2.Services.AuthenticationService;
 import com.example.ERP_V2.Services.CustomerService;
+import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.enums.RoleEnum;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +37,15 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private AuthenticationService authenticationService;
+
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    private OTPRepo otpRepo;
+
     @Override
     public void registerAsCustomer(CustomerDTO customerDTO) {
         User customer = convertToCustomer(customerDTO);
@@ -43,6 +57,10 @@ public class CustomerServiceImpl implements CustomerService {
         }
         customer.setPassword(passwordEncoder.encode(customerDTO.getPassword()));
         this.userRepo.save(customer);
+
+        OTP otp = authenticationService.generateOTP(customerDTO.getEmail());
+        this.emailService.sendEmail(customerDTO.getEmail(), otp.getOtp());
+
     }
 
     private Boolean emailExists(String email) {
@@ -137,6 +155,20 @@ public class CustomerServiceImpl implements CustomerService {
         User customer = userRepo.findById(id).orElseThrow(() -> new RuntimeException("Customer not found !!!"));
         customer.setStatus(true);
         this.userRepo.save(customer);
+    }
+
+    @Override
+    public void verifyCustomer(VerificationDTO verificationDTO) {
+        OTP otp = this.otpRepo.findByEmail(verificationDTO.getEmail()).orElseThrow(() -> new RuntimeException("OTP for email not found"));
+        if(otp.getOtp() == verificationDTO.getOtp()){
+            User user = this.userRepo.findByEmail(verificationDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+            user.setStatus(true);
+            this.userRepo.save(user);
+        }
+        else{
+            throw new RuntimeException("OTP does not match");
+        }
+
     }
 
     private CustomerDTO convertToDTO(User customer){
