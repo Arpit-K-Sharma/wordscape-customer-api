@@ -1,10 +1,12 @@
 package com.example.ERP_V2.Services.impl;
 
+import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.OrderDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.DTO.PdfUploadDTO;
 import com.example.ERP_V2.Model.*;
 import com.example.ERP_V2.Repository.*;
+import com.example.ERP_V2.Services.CustomerService;
 import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.Services.OrderService;
 import com.example.ERP_V2.Services.PDFService;
@@ -16,6 +18,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -56,6 +59,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PDFService pdfService;
+
+    @Autowired
+    private CustomerService customerService;
 
     @Value("${aws.s3.order.path}")
     private String pdfDirectory;
@@ -342,10 +348,30 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String saveOrderPdfFile(PdfUploadDTO pdfUploadDTO, String customer_id) throws IOException {
-        String filename = pdfService.generateFilename(pdfUploadDTO.getPdfFile(),customer_id);
+        String filename = generateFilename(pdfUploadDTO.getPdfFile(),customer_id);
         String fullFilePath = pdfDirectory + filename;
         pdfService.savePdfFile(pdfUploadDTO.getPdfFile().getInputStream(), fullFilePath);
         return filename;
+    }
+
+    public String generateFilename(MultipartFile pdfFile, String customerId) {
+        String originalFilename = org.springframework.util.StringUtils.cleanPath(pdfFile.getOriginalFilename());
+        String extension = org.springframework.util.StringUtils.getFilenameExtension(originalFilename);
+
+        if (extension == null || extension.isEmpty()) {
+            extension = "pdf"; // Default to pdf if no extension found
+        }
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateTime = dateFormat.format(new Date());
+        String fullName = getCustomerName(customerId);
+
+        return customerId + "_" + fullName + "_" + currentDateTime + "." + extension;
+    }
+
+    private String getCustomerName(String customer_id) {
+        CustomerDTO customerDTO = this.customerService.getCustomer(customer_id);
+        return customerDTO.getFullName().replaceAll(" ", "_");
     }
 
 }

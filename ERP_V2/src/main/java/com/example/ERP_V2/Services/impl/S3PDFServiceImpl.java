@@ -26,9 +26,6 @@ import java.util.Date;
 public class S3PDFServiceImpl implements PDFService {
 
     @Autowired
-    private CustomerService customerService;
-
-    @Autowired
     private AmazonS3 amazonS3;
 
     @Value("${aws.s3.bucket}")
@@ -63,26 +60,5 @@ public class S3PDFServiceImpl implements PDFService {
             log.error("Failed to download file from S3", e);
             throw new RuntimeException("Failed to download file from S3: " + e.getMessage(), e);
         }
-    }
-
-    @Override
-    public String generateFilename(MultipartFile pdfFile, String customerId) {
-        String originalFilename = org.springframework.util.StringUtils.cleanPath(pdfFile.getOriginalFilename());
-        String extension = org.springframework.util.StringUtils.getFilenameExtension(originalFilename);
-
-        if (extension == null || extension.isEmpty()) {
-            extension = "pdf"; // Default to pdf if no extension found
-        }
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-        String currentDateTime = dateFormat.format(new Date());
-        String fullName = getCustomerName(customerId);
-
-        return customerId + "_" + fullName + "_" + currentDateTime + "." + extension;
-    }
-
-    private String getCustomerName(String customer_id) {
-        CustomerDTO customerDTO = this.customerService.getCustomer(customer_id);
-        return customerDTO.getFullName().replaceAll(" ", "_");
     }
 }

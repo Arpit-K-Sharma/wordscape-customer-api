@@ -7,7 +7,6 @@ import com.example.ERP_V2.Model.OTP;
 import com.example.ERP_V2.Model.User;
 import com.example.ERP_V2.Repository.OTPRepo;
 import com.example.ERP_V2.Repository.UserRepo;
-import com.example.ERP_V2.Services.AuthenticationService;
 import com.example.ERP_V2.Services.CustomerService;
 import com.example.ERP_V2.Services.EmailService;
 import com.example.ERP_V2.enums.RoleEnum;
@@ -17,14 +16,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,6 +40,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private JavaMailSender emailSender;
 
+    @Autowired
+    private EmailService emailService;
+
     @Override
     public void registerAsCustomer(CustomerDTO customerDTO) {
         User customer = convertToCustomer(customerDTO);
@@ -58,7 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         OTP otp = generateOTP(customerDTO.getEmail());
         this.otpRepo.save(otp);
-        this.sendEmail(customerDTO.getEmail(), otp.getOtp());
+        this.emailService.sendEmail(customerDTO.getEmail(), otp.getOtp());
     }
 
     public OTP generateOTP(String email){
@@ -74,17 +73,6 @@ public class CustomerServiceImpl implements CustomerService {
         otp.setOtp((int) (Math.random() * 1000000));
         otp.setUpdated_at(new Date());
         return otp;
-    }
-
-    @Async("taskExecutor")
-    public CompletableFuture<Void> sendEmail(String to, int otp) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("luciferdynamic598@gmail.com");
-        message.setTo(to);
-        message.setSubject("OTP");
-        message.setText("Your OTP is: " + otp);
-        emailSender.send(message);
-        return CompletableFuture.completedFuture(null);
     }
 
     private Boolean emailExists(String email) {
@@ -209,7 +197,7 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
         this.otpRepo.save(otp);
-        this.sendEmail(verificationDTO.getEmail(), otp.getOtp());
+        this.emailService.sendEmail(verificationDTO.getEmail(), otp.getOtp());
     }
 
     private CustomerDTO convertToDTO(User customer){

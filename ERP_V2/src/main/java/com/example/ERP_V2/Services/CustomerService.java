@@ -4,6 +4,7 @@ import com.example.ERP_V2.DTO.CustomerDTO;
 import com.example.ERP_V2.DTO.PaginatedResponse;
 import com.example.ERP_V2.DTO.VerificationDTO;
 import com.example.ERP_V2.Model.User;
+import org.springframework.scheduling.annotation.Async;
 
 public interface CustomerService {
 
@@ -21,5 +22,6 @@ public interface CustomerService {
 
     void verifyCustomer(VerificationDTO verificationDTO);
 
+    @Async("taskExecutor")
     void resendOTP(VerificationDTO verificationDTO);
 }
