@@ -35,6 +35,13 @@ public class CustomerController {
         log.info("\nENDPOINT CALLED: /customers/verify\nREQUEST DTO: {}", verificationDTO);
         this.customerService.verifyCustomer(verificationDTO);
         return ResponseEntity.ok("Your Account Has Been Verified");
+    }
+
+    @PostMapping("resend")
+    public ResponseEntity<String> resendOTP(@RequestBody VerificationDTO verificationDTO){
+        log.info("\nENDPOINT CALLED: /customers/resend\nREQUEST DTO: {}", verificationDTO);
+        this.customerService.resendOTP(verificationDTO);
+        return ResponseEntity.ok("Your OTP has been sent to your email");
 
     }
 

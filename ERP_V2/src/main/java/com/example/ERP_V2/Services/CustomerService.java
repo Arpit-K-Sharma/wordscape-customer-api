@@ -20,4 +20,6 @@ public interface CustomerService {
     void reactivateCustomer(String id);
 
     void verifyCustomer(VerificationDTO verificationDTO);
+
+    void resendOTP(VerificationDTO verificationDTO);
 }

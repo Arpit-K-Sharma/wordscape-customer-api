@@ -70,6 +70,12 @@ public class CustomerServiceImpl implements CustomerService {
         return otp;
     }
 
+    public OTP updateOTP(OTP otp){
+        otp.setOtp((int) (Math.random() * 1000000));
+        otp.setUpdated_at(new Date());
+        return otp;
+    }
+
     @Async("taskExecutor")
     public CompletableFuture<Void> sendEmail(String to, int otp) {
         SimpleMailMessage message = new SimpleMailMessage();
@@ -186,7 +192,24 @@ public class CustomerServiceImpl implements CustomerService {
         else{
             throw new RuntimeException("OTP does not match");
         }
+    }
 
+    @Override
+    public void resendOTP(VerificationDTO verificationDTO) {
+        User user = this.userRepo.findByEmail(verificationDTO.getEmail()).orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Check if an OTP already exists for the given email
+        Optional<OTP> existingOTP = otpRepo.findByEmail(verificationDTO.getEmail());
+        OTP otp;
+        if (existingOTP.isPresent()){
+            otp = this.updateOTP(existingOTP.get());
+        }
+        else{
+            otp = this.generateOTP(verificationDTO.getEmail());
+        }
+
+        this.otpRepo.save(otp);
+        this.sendEmail(verificationDTO.getEmail(), otp.getOtp());
     }
 
     private CustomerDTO convertToDTO(User customer){
