@@ -197,6 +197,8 @@ public class OrderServiceImpl implements OrderService {
 
         order.getCustomer().setCompanyName(orderDTO.getCompanyName());
 
+        order.setCostCalculation(orderDTO.getCostCalculation());
+
         return order;
     }
 
