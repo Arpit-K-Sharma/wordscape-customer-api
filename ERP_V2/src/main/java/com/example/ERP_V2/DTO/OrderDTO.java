@@ -1,6 +1,7 @@
 package com.example.ERP_V2.DTO;
 
 
+import com.example.ERP_V2.Model.CostCalculation;
 import com.example.ERP_V2.Model.Delivery;
 import com.example.ERP_V2.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -60,4 +61,6 @@ public class OrderDTO {
     private int estimatedAmount;
 
     private Delivery delivery;
+
+    private CostCalculation costCalculation;
 }
