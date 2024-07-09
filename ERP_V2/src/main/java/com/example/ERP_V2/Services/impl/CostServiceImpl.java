@@ -61,8 +61,8 @@ public class CostServiceImpl implements CostService {
     public void addInitialPlateCost() {
         if (plateRepo.count() == 0) {
             List<Plate> initialPLateCosts = Arrays.asList(
-                    new Plate("19 X 25", BigDecimal.valueOf(300), BigDecimal.valueOf(200)),
-                    new Plate("20 X 30", BigDecimal.valueOf(500), BigDecimal.valueOf(500))
+                    new Plate("19 X 25", 19, 25, BigDecimal.valueOf(300), BigDecimal.valueOf(200)),
+                    new Plate("20 X 30", 20, 30, BigDecimal.valueOf(500), BigDecimal.valueOf(500))
             );
             plateRepo.saveAll(initialPLateCosts);
         }

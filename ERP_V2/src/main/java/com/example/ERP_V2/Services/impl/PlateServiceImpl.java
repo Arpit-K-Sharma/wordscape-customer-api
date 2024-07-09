@@ -39,6 +39,12 @@ public class PlateServiceImpl implements PlateService {
         if (updatedPlate.getInkRate() != null) {
             existingPlate.setInkRate(updatedPlate.getInkRate());
         }
+        if (updatedPlate.getPlateLength() != null){
+            existingPlate.setPlateLength(updatedPlate.getPlateLength());
+        }
+        if (updatedPlate.getPlateBreadth() != null){
+            existingPlate.setPlateBreadth(updatedPlate.getPlateBreadth());
+        }
 
         // Save the updated plate
         plateRepository.save(existingPlate);

@@ -20,12 +20,18 @@ public class Plate {
 
     private String plateSize;
 
+    private Integer plateLength;
+
+    private Integer plateBreadth;
+
     private BigDecimal plateRate;
 
     private BigDecimal inkRate;
 
-    public Plate(String plateSize, BigDecimal plateRate, BigDecimal inkRate) {
+    public Plate(String plateSize, Integer plateLength, Integer plateBreadth, BigDecimal plateRate, BigDecimal inkRate) {
         this.plateSize = plateSize;
+        this.plateLength = plateLength;
+        this.plateBreadth = plateBreadth;
         this.plateRate = plateRate;
         this.inkRate = inkRate;
     }
