@@ -27,7 +27,7 @@ public class SecurityConfig implements WebMvcConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .cors().and()
-                .authorizeHttpRequests(authorize -> authorize.requestMatchers("/customers/register", "/customers/verify", "/customers/resend"  ,"/home/login", "/home/", "/home/forgot","/home/newPassword").permitAll()
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers("/customers/register", "/customers/verify", "/customers/resend"  ,"/home/login", "/home", "/home/forgot","/home/newPassword").permitAll()
 //                        .requestMatchers("/api/current-user").hasAnyAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
