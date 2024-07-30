@@ -4,6 +4,7 @@ package com.example.ERP_V2.DTO;
 import com.example.ERP_V2.Model.CostCalculation;
 import com.example.ERP_V2.Model.Delivery;
 import com.example.ERP_V2.enums.OrderStatus;
+import com.example.ERP_V2.enums.Orientation;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,6 +42,7 @@ public class OrderDTO {
     private String remarks;
     private String companyName;
     private String address;
+    private Orientation orientation;
     private OrderStatus status;
     private String customer;
 

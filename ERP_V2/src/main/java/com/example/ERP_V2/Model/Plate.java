@@ -26,13 +26,16 @@ public class Plate {
 
     private BigDecimal plateRate;
 
+    private BigDecimal reprint;
+
     private BigDecimal inkRate;
 
-    public Plate(String plateSize, Integer plateLength, Integer plateBreadth, BigDecimal plateRate, BigDecimal inkRate) {
+    public Plate(String plateSize, Integer plateLength, Integer plateBreadth, BigDecimal plateRate, BigDecimal reprint, BigDecimal inkRate) {
         this.plateSize = plateSize;
         this.plateLength = plateLength;
         this.plateBreadth = plateBreadth;
         this.plateRate = plateRate;
+        this.reprint = reprint;
         this.inkRate = inkRate;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ERP_V2.Model;
 
 import com.example.ERP_V2.enums.OrderStatus;
+import com.example.ERP_V2.enums.Orientation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -62,6 +63,8 @@ public class Order {
     private String deliveryOption;
 
     private String remarks;
+
+    private Orientation orientation;
 
     private OrderStatus status = OrderStatus.PENDING;
 

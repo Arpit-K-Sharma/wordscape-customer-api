@@ -45,13 +45,14 @@ public class CostServiceImpl implements CostService {
         if (paperRepo.count() == 0) {
             List<Paper> initialPapers = Arrays.asList(
                     new Paper("Art Paper", BigDecimal.valueOf(185),90, 200),
-                    new Paper("Art Board", BigDecimal.valueOf(185), 250, 300),
+                    new Paper("Art Board", BigDecimal.valueOf(185), 200, 300),
                     new Paper("Ivory", BigDecimal.valueOf(280), 180, 210),
                     new Paper("Wood Free", BigDecimal.valueOf(200), 60, 120),
                     new Paper("Off White", BigDecimal.valueOf(250), 70, 100),
                     new Paper("Art Matte Paper", BigDecimal.valueOf(185), 90, 200),
                     new Paper("Map Litho", BigDecimal.valueOf(150), 60, 80),
-                    new Paper("Weightless Paper", BigDecimal.valueOf(150), 60, 80)
+                    new Paper("Weightless Paper", BigDecimal.valueOf(150), 60, 80),
+                    new Paper("None", BigDecimal.valueOf(1), 0, 0)
             );
             paperRepo.saveAll(initialPapers);
         }
@@ -61,8 +62,9 @@ public class CostServiceImpl implements CostService {
     public void addInitialPlateCost() {
         if (plateRepo.count() == 0) {
             List<Plate> initialPLateCosts = Arrays.asList(
-                    new Plate("19 X 25", 19, 25, BigDecimal.valueOf(300), BigDecimal.valueOf(200)),
-                    new Plate("20 X 30", 20, 30, BigDecimal.valueOf(500), BigDecimal.valueOf(500))
+                    new Plate("18 X 24", 18, 24, BigDecimal.valueOf(300), BigDecimal.valueOf(175), BigDecimal.valueOf(200)),
+                    new Plate("19 X 25", 19, 25, BigDecimal.valueOf(300),BigDecimal.valueOf(200), BigDecimal.valueOf(200)),
+                    new Plate("20 X 30", 20, 30, BigDecimal.valueOf(500), BigDecimal.valueOf(300), BigDecimal.valueOf(500))
             );
             plateRepo.saveAll(initialPLateCosts);
         }
@@ -73,11 +75,15 @@ public class CostServiceImpl implements CostService {
         if (bindingRepo.count() == 0) {
             List<Binding> initialBindingCosts = Arrays.asList(
                     new Binding("Center Stitch", BigDecimal.valueOf(3)),
-                    new Binding("Juju", BigDecimal.valueOf(150)),
+                    new Binding("Hard Cover (Juju)", BigDecimal.valueOf(150)),
                     new Binding("Wiro", BigDecimal.valueOf(100)),
                     new Binding("Perforation", BigDecimal.valueOf(100)),
                     new Binding("Folding", BigDecimal.valueOf(200)),
-                    new Binding("Perfect Binding", BigDecimal.valueOf(5))
+                    new Binding("Perfect Binding", BigDecimal.valueOf(5)),
+                    new Binding("Die Cutting", BigDecimal.valueOf(100)),
+                    new Binding("Metal Foiling", BigDecimal.valueOf(150)),
+                    new Binding("Spot Varnish", BigDecimal.valueOf(160)),
+                    new Binding("None", BigDecimal.valueOf(1))
             );
             bindingRepo.saveAll(initialBindingCosts);
         }
@@ -88,7 +94,8 @@ public class CostServiceImpl implements CostService {
         if (laminationRepo.count() == 0) {
             List<Lamination> initialLaminationCosts = Arrays.asList(
                     new Lamination("Thermal Glossy", BigDecimal.valueOf(0.02)),
-                    new Lamination("Thermal Matte", BigDecimal.valueOf(0.03))
+                    new Lamination("Thermal Matte", BigDecimal.valueOf(0.03)),
+                    new Lamination("None", BigDecimal.valueOf(1))
             );
             laminationRepo.saveAll(initialLaminationCosts);
         }
@@ -100,7 +107,8 @@ public class CostServiceImpl implements CostService {
             List<CoverTreatment> initialCoverTreatmentCosts = Arrays.asList(
                     new CoverTreatment("Die Cutting", BigDecimal.valueOf(100)),
                     new CoverTreatment("Metal Foiling", BigDecimal.valueOf(150)),
-                    new CoverTreatment("Spot Varnish", BigDecimal.valueOf(160))
+                    new CoverTreatment("Spot Varnish", BigDecimal.valueOf(160)),
+                    new CoverTreatment("None", BigDecimal.valueOf(1))
             );
             coverTreatmentRepo.saveAll(initialCoverTreatmentCosts);
         }

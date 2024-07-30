@@ -152,6 +152,7 @@ public class OrderServiceImpl implements OrderService {
         order.setDeliveryOption(orderDTO.getDeliveryOption());
         order.setPlateRate(orderDTO.getPlateRate());
         order.setPdfFilename(orderDTO.getPdfFile());
+        order.setOrientation(orderDTO.getOrientation());
 
         // Set Binding
 //        order.setBinding(bindingRepo.findByBindingType(orderDTO.getBindingType())
@@ -238,6 +239,8 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setPdfFile(order.getPdfFilename());
 
         orderDTO.setDelivery(order.getDelivery());
+
+        orderDTO.setOrientation(order.getOrientation());
 
         return orderDTO;
     }
