@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.UUID;
 
 @Service
 public class JobCardServiceImpl implements JobCardService {
@@ -157,6 +158,12 @@ public class JobCardServiceImpl implements JobCardService {
 
     private Order convertToOrder(String orderId, JobCardDTO jobCardDTO) {
         Order oldOrder = orderRepo.findById(orderId).orElseThrow(() -> new RuntimeException("Order Not Found !!!"));
+
+        // Generate a random 4-digit string using UUID
+        String randomJobCardId = UUID.randomUUID().toString().replaceAll("[^0-9]", "").substring(0, 4);
+        jobCardDTO.setJob_card_id(randomJobCardId);
+
+        oldOrder.setJob_card_id(jobCardDTO.getJob_card_id());
 
         // Update the properties of the Order entity
         oldOrder.setPrePressUnitList(jobCardDTO.getPrePressUnitList());

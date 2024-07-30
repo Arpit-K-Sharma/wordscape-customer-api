@@ -98,6 +98,8 @@ public class Order {
 
     //JOB CARD
 
+    private String job_card_id;
+
     private PrePressUnit prePressUnitList;
 
     private Delivery delivery;

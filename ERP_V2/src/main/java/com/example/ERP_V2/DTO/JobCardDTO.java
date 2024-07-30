@@ -15,6 +15,8 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JobCardDTO {
 
+    private String job_card_id;
+
     private PrePressUnit prePressUnitList;
 
     @JsonProperty("deliveryDetail")
