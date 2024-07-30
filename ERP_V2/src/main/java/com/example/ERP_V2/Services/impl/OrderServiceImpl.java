@@ -186,7 +186,7 @@ public class OrderServiceImpl implements OrderService {
 //        order.setPlate(plateRepo.findByPlateSize(orderDTO.getPlateSize())
 //                .orElseThrow(() -> new IllegalArgumentException("Plate not found with name: " + orderDTO.getPlateSize())));
 
-        order.setInkType(orderDTO.getInkType());
+        order.setInkType(orderDTO.getInkType().stream().collect(Collectors.joining(",")));
 
 
         order.setRemarks(orderDTO.getRemarks());
@@ -228,7 +228,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setInnerLamination(order.getInnerLamination().getLaminationType());
         orderDTO.setOuterLamination(order.getOuterLamination().getLaminationType());
 //        orderDTO.setPlateSize(order.getPlate().getPlateSize());
-        orderDTO.setInkType(order.getInkType());
+        orderDTO.setInkType(Collections.singletonList(order.getInkType()));
         orderDTO.setRemarks(order.getRemarks());
         orderDTO.setStatus(order.getStatus());
         orderDTO.setCustomer(order.getCustomer().getFullName());

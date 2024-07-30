@@ -36,7 +36,7 @@ public class OrderDTO {
     private String innerLamination;
     private String outerLamination;
     private String plateSize;
-    private String inkType;
+    private List<String> inkType;
     private String deliveryOption;
     private String remarks;
     private String companyName;
