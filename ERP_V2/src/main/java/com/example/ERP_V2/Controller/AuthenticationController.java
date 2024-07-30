@@ -1,5 +1,6 @@
 package com.example.ERP_V2.Controller;
 
+import com.amazonaws.Response;
 import com.example.ERP_V2.DTO.LoginRequestDTO;
 import com.example.ERP_V2.DTO.LoginResponseDTO;
 import com.example.ERP_V2.DTO.NewPasswordDTO;
@@ -18,6 +19,11 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationService authenticationService;
 
+    @GetMapping("/")
+    public ResponseEntity<String> healthCheckRoute() {
+        return ResponseEntity.ok().body("Health check route");
+    }
+    
     @PostMapping("login")
     public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequestDTO){
         log.info("\nENDPOINT CALLED: /home/login\n");
