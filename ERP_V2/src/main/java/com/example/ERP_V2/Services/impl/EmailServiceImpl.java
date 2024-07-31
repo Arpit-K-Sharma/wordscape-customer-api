@@ -62,7 +62,6 @@ public class EmailServiceImpl implements EmailService {
             context.setVariable("pages", orderDTO.getPages());
             context.setVariable("quantity", orderDTO.getQuantity());
             context.setVariable("bindingType", orderDTO.getBindingType());
-            context.setVariable("coverTreatment", orderDTO.getCoverTreatmentType());
             context.setVariable("innerPaperType", orderDTO.getInnerPaperType());
             context.setVariable("innerPaperThickness", orderDTO.getInnerPaperThickness());
             context.setVariable("outerPaperType", orderDTO.getOuterPaperType());

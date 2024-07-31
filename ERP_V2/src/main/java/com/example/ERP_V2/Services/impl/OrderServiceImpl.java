@@ -161,8 +161,8 @@ public class OrderServiceImpl implements OrderService {
         order.setBinding(orderDTO.getBindingType().stream().collect(Collectors.joining(",")));
 
         // Set CoverTreatment
-        order.setCoverTreatment(coverTreatmentRepo.findByCoverTreatmentType(orderDTO.getCoverTreatmentType())
-                .orElseThrow(() -> new IllegalArgumentException("Cover Treatment not found with name: " + orderDTO.getCoverTreatmentType())));
+//        order.setCoverTreatment(coverTreatmentRepo.findByCoverTreatmentType(orderDTO.getCoverTreatmentType())
+//                .orElseThrow(() -> new IllegalArgumentException("Cover Treatment not found with name: " + orderDTO.getCoverTreatmentType())));
 
         //Set InnerPaperType
         order.setInnerPaper(paperRepo.findByPaperType(orderDTO.getInnerPaperType())
@@ -221,7 +221,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setPages(order.getPages());
         orderDTO.setQuantity(order.getQuantity());
         orderDTO.setBindingType(Collections.singletonList(order.getBinding()));
-        orderDTO.setCoverTreatmentType(order.getCoverTreatment().getCoverTreatmentType());
+//        orderDTO.setCoverTreatmentType(order.getCoverTreatment().getCoverTreatmentType());
         orderDTO.setInnerPaperType(order.getInnerPaper().getPaperType());
         orderDTO.setInnerPaperThickness(order.getInnerPaperThickness());
         orderDTO.setOuterPaperType(order.getOuterPaper().getPaperType());
@@ -253,7 +253,7 @@ public class OrderServiceImpl implements OrderService {
 
         // Fetch existing entities from the database
         Binding binding = bindingRepo.findById("1").orElse(null); // Replace 1 with the actual ID
-        CoverTreatment coverTreatment = coverTreatmentRepo.findById("1").orElse(null); // Replace 1 with the actual ID
+//        CoverTreatment coverTreatment = coverTreatmentRepo.findById("1").orElse(null); // Replace 1 with the actual ID
         Paper innerPaper = paperRepo.findById("1").orElse(null); // Replace 1 with the actual ID
         Paper outerPaper = paperRepo.findById("1").orElse(null); // Replace 2 with the actual ID
         Lamination lamination = laminationRepo.findById("1").orElse(null); // Replace 1 with the actual ID
@@ -279,7 +279,7 @@ public class OrderServiceImpl implements OrderService {
         order1.setPages(100);
         order1.setQuantity(50);
         order1.setBinding("Wiro"); // Replace with actual Binding object if available
-        order1.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
+//        order1.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
         order1.setInnerPaper(innerPaper); // Replace with actual Paper object if available
         order1.setInnerPaperThickness(120);
         order1.setOuterPaper(outerPaper); // Replace with actual Paper object if available
@@ -300,7 +300,7 @@ public class OrderServiceImpl implements OrderService {
         order2.setPages(200);
         order2.setQuantity(100);
         order2.setBinding("Spiral"); // Replace with actual Binding object if available
-        order2.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
+//        order2.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
         order2.setInnerPaper(innerPaper); // Replace with actual Paper object if available
         order2.setInnerPaperThickness(130);
         order2.setOuterPaper(outerPaper); // Replace with actual Paper object if available
@@ -321,7 +321,7 @@ public class OrderServiceImpl implements OrderService {
         order3.setPages(150);
         order3.setQuantity(75);
         order3.setBinding("Juju"); // Replace with actual Binding object if available
-        order3.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
+//        order3.setCoverTreatment(coverTreatment); // Replace with actual CoverTreatment object if available
         order3.setInnerPaper(innerPaper); // Replace with actual Paper object if available
         order3.setInnerPaperThickness(140);
         order3.setOuterPaper(outerPaper); // Replace with actual Paper object if available
