@@ -45,6 +45,9 @@ public class PlateServiceImpl implements PlateService {
         if (updatedPlate.getPlateBreadth() != null){
             existingPlate.setPlateBreadth(updatedPlate.getPlateBreadth());
         }
+        if (updatedPlate.getReprint() != null){
+            existingPlate.setReprint(updatedPlate.getReprint());
+        }
 
         // Save the updated plate
         plateRepository.save(existingPlate);
