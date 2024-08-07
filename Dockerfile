@@ -1,8 +1,8 @@
 # Build stage
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
+COPY ERP_V2/pom.xml .
+COPY ERP_V2/src ./src
 RUN mvn clean package -DskipTests
 
 # Run stage
