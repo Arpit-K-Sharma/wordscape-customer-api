@@ -84,7 +84,7 @@ public class Order {
 
     private int estimatedAmount;
 
-    private String pdfFilename;
+    private List<String> pdfFilename;
 
     @DBRef
     private User customer;

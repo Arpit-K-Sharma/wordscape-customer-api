@@ -46,7 +46,7 @@ public class OrderDTO {
     private OrderStatus status;
     private String customer;
 
-    private String pdfFile;
+    private List<String> pdfFile;
 
     private BigDecimal bindingRate;
 
