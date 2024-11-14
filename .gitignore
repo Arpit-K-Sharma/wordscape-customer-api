@@ -33,3 +33,6 @@ Thumbs.db
 # Ignore other specific files/folders
 /node_modules
 /dist
+/.env
+
+    /ERP_V2/src/main/resources/application.properties
